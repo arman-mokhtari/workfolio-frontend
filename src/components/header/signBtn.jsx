@@ -1,0 +1,111 @@
+"use client";
+
+import { Box, IconButton, Typography, Skeleton } from "@mui/material";
+import Link from "next/link";
+import { Logout } from "@mui/icons-material";
+
+import BadgeLink from "./badgeLink";
+import VerticalDivider from "@/common/verticalDivider";
+import { logout } from "@/services/auth/authServices";
+import { useGetUser } from "@/hooks/useAuth";
+
+const SignBtn = ({ display }) => {
+  const { data, isLoading } = useGetUser();
+  const { user, cart } = data || {};
+
+  const splitName = user?.name?.split(" ")[0];
+
+  const cartItemsCount = cart?.payDetail?.productIds?.length;
+
+  const logoutHandler = async () => {
+    await logout();
+    document.location.href = "/sign-in";
+  };
+
+  return (
+    <Box
+      sx={{
+        display: display,
+      }}
+    >
+      {isLoading ? (
+        <Skeleton
+          sx={{
+            borderRadius: 2,
+            ml: 1,
+          }}
+          variant="rectangular"
+          width={135.7}
+          height={38.23}
+        />
+      ) : (
+        <Box
+          sx={{
+            "&.MuiButtonBase-root:hover": {
+              backgroundColor: "transparent",
+            },
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            border: "2px solid",
+            borderRadius: 2,
+            padding: "5px",
+            ml: 1,
+            "& a:hover , svg:hover": {
+              color: "primary.main",
+            },
+            "& a": {
+              textDecoration: "none",
+              fontSize: "1rem",
+              color: "text.primary",
+              whiteSpace: "nowrap",
+            },
+          }}
+        >
+          {user && (
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <IconButton
+                size="small"
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  color: "text.primary",
+                  p: 0,
+                  backgroundColor: "transparent !important",
+                }}
+                onClick={logoutHandler}
+              >
+                <Logout />
+              </IconButton>
+              <VerticalDivider />
+            </Box>
+          )}
+
+          <BadgeLink badgeContent={cartItemsCount} />
+
+          {user ? (
+            <>
+              {user.isActive && <VerticalDivider />}
+              <Typography>{splitName}</Typography>
+            </>
+          ) : (
+            <>
+              <VerticalDivider />
+              <Link href="/auth">ثبت‌نام</Link>
+              <VerticalDivider variant="middle" />
+              <Link href="/sign-in">ورود</Link>
+            </>
+          )}
+        </Box>
+      )}
+    </Box>
+  );
+};
+
+export default SignBtn;

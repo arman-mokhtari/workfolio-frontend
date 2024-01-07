@@ -1,0 +1,43 @@
+export const jsonLdBlogData = (blog) => {
+  const {
+    title,
+    faSlug,
+    category,
+    metaDescription,
+    createdAt,
+    updatedAt,
+    tags,
+    imageLink,
+    articleBody,
+    headline,
+    wordCount,
+    user,
+  } = blog;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: headline,
+    name: title,
+    image: imageLink,
+    description: metaDescription,
+    category: category?.title,
+    brand: process.env.BRAND,
+    logo: `${process.env.ABSOLUTE_URL}/assets/svg/workfolio-dark.svg`,
+    editor: user?.name,
+    genre: title,
+    keywords: tags,
+    wordcount: wordCount,
+    publisher: process.env.BRAND,
+    url: `${process.env.ABSOLUTE_URL}/blogs/${faSlug}`,
+    datePublished: createdAt,
+    dateCreated: createdAt,
+    dateModified: updatedAt,
+    articleBody: articleBody,
+    inLanguage: "fa-IR",
+    isFamilyFriendly: "true",
+    author: {
+      "@type": "Person",
+      name: user?.name,
+    },
+  };
+};
