@@ -69,7 +69,7 @@ const SignInForm = () => {
         password,
         enteredCaptcha,
       });
-      queryClient.invalidateQueries({ queryKey: ["get-user-captcha"] });
+      queryClient.invalidateQueries({ queryKey: ["get-user"] });
       toast.success(message);
 
       router.push("/");
