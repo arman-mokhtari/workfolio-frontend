@@ -112,7 +112,6 @@ const ReviewForm = () => {
         >
           <Box
             component="form"
-            autoComplete="off"
             onSubmit={handleSubmit(onSubmit)}
           >
             <CardContent>

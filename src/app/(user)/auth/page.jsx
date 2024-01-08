@@ -1,19 +1,23 @@
 "use client";
 import { useEffect, useState } from "react";
 
-import { Box, Container, Typography } from "@mui/material";
-import Logo from "@/common/logo";
 import { useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import CheckOtpForm from "./checkOtpForm";
 import SendOtpForm from "./sendOtpForm";
 import { useRouter } from "next/navigation";
-import { useCheckOtp, useGetOtp } from "@/hooks/useAuth";
+import { useCheckOtp, useGetOtp, useGetResendOtp } from "@/hooks/useAuth";
 import LoginSectionsCard from "@/common/loginSectionsCard";
 
 const RESEND_TIME = 60;
 
 const SignIn = () => {
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [captcha, setCaptcha] = useState("");
+  const [otp, setOtp] = useState("");
+  const [step, setStep] = useState(1);
+  const [time, setTime] = useState(RESEND_TIME);
+  const router = useRouter();
   const queryClient = useQueryClient();
 
   const {
@@ -22,25 +26,36 @@ const SignIn = () => {
     mutateAsync: mutateGetOtp,
   } = useGetOtp();
 
+  const { data: otpResendResponse, mutateAsync: mutateGetResendOtp } =
+    useGetResendOtp();
+
   const { mutateAsync: mutateCheckOtp, isPending: isPendingOtp } =
     useCheckOtp();
-
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [step, setStep] = useState(1);
-  const [otp, setOtp] = useState("");
-
-  const [time, setTime] = useState(RESEND_TIME);
-
-  const router = useRouter();
 
   const phoneNumberHandler = (e) => {
     setPhoneNumber(e.target.value);
   };
+  const captchaHandler = (e) => {
+    setCaptcha(e.target.value);
+  };
 
-  const sendOtpHandler = async (data) => {
-    const { phoneNumber, enteredCaptcha } = data;
+  const sendOtpHandler = async () => {
     try {
-      const data = await mutateGetOtp({ phoneNumber, enteredCaptcha });
+      const data = await mutateGetOtp({ phoneNumber, enteredCaptcha: captcha });
+      queryClient.invalidateQueries({ queryKey: ["get-user-captcha"] });
+      toast.success(data.message);
+      setStep(2);
+      setTime(RESEND_TIME);
+      setOtp("");
+    } catch (error) {
+      queryClient.invalidateQueries({ queryKey: ["get-user-captcha"] });
+      toast.error(error?.response?.data?.message);
+    }
+  };
+
+  const sendResendOtpHandler = async () => {
+    try {
+      const data = await mutateGetResendOtp({ phoneNumber });
       queryClient.invalidateQueries({ queryKey: ["get-user-captcha"] });
       toast.success(data.message);
       setStep(2);
@@ -54,6 +69,7 @@ const SignIn = () => {
 
   const checkOtpHandler = async (e) => {
     e.preventDefault();
+
     try {
       const { message, user } = await mutateCheckOtp({ phoneNumber, otp });
       toast.success(message);
@@ -84,6 +100,7 @@ const SignIn = () => {
             onChange={phoneNumberHandler}
             isPending={isPending}
             sendOtpHandler={sendOtpHandler}
+            onChangeCaptcha={captchaHandler}
           />
         );
       case 2:
@@ -94,8 +111,8 @@ const SignIn = () => {
             onSubmit={checkOtpHandler}
             goBack={() => setStep((s) => s - 1)}
             time={time}
-            onResendOtp={sendOtpHandler}
-            otpResponse={otpResponse}
+            onResendOtp={sendResendOtpHandler}
+            otpResponse={otpResponse || otpResendResponse}
             isPending={isPendingOtp}
           />
         );
@@ -104,12 +121,6 @@ const SignIn = () => {
     }
   };
 
-  return (
-   <LoginSectionsCard title="ثبت نام">
-      {renderSteps()}
-   </LoginSectionsCard>
-      
-
-  );
+  return <LoginSectionsCard title="ثبت نام">{renderSteps()}</LoginSectionsCard>;
 };
 export default SignIn;

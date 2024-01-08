@@ -48,7 +48,6 @@ const NewsletterForm = () => {
     }
   }, [formState, reset]);
 
-  const [errorMessage, setErrorMessage] = useState("");
 
   const { mutateAsync } = useAddNewsletterUser();
 
@@ -94,7 +93,6 @@ const NewsletterForm = () => {
     >
       <Box
         component="form"
-        autoComplete="off"
         onSubmit={handleSubmit(onSubmit)}
       >
         <CardContent
@@ -218,7 +216,7 @@ const NewsletterForm = () => {
                       message: "اعتبارسنجی باید 5 کاراکتر باشد",
                     },
                   })}
-                  helperText={errors.enteredCaptcha?.message || errorMessage}
+                  helperText={errors.enteredCaptcha?.message}
                   size="small"
                   name="enteredCaptcha"
                   label="متن تصویر را وارد کنید"

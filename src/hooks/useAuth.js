@@ -8,6 +8,7 @@ import {
   getUserCaptcha,
   getOtp,
   checkOtp,
+  getResendOtp,
 } from "@/services/auth/authServices";
 import { useQuery, useMutation } from "@tanstack/react-query";
 
@@ -22,6 +23,12 @@ export const useChangeUserPassword = () => {
 export const useGetOtp = () => {
   return useMutation({
     mutationFn: getOtp,
+  });
+};
+
+export const useGetResendOtp = () => {
+  return useMutation({
+    mutationFn: getResendOtp,
   });
 };
 

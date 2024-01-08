@@ -4,6 +4,10 @@ export async function getOtp(data) {
   return http.post("/user/get-otp", data).then(({ data }) => data.data);
 }
 
+export async function getResendOtp(data) {
+  return http.post("/user/get-resend-otp", data).then(({ data }) => data.data);
+}
+
 export async function checkOtp(data) {
   return http.post("/user/check-otp", data).then(({ data }) => data.data);
 }

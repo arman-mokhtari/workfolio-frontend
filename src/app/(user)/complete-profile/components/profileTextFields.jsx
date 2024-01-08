@@ -74,7 +74,6 @@ const ProfileTextFields = () => {
         type="text"
         label="نام و نام خانوادگی"
         name="name"
-        autoComplete="off"
         autoFocus
         {...register("name", {
           required: "نام خود را وارد کنید",
@@ -114,7 +113,6 @@ const ProfileTextFields = () => {
         name="password"
         label="کلمه عبور"
         type="password"
-        autoComplete="off"
         {...register("password", {
           required: "کلمه عبور را وارد کنید",
           minLength: {
@@ -133,7 +131,6 @@ const ProfileTextFields = () => {
         name="confirmPassword"
         label="کلمه عبور"
         type="password"
-        autoComplete="off"
         {...register("confirmPassword", {
           required: "تکرار کلمه عبور را وارد کنید",
           minLength: {

@@ -108,6 +108,7 @@ const NewPasswordForm = ({ token }) => {
         <OutlinedInput
           label="کلمه عبور جدید"
           id="account-settings-new-password"
+          autoFocus
           type={values.showNewPassword ? "text" : "password"}
           {...register("password", {
             required: "کلمه عبور جدید را وارد کنید",

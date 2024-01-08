@@ -129,6 +129,7 @@ const ContactUsForm = () => {
                   my: 0.75,
                 }}
                 fullWidth
+                autoFocus
                 size="small"
                 name="name"
                 label="نام و نام خانوادگی"

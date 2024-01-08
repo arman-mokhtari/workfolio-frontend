@@ -32,6 +32,7 @@ const editorConfiguration = {
     "horizontalLine",
     "sourceEditing",
   ],
+  removePlugins: ["MediaEmbedToolbar"],
   heading: {
     options: [
       { model: "paragraph", title: "Paragraph", class: "ck-heading_paragraph" },

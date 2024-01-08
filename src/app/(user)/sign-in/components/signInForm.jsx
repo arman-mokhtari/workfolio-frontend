@@ -119,7 +119,6 @@ const SignInForm = () => {
           type={loginType === "phoneNumber" ? "tel" : "email"}
           label={loginType === "phoneNumber" ? "شماره موبایل" : "ایمیل"}
           name="loginIdentifier"
-          autoComplete="off"
           autoFocus
           {...register("loginIdentifier", {
             required: "شماره موبایل یا ایمیل خود را وارد کنید",
@@ -131,7 +130,6 @@ const SignInForm = () => {
           name="password"
           label="کلمه عبور"
           type="password"
-          autoComplete="off"
           {...register("password", {
             required: "کلمه عبور را وارد کنید",
             minLength: {

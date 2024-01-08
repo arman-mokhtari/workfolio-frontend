@@ -4,7 +4,7 @@ import middlewareAuth from "./utils/middlewareAuth";
 export async function middleware(req) {
   const url = req.url;
   const pathname = req.nextUrl.pathname;
-  console.log(req.cookies);
+
   if (pathname.startsWith("/profile")) {
     const user = await middlewareAuth(req);
     if (!user) return NextResponse.redirect(new URL("/404", url));

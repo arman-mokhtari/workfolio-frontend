@@ -1,7 +1,7 @@
 import OtpInput from "react-otp-input";
 import { Box, Button, Typography } from "@mui/material";
 import { ArrowForwardIos, Edit } from "@mui/icons-material";
-import CommonButton from "@/common/commonButton";
+
 const CheckOtpForm = ({
   otpResponse,
   onSubmit,
@@ -26,20 +26,7 @@ const CheckOtpForm = ({
           </Button>
         </Typography>
       )}
-      <Box>
-        {time > 0 ? (
-          <Typography
-            variant="body2"
-            sx={{
-              my: 1,
-            }}
-          >
-            {time} ثانیه تا ارسال مجدد کد
-          </Typography>
-        ) : (
-          <Button onClick={onResendOtp}>ارسال مجدد کد!</Button>
-        )}
-      </Box>
+
       <Box
         sx={{
           display: "flex",
@@ -51,15 +38,16 @@ const CheckOtpForm = ({
       >
         <Typography>کد تایید را وارد کنید:</Typography>
         <OtpInput
+          shouldAutoFocus
           value={otp}
           onChange={setOtp}
           numInputs={6}
           renderInput={(props) => <input {...props} />}
           inputStyle={{
             width: "2.5rem",
-            padding: "0.5rem 0.2rem",
+            padding: "0.7rem 0.2rem",
             border: "1px solid #1769aa",
-            borderRadius: "0.5rem",
+            borderRadius: "0.2rem",
             outline: "none",
           }}
           containerStyle={{
@@ -69,13 +57,36 @@ const CheckOtpForm = ({
             alignSelf: "center",
           }}
         />
-        <Button  type="submit"
-          disabled={isPending}
+        <Button
+          type="submit"
+          disabled={isPending || otp.length !== 6}
           fullWidth
           variant="contained"
-          sx={{ mt: 1, mb: 2 }}>
+          sx={{ my: 1}}
+        >
           تایید
         </Button>
+      </Box>
+      <Box>
+        {time > 0 ? (
+          <Typography variant="caption">
+            در صورتی که کد تایید را دریافت نکرده‌اید {time} ثانیه دیگر مجددا
+            امتحان کنید!
+          </Typography>
+        ) : (
+          <Button
+            variant="outlined"
+            size="small"
+            onClick={onResendOtp}
+            color="inherit"
+            sx={{
+              color: "text.secondary",
+              borderColor: "text.secondary",
+            }}
+          >
+            <Typography variant="caption">ارسال مجدد کد!</Typography>
+          </Button>
+        )}
       </Box>
     </Box>
   );

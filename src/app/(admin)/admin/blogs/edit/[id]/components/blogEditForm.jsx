@@ -49,7 +49,6 @@ const BlogEditForm = ({
                 blogDataOnChange({
                   target: { name: "description", value: data },
                 });
-                console.log({ event, editor, data });
               }}
             />
           </Container>

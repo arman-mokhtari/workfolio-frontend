@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import Link from "next/link";
 import UserServicesCaptcha from "@/common/userServicesCaptcha";
 
-const SendOtpForm = ({ sendOtpHandler, onChange, isPending }) => {
+const SendOtpForm = ({ sendOtpHandler, onChange, isPending,onChangeCaptcha }) => {
   const {
     register,
     handleSubmit,
@@ -48,7 +48,6 @@ const SendOtpForm = ({ sendOtpHandler, onChange, isPending }) => {
         type="tel"
         label="شماره موبایل"
         name="phoneNumber"
-        autoComplete="off"
         autoFocus
         {...register("phoneNumber", {
           required: "شماره موبایل خود را وارد کنید",
@@ -83,6 +82,7 @@ const SendOtpForm = ({ sendOtpHandler, onChange, isPending }) => {
               value: 5,
               message: "اعتبارسنجی باید 5 کاراکتر باشد",
             },
+            onChange:onChangeCaptcha,
           })}
           helperText={errors.enteredCaptcha?.message}
           fullWidth
