@@ -85,7 +85,7 @@ const ReviewSlider = () => {
                           alt="verified logo"
                           width="110"
                           height="45"
-                          src="/assets/svg/verified.svg"
+                          src="https://cdn.workfolio.ir/images/svg/misc/verified.svg"
                         />
                       </Box>
 

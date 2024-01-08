@@ -11,7 +11,10 @@ import { toast } from "react-hot-toast";
 import { toLocalDateString } from "@/utils/toLocalDate";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import { useRemoveProductReview, useUpdateProductReview } from "@/hooks/useProductReviews";
+import {
+  useRemoveProductReview,
+  useUpdateProductReview,
+} from "@/hooks/useProductReviews";
 
 const ReviewDataCard = ({ review, id }) => {
   const router = useRouter();
@@ -28,7 +31,7 @@ const ReviewDataCard = ({ review, id }) => {
   const { mutateAsync } = useUpdateProductReview();
   const queryClient = useQueryClient();
   const { mutateAsync: mutateAsyncRemove } = useRemoveProductReview();
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -65,7 +68,7 @@ const ReviewDataCard = ({ review, id }) => {
     try {
       const { message } = await mutateAsyncRemove(id);
       toast.success(message);
-      router.push("/admin/reviews");
+      router.push("/admin/reviews/product");
       queryClient.invalidateQueries({ queryKey: ["product-reviews-admin"] });
     } catch (error) {
       toast.error(error?.response?.data?.message);

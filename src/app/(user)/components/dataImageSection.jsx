@@ -39,7 +39,7 @@ const DataImageSec = () => {
                 height="500"
                 width="500"
                 alt=""
-                src="/images/ads/web_design_3.png"
+                src="https://cdn.workfolio.ir/images/home/web_design_3.png"
               />
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
@@ -77,7 +77,7 @@ const DataImageSec = () => {
                   }}
                 >
                   <Image
-                    src="/assets/bg/web-portfolio.png"
+                    src="https://cdn.workfolio.ir/images/bg/web-portfolio.png"
                     alt="پرتفولیو"
                     width="423"
                     height="220"

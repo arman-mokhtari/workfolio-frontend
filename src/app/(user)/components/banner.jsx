@@ -7,7 +7,7 @@ import { useTheme } from "@mui/material/styles";
 import ContactBtn from "@/components/buttons/contactBtn";
 import TopAbsoluteShadow from "@/common/topAbsoluteShadow";
 
-const banner = "/assets/bg/banner.png";
+const banner = "https://cdn.workfolio.ir/images/bg/banner.png";
 
 const Banner = () => {
   const theme = useTheme();

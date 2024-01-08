@@ -36,6 +36,10 @@ const nextConfig = {
         hostname: "46.245.77.82",
         port:"31078"
       },
+      {
+        protocol: "https",
+        hostname: "cdn.workfolio.ir",
+      },
     ],
   },
   async rewrites() {

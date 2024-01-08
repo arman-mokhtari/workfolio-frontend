@@ -18,7 +18,7 @@ const Page = () => {
           top: 0,
           height: "400px",
           width: 1,
-          backgroundImage: "url('/assets/bg/contact.png')",
+          backgroundImage: "url('https://cdn.workfolio.ir/images/bg/contact.png')",
           backgroundPosition: "bottom",
           zIndex: -1,
         }}

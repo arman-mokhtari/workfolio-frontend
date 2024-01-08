@@ -21,7 +21,7 @@ const EmptyCart = () => {
         alt="x"
         width={200}
         height={200}
-        src="/images/graphics/empty_cart.svg"
+        src="https://cdn.workfolio.ir/images/graphics/empty_cart.svg"
       />
       <Typography
         sx={{

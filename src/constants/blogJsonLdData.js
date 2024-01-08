@@ -22,7 +22,7 @@ export const jsonLdBlogData = (blog) => {
     description: metaDescription,
     category: category?.title,
     brand: process.env.BRAND,
-    logo: `${process.env.ABSOLUTE_URL}/assets/svg/workfolio-dark.svg`,
+    logo: `${process.env.STATIC_IMG}/logo/workfolio-dark.svg`,
     editor: user?.name,
     genre: title,
     keywords: tags,

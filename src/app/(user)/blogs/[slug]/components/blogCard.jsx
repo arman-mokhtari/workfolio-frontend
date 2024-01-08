@@ -77,7 +77,7 @@ const BlogCard = ({ blog, pageUrl }) => {
               mr: 1,
             }}
             alt={user?.name}
-            src="/images/admin/arman_mokhtari.png"
+            src="https://cdn.workfolio.ir/images/admin/arman_mokhtari.png"
           />
           <Typography>{user?.name}</Typography>
         </Box>

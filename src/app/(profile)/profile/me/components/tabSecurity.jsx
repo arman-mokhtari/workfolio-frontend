@@ -280,7 +280,7 @@ const TabSecurity = () => {
                 width={183}
                 alt="avatar"
                 height={256}
-                src="/images/pages/pose-m-1.png"
+                src="https://cdn.workfolio.ir/images/misc/pose-m-1.png"
               />
             )}
           </Grid>

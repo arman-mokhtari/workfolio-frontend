@@ -40,8 +40,8 @@ const Logo = ({ my, ml }) => {
           <Image
             src={
               theme.palette.mode === "dark"
-                ? "/assets/svg/workfolio-light.svg"
-                : "/assets/svg/workfolio-dark.svg"
+                ? "https://cdn.workfolio.ir/images/logo/workfolio-light.svg"
+                : "https://cdn.workfolio.ir/images/logo/workfolio-dark.svg"
             }
             alt={brand}
             title={brand}

@@ -17,7 +17,7 @@ const AboutUsBanner = () => {
       }}
     >
       <Image
-        src="/assets/bg/banner-service.jpg"
+        src="https://cdn.workfolio.ir/images/bg/banner-service.jpg"
         alt="خدمات ورکفولیو"
         width="600"
         height="400"

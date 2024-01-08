@@ -58,7 +58,7 @@ const SupportImages = () => {
             حمایت هفت روز هفته
           </Typography>
           <Image
-            src="/assets/bg/ask.png"
+            src="https://cdn.workfolio.ir/images/bg/ask.png"
             alt="خدمات به مشتری"
             width="400"
             height="400"
@@ -97,7 +97,7 @@ const SupportImages = () => {
             گواهینامه ایزو 27001
           </Typography>
           <Image
-            src="/assets/bg/iso.png"
+            src="https://cdn.workfolio.ir/images/bg/iso.png"
             alt="گواهینامه ایزو"
             width="430"
             height="430"

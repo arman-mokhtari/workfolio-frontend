@@ -27,6 +27,7 @@ const ReviewDataCard = ({ review, id }) => {
   const { mutateAsync } = useUpdateReview();
   const queryClient = useQueryClient();
   const { mutateAsync: mutateAsyncRemove } = useRemoveReview();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -42,6 +43,7 @@ const ReviewDataCard = ({ review, id }) => {
       toast.error(error?.response?.data?.message);
     }
   };
+
   const handleUnSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -62,7 +64,7 @@ const ReviewDataCard = ({ review, id }) => {
     try {
       const { message } = await mutateAsyncRemove(id);
       toast.success(message);
-      router.push("/admin/reviews");
+      router.push("/admin/reviews/public");
       queryClient.invalidateQueries({ queryKey: ["get-reviews-admin"] });
     } catch (error) {
       toast.error(error?.response?.data?.message);
