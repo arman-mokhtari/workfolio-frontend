@@ -39,7 +39,7 @@ const Banner = () => {
             [theme.breakpoints.between("xs", "md")]: {
               top: "18rem",
             },
-            top: "22rem",
+            top: "20rem",
             mx: 3,
             zIndex: 3,
           }}

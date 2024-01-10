@@ -19,6 +19,7 @@ const drawerWidth = 240;
 function AdminAppBar({ window, children }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const theme = useTheme();
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -94,7 +95,7 @@ function AdminAppBar({ window, children }) {
             },
           }}
         >
-          <AdminDrawer />
+          <AdminDrawer handleDrawerToggle={handleDrawerToggle} />
         </Drawer>
         <Drawer
           variant="permanent"

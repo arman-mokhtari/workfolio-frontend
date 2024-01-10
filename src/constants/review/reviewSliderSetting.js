@@ -2,10 +2,10 @@ export const settings = {
     dots: true,
     arrows: false,
     infinite: true,
-    autoplay: true,
+    autoplay: false,  //todo should change to true
     autoplaySpeed: 5000,
     pauseOnHover: true,
-    slidesToShow: 2,
+    slidesToShow: 3,
     slidesToScroll: 1,
     cssEase: "linear",
     responsive: [

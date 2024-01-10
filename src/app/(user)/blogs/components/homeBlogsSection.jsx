@@ -1,18 +1,17 @@
 "use client";
-import { Grid, Button, Typography, Box } from "@mui/material";
+import { Grid, Button, Typography, Box, Skeleton, Stack } from "@mui/material";
 import Blog from "./blog";
 import { useGetAllBlogs } from "@/hooks/useBlogs";
-import Loading from "@/common/loading";
+
 import { useTheme } from "@mui/material/styles";
 import Link from "next/link";
+import HoverCard from "@/common/hoverCard";
 
 const HomeBlogsSection = () => {
   const theme = useTheme();
   const { isLoading, data } = useGetAllBlogs();
   const { blogs } = data || {};
 
-  if (isLoading) return <Loading />;
-  let displayedBlogs = blogs && blogs.length > 4 ? blogs.slice(0, 4) : blogs;
   return (
     <Box
       component="section"
@@ -43,14 +42,44 @@ const HomeBlogsSection = () => {
           justifyContent: "center",
         }}
       >
-        {displayedBlogs &&
-          displayedBlogs.map((blog, index) => {
-            return (
-              <Grid xs={12} md={6} lg={3} item key={index}>
-                <Blog blog={blog} />
+        {isLoading
+          ? Array.from({ length: 4 }, (_, i) => (
+              <Grid xs={12} sm={6} lg={3} item key={i}>
+                <HoverCard
+                  sx={{ p: 2 }}
+                  defaultElevation={4}
+                  hoveredElevation={4}
+                >
+                  <Stack spacing={0.5}>
+                    <Skeleton
+                      sx={{ borderRadius: 3 }}
+                      variant="rectangular"
+                      height={140}
+                    />
+                    <Skeleton
+                      variant="text"
+                      sx={{ fontSize: "2rem", mt: "0.75rem !important" }}
+                    />
+                    <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+                    <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+                    <Skeleton
+                      sx={{ mt: "1rem !important" }}
+                      variant="rounded"
+                      height={35}
+                    />
+                  </Stack>
+                </HoverCard>
               </Grid>
-            );
-          })}
+            ))
+          : blogs?.length > 4
+          ? blogs?.slice(0, 4)
+          : blogs?.map((blog, index) => {
+              return (
+                <Grid xs={12} sm={6} lg={3} item key={index}>
+                  <Blog blog={blog} />
+                </Grid>
+              );
+            })}
       </Grid>
 
       <Button

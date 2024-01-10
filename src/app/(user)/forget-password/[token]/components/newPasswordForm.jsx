@@ -1,5 +1,6 @@
 "use client";
 
+import { useQueryClient } from "@tanstack/react-query";
 import {
   Box,
   Button,
@@ -27,6 +28,7 @@ const NewPasswordForm = ({ token }) => {
     showCurrentPassword: false,
     showConfirmNewPassword: false,
   });
+  const queryClient = useQueryClient();
 
   const handleClickShowNewPassword = () => {
     setValues({ ...values, showNewPassword: !values.showNewPassword });
@@ -74,6 +76,7 @@ const NewPasswordForm = ({ token }) => {
           confirmPassword,
         },
       });
+      queryClient.invalidateQueries({ queryKey: ["get-user"] });
       router.push("/");
       toast.success(message, {
         duration: 4000,

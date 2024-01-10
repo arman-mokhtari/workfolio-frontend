@@ -16,23 +16,26 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import { useState } from "react";
+import { useTheme } from "@mui/material/styles";
 
-const AdminDrawer = () => {
+const AdminDrawer = ({ handleDrawerToggle }) => {
+  //Reviews section
   const [open, setOpen] = useState(false);
-
-  const logoutHandler = async () => {
-    await logout();
-    document.location.href = "/sign-in";
-  };
-
+  const theme = useTheme();
   const handleClick = () => {
     setOpen(!open);
+  };
+  //End of reviews section
+
+  const logoutHandler = async () => {
+    document.location.href = "/";
+    await logout();
   };
 
   return (
     <Box
+      onClick={handleDrawerToggle}
       sx={{
-        // transition: "inherit",
         "& a": {
           textDecoration: "none",
           color: "inherit",
@@ -91,7 +94,13 @@ const AdminDrawer = () => {
           <ListItemIcon>
             <Logout color="error" />
           </ListItemIcon>
-          <ListItemText primary="خروج" />
+          <ListItemText
+            sx={{
+              color:
+                theme.palette.mode === "light" ? "error.main" : "error.light",
+            }}
+            primary="خروج"
+          />
         </ListItemButton>
       </List>
     </Box>

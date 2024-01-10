@@ -18,6 +18,7 @@ const drawerWidth = 240;
 function ProfileAppBar({ window, children }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const theme = useTheme();
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -77,14 +78,13 @@ function ProfileAppBar({ window, children }) {
         sx={{ width: { md: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
           container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: "block", md: "none" },
@@ -94,7 +94,7 @@ function ProfileAppBar({ window, children }) {
             },
           }}
         >
-          <ProfileDrawer />
+          <ProfileDrawer handleDrawerToggle={handleDrawerToggle} />
         </Drawer>
         <Drawer
           variant="permanent"

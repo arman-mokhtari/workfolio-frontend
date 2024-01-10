@@ -15,7 +15,7 @@ import HoverCard from "@/common/hoverCard";
 import LikeBlog from "./likeBlog";
 
 const Blog = ({ blog }) => {
-  const { faSlug, title, description, imageLink, metaDescription } = blog;
+  const { faSlug, title, imageLink, metaDescription } = blog;
   const pathname = usePathname();
   const isBlogsPage = pathname === "/blogs";
   return (
@@ -51,7 +51,7 @@ const Blog = ({ blog }) => {
       <CardContent
         sx={{
           "& a": { textDecoration: "none" },
-          pb: 1,
+          py: isBlogsPage ? 0.5 : 1.5,
         }}
       >
         <Tooltip

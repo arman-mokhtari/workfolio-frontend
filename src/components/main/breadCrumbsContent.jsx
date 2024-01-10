@@ -1,9 +1,15 @@
 "use client";
 
 import { useTheme } from "@mui/material/styles";
-import Loading from "@/common/loading";
 
-import { Box, Breadcrumbs, Card, Typography, Skeleton } from "@mui/material";
+import {
+  Box,
+  Breadcrumbs,
+  Card,
+  Typography,
+  Skeleton,
+  useMediaQuery,
+} from "@mui/material";
 import Link from "next/link";
 import { routeNames } from "@/constants/routeNames";
 import { usePathname } from "next/navigation";
@@ -21,6 +27,7 @@ const BreadCrumbsContent = () => {
   const { isLoading: blogLoading, data: blogsData } = useGetAllBlogs();
   const { blogs } = blogsData || {};
 
+  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   return (
     <Card
       sx={{
@@ -46,9 +53,9 @@ const BreadCrumbsContent = () => {
       role="presentation"
     >
       {productLoading ? (
-        <Skeleton width={250}/>
+        <Skeleton width={isSmallScreen ? 150 : 250} />
       ) : blogLoading ? (
-        <Skeleton width={250}/>
+        <Skeleton width={isSmallScreen ? 150 : 250} />
       ) : (
         <>
           <Typography

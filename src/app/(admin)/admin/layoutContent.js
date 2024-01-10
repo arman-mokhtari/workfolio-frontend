@@ -5,14 +5,14 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import { prefixer } from "stylis";
-import { darkTheme, lightTheme } from "../../theme/themeRegistry";
+import { darkTheme, lightTheme } from "../../../theme/themeRegistry";
 import { CssBaseline, useMediaQuery } from "@mui/material";
 
-import "../globals.css";
+import "../../globals.css";
 import MainContext from "@/context/themeContext";
 import { useEffect } from "react";
 import { useState } from "react";
-import Providers from "../provider";
+import Providers from "../../provider";
 import { Toaster } from "react-hot-toast";
 import AdminAppBar from "./components/adminAppbar";
 

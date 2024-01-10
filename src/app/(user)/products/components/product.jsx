@@ -1,4 +1,5 @@
 "use client";
+
 import {
   Box,
   Button,
@@ -17,10 +18,11 @@ import { usePathname } from "next/navigation";
 import HoverCard from "@/common/hoverCard";
 
 const Product = ({ product }) => {
-  const { faSlug, title, description, price, imageLink, metaDescription } =
-    product;
+  const { faSlug, title, price, imageLink, metaDescription } = product;
+
   const pathname = usePathname();
   const isProductsPage = pathname === "/products";
+
   return (
     <HoverCard defaultElevation={4} hoveredElevation={10}>
       <Box
@@ -54,6 +56,7 @@ const Product = ({ product }) => {
       <CardContent
         sx={{
           "& a": { textDecoration: "none" },
+          py: 0.5,
         }}
       >
         <Tooltip

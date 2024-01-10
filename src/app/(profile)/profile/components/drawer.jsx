@@ -2,7 +2,7 @@
 import Logo from "@/common/logo";
 import { userProfileNavItems } from "@/constants/tabsData";
 import { logout } from "@/services/auth/authServices";
-import { Inbox, Logout, Mail } from "@mui/icons-material";
+import { Logout } from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -16,16 +16,16 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 
-const ProfileDrawer = () => {
+const ProfileDrawer = ({ handleDrawerToggle }) => {
   const logoutHandler = async () => {
+    document.location.href = "/";
     await logout();
-    document.location.href = "/sign-in";
   };
 
   return (
     <Box
+      onClick={handleDrawerToggle}
       sx={{
-        // transition: "inherit",
         "& a": {
           textDecoration: "none",
           color: "inherit",

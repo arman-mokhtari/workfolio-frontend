@@ -21,7 +21,7 @@ const ShareButtons = ({ url, title }) => {
       }}
     >
       <Tooltip title="اشتراک گذاری در تلگرام">
-        <TelegramShareButton url={url} title={title}>
+        <TelegramShareButton url={url}>
           <Telegram
             sx={{
               color: "#29A9EB",
@@ -30,26 +30,25 @@ const ShareButtons = ({ url, title }) => {
         </TelegramShareButton>
       </Tooltip>
       <Tooltip title="اشتراک گذاری در واتس اپ">
-  <WhatsappShareButton url={url} title={title}>
-        <WhatsApp
-          sx={{
-            color: "#2AB318",
-            mx: 0.75,
-          }}
-        />
-      </WhatsappShareButton>
+        <WhatsappShareButton url={url}>
+          <WhatsApp
+            sx={{
+              color: "#2AB318",
+              mx: 0.75,
+            }}
+          />
+        </WhatsappShareButton>
       </Tooltip>
-    
+
       <Tooltip title="اشتراک گذاری در ایکس">
-         <TwitterShareButton url={url} title={title}>
-        <Twitter
-          sx={{
-            color: "#1D9BF0",
-          }}
-        />
-      </TwitterShareButton>
+        <TwitterShareButton url={url}>
+          <Twitter
+            sx={{
+              color: "#1D9BF0",
+            }}
+          />
+        </TwitterShareButton>
       </Tooltip>
-     
     </Box>
   );
 };

@@ -6,14 +6,16 @@ import {
   AccordionDetails,
   AccordionSummary,
   Stack,
+  Skeleton,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import SidebarFilter from "./sidebarFilter";
 import SidebarSort from "./sidebarSort";
 import HoverCard from "@/common/hoverCard";
 
-const CategorySidebar = ({ categories }) => {
+const CategorySidebar = ({ categories, isLoading }) => {
   const isMobile = useMediaQuery("(max-width:600px)");
+
   return (
     <>
       {isMobile ? (
@@ -24,7 +26,11 @@ const CategorySidebar = ({ categories }) => {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography>فیلتر و مرتب‌سازی</Typography>
+              {isLoading ? (
+                <Skeleton width={80} />
+              ) : (
+                <Typography>فیلتر و مرتب‌سازی</Typography>
+              )}
             </AccordionSummary>
             <AccordionDetails>
               <SidebarFilter categories={categories} />
@@ -34,12 +40,12 @@ const CategorySidebar = ({ categories }) => {
         </HoverCard>
       ) : (
         <>
-          <Stack 
-          spacing={2} 
-          direction="column" 
-          sx={{
-            width:1
-          }}
+          <Stack
+            spacing={2}
+            direction="column"
+            sx={{
+              width: 1,
+            }}
           >
             <HoverCard defaultElevation={3} hoveredElevation={7}>
               <SidebarFilter categories={categories} />

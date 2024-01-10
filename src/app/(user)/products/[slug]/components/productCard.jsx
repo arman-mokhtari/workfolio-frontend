@@ -1,5 +1,5 @@
 "use client";
-import { Box, Grid, Typography, Card, Badge } from "@mui/material";
+import { Box, Grid, Typography, Badge } from "@mui/material";
 import { toPersianNumbersWithComma } from "@/utils/toPersianNumbers";
 import TickSvg from "@/components/main/tickSvg";
 import AddToCart from "../../components/addToCart";

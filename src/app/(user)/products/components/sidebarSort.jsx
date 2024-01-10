@@ -1,10 +1,11 @@
 "use client";
 import CommonRadio from "@/common/commonRadio";
 import { sortOptions } from "@/constants/sidebarSortData";
-import { FormControl, FormLabel, RadioGroup } from "@mui/material";
+import { FormControl, FormLabel, RadioGroup, Skeleton } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useMediaQuery } from '@mui/material';
+import { useMediaQuery } from "@mui/material";
+import { useGetCategories } from "@/hooks/useCategories";
 
 const SidebarSort = () => {
   const [sort, setSort] = useState("");
@@ -13,7 +14,7 @@ const SidebarSort = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const isMobile = useMediaQuery('(max-width:600px)');
+  const isMobile = useMediaQuery("(max-width:600px)");
 
   const createQueryString = useCallback(
     (name, value) => {
@@ -34,6 +35,8 @@ const SidebarSort = () => {
     setSort(searchParams.get("sort") || "");
   }, [searchParams]);
 
+  const { isLoading } = useGetCategories();
+
   return (
     <FormControl component="fieldset" variant="standard" sx={{ m: 1.5 }}>
       <FormLabel
@@ -44,25 +47,45 @@ const SidebarSort = () => {
         component="legend"
         id="demo-radio-buttons-group-label"
       >
-        مرتب سازی:
+        {isLoading ? (
+          <Skeleton
+            sx={{
+              mb: !isMobile && 1.5,
+            }}
+            width={100}
+          />
+        ) : (
+          "مرتب سازی:"
+        )}
       </FormLabel>
       <RadioGroup
-row={isMobile}
+        row={isMobile}
         aria-labelledby="demo-radio-buttons-group-label"
         defaultValue="female"
         name="radio-buttons-group"
       >
-        {sortOptions.map(({ id, value, label },index) => (
-          <CommonRadio
-            id={id}
-            key={index}
-            label={label}
-            name="product-sort"
-            value={value}
-            checked={sort === value}
-            onChange={sortHandler}
-          />
-        ))}
+        {isLoading
+          ? Array.from({ length: 3 }, (_, i) => (
+              <Skeleton
+                sx={{
+                  mr: isMobile && 0.5,
+                  mb: !isMobile && 2,
+                }}
+                key={i}
+                width={70}
+              />
+            ))
+          : sortOptions.map(({ id, value, label }, index) => (
+              <CommonRadio
+                id={id}
+                key={index}
+                label={label}
+                name="product-sort"
+                value={value}
+                checked={sort === value}
+                onChange={sortHandler}
+              />
+            ))}
       </RadioGroup>
     </FormControl>
   );
