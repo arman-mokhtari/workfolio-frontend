@@ -8,13 +8,13 @@ import {
   Card,
   Typography,
   Skeleton,
-  useMediaQuery,
 } from "@mui/material";
 import Link from "next/link";
 import { routeNames } from "@/constants/routeNames";
 import { usePathname } from "next/navigation";
 import { useGetAllProducts } from "@/hooks/useProducts";
 import { useGetAllBlogs } from "@/hooks/useBlogs";
+import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
 const BreadCrumbsContent = () => {
   const theme = useTheme();
@@ -27,7 +27,7 @@ const BreadCrumbsContent = () => {
   const { isLoading: blogLoading, data: blogsData } = useGetAllBlogs();
   const { blogs } = blogsData || {};
 
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isSmallScreen = useIsOnlyXs();
   return (
     <Card
       sx={{

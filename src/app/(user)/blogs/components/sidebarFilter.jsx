@@ -1,11 +1,11 @@
 "use client";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { useMediaQuery } from "@mui/material";
 import { FormControl, FormGroup, FormLabel, Skeleton } from "@mui/material";
 
 import CommonCheckBox from "@/common/commonCheckBox";
 import { useGetCategories } from "@/hooks/useCategories";
+import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
 const SidebarFilter = ({ categories }) => {
   const router = useRouter();
@@ -13,7 +13,7 @@ const SidebarFilter = ({ categories }) => {
   const searchParams = useSearchParams();
   const [selectedCategories, setSelectedCategories] = useState([]);
 
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useIsOnlyXs();
 
   const createQueryString = useCallback(
     (name, value) => {
@@ -61,9 +61,16 @@ const SidebarFilter = ({ categories }) => {
         }}
         component="legend"
       >
-        {isLoading ? <Skeleton sx={{
-          mb: !isMobile && 1.5,
-        }} width={100} /> : "دسته‌بندی‌ها:"}
+        {isLoading ? (
+          <Skeleton
+            sx={{
+              mb: !isMobile && 1.5,
+            }}
+            width={100}
+          />
+        ) : (
+          "دسته‌بندی‌ها:"
+        )}
       </FormLabel>
       <FormGroup
         row={isMobile}

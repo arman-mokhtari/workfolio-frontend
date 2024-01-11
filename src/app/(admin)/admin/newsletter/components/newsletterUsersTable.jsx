@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { DataGrid, faIR } from "@mui/x-data-grid";
-import { Card, useMediaQuery } from "@mui/material";
+import { Card } from "@mui/material";
 
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 
@@ -10,6 +10,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { newsletterTableColumns } from "@/constants/newsletter/newsletterTableData";
 import { useRemoveNewsletterUser } from "@/hooks/useNewsletterUsers";
+import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
 
 const NewsletterUsersTable = ({ newsletterUsers }) => {
@@ -28,7 +29,7 @@ const NewsletterUsersTable = ({ newsletterUsers }) => {
   };
 
 
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isSmallScreen = useIsOnlyXs();
 
   const modifiedNewsletterUsers = newsletterUsers.map((newsletterUser, index) => ({
     ...newsletterUser,

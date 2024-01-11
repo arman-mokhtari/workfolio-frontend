@@ -2,14 +2,15 @@
 
 import { useMemo } from "react";
 import { DataGrid, faIR } from "@mui/x-data-grid";
-import { Card, useMediaQuery } from "@mui/material";
+import { Card } from "@mui/material";
 
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 
 import { reviewsTableColumns } from "@/constants/review/reviewPageData";
+import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
 const ReviewsTable = ({ reviews }) => {
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isSmallScreen = useIsOnlyXs();
 
   const modifiedReviews = reviews.map((review, index) => ({
     ...review,

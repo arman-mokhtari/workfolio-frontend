@@ -7,14 +7,14 @@ import {
   Divider,
   CardHeader,
   Chip,
-  useMediaQuery,
 } from "@mui/material";
 import ReactHtmlParser from "react-html-parser";
 import FaqsSection from "./faqsSection";
+import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
 const MainDescription = ({ product }) => {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isSmallScreen = useIsOnlyXs();
   const { description, faqs } = product;
 
   return (

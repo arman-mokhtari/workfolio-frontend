@@ -15,7 +15,6 @@ import {
   OutlinedInput,
   IconButton,
   FormHelperText,
-  useMediaQuery,
 } from "@mui/material";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
@@ -25,6 +24,7 @@ import { useChangeUserPassword, useGetUser } from "@/hooks/useAuth";
 import UserServicesCaptcha from "@/common/userServicesCaptcha";
 import { useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
+import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
 const TabSecurity = () => {
   const [values, setValues] = useState({
@@ -32,7 +32,7 @@ const TabSecurity = () => {
     showCurrentPassword: false,
     showConfirmNewPassword: false,
   });
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isSmallScreen = useIsOnlyXs();
 
   const handleClickShowCurrentPassword = () => {
     setValues({ ...values, showCurrentPassword: !values.showCurrentPassword });

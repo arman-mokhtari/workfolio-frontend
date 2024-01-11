@@ -6,16 +6,16 @@ import {
   Box,
   Divider,
   CardHeader,
-  Chip,
-  useMediaQuery,
+  Chip
 } from "@mui/material";
 import ReactHtmlParser from "react-html-parser";
 import FaqsSection from "./faqsSection";
+import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
 const MainDescription = ({ blog }) => {
   const theme = useTheme();
 
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isSmallScreen = useIsOnlyXs();
 
   const { description, faqs } = blog;
 

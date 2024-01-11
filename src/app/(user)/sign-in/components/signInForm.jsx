@@ -121,7 +121,7 @@ const SignInForm = () => {
           name="loginIdentifier"
           autoFocus
           {...register("loginIdentifier", {
-            required: "شماره موبایل یا ایمیل خود را وارد کنید",
+            required: "یکی از دو گزینه شماره موبایل یا ایمیل را وارد کنید.",
           })}
           helperText={errors.loginIdentifier?.message}
         />

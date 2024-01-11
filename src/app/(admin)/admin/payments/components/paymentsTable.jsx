@@ -2,17 +2,18 @@
 
 import { useMemo } from "react";
 import { DataGrid, faIR } from "@mui/x-data-grid";
-import { Card, useMediaQuery } from "@mui/material";
+import { Card } from "@mui/material";
 
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 
 import { adminPaymentsTableColumns } from "@/constants/adminPaymentsTable";
+import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
 
 const AdminPaymentsTable = ({ payments }) => {
 
 
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isSmallScreen = useIsOnlyXs();
 
   const modifiedPayments = payments.map((payment, index) => ({
     ...payment,

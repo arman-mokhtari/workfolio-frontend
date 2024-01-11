@@ -1,5 +1,5 @@
 "use client";
-import { useMediaQuery } from "@mui/material";
+
 import {
   Accordion,
   Typography,
@@ -12,9 +12,10 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import SidebarFilter from "./sidebarFilter";
 import SidebarSort from "./sidebarSort";
 import HoverCard from "@/common/hoverCard";
+import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
 const CategorySidebar = ({ categories, isLoading }) => {
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useIsOnlyXs();
 
   return (
     <>

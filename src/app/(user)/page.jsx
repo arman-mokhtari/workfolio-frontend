@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import TypedInfo from "./components/typedInfo";
 import Banner from "./components/banner";
 import CountingCard from "./components/countingCard";
 import Content from "./components/contentSection";
@@ -12,6 +11,7 @@ import ContactSection from "./components/contactSection";
 import HomeBlogsSection from "./blogs/components/homeBlogsSection";
 import ReviewForm from "./components/review/reviewForm";
 import ReviewSlider from "./components/review/reviewSlider";
+import TypedInfoSkeleton from "./components/typedInfoSkeleton";
 
 export const metadata = {
   alternates: {
@@ -39,20 +39,24 @@ const Home = async ({ searchParams }) => {
     <>
       <Box
         sx={{
-          px: 1.5,
           overflow: "hidden",
         }}
       >
-        <TypedInfo />
         <Banner />
-        <ProductItems products={products} />
-        <CountingCard />
-        <Content />
-        <DataImageSec />
-        <SupportImages />
-        <HomeBlogsSection />
-        <ReviewSlider />
-        <ReviewForm />
+        <Box
+          sx={{
+            px: 1.5,
+          }}
+        >
+          <ProductItems products={products} />
+          <CountingCard />
+          <Content />
+          <DataImageSec />
+          <SupportImages />
+          <HomeBlogsSection />
+          <ReviewSlider />
+          <ReviewForm />
+        </Box>
       </Box>
       <ContactSection />
     </>

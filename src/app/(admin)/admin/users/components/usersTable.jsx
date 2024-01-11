@@ -1,13 +1,14 @@
 "use client"
 import { useMemo } from "react";
 import { DataGrid, faIR } from "@mui/x-data-grid";
-import { Card, useMediaQuery } from "@mui/material";
+import { Card } from "@mui/material";
 
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { usersTableColumns } from "@/constants/usersTableData";
+import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
 const UsersTable = ({ users }) => {
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isSmallScreen = useIsOnlyXs();
 
   const modifiedUsers = users.map((user, index) => ({
     ...user,

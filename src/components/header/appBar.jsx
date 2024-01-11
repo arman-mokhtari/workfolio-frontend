@@ -10,6 +10,7 @@ import {
   IconButton,
   Toolbar,
   useScrollTrigger,
+  Skeleton,
 } from "@mui/material";
 
 import { Menu } from "@mui/icons-material";
@@ -19,6 +20,7 @@ import AppBarDrawer from "./drawer";
 import AppBarList from "./list";
 import ThemeBtn from "./themeBtn";
 import SignBtn from "./signBtn";
+import { useGetUser } from "@/hooks/useAuth";
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -73,13 +75,14 @@ const DrawerAppBar = (props) => {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
+
+  const { isLoading } = useGetUser();
   return (
     <Box
       component="header"
       sx={{
         "& .muirtl-19kzrtu": {
           padding: 0,
-          mb: "24px",
         },
       }}
     >
@@ -88,29 +91,45 @@ const DrawerAppBar = (props) => {
         <AppBar
           component="nav"
           sx={{
-            // transition: "background-color 0.5s",
             backgroundImage: "none",
           }}
         >
           <Toolbar>
-            <IconButton
-              color={theme.palette.text.primary}
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{
-                mr: 2,
-                display: {
-                  lg: "none",
-                },
-                border: "2px solid",
-                borderRadius: 2,
-                padding: "5px",
-                color: "inherit",
-              }}
-            >
-              <Menu />
-            </IconButton>
+            {isLoading ? (
+              <Skeleton
+                sx={{
+                  mr: 2,
+                  ml: -1.5,
+                  display: {
+                    lg: "none",
+                  },
+                  borderRadius: 2,
+                }}
+                variant="rectangular"
+                width={38}
+                height={38.23}
+              />
+            ) : (
+              <IconButton
+                color={theme.palette.text.primary}
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                sx={{
+                  mr: 2,
+                  display: {
+                    lg: "none",
+                  },
+                  border: "2px solid",
+                  borderRadius: 2,
+                  padding: "5px",
+                  color: "inherit",
+                }}
+              >
+                <Menu />
+              </IconButton>
+            )}
+
             <Box
               sx={{
                 flexGrow: 1,

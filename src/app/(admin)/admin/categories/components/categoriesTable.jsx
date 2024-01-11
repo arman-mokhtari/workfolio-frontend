@@ -2,13 +2,14 @@
 
 import { useMemo, useState } from "react";
 import { DataGrid, faIR } from "@mui/x-data-grid";
-import { Card, useMediaQuery } from "@mui/material";
+import { Card } from "@mui/material";
 
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { categoriesTableColumns } from "@/constants/categoriesTableData";
 import { useRemoveCategory } from "@/hooks/useCategories";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
+import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
 const CategoriesTable = ({ categories }) => {
   const [open, setOpen] = useState(false);
@@ -29,7 +30,7 @@ const CategoriesTable = ({ categories }) => {
   };
 
 
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isSmallScreen = useIsOnlyXs();
 
   const modifiedCategories = categories.map((category, index) => ({
     ...category,

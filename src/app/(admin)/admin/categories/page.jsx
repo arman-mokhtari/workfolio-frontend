@@ -2,19 +2,19 @@
 import Link from "next/link";
 
 import Loading from "@/common/loading";
-import { Typography, Stack, Button, useMediaQuery } from "@mui/material";
+import { Typography, Stack, Button } from "@mui/material";
 import { PlaylistAdd } from "@mui/icons-material";
 import CategoriesTable from "./components/categoriesTable";
 import { useGetCategories } from "@/hooks/useCategories";
 import { useTheme } from "@mui/material/styles";
+import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
-const ProductsPage = () => { 
-     const theme = useTheme();
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+const ProductsPage = () => {
+
+  const isSmallScreen = useIsOnlyXs();
 
   const { isLoading, data } = useGetCategories();
   const { categories } = data || {};
-
 
   if (isLoading) return <Loading />;
 
@@ -28,7 +28,9 @@ const ProductsPage = () => {
           mb: 2,
         }}
       >
-        <Typography variant={isSmallScreen?"h6":"h5"}>دسته‌بندی‌ها</Typography>
+        <Typography variant={isSmallScreen ? "h6" : "h5"}>
+          دسته‌بندی‌ها
+        </Typography>
 
         <Button
           component={Link}

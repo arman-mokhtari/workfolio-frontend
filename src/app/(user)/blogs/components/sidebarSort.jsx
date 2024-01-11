@@ -4,8 +4,8 @@ import { sortOptions } from "@/constants/sidebarSortData";
 import { FormControl, FormLabel, RadioGroup, Skeleton } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useMediaQuery } from "@mui/material";
 import { useGetCategories } from "@/hooks/useCategories";
+import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
 const SidebarSort = () => {
   const [sort, setSort] = useState("");
@@ -14,7 +14,7 @@ const SidebarSort = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useIsOnlyXs();
 
   const createQueryString = useCallback(
     (name, value) => {

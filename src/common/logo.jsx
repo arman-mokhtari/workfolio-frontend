@@ -1,15 +1,28 @@
 "use client";
 import { useTheme } from "@mui/material/styles";
 
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Skeleton } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import { useGetUser } from "@/hooks/useAuth";
 
 const Logo = ({ my, ml }) => {
   const theme = useTheme();
   const brand = "ورکفولیو";
 
-  return (
+  const { isLoading } = useGetUser();
+
+  return isLoading ? (
+    <Skeleton
+      sx={{
+        my: my,
+        ml: ml,
+      }}
+      variant="circular"
+      width={50}
+      height={50}
+    />
+  ) : (
     <Box
       sx={{
         display: "flex",
@@ -23,7 +36,6 @@ const Logo = ({ my, ml }) => {
       <Link href="/">
         <Typography
           variant="h1"
-          title="خانه"
           noWrap
           sx={{
             fontSize: 0,
@@ -43,7 +55,7 @@ const Logo = ({ my, ml }) => {
                 ? "https://cdn.workfolio.ir/images/logo/workfolio-light.svg"
                 : "https://cdn.workfolio.ir/images/logo/workfolio-dark.svg"
             }
-            alt={brand}
+            alt="طراحی وبسایت"
             title={brand}
             width="800"
             height="800"

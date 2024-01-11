@@ -2,13 +2,14 @@
 
 import { useMemo } from "react";
 import { DataGrid, faIR } from "@mui/x-data-grid";
-import { Card, useMediaQuery } from "@mui/material";
+import { Card } from "@mui/material";
 
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { useRemoveCoupon } from "@/hooks/useCoupons";
 import { couponsTableColumns } from "@/constants/couponsTableData";
+import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
 
 const CouponsTable = ({ coupons }) => {
@@ -27,7 +28,7 @@ const CouponsTable = ({ coupons }) => {
   };
 
 
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isSmallScreen = useIsOnlyXs();
 
   const modifiedCoupons = coupons.map((coupon, index) => ({
     ...coupon,

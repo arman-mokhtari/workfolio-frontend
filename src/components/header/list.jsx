@@ -1,11 +1,12 @@
-import { Box, Tab, Skeleton, useMediaQuery } from "@mui/material";
+import { Box, Tab, Skeleton } from "@mui/material";
 import { navItems } from "@/constants/tabsData";
 import Link from "next/link";
 import { AccountCircleRounded, AdminPanelSettings } from "@mui/icons-material";
 import { useGetUser } from "@/hooks/useAuth";
+import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
 const AppBarList = ({ display, flexDirection }) => {
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isSmallScreen = useIsOnlyXs();
 
   const { data, isLoading } = useGetUser();
   const { user } = data || {};

@@ -35,7 +35,7 @@ const TypedInfo = () => {
   return (
     <Box
       sx={{
-        mt: 7,
+        ml: 1.5,
         maxHeight: "40px",
       }}
     >

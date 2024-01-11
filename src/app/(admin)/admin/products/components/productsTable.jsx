@@ -2,13 +2,14 @@
 
 import { useMemo } from "react";
 import { DataGrid, faIR } from "@mui/x-data-grid";
-import { Card, useMediaQuery } from "@mui/material";
+import { Card } from "@mui/material";
 
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { productsTableColumns } from "@/constants/usersProductsData";
 import { useRemoveProduct } from "@/hooks/useProducts";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
+import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
 
 const ProductsTable = ({ products }) => {
@@ -27,7 +28,7 @@ const ProductsTable = ({ products }) => {
   };
 
 
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isSmallScreen = useIsOnlyXs();
 
   const modifiedProducts = products.map((product, index) => ({
     ...product,

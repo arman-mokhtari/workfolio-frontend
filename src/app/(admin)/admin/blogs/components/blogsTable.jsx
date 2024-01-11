@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { DataGrid, faIR } from "@mui/x-data-grid";
-import { Card, useMediaQuery } from "@mui/material";
+import { Card } from "@mui/material";
 
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 
@@ -10,6 +10,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { useRemoveBlog } from "@/hooks/useBlogs";
 import { blogsTableColumns } from "@/constants/blog/blogPageData";
+import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
 
 const BlogsTable = ({ blogs }) => {
@@ -28,7 +29,7 @@ const BlogsTable = ({ blogs }) => {
   };
 
 
-  const isSmallScreen = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const isSmallScreen = useIsOnlyXs();
 
   const modifiedBlogs = blogs.map((blog, index) => ({
     ...blog,
