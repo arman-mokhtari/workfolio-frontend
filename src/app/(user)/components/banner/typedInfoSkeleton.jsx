@@ -13,7 +13,7 @@ const TypedInfoSkeleton = () => {
       sx={{
         fontSize: "1rem",
         zIndex: "500",
-        ml:1.5,
+        ml: 1.5,
       }}
     />
   ) : (

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useRef } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { Box } from "@mui/material";
@@ -22,6 +22,7 @@ const ServicesSlider = () => {
 
         <ParallaxLayer className="pointer-events" offset={1.3} speed={-0.3}>
           <Image
+            priority
             className="satellite"
             src="/assets/svg/about-slider/satellite.svg"
             alt="satellite"
@@ -32,6 +33,7 @@ const ServicesSlider = () => {
 
         <ParallaxLayer className="opacity-1" offset={1} speed={0.8}>
           <Image
+            priority
             className="ml-55"
             src="/assets/svg/about-slider/cloud.svg"
             alt="parallax"
@@ -39,6 +41,7 @@ const ServicesSlider = () => {
             height="100"
           />
           <Image
+            priority
             className="ml-15"
             src="/assets/svg/about-slider/cloud.svg"
             alt="parallax"
@@ -49,6 +52,7 @@ const ServicesSlider = () => {
 
         <ParallaxLayer offset={1.75} speed={0.5} className="opacity-1">
           <Image
+            priority
             className="ml-70"
             src="/assets/svg/about-slider/cloud.svg"
             alt="parallax"
@@ -56,6 +60,7 @@ const ServicesSlider = () => {
             height="100"
           />
           <Image
+            priority
             className="ml-40"
             alt="parallax"
             width="100"
@@ -66,6 +71,7 @@ const ServicesSlider = () => {
 
         <ParallaxLayer offset={1} speed={0.2} className="opacity-2">
           <Image
+            priority
             className="ml-10"
             alt="parallax"
             width="100"
@@ -73,6 +79,7 @@ const ServicesSlider = () => {
             src="/assets/svg/about-slider/cloud.svg"
           />
           <Image
+            priority
             className="ml-75"
             alt="parallax"
             width="100"
@@ -83,6 +90,7 @@ const ServicesSlider = () => {
 
         <ParallaxLayer offset={1.6} speed={-0.1} className="opacity-4">
           <Image
+            priority
             className="ml-60"
             alt="parallax"
             width="100"
@@ -90,6 +98,7 @@ const ServicesSlider = () => {
             src="/assets/svg/about-slider/cloud.svg"
           />
           <Image
+            priority
             className="width-25-block"
             alt="parallax"
             width="100"
@@ -97,6 +106,7 @@ const ServicesSlider = () => {
             src="/assets/svg/about-slider/cloud.svg"
           />
           <Image
+            priority
             className="width-10-block"
             alt="parallax"
             width="100"
@@ -107,6 +117,7 @@ const ServicesSlider = () => {
 
         <ParallaxLayer offset={2.6} speed={0.4} className="opacity-6">
           <Image
+            priority
             className="width-20-block"
             alt="parallax"
             width="100"
@@ -114,6 +125,7 @@ const ServicesSlider = () => {
             src="/assets/svg/about-slider/cloud.svg"
           />
           <Image
+            priority
             className="width-15-block"
             alt="parallax"
             width="100"
@@ -128,6 +140,7 @@ const ServicesSlider = () => {
           speed={-0.4}
         >
           <Image
+            priority
             className="width-60"
             alt="parallax"
             width="100"
@@ -145,6 +158,7 @@ const ServicesSlider = () => {
           className="flex-center"
         >
           <Image
+            priority
             className="width-20"
             src="/assets/svg/about-slider/server.svg"
             alt="parallax"
@@ -160,6 +174,7 @@ const ServicesSlider = () => {
           onClick={() => parallax.current.scrollTo(2)}
         >
           <Image
+            priority
             className="width-40"
             alt="parallax"
             width="100"
@@ -175,6 +190,7 @@ const ServicesSlider = () => {
           onClick={() => parallax.current.scrollTo(0)}
         >
           <Image
+            priority
             className="width-40"
             alt="parallax"
             width="100"

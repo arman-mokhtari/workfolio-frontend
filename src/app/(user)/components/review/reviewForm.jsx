@@ -242,12 +242,14 @@ const ReviewForm = () => {
                               <Loading mt={1} />
                             ) : (
                               <Image
+                                priority
                                 src={`data:image/svg+xml;base64,${btoa(
                                   captchaData
                                 )}`}
                                 width="120"
                                 height="50"
-                                alt="Captcha Image"
+                                alt="تصویر اعتبارسنجی"
+                                title="تصویر اعتبارسنجی"
                               />
                             )}
                           </Box>

@@ -32,11 +32,6 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "46.245.77.82",
-        port:"31078"
-      },
-      {
         protocol: "https",
         hostname: "cdn.workfolio.ir",
       },
@@ -78,6 +73,9 @@ const nextConfig = {
       console.error("Error fetching data:", error);
       throw error;
     }
+  },
+  experimental: {
+    nextScriptWorkers: true,
   },
 };
 

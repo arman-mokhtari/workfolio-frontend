@@ -43,14 +43,14 @@ const ReviewSlider = () => {
                   defaultElevation={4}
                   hoveredElevation={4}
                   square={true}
-                    sx={{
-                      position: "relative",
-                      overflow: "visible",
-                      mb: 3.5,
-                      mx: 1,
-                      borderRadius: 3,
-                      p:2
-                    }}
+                  sx={{
+                    position: "relative",
+                    overflow: "visible",
+                    mb: 3.5,
+                    mx: 1,
+                    borderRadius: 3,
+                    p: 2,
+                  }}
                 >
                   <Stack>
                     <Stack
@@ -159,6 +159,7 @@ const ReviewSlider = () => {
                             />
                           </Box>
                           <Image
+                            priority
                             alt="verified logo"
                             width="110"
                             height="45"

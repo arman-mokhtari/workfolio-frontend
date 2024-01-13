@@ -5,12 +5,11 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Typography,
   CardHeader,
 } from "@mui/material";
 import { Comment } from "@mui/icons-material";
 import Link from "next/link";
-import { shuffle } from "lodash";
+import shuffle  from "lodash.shuffle";
 import { useGetAllBlogs } from "@/hooks/useBlogs";
 import Loading from "@/common/loading";
 import HoverCard from "@/common/hoverCard";

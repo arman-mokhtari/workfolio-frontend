@@ -9,7 +9,7 @@ import MainDescription from "./mainDescription";
 import LinksAside from "@/pages/(user)/blogs/[slug]/components/linksAside";
 import ReviewSlider from "./review/reviewSlider";
 import ReviewForm from "./review/reviewForm";
-import ContactSection from "@/pages/(user)/components/contactSection";
+import ContactSection from "@/pages/(user)/components/contact/contactSection";
 
 const ProductMainContent = ({ slug }) => {
   const { data, isLoading } = useGetProductBySlug(slug);

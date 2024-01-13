@@ -29,7 +29,7 @@ const shabnamFont = LocalFont({
   ],
   variable: "--font-shabnam",
   style: "normal",
-  display: "block",
+  display: "swap",
 });
 
 export default shabnamFont;

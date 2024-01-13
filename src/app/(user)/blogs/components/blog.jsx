@@ -40,6 +40,7 @@ const Blog = ({ blog }) => {
       >
         <Link href={`/blogs/${faSlug}`}>
           <Image
+            priority
             height="240"
             width="280"
             src={imageLink}

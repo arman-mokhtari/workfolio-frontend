@@ -54,6 +54,7 @@ const Page = async ({ params }) => {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          strategy="worker"
         />
       </section>
     </>
@@ -61,6 +62,8 @@ const Page = async ({ params }) => {
 };
 
 export default Page;
+
+export const amp = true;
 
 export async function generateStaticParams() {
   const { products } = await getProducts();

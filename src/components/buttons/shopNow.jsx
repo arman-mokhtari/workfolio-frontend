@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import Link from "next/link";
 
-const ShopNow = ({ mt, ml, fullWidth, text,variant }) => {
+const ShopNow = ({ mt, ml, fullWidth, text, variant }) => {
   return (
     <Button
       fullWidth={fullWidth}
@@ -11,6 +11,7 @@ const ShopNow = ({ mt, ml, fullWidth, text,variant }) => {
         mt: mt,
         ml: ml,
         fontWeight: "500",
+        whiteSpace: "nowrap",
       }}
       variant={variant}
       color="primary"

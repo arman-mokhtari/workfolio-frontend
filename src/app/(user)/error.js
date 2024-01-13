@@ -30,6 +30,7 @@ export default function Error({ error, reset }) {
       }}
     >
       <Image
+      priority
         alt="x"
         width={200}
         height={200}

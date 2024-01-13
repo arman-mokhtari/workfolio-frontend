@@ -3,20 +3,24 @@ import Logo from "@/common/logo";
 import { Container, Typography } from "@mui/material";
 import HoverCard from "@/common/hoverCard";
 
-const LoginSectionsCard = ({ title, children, mt, mb }) => {
+const LoginSectionsCard = ({ title, children, mb }) => {
+
   return (
     <Container
       component="main"
       maxWidth="xs"
       sx={{
-        mt: mt === 0 ? mt : 7,
-        mb,
+        minHeight: "calc(100vh - 64px)",
+        display: "flex",
+        alignItems: "center",
+        mb: mb,
       }}
     >
       <HoverCard
         defaultElevation={4}
         hoveredElevation={10}
         sx={{
+          width: 1,
           p: 3,
           display: "flex",
           flexDirection: "column",

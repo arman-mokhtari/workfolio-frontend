@@ -21,6 +21,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import LoginSectionsCard from "@/common/loginSectionsCard";
+import { useIsUpLg } from "@/hooks/useMediaQueries";
 
 const SignInForm = () => {
   const router = useRouter();
@@ -78,9 +79,11 @@ const SignInForm = () => {
       toast.error(err?.response?.data?.message);
     }
   };
+  const hasErrors = errors && Object.keys(errors).length > 0;
+  const isLgScreen = useIsUpLg();
 
   return (
-    <LoginSectionsCard title="ورود" mt={0} mb={5}>
+    <LoginSectionsCard mb={hasErrors && isLgScreen && 3} title="ورود">
       <Box
         onSubmit={handleSubmit(submitHandler)}
         component="form"

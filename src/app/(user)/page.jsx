@@ -1,17 +1,17 @@
 import { Box } from "@mui/material";
-import Banner from "./components/banner";
-import CountingCard from "./components/countingCard";
-import Content from "./components/contentSection";
-import DataImageSec from "./components/dataImageSection";
-import SupportImages from "./components/supportImages";
+import Banner from "./components/banner/banner";
+import CountingCard from "./components/countUp/countingCard";
+import Content from "./components/content/contentSection";
+import DataImageSec from "./components/dataImage/dataImageSection";
+import SupportImages from "./components/supportImages/supportImages";
 import ProductItems from "./products/components/products";
 import { getProducts } from "@/services/product/productService";
 import queryString from "query-string";
-import ContactSection from "./components/contactSection";
+import ContactSection from "./components/contact/contactSection";
 import HomeBlogsSection from "./blogs/components/homeBlogsSection";
 import ReviewForm from "./components/review/reviewForm";
 import ReviewSlider from "./components/review/reviewSlider";
-import TypedInfoSkeleton from "./components/typedInfoSkeleton";
+import TypedInfoSkeleton from "./components/banner/typedInfoSkeleton";
 
 export const metadata = {
   alternates: {
@@ -63,3 +63,5 @@ const Home = async ({ searchParams }) => {
   );
 };
 export default Home;
+
+export const amp = true;

@@ -5,7 +5,7 @@ import Image from "next/image";
 import BlogCard from "./blogCard";
 import MainDescription from "./mainDescription";
 import LinksAside from "./linksAside";
-import ContactSection from "@/pages/(user)/components/contactSection";
+import ContactSection from "@/pages/(user)/components/contact/contactSection";
 import { useGetBlogBySlug } from "@/hooks/useBlogs";
 import Loading from "@/common/loading";
 

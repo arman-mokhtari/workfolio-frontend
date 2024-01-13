@@ -121,6 +121,10 @@ const SignIn = () => {
     }
   };
 
-  return <LoginSectionsCard title="ثبت نام">{renderSteps()}</LoginSectionsCard>;
+  return (
+    <LoginSectionsCard title="ثبت نام">
+      {renderSteps()}
+    </LoginSectionsCard>
+  );
 };
 export default SignIn;

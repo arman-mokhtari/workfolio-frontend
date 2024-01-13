@@ -14,3 +14,5 @@ const Blogs = async ({ searchParams }) => {
 };
 
 export default Blogs;
+
+export const amp = true;

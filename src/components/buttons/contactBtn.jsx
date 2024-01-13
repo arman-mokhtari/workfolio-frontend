@@ -9,6 +9,7 @@ const ContactBtn = ({ mt, ml }) => {
         mt: mt,
         ml: ml,
         fontWeight: "500",
+        whiteSpace: "nowrap",
       }}
       variant="contained"
       color="warning"

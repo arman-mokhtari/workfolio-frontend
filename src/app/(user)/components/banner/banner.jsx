@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Stack, Typography, Skeleton } from "@mui/material";
+import { Box, Typography, Skeleton, Grid } from "@mui/material";
 import Image from "next/image";
 import ShopNow from "@/components/buttons/shopNow";
 import { useTheme } from "@mui/material/styles";
@@ -19,16 +19,17 @@ const Banner = () => {
   const isOnlyXs = useIsOnlyXs();
 
   return (
-    <Box
-      sx={{
-        "& img": {
-          objectFit: "cover",
-        },
-      }}
-    >
-      <Box>
+    <Box>
+      <Box
+        sx={{
+          "& img": {
+            objectFit: "cover",
+          },
+        }}
+      >
         <Image
           alt="طراحی وبسایت و خدمات وب"
+          priority
           src={banner}
           placeholder="blur"
           blurDataURL={banner}
@@ -87,35 +88,32 @@ const Banner = () => {
             </Typography>
           )}
 
-          <Stack
-            sx={{
-              width: isOnlyXs ? "45%" : "inherit",
-            }}
-            direction={isOnlyXs ? "column" : "row"}
-            spacing={2}
-          >
-            {isLoading ? (
-              <Skeleton
-                sx={{ borderRadius: 1 }}
-                variant="rectangular"
-                width={isOnlyXs ? "100%" : "12%"}
-                height={36.5}
-              />
-            ) : (
-              <ContactBtn />
-            )}
-
-            {isLoading ? (
-              <Skeleton
-                sx={{ borderRadius: 1 }}
-                variant="rectangular"
-                width={isOnlyXs ? "100%" : "12%"}
-                height={36.5}
-              />
-            ) : (
-              <ShopNow variant="contained" text="برو به صفحه محصولات" />
-            )}
-          </Stack>
+          <Grid container spacing={2}>
+            <Grid xs={12} md={2} item>
+              {isLoading ? (
+                <Skeleton
+                  sx={{ borderRadius: 1 }}
+                  variant="rectangular"
+                  width={isOnlyXs ? "30%" : "100%"}
+                  height={36.5}
+                />
+              ) : (
+                <ContactBtn />
+              )}
+            </Grid>
+            <Grid xs={12} md={2} item>
+              {isLoading ? (
+                <Skeleton
+                  sx={{ borderRadius: 1 }}
+                  variant="rectangular"
+                  width={isOnlyXs ? "35%" : "100%"}
+                  height={36.5}
+                />
+              ) : (
+                <ShopNow variant="contained" text="برو به صفحه محصولات" />
+              )}
+            </Grid>
+          </Grid>
         </Box>
       </Box>
     </Box>

@@ -18,7 +18,8 @@ const EmptyCart = () => {
       }}
     >
       <Image
-        alt="x"
+        priority
+        alt="سبد خرید خالی"
         width={200}
         height={200}
         src="https://cdn.workfolio.ir/images/graphics/empty_cart.svg"

@@ -1,33 +1,58 @@
-"use client"
+"use client";
 import { useTheme } from "@mui/material/styles";
-import { Grid } from "@mui/material";
+import { Grid, Box } from "@mui/material";
 import AboutUsDescription from "./components/description";
-import AboutUsBanner from "./components/banner";
-
+import Image from "next/image";
+import { useIsDownLg, useIsDownMd, useIsOnlyXs } from "@/hooks/useMediaQueries";
 const Page = () => {
   const theme = useTheme();
+  const isSmallScreen = useIsDownMd();
   return (
-    <Grid
-      item
-      container
-      spacing={2}
-      xs={12}
+    <Box
       sx={{
-        px: 3,
-        alignItems: "center",
+        height: !isSmallScreen && "calc(100vh - 128px)",
         display: "flex",
-        justifyContent: "center",
-        mb: 6,
-        [theme.breakpoints.between("xs", "md")]: {
-          flexDirection: "column-reverse",
-          mb: 2,
-          mt: 0,
-        },
       }}
     >
-      <AboutUsDescription />
-      <AboutUsBanner />
-    </Grid>
+      <Grid
+        container
+        spacing={2}
+        sx={{
+          px: 3,
+          alignItems: "center",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Grid xs={12} md={6} item>
+          <AboutUsDescription />
+        </Grid>
+
+        <Grid
+          item
+          xs={12}
+          md={6}
+          sx={{
+            order: isSmallScreen && -1,
+            "& img": {
+              boxShadow: "10px 10px 0px 0px #0381ff4f",
+              borderRadius: 1,
+              width: "100%",
+              height: "auto",
+            },
+          }}
+        >
+          <Image
+            priority
+            src="https://cdn.workfolio.ir/images/bg/banner-service.jpg"
+            alt="خدمات ورکفولیو"
+            title="خدمات ورکفولیو"
+            width="600"
+            height="400"
+          />
+        </Grid>
+      </Grid>
+    </Box>
   );
 };
 

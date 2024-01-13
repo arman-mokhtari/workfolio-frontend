@@ -277,6 +277,7 @@ const TabSecurity = () => {
           >
             {!isSmallScreen && (
               <Image
+              priority
                 width={183}
                 alt="avatar"
                 height={256}

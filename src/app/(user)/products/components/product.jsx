@@ -45,6 +45,7 @@ const Product = ({ product }) => {
       >
         <Link href={`/products/${faSlug}`}>
           <Image
+            priority
             height="240"
             width="280"
             src={imageLink}

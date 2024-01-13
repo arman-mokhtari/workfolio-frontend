@@ -155,6 +155,7 @@ const ReviewSlider = ({ pId }) => {
                             />
                           </Box>
                           <Image
+                          priority
                             alt="verified logo"
                             width="110"
                             height="45"

@@ -6,7 +6,7 @@ import LoginSectionsCard from "@/common/loginSectionsCard";
 
 const CompleteProfile = () => {
   return (
-    <LoginSectionsCard mt={0} title="تکمیل مشخصات کاربری">
+    <LoginSectionsCard title="تکمیل مشخصات کاربری">
       <ProfileTextFields />
     </LoginSectionsCard>
   );

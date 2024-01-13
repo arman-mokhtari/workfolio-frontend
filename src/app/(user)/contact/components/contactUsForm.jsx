@@ -12,6 +12,7 @@ import {
   useSendContactUsEmail,
 } from "@/hooks/useSendContactUsEmail";
 import { useQueryClient } from "@tanstack/react-query";
+import HoverCard from "@/common/hoverCard";
 
 const ContactUsForm = () => {
   const theme = useTheme();
@@ -88,14 +89,14 @@ const ContactUsForm = () => {
   return (
     <Box
       sx={{
-        px: 3,
-        zIndex:4
+        zIndex: 4,
       }}
     >
-      <Card
+      <HoverCard
+        defaultElevation={4}
+        hoveredElevation={10}
         sx={{
           backgroundImage: "none",
-          boxShadow: "#0000003d 0px 3px 8px",
           backgroundColor:
             theme.palette.mode === "dark"
               ? "rgba(0,0,0,0.7)"
@@ -104,7 +105,6 @@ const ContactUsForm = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          mb: 2,
         }}
       >
         <Box component="form" onSubmit={handleSubmit(submitHandler)}>
@@ -219,10 +219,12 @@ const ContactUsForm = () => {
                       <Loading mt={1} />
                     ) : (
                       <Image
+                      priority
                         src={`data:image/svg+xml;base64,${btoa(captchaData)}`}
                         width="120"
                         height="50"
-                        alt="Captcha Image"
+                        alt="تصویر اعتبارسنجی"
+                        title="تصویر اعتبارسنجی"
                       />
                     )}
                   </Box>
@@ -267,7 +269,7 @@ const ContactUsForm = () => {
             </Box>
           </CardContent>
         </Box>
-      </Card>
+      </HoverCard>
     </Box>
   );
 };
