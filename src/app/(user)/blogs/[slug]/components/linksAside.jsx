@@ -32,8 +32,10 @@ const LinksAside = ({ currentPageSlug }) => {
         <List>
           {filteredItems.map(({ slug, title }, i) => (
             <ListItem
+            role="link"
               component={Link}
               href={`/blogs/${slug}`}
+              aria-label={title}
               title={title}
               key={i}
             >

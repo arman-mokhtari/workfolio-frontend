@@ -46,7 +46,9 @@ const ProfileDrawer = ({ handleDrawerToggle }) => {
           <ListItem key={index} disablePadding>
             <ListItemButton>
               <ListItemIcon>{icon}</ListItemIcon>
-              <ListItemText primary={<Link href={to}>{text}</Link>} />
+              <ListItemText primary={<Link
+              role="link"
+                aria-label={text} href={to}>{text}</Link>} />
             </ListItemButton>
           </ListItem>
         ))}

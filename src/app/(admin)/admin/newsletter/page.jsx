@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 
 import Loading from "@/common/loading";
 import { Typography, Box } from "@mui/material";

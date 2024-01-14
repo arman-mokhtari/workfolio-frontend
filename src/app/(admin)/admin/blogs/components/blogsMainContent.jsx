@@ -7,7 +7,6 @@ import { PlaylistAdd } from "@mui/icons-material";
 import { useGetAllBlogs } from "@/hooks/useBlogs";
 import BlogsTable from "./blogsTable";
 
-
 const BlogsMainContent = () => {
   const { isLoading, data } = useGetAllBlogs();
   const { blogs } = data || {};
@@ -28,6 +27,8 @@ const BlogsMainContent = () => {
 
         <Button
           component={Link}
+          role="link"
+           
           href="/admin/blogs/add"
           color="success"
           variant="contained"

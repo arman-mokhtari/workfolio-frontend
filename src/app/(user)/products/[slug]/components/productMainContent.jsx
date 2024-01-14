@@ -60,6 +60,8 @@ const ProductMainContent = ({ slug }) => {
               src={product.imageLink}
               alt={product.title}
               title={product.title}
+              placeholder="blur"
+              blurDataURL={product.imageLink}
             />
           </Grid>
 

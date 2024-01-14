@@ -4,6 +4,9 @@ import Image from "next/image";
 import HoverCard from "@/common/hoverCard";
 
 const DataImageMainContent = () => {
+  const webDesignSrc = "https://cdn.workfolio.ir/images/home/web_design_3.png";
+  const webPortfolioSrc =
+    "https://cdn.workfolio.ir/images/bg/web-portfolio.png";
   return (
     <Box
       sx={{
@@ -36,7 +39,9 @@ const DataImageMainContent = () => {
               priority
               alt="رشد کسب و کار"
               title="بهترین روش‌ها برای رشد کسب و کار شما"
-              src="https://cdn.workfolio.ir/images/home/web_design_3.png"
+              placeholder="blur"
+              blurDataURL={webDesignSrc}
+              src={webDesignSrc}
             />
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
@@ -75,8 +80,10 @@ const DataImageMainContent = () => {
               >
                 <Image
                   priority
-                  src="https://cdn.workfolio.ir/images/bg/web-portfolio.png"
                   alt="پرتفولیو"
+                  placeholder="blur"
+                  blurDataURL={webPortfolioSrc}
+                  src={webPortfolioSrc}
                   width="423"
                   height="220"
                 />

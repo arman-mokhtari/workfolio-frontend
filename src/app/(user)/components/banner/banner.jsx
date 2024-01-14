@@ -29,11 +29,11 @@ const Banner = () => {
       >
         <Image
           alt="طراحی وبسایت و خدمات وب"
-          priority
           src={banner}
           placeholder="blur"
           blurDataURL={banner}
           quality={100}
+          priority
           fill
           sizes="100vw"
         />
@@ -48,7 +48,7 @@ const Banner = () => {
           mb: 3,
         }}
       >
-        <TypedInfoSkeleton />
+        {!!!isOnlyXs && <TypedInfoSkeleton />}
 
         <Box
           sx={{
@@ -58,34 +58,36 @@ const Banner = () => {
             flex: 0.5,
             display: "flex",
             flexDirection: "column",
-            justifyContent: "space-around",
+            justifyContent: isOnlyXs ? "flex-end" : "space-around",
           }}
         >
-          {isLoading ? (
-            <Skeleton
-              sx={{ borderRadius: 3 }}
-              variant="rectangular"
-              height={isOnlyXs ? 145 : 80}
-            />
-          ) : (
-            <Typography
-              sx={{
-                lineHeight: "2rem",
-                fontSize: "1rem",
-                p: 1,
-                borderRadius: "1rem",
-                backgroundColor:
-                  theme.palette.mode === "dark" ? "#00000055" : "#ffffff65",
-                [theme.breakpoints.only("xs")]: {
-                  fontSize: "0.95rem",
-                },
-              }}
-            >
-              بهترین راه برای معرفی خدمات خود به کارفرمایان و شرکت‌ها، طراحی یک
-              وبسایت حرفه‌ای و جذاب است. ما با بهره‌گیری از سال‌ها تجربه‌ در
-              زمینه طراحی وبسایت، به شما خلاقانه‌ترین طرح‌ها را با مقرون به
-              صرفه‌ترین قیمت‌ها ارائه می‌دهیم.
-            </Typography>
+          {!isOnlyXs && (
+            <Box>
+              {isLoading ? (
+                <Skeleton
+                  sx={{ borderRadius: 3 }}
+                  variant="rectangular"
+                  height={isOnlyXs ? 145 : 80}
+                />
+              ) : (
+                <Typography
+                  sx={{
+                    lineHeight: 2,
+                    fontSize: 15,
+                    p: 1,
+                    borderRadius: 4,
+                    backdropFilter: "blur(3px)",
+                    backgroundColor:
+                      theme.palette.mode === "dark" ? "#00000055" : "#ffffff65",
+                  }}
+                >
+                  بهترین راه برای معرفی خدمات خود به کارفرمایان و شرکت‌ها، طراحی
+                  یک وبسایت حرفه‌ای و جذاب است. ما با بهره‌گیری از سال‌ها تجربه‌
+                  در زمینه طراحی وبسایت، به شما خلاقانه‌ترین طرح‌ها را با مقرون
+                  به صرفه‌ترین قیمت‌ها ارائه می‌دهیم.
+                </Typography>
+              )}
+            </Box>
           )}
 
           <Grid container spacing={2}>

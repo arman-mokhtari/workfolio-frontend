@@ -27,6 +27,8 @@ const ProductsPage = () => {
 
         <Button
           component={Link}
+          role="link"
+           
           href="/admin/products/add"
           color="success"
           variant="contained"

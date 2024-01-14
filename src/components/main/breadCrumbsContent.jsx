@@ -2,13 +2,7 @@
 
 import { useTheme } from "@mui/material/styles";
 
-import {
-  Box,
-  Breadcrumbs,
-  Card,
-  Typography,
-  Skeleton,
-} from "@mui/material";
+import { Box, Breadcrumbs, Card, Typography, Skeleton } from "@mui/material";
 import Link from "next/link";
 import { routeNames } from "@/constants/routeNames";
 import { usePathname } from "next/navigation";
@@ -83,7 +77,9 @@ const BreadCrumbsContent = () => {
             separator="›"
             aria-label="breadcrumb"
           >
-            <Link href="/">خانه</Link>
+            <Link
+              role="link"
+              title="رفتن به صفحه اصلی" aria-label="رفتن به صفحه اصلی" href="/">خانه</Link>
             {paths.map((path, index) => {
               const isLastPath = index === paths.length - 1;
               const pathName = path;
@@ -118,7 +114,9 @@ const BreadCrumbsContent = () => {
                       {decodeURIComponent(displayName).replace(/-/g, " ")}
                     </Typography>
                   ) : (
-                    <Link href={`/${paths.slice(0, index + 1).join("/")}`}>
+                    <Link
+                    role="link"
+                    title={`رفتن به صفحه ${displayName}`} aria-label={displayName} href={`/${paths.slice(0, index + 1).join("/")}`}>
                       {displayName}
                     </Link>
                   )}

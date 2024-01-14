@@ -11,7 +11,8 @@ const Logo = ({ my, ml }) => {
   const brand = "ورکفولیو";
 
   const { isLoading } = useGetUser();
-
+  const lightLogo = "https://cdn.workfolio.ir/images/logo/workfolio-light.svg";
+  const darkLogo = "https://cdn.workfolio.ir/images/logo/workfolio-dark.svg";
   return isLoading ? (
     <Skeleton
       sx={{
@@ -33,7 +34,9 @@ const Logo = ({ my, ml }) => {
         },
       }}
     >
-      <Link href="/">
+      <Link
+              role="link"
+       aria-label="رفتن به صفحه اصلی" href="/">
         <Typography
           variant="h1"
           noWrap
@@ -50,11 +53,9 @@ const Logo = ({ my, ml }) => {
         >
           {brand}
           <Image
-            src={
-              theme.palette.mode === "dark"
-                ? "https://cdn.workfolio.ir/images/logo/workfolio-light.svg"
-                : "https://cdn.workfolio.ir/images/logo/workfolio-dark.svg"
-            }
+            src={theme.palette.mode === "dark" ? lightLogo : darkLogo}
+            placeholder="blur"
+            blurDataURL={lightLogo}
             alt="طراحی وبسایت"
             title={brand}
             width="800"

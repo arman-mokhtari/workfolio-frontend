@@ -6,7 +6,8 @@ import Image from "next/image";
 
 const SupportImagesMainContent = () => {
   const theme = useTheme();
-
+  const srcAsk = "https://cdn.workfolio.ir/images/bg/ask.png";
+  const srcIso = "https://cdn.workfolio.ir/images/bg/iso.png";
   return (
     <Grid
       container
@@ -29,68 +30,68 @@ const SupportImagesMainContent = () => {
       }}
     >
       <Grid item xs={12} md={6}>
-
-          <Stack alignItems="center">
-            <Typography
-              variant="h4"
-              noWrap
-              sx={{
-                mb: 2,
-                fontSize: "1.6rem",
-                fontWeight: "bold",
-                [theme.breakpoints.only("xs")]: {
-                  fontSize: "1.2rem",
-                },
-                [theme.breakpoints.only("sm")]: {
-                  fontSize: "1.4rem",
-                },
-              }}
-            >
-              حمایت هفت روز هفته
-            </Typography>
-            <Box>
-              <Image
+        <Stack alignItems="center">
+          <Typography
+            variant="h4"
+            noWrap
+            sx={{
+              mb: 2,
+              fontSize: "1.6rem",
+              fontWeight: "bold",
+              [theme.breakpoints.only("xs")]: {
+                fontSize: "1.2rem",
+              },
+              [theme.breakpoints.only("sm")]: {
+                fontSize: "1.4rem",
+              },
+            }}
+          >
+            حمایت هفت روز هفته
+          </Typography>
+          <Box>
+            <Image
               priority
-                src="https://cdn.workfolio.ir/images/bg/ask.png"
-                alt="خدمات به مشتری"
-                width={425}
-                height={425}
-              />
-            </Box>
-          </Stack>
-
+              alt="خدمات به مشتری"
+              width={425}
+              height={425}
+              placeholder="blur"
+              blurDataURL={srcAsk}
+              src={srcAsk}
+            />
+          </Box>
+        </Stack>
       </Grid>
 
       <Grid item xs={12} md={6}>
-
-          <Stack alignItems="center">
-            <Typography
-              variant="h4"
-              noWrap
-              sx={{
-                fontSize: "1.6rem",
-                fontWeight: "bold",
-                [theme.breakpoints.only("xs")]: {
-                  fontSize: "1.2rem",
-                },
-                [theme.breakpoints.only("sm")]: {
-                  fontSize: "1.4rem",
-                },
-              }}
-            >
-              گواهینامه ایزو 27001
-            </Typography>
-            <Box>
-              <Image
+        <Stack alignItems="center">
+          <Typography
+            variant="h4"
+            noWrap
+            sx={{
+              fontSize: "1.6rem",
+              fontWeight: "bold",
+              [theme.breakpoints.only("xs")]: {
+                fontSize: "1.2rem",
+              },
+              [theme.breakpoints.only("sm")]: {
+                fontSize: "1.4rem",
+              },
+            }}
+          >
+            گواهینامه ایزو 27001
+          </Typography>
+          <Box>
+            <Image
               priority
-                src="https://cdn.workfolio.ir/images/bg/iso.png"
-                alt="گواهینامه ایزو"
-                width={425}
-                height={425}
-              />
-            </Box>
-          </Stack>
-
+              alt="گواهینامه ایزو"
+              width={425}
+              height={425}
+              placeholder="blur"
+              blurDataURL={srcIso}
+              src={srcIso}
+            />
+          </Box>
+        </Stack>
       </Grid>
     </Grid>
   );

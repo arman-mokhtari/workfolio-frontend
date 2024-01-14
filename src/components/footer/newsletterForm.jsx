@@ -85,161 +85,144 @@ const NewsletterForm = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        "& form": {
-          width: "100%",
-        },
       }}
     >
-      <Box component="form" onSubmit={handleSubmit(onSubmit)}>
+      <Box
+        sx={{
+          width: 1,
+        }}
+        component="form"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <CardContent
           sx={{
-            py: "7px !important",
+            "& .MuiFormHelperText-root": {
+              color: "#f44336",
+            },
           }}
         >
-          <Grid container>
-            <Grid item xs={12}>
-              <Grid
-                container
-                sx={{
-                  "& .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline":
-                    {
-                      borderColor: "#037fff",
-                    },
-                  "& .MuiInputBase-root:focus-within .MuiOutlinedInput-notchedOutline":
-                    {
-                      borderColor: "#037fff",
-                    },
-                  "& .MuiFormHelperText-root": {
-                    color: "#f44336",
-                  },
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Box
-                  sx={{
-                    width: 1,
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
+          <Box
+            sx={{
+              width: 1,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
 
-                    flexDirection: "column",
-                  }}
-                >
-                  <Typography
-                    variant="h3"
-                    sx={{
-                      fontSize: "1rem",
-                      mt: 1,
-                      mb: 2,
-                      color: "#037fff",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    عضویت در خبرنامه
-                  </Typography>
-                  <TextField
-                    {...register("name", {
-                      required: "نام خود را وارد کنید",
-                      maxLength: 80,
-                    })}
-                    helperText={errors.name?.message}
-                    size="small"
-                    name="name"
-                    type="text"
-                    sx={{
-                      color: "#037fff",
-                      width: 1,
-                    }}
-                    label="نام"
-                    variant="outlined"
-                  />
-                  <TextField
-                    {...register("email", {
-                      required: "آدرس ایمیل خود را وارد کنید",
-                      pattern: {
-                        value: /^\S+@\S+$/i,
-                        message: "فرمت ایمیل صحیح نیست",
-                      },
-                    })}
-                    size="small"
-                    name="email"
-                    type="email"
-                    sx={{
-                      color: "#037fff",
-                      width: 1,
-                      mt: 1.5,
-                    }}
-                    label="ایمیل"
-                    variant="outlined"
-                    helperText={errors.email?.message}
-                  />
-                </Box>
+              flexDirection: "column",
+            }}
+          >
+            <Typography
+              variant="h3"
+              sx={{
+                fontSize: "1rem",
+                mt: 1,
+                mb: 2,
+                color: "#037fff",
+                fontWeight: "bold",
+              }}
+            >
+              عضویت در خبرنامه
+            </Typography>
+            <TextField
+              {...register("name", {
+                required: "نام خود را وارد کنید",
+                maxLength: 80,
+              })}
+              helperText={errors.name?.message}
+              size="small"
+              name="name"
+              type="text"
+              sx={{
+                color: "#037fff",
+                width: 1,
+              }}
+              label="نام"
+              variant="outlined"
+            />
+            <TextField
+              {...register("email", {
+                required: "آدرس ایمیل خود را وارد کنید",
+                pattern: {
+                  value: /^\S+@\S+$/i,
+                  message: "فرمت ایمیل صحیح نیست",
+                },
+              })}
+              size="small"
+              name="email"
+              type="email"
+              sx={{
+                color: "#037fff",
+                width: 1,
+                mt: 1.5,
+              }}
+              label="ایمیل"
+              variant="outlined"
+              helperText={errors.email?.message}
+            />
+          </Box>
 
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    width: 1,
-                  }}
-                >
-                  <Box
-                    sx={{
-                      height: 60,
-                    }}
-                  >
-                    {isLoading ? (
-                      <Loading mt={1} />
-                    ) : (
-                      <Image
-                      priority
-                        src={`data:image/svg+xml;base64,${btoa(captchaData)}`}
-                        width="120"
-                        height="50"
-                        alt="تصویر اعتبارسنجی"
-                        title="تصویر اعتبارسنجی"
-                      />
-                    )}
-                  </Box>
-                </Box>
-                <TextField
-                  {...register("enteredCaptcha", {
-                    required: "تایید کنید ربات نیستید",
-                    minLength: {
-                      value: 5,
-                      message: "اعتبارسنجی باید 5 کاراکتر باشد",
-                    },
-                    maxLength: {
-                      value: 5,
-                      message: "اعتبارسنجی باید 5 کاراکتر باشد",
-                    },
-                  })}
-                  helperText={errors.enteredCaptcha?.message}
-                  size="small"
-                  name="enteredCaptcha"
-                  label="متن تصویر را وارد کنید"
-                  type="text"
-                  sx={{
-                    width: 1,
-                  }}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              width: 1,
+            }}
+          >
+            <Box
+              sx={{
+                height: 60,
+              }}
+            >
+              {isLoading ? (
+                <Loading mt={1} />
+              ) : (
+                <Image
+                  priority
+                  src={`data:image/svg+xml;base64,${btoa(captchaData)}`}
+                  width="120"
+                  height="50"
+                  alt="تصویر اعتبارسنجی"
+                  title="تصویر اعتبارسنجی"
                 />
+              )}
+            </Box>
+          </Box>
 
-                <CardActions
-                  sx={{
-                    alignItems: "end",
-                    flexDirection: "column",
-                    width: 1,
-                    mt: 0.5,
-                    alignItems: "center",
-                  }}
-                >
-                  <Button type="submit" variant="contained">
-                    ارسال
-                  </Button>
-                </CardActions>
-              </Grid>
-            </Grid>
-          </Grid>
+          <TextField
+            {...register("enteredCaptcha", {
+              required: "تایید کنید ربات نیستید",
+              minLength: {
+                value: 5,
+                message: "اعتبارسنجی باید 5 کاراکتر باشد",
+              },
+              maxLength: {
+                value: 5,
+                message: "اعتبارسنجی باید 5 کاراکتر باشد",
+              },
+            })}
+            helperText={errors.enteredCaptcha?.message}
+            size="small"
+            name="enteredCaptcha"
+            label="متن تصویر را وارد کنید"
+            type="text"
+            sx={{
+              width: 1,
+            }}
+          />
+
+          <CardActions
+            sx={{
+              alignItems: "end",
+              flexDirection: "column",
+              width: 1,
+              mt: 0.5,
+              alignItems: "center",
+            }}
+          >
+            <Button type="submit" variant="contained">
+              ارسال
+            </Button>
+          </CardActions>
         </CardContent>
       </Box>
     </HoverCard>

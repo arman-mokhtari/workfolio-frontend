@@ -4,8 +4,10 @@ import { Button, Card, CardContent, Typography } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import { toLocalDateString } from "@/utils/toLocalDate";
 import { toPersianNumbers } from "@/utils/toPersianNumbers";
+import Image from "next/image"
+
 // Styled component for the triangle shaped background image
-const TriangleImg = styled("img")({
+const TriangleImg = styled(Image)({
   right: 0,
   bottom: 0,
   height: 170,
@@ -13,7 +15,7 @@ const TriangleImg = styled("img")({
 });
 
 // Styled component for the trophy image
-const TrophyImg = styled("img")({
+const TrophyImg = styled(Image)({
   right: 36,
   bottom: 20,
   height: 98,
@@ -42,7 +44,7 @@ const UserDataCard = ({ user }) => {
             mt: 2,
           }}
         >
-          تاریخ پیوستن به ورکفولیو : {toLocalDateString(createdAt)}
+          تاریخ پیوستن : {toLocalDateString(createdAt)}
         </Typography>
         <Typography variant="body2" sx={{ mt: 1.5 }}>
           ایمیل : {email}
@@ -53,9 +55,24 @@ const UserDataCard = ({ user }) => {
 
         <TriangleImg
           alt="triangle background"
+          priority
+          placeholder="blur"
+          blurDataURL={`/images/misc/${imageSrc}`}
           src={`/images/misc/${imageSrc}`}
+          width={150}
+          height={100}
+          quality={100}
         />
-        <TrophyImg alt="trophy" src="/images/misc/trophy.png" />
+        <TrophyImg
+          alt="trophy"
+          src="/images/misc/trophy.png"
+          placeholder="blur"
+          blurDataURL="/images/misc/trophy.png"
+          priority
+          quality={100}
+          width={80}
+          height={80}
+        />
       </CardContent>
     </Card>
   );

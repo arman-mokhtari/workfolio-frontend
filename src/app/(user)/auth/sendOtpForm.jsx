@@ -6,7 +6,12 @@ import { useForm } from "react-hook-form";
 import Link from "next/link";
 import UserServicesCaptcha from "@/common/userServicesCaptcha";
 
-const SendOtpForm = ({ sendOtpHandler, onChange, isPending,onChangeCaptcha }) => {
+const SendOtpForm = ({
+  sendOtpHandler,
+  onChange,
+  isPending,
+  onChangeCaptcha,
+}) => {
   const {
     register,
     handleSubmit,
@@ -31,7 +36,6 @@ const SendOtpForm = ({ sendOtpHandler, onChange, isPending,onChangeCaptcha }) =>
   }, [formState, reset]);
 
   return (
-    
     <Box
       onSubmit={handleSubmit((data) => sendOtpHandler(data))}
       component="form"
@@ -82,7 +86,7 @@ const SendOtpForm = ({ sendOtpHandler, onChange, isPending,onChangeCaptcha }) =>
               value: 5,
               message: "اعتبارسنجی باید 5 کاراکتر باشد",
             },
-            onChange:onChangeCaptcha,
+            onChange: onChangeCaptcha,
           })}
           helperText={errors.enteredCaptcha?.message}
           fullWidth
@@ -92,15 +96,15 @@ const SendOtpForm = ({ sendOtpHandler, onChange, isPending,onChangeCaptcha }) =>
         />
       </Box>
 
-        <Button
-          type="submit"
-          disabled={isPending}
-          fullWidth
-          variant="contained"
-          sx={{ mt: 1, mb: 2 }}
-        >
-          ارسال کد تایید
-        </Button>
+      <Button
+        type="submit"
+        disabled={isPending}
+        fullWidth
+        variant="contained"
+        sx={{ mt: 1, mb: 2 }}
+      >
+        ارسال کد تایید
+      </Button>
 
       <Grid
         sx={{
@@ -112,7 +116,9 @@ const SendOtpForm = ({ sendOtpHandler, onChange, isPending,onChangeCaptcha }) =>
         container
       >
         <Grid item xs={6}>
-          <Link href="/sign-in">
+          <Link
+              role="link"
+                aria-label="حساب کاربری" href="/sign-in">
             <Typography noWrap variant="body2">
               حساب کاربری دارم! ورود
             </Typography>

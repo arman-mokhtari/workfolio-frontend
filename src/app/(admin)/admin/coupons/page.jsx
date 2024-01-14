@@ -13,10 +13,9 @@ const CouponPage = () => {
 
   if (isLoading) return <Loading />;
 
-
   return (
     <>
-    <Stack
+      <Stack
         direction="row"
         justifyContent="space-between"
         alignItems="center"
@@ -28,6 +27,8 @@ const CouponPage = () => {
 
         <Button
           component={Link}
+          role="link"
+           
           href="/admin/coupons/add"
           color="success"
           variant="contained"
@@ -39,8 +40,7 @@ const CouponPage = () => {
       </Stack>
       <CouponsTable coupons={coupons} />
     </>
-    
-  )
-}
+  );
+};
 
-export default CouponPage
+export default CouponPage;

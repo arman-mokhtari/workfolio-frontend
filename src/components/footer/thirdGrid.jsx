@@ -9,6 +9,8 @@ const ThirdGrid = () => {
         {externalLinks.map(({ url, title, label }, index) => (
           <ListItem key={index}>
             <Link
+              role="link"
+              aria-label="label"
               underline="none"
               href={url}
               target="_blank"

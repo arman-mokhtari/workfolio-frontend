@@ -1,3 +1,6 @@
+import shabnamFont from "@/constants/localFonts";
+import { WebVitals } from "./_components/web-vitals";
+
 export const metadata = {
   metadataBase: new URL(process.env.ABSOLUTE_URL),
   category: "technology",
@@ -31,7 +34,14 @@ export const viewport = {
     { media: "(prefers-color-scheme: dark)", color: "#22273b" },
   ],
 };
-
+const myFont = shabnamFont;
 export default function RootLayout({ children }) {
-  return <>{children}</>;
+  return (
+    <html lang="fa" dir="rtl">
+      <body className={myFont.className}>
+        <WebVitals />
+        {children}
+      </body>
+    </html>
+  );
 }

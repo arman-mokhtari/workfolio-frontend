@@ -12,7 +12,7 @@ export default function Error({ error, reset }) {
 
   const theme = useTheme();
   const isSmallScreen = useIsOnlyXs();
-
+  const srcImg = "https://cdn.workfolio.ir/images/svg/errors/error.svg";
   return (
     <Box
       sx={{
@@ -20,21 +20,23 @@ export default function Error({ error, reset }) {
         flexDirection: "column",
         alignItems: "center",
         minHeight: 490,
-        px:2,
-        mt:2,
+        px: 2,
+        mt: 2,
         "& img": {
           objectFit: "cover",
-          width: isSmallScreen?"55% !important":"30% !important",
+          width: isSmallScreen ? "55% !important" : "30% !important",
           height: "auto !important",
         },
       }}
     >
       <Image
-      priority
-        alt="x"
+        priority
+        alt="خطا از سمت سرور"
         width={200}
         height={200}
-        src="https://cdn.workfolio.ir/images/svg/errors/error.svg"
+        placeholder="blur"
+        blurDataURL={srcImg}
+        src={srcImg}
       />
       <Typography
         sx={{

@@ -1,12 +1,12 @@
 "use client";
-import { useTheme } from "@mui/material/styles";
 import { Grid, Box } from "@mui/material";
 import AboutUsDescription from "./components/description";
 import Image from "next/image";
-import { useIsDownLg, useIsDownMd, useIsOnlyXs } from "@/hooks/useMediaQueries";
+import { useIsDownMd } from "@/hooks/useMediaQueries";
 const Page = () => {
-  const theme = useTheme();
+
   const isSmallScreen = useIsDownMd();
+  const srcImg = "https://cdn.workfolio.ir/images/bg/banner-service.jpg";
   return (
     <Box
       sx={{
@@ -44,11 +44,13 @@ const Page = () => {
         >
           <Image
             priority
-            src="https://cdn.workfolio.ir/images/bg/banner-service.jpg"
             alt="خدمات ورکفولیو"
             title="خدمات ورکفولیو"
             width="600"
             height="400"
+            placeholder="blur"
+            blurDataURL={srcImg}
+            src={srcImg}
           />
         </Grid>
       </Grid>

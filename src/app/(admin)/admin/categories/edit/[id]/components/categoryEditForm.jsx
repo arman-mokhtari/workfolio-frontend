@@ -68,9 +68,12 @@ const CategoryEditForm = ({
             )}
 
             <Button
+              role="link"
+               
               component={Link}
               href="/admin/categories"
               variant="outlined"
+              aria-label="بازگشت"
               endIcon={<Undo />}
             >
               بازگشت به قبل

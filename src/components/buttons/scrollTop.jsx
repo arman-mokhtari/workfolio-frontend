@@ -19,6 +19,7 @@ const ScrollTop=(props)=> {
       <Tooltip title="پیمایش به بالا" placement="top" arrow>
       <Box
       component={Link}
+      aria-label="پیمایش به بالا"
       href="#"
         role="presentation"
         sx={{ position: 'fixed', bottom: 70, left: 16 }}

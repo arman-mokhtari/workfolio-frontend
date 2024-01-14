@@ -1,31 +1,37 @@
 import { Grid, Typography, Box } from "@mui/material";
 
-const FooterGridLayout = ({ children, title }) => {
+const FooterGridLayout = ({ children, title, px }) => {
   return (
     <Grid
       item
       xs={12}
       md={4}
       sx={{
-        pb: 3,
-        pt: 1,
-        alignItems: "center",
-        justifyContent: "center",
+        mb: 3,
+        mt: 1,
       }}
     >
-      <Typography
-        variant="h4"
+      <Box
         sx={{
-          fontSize: "1.1rem",
-          fontWeight: "bold",
-          whiteSpace: "nowrap",
-          ml: 2,
-          mb: 1,
+          display: "flex",
+          flexDirection: "column",
+          width: 1,
+          px: px,
         }}
       >
-        {title}
-      </Typography>
-      {children}
+        <Typography
+          noWrap
+          sx={{
+            fontSize: "1.1rem",
+            fontWeight: "bold",
+            ml: 2,
+            mb: 1,
+          }}
+        >
+          {title}
+        </Typography>
+        {children}
+      </Box>
     </Grid>
   );
 };

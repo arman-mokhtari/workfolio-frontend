@@ -140,7 +140,9 @@ const RequestResetPasswordForm = () => {
         container
       >
         <Grid item>
-          <Link href="/sign-in">
+          <Link
+              role="link"
+               aria-label="رفتن به صفحه ورود" href="/sign-in">
             <Typography noWrap variant="body2">
               کلمه عبور را به خاطر آوردم! ورود
             </Typography>

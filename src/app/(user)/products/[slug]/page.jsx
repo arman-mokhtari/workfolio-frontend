@@ -2,6 +2,7 @@ import {
   getProductBySlug,
   getProducts,
 } from "@/services/product/productService";
+import Script from "next/script";
 
 import ProductMainContent from "./components/productMainContent";
 import { jsonLdProductData } from "@/constants/productJsonLdData";
@@ -51,7 +52,8 @@ const Page = async ({ params }) => {
     <>
       <ProductMainContent slug={slug} />
       <section>
-        <script
+        <Script
+          id="product-json-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           strategy="worker"

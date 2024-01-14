@@ -50,12 +50,14 @@ const AddToCart = ({ product }) => {
         >
           <Button
             color="myRed"
+            role="link"
             sx={{
               color: theme.palette.textColor.main,
             }}
             fullWidth
             variant="contained"
             component={Link}
+            aria-label="رفتن به صفحه پرداخت"
             href="/cart"
           >
             تکمیل سفارش

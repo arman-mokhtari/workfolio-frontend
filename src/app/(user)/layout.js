@@ -1,7 +1,4 @@
-import shabnamFont from "@/constants/localFonts";
 import LayoutContent from "./layoutContent";
-
-const myFont = shabnamFont;
 
 export const metadata = {
   robots: {
@@ -15,11 +12,5 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  return (
-    <html lang="fa" dir="rtl">
-      <body className={myFont.className}>
-        <LayoutContent>{children}</LayoutContent>
-      </body>
-    </html>
-  );
+  return <LayoutContent>{children}</LayoutContent>;
 }

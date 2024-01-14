@@ -21,7 +21,7 @@ import { toLocalDateString } from "@/utils/toLocalDate";
 const ReviewSlider = () => {
   const { data, isLoading } = useGetAcceptedReviews();
   const { acceptedReviews } = data || {};
-
+  const srcImg = "https://cdn.workfolio.ir/images/svg/misc/verified.svg";
   return (
     <>
       {isLoading ? (
@@ -163,7 +163,9 @@ const ReviewSlider = () => {
                             alt="verified logo"
                             width="110"
                             height="45"
-                            src="https://cdn.workfolio.ir/images/svg/misc/verified.svg"
+                            placeholder="blur"
+                            blurDataURL={srcImg}
+                            src={srcImg}
                           />
                         </Box>
                         <Box

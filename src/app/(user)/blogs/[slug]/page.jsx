@@ -1,6 +1,7 @@
 import { getBlogBySlug, getBlogs } from "@/services/blog/blogService";
 import { jsonLdBlogData } from "@/constants/blogJsonLdData";
 import BlogMainContent from "./components/blogMainContent";
+import Script from "next/script";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -46,7 +47,8 @@ const Page = async ({ params }) => {
     <>
       <BlogMainContent slug={slug} />
       <section>
-        <script
+        <Script
+          id="json-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
           strategy="worker"

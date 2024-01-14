@@ -54,7 +54,9 @@ const CopyRight = ({ dividerDisplay }) => {
           },
           whiteSpace: "nowrap"
         }}
-        variant="body1">تمامی حقوق برای سایت <Link title="وبسایت ورکفولیو" href="/">ورکفولیو</Link> محفوظ است. کپی‌رایت © {year}</Typography>
+        variant="body1">تمامی حقوق برای سایت <Link
+        role="link"
+        aria-label="وبسایت ورکفولیو" title="وبسایت ورکفولیو" href="/">ورکفولیو</Link> محفوظ است. کپی‌رایت © {year}</Typography>
       </Box>
     </Box>
   );

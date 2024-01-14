@@ -84,6 +84,8 @@ const HomeBlogsSection = () => {
 
       <Button
         component={Link}
+        role="link"
+        aria-label="نمایش همه مقالات"
         href="blogs"
         sx={{
           mx: 3,

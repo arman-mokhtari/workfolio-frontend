@@ -196,7 +196,9 @@ const SignInForm = () => {
           container
         >
           <Grid item xs={7}>
-            <Link href="/auth">
+            <Link
+              role="link"
+               aria-label="رفتن به صفحه ثبت نام" href="/auth">
               <Typography noWrap variant="body2">
                 حساب کاربری ندارم! ثبت نام
               </Typography>
@@ -210,7 +212,9 @@ const SignInForm = () => {
             item
             xs={5}
           >
-            <Link href="/forget-password">
+            <Link
+              role="link"
+               aria-label="رفتن به صفحه فراموشی کلمه عبور" href="/forget-password">
               <Typography noWrap variant="body2">
                 فراموشی کلمه عبور
               </Typography>

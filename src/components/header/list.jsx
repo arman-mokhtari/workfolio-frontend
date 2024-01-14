@@ -54,8 +54,10 @@ const AppBarList = ({ display, flexDirection }) => {
             icon={icon}
             key={i}
             component={Link}
+            aria-label={text}
             href={to}
             label={text}
+            role="link"
           />
         );
       })}
@@ -87,8 +89,10 @@ const AppBarList = ({ display, flexDirection }) => {
               />
             }
             component={Link}
+            aria-label="پنل کاربر"
             href="/profile"
             label="پنل کاربر"
+            role="link"
           />
         )
       )}
@@ -122,6 +126,8 @@ const AppBarList = ({ display, flexDirection }) => {
             component={Link}
             href="/admin"
             label="پنل ادمین"
+            aria-label="پنل ادمین"
+            role="link"
           />
         )
       )}

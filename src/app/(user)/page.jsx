@@ -11,7 +11,6 @@ import ContactSection from "./components/contact/contactSection";
 import HomeBlogsSection from "./blogs/components/homeBlogsSection";
 import ReviewForm from "./components/review/reviewForm";
 import ReviewSlider from "./components/review/reviewSlider";
-import TypedInfoSkeleton from "./components/banner/typedInfoSkeleton";
 
 export const metadata = {
   alternates: {

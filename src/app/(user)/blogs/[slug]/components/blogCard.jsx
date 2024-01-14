@@ -1,12 +1,14 @@
 "use client";
 import HoverCard from "@/common/hoverCard";
-import { Box, Typography, Avatar, Divider } from "@mui/material";
+import { Box, Typography, Divider } from "@mui/material";
 import Link from "next/link";
 import ShareButtons from "./ShareButtons";
 import { toLocalDateString } from "@/utils/toLocalDate";
+import Image from "next/image";
 
 const BlogCard = ({ blog, pageUrl }) => {
   const { title, createdAt, updatedAt, metaDescription, user } = blog;
+  const srcImg = "https://cdn.workfolio.ir/images/admin/arman_mokhtari.png";
 
   return (
     <HoverCard
@@ -60,7 +62,9 @@ const BlogCard = ({ blog, pageUrl }) => {
             },
           }}
         >
-          <Link href="#continue">ادامه مطلب...</Link>
+          <Link
+              role="link"
+                aria-label="ادامه مطلب" href="#continue">ادامه مطلب...</Link>
         </Typography>
         <Box
           sx={{
@@ -68,18 +72,22 @@ const BlogCard = ({ blog, pageUrl }) => {
             flexDirection: "row",
             alignItems: "center",
             mt: 1,
+            "& img": {
+              mr: 1,
+              borderRadius: 50,
+            },
           }}
         >
-          <Avatar
-            sx={{
-              width: 40,
-              height: 40,
-              mr: 1,
-            }}
+          <Image
             alt={user?.name}
-            src="https://cdn.workfolio.ir/images/admin/arman_mokhtari.png"
+            priority
+            placeholder="blur"
+            blurDataURL={srcImg}
+            src={srcImg}
+            width={45}
+            height={45}
           />
-          <Typography>{user?.name}</Typography>
+          <Typography>{user ? user.name : "ادمین"}</Typography>
         </Box>
         <Typography
           variant="caption"

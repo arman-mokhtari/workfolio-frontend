@@ -56,7 +56,9 @@ const AdminDrawer = ({ handleDrawerToggle }) => {
           <ListItem key={index} disablePadding>
             <ListItemButton>
               <ListItemIcon>{icon}</ListItemIcon>
-              <ListItemText primary={<Link href={to}>{text}</Link>} />
+              <ListItemText primary={<Link
+              role="link"
+                aria-label={text} href={to}>{text}</Link>} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -76,7 +78,7 @@ const AdminDrawer = ({ handleDrawerToggle }) => {
                 <Reviews color="primary" />
               </ListItemIcon>
               <ListItemText
-                primary={<Link href="/admin/reviews/public">نظرات عمومی</Link>}
+                primary={<Link aria-label="نظرات عمومی" href="/admin/reviews/public">نظرات عمومی</Link>}
               />
             </ListItemButton>
             <ListItemButton sx={{ pl: 4 }}>
@@ -84,7 +86,9 @@ const AdminDrawer = ({ handleDrawerToggle }) => {
                 <Reviews color="success" />
               </ListItemIcon>
               <ListItemText
-                primary={<Link href="/admin/reviews/product">نظرات محصول</Link>}
+                primary={<Link
+                  role="link"
+                    aria-label="نظرات محصول" href="/admin/reviews/product">نظرات محصول</Link>}
               />
             </ListItemButton>
           </List>

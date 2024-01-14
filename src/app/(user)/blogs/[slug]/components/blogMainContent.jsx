@@ -59,6 +59,8 @@ const BlogMainContent = ({ slug }) => {
               src={blog.imageLink}
               alt={blog.title}
               title={blog.title}
+              placeholder="blur"
+              blurDataURL={blog.imageLink}
             />
           </Grid>
           <Grid

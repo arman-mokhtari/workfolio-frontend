@@ -10,7 +10,6 @@ import { useTheme } from "@mui/material/styles";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
 const ProductsPage = () => {
-
   const isSmallScreen = useIsOnlyXs();
 
   const { isLoading, data } = useGetCategories();
@@ -34,6 +33,8 @@ const ProductsPage = () => {
 
         <Button
           component={Link}
+          role="link"
+           
           href="/admin/categories/add"
           color="success"
           variant="contained"

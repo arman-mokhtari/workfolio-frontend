@@ -97,9 +97,15 @@ const SignBtn = ({ display }) => {
           ) : (
             <>
               <VerticalDivider />
-              <Link href="/auth">ثبت‌نام</Link>
+              <Link
+              role="link"
+              title="رفتن به صفحه ثبت‌نام" aria-label="ثبت‌نام" href="/auth">
+                ثبت‌نام
+              </Link>
               <VerticalDivider variant="middle" />
-              <Link href="/sign-in">ورود</Link>
+              <Link
+              role="link"
+              title="رفتن به صفحه ورود" aria-label="ورود" href="/sign-in">ورود</Link>
             </>
           )}
         </Box>

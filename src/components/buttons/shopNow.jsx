@@ -5,8 +5,10 @@ const ShopNow = ({ mt, ml, fullWidth, text, variant }) => {
   return (
     <Button
       fullWidth={fullWidth}
+      role="link"
       component={Link}
       href="products"
+      aria-label="رفتن به صفحه محصولات"
       sx={{
         mt: mt,
         ml: ml,

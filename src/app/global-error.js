@@ -13,7 +13,7 @@ export default function GlobalError({ error, reset }) {
 
   const theme = useTheme();
   const isSmallScreen = useIsOnlyXs();
-
+  const srcImg = "https://cdn.workfolio.ir/images/svg/errors/error.svg";
   return (
     <Box
       sx={{
@@ -31,11 +31,13 @@ export default function GlobalError({ error, reset }) {
       }}
     >
       <Image
-      priority
-        alt="x"
+        priority
+        alt="خطا از سمت سرور"
+        placeholder="blur"
+        blurDataURL={srcImg}
         width={200}
         height={200}
-        src="https://cdn.workfolio.ir/images/svg/errors/error.svg"
+        src={srcImg}
       />
       <Typography
         sx={{

@@ -102,11 +102,11 @@ const TabSecurity = () => {
         error.response?.data?.error?.message ||
         error?.response?.data?.message ||
         "خطایی رخ داده است.";
-        queryClient.invalidateQueries({ queryKey: ["get-user-captcha"] });
+      queryClient.invalidateQueries({ queryKey: ["get-user-captcha"] });
       toast.error(errorMessage);
     }
   };
-
+  const srcImg = "https://cdn.workfolio.ir/images/misc/pose-m-1.png";
   return (
     <Box onSubmit={handleSubmit(submitHandler)} component="form">
       <CardContent sx={{ paddingBottom: 0 }}>
@@ -261,7 +261,6 @@ const TabSecurity = () => {
               <Grid item xs={12}>
                 <UserServicesCaptcha />
               </Grid>
-              
             </Grid>
           </Grid>
 
@@ -277,11 +276,13 @@ const TabSecurity = () => {
           >
             {!isSmallScreen && (
               <Image
-              priority
+                priority
                 width={183}
                 alt="avatar"
                 height={256}
-                src="https://cdn.workfolio.ir/images/misc/pose-m-1.png"
+                placeholder="blur"
+                blurDataURL={srcImg}
+                src={srcImg}
               />
             )}
           </Grid>

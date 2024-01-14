@@ -43,7 +43,9 @@ const Product = ({ product }) => {
           },
         }}
       >
-        <Link href={`/products/${faSlug}`}>
+        <Link
+              role="link"
+            aria-label={title} href={`/products/${faSlug}`}>
           <Image
             priority
             height="240"
@@ -51,6 +53,8 @@ const Product = ({ product }) => {
             src={imageLink}
             alt={title}
             title={title}
+            placeholder="blur"
+            blurDataURL={imageLink}
           />
         </Link>
       </Box>
@@ -67,7 +71,9 @@ const Product = ({ product }) => {
           placement="top"
         >
           <Typography gutterBottom component="div">
-            <Link href={`/products/${faSlug}`}>
+            <Link 
+              role="link"
+               aria-label={title} href={`/products/${faSlug}`}>
               <Typography
                 color="text.primary"
                 sx={{
@@ -141,7 +147,9 @@ const Product = ({ product }) => {
             fullWidth
             variant="outlined"
           >
-            <Link href={`/products/${faSlug}`}>اطلاعات بیشتر</Link>
+            <Link 
+              role="link"
+               aria-label="اطلاعات بیشتر" href={`/products/${faSlug}`}>اطلاعات بیشتر</Link>
           </Button>
         </Box>
         <Box
