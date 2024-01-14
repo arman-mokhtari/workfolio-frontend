@@ -42,5 +42,19 @@ export default function manifest() {
         purpose: "any",
       },
     ],
+    "screenshots": [
+      {
+        src: "/screenshots/web_design_2.png",
+        type: "image/jpg",
+        sizes: "1200x788",
+        form_factor: "narrow"
+      },
+      {
+        src: "/screenshots/web_design_1.png",
+        type: "image/png",
+        sizes: "1200x788",
+        form_factor: "wide"
+      }
+    ]
   };
 }
