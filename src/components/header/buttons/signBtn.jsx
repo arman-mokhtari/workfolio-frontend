@@ -51,13 +51,10 @@ const SignBtn = ({ display }) => {
             borderRadius: 2,
             padding: "5px",
             ml: 1,
-            "& a:hover , svg:hover": {
-              color: "primary.main",
-            },
             "& a": {
               textDecoration: "none",
               fontSize: "1rem",
-              color: "text.primary",
+              color: "inherit",
               whiteSpace: "nowrap",
             },
           }}
@@ -75,7 +72,7 @@ const SignBtn = ({ display }) => {
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  color: "text.primary",
+                  color: "inherit",
                   p: 0,
                   backgroundColor: "transparent !important",
                 }}
@@ -98,14 +95,22 @@ const SignBtn = ({ display }) => {
             <>
               <VerticalDivider />
               <Link
-              role="link"
-              title="رفتن به صفحه ثبت‌نام" aria-label="ثبت‌نام" href="/auth">
+                role="link"
+                title="رفتن به صفحه ثبت‌نام"
+                aria-label="ثبت‌نام"
+                href="/auth"
+              >
                 ثبت‌نام
               </Link>
-              <VerticalDivider variant="middle" />
+              <VerticalDivider />
               <Link
-              role="link"
-              title="رفتن به صفحه ورود" aria-label="ورود" href="/sign-in">ورود</Link>
+                role="link"
+                title="رفتن به صفحه ورود"
+                aria-label="ورود"
+                href="/sign-in"
+              >
+                ورود
+              </Link>
             </>
           )}
         </Box>

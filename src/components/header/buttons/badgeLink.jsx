@@ -11,13 +11,8 @@ const BadgeLink = ({ badgeContent }) => {
           horizontal: "left",
         }}
         badgeContent={badgeContent}
-        color="primary"
       >
-        <ShoppingCartOutlined
-          sx={{
-            color: "text.primary",
-          }}
-        />
+        <ShoppingCartOutlined />
       </Badge>
     </Link>
   );

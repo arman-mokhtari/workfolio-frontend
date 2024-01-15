@@ -35,9 +35,6 @@ const ThemeBtn = ({ xs }) => {
             "&.MuiButtonBase-root:hover": {
               backgroundColor: "transparent",
             },
-            "& svg:hover": {
-              color: theme.palette.mode === "dark" ? "#ffeb3b" : "#64b5f6",
-            },
             border: "2px solid",
             borderRadius: 2,
             padding: "5px",
