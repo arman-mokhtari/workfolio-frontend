@@ -10,7 +10,7 @@ import {
   IconButton,
   Toolbar,
   useScrollTrigger,
-  Skeleton
+  Skeleton,
 } from "@mui/material";
 
 import { Menu } from "@mui/icons-material";
@@ -51,7 +51,7 @@ const DrawerAppBar = (props) => {
       <ElevationScroll {...props}>
         <AppBar component="nav">
           <Toolbar>
-          {isLoading ? (
+            {isLoading ? (
               <Skeleton
                 sx={{
                   mr: 2,
@@ -66,25 +66,24 @@ const DrawerAppBar = (props) => {
                 height={38.23}
               />
             ) : (
-               <IconButton
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{
-                mr: 2,
-                display: {
-                  lg: "none",
-                },
-                border: "2px solid",
-                borderRadius: 2,
-                padding: "5px",
-                color: "inherit",
-              }}
-            >
-              <Menu />
-            </IconButton>
+              <IconButton
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                sx={{
+                  mr: 2,
+                  display: {
+                    lg: "none",
+                  },
+                  border: "2px solid",
+                  borderRadius: 2,
+                  padding: "5px",
+                  color: "inherit",
+                }}
+              >
+                <Menu />
+              </IconButton>
             )}
-           
 
             <Box
               sx={{
