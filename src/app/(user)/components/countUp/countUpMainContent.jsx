@@ -1,8 +1,6 @@
 "use client";
 
-import { Box, Divider, Grid } from "@mui/material";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
+import { Box, Divider, Grid, Typography, CardContent } from "@mui/material";
 
 import { useRef, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";

@@ -1,17 +1,17 @@
 import { Box } from "@mui/material";
 import ContactUsForm from "./components/contactUsForm";
 import TopAbsoluteShadow from "@/common/topAbsoluteShadow";
-import Image from "next/image"
+import Image from "next/image";
 
 const Page = () => {
-  const banner = "https://cdn.workfolio.ir/images/bg/contact.png"
+  const banner = "https://cdn.workfolio.ir/images/bg/contact.png";
   return (
     <Box
       sx={{
         height: "calc(100vh - 64px)",
         display: "flex",
         justifyContent: "center",
-        alignItems:"center",
+        alignItems: "center",
         backgroundImage: "none",
         backgroundColor: "transparent",
       }}
@@ -34,7 +34,7 @@ const Page = () => {
           sizes="100vw"
         />
       </Box>
-      <TopAbsoluteShadow/>
+      <TopAbsoluteShadow height="70%" />
       <ContactUsForm />
     </Box>
   );

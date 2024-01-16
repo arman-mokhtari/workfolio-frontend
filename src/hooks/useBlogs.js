@@ -3,6 +3,7 @@ import {
   getBlogById,
   getBlogBySlug,
   getBlogs,
+  likeBlog,
   removeBlog,
   updateBlog,
 } from "@/services/blog/blogService";
@@ -38,6 +39,10 @@ export const useRemoveBlog = () => {
   return useMutation({ mutationFn: removeBlog });
 };
 
+export const useLikeBlog = () => {
+  return useMutation({ mutationFn: likeBlog });
+};
+
 export const useGetBlogById = (id) =>
   useQuery({
     queryKey: ["get-blog", id],
@@ -45,6 +50,7 @@ export const useGetBlogById = (id) =>
     retry: false,
     refetchOnWindowFocus: true,
   });
+
 
 export const useGetBlogBySlug = (id) =>
   useQuery({

@@ -1,16 +1,6 @@
-import { Box } from "@mui/material";
-import Banner from "./components/banner/banner";
-import CountingCard from "./components/countUp/countingCard";
-import Content from "./components/content/contentSection";
-import DataImageSec from "./components/dataImage/dataImageSection";
-import SupportImages from "./components/supportImages/supportImages";
-import ProductItems from "./products/components/products";
-import { getProducts } from "@/services/product/productService";
-import queryString from "query-string";
-import ContactSection from "./components/contact/contactSection";
-import HomeBlogsSection from "./blogs/components/homeBlogsSection";
-import ReviewForm from "./components/review/reviewForm";
-import ReviewSlider from "./components/review/reviewSlider";
+import dynamic from "next/dynamic";
+
+const PageMainContent = dynamic(() => import("./components/pageMainContent"));
 
 export const metadata = {
   alternates: {
@@ -30,37 +20,9 @@ export const metadata = {
   ],
 };
 
-const Home = async ({ searchParams }) => {
-  const productsPromise = getProducts(queryString.stringify(searchParams));
-
-  const [{ products }] = await Promise.all([productsPromise]);
-  return (
-    <>
-      <Box
-        sx={{
-          overflow: "hidden",
-        }}
-      >
-        <Banner />
-        <Box
-          sx={{
-            px: 1.5,
-          }}
-        >
-          <ProductItems products={products} />
-          <CountingCard />
-          <Content />
-          <DataImageSec />
-          <SupportImages />
-          <HomeBlogsSection />
-          <ReviewSlider />
-          <ReviewForm />
-        </Box>
-      </Box>
-      <ContactSection />
-    </>
-  );
+const Page = async ({ searchParams }) => {
+  return <PageMainContent searchParams={searchParams} />;
 };
-export default Home;
+export default Page;
 
 export const amp = true;

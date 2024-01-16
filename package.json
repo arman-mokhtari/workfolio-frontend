@@ -42,7 +42,7 @@
     "react-share": "^5.0.3",
     "react-slick": "^0.29.0",
     "react-spring": "^9.7.3",
-    "sharp": "^0.33.1",
+    "sharp": "^0.33.2",
     "slick-carousel": "^1.8.1",
     "stylis-plugin-rtl": "^2.1.1",
     "typed.js": "^2.1.0"

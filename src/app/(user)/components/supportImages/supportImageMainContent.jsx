@@ -32,7 +32,7 @@ const SupportImagesMainContent = () => {
       <Grid item xs={12} md={6}>
         <Stack alignItems="center">
           <Typography
-            variant="h4"
+            variant="h3"
             noWrap
             sx={{
               mb: 2,
@@ -65,7 +65,7 @@ const SupportImagesMainContent = () => {
       <Grid item xs={12} md={6}>
         <Stack alignItems="center">
           <Typography
-            variant="h4"
+            variant="h3"
             noWrap
             sx={{
               fontSize: "1.6rem",

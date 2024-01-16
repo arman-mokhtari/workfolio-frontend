@@ -4,13 +4,13 @@ export default function Loading() {
     <Box
       sx={{
         display: "flex",
-        height: "80vh",
+        height: "calc(100vh - 64px)",
         justifyContent: "center",
         alignItems: "center",
         width: 1,
       }}
     >
-      <CircularProgress size={60} />
+      <CircularProgress size={45} />
     </Box>
   );
 }

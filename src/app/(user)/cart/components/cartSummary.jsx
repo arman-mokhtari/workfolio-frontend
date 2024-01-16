@@ -12,7 +12,7 @@ import AddCouponForm from "./addCouponForm";
 import PaymentTextarea from "./paymentTextarea";
 import { useState } from "react";
 
-const CartSummary = ({ payDetail }) => {
+const CartSummary = ({ cart }) => {
   const [message, setMessage] = useState("");
 
   const handleInputChange = (e) => {
@@ -20,7 +20,15 @@ const CartSummary = ({ payDetail }) => {
     setMessage(newValue);
   };
 
-  const { totalOffAmount, totalPrice, totalGrossPrice } = payDetail;
+  const { totalOffAmount, totalPrice, totalGrossPrice } = cart.reduce(
+    (acc, item) => {
+      acc.totalOffAmount += item?.payDetail?.totalOffAmount || 0;
+      acc.totalPrice += item?.payDetail?.totalPrice || 0;
+      acc.totalGrossPrice += item?.payDetail?.totalGrossPrice || 0;
+      return acc;
+    },
+    { totalOffAmount: 0, totalPrice: 0, totalGrossPrice: 0 }
+  );
 
   const queryClient = useQueryClient();
 
