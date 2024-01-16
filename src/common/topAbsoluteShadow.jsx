@@ -2,7 +2,7 @@
 import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-const TopAbsoluteShadow = () => {
+const TopAbsoluteShadow = ({height}) => {
   const theme = useTheme();
   return (
     <Box
@@ -11,7 +11,7 @@ const TopAbsoluteShadow = () => {
         top: 0,
         right: 0,
         left: 0,
-        height: "70%",
+        height: height,
         zIndex: 2,
         "&::after": {
           content: "''",
