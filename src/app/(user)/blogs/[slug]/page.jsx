@@ -51,7 +51,6 @@ const Page = async ({ params }) => {
           id="json-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          strategy="worker"
         />
       </section>
     </>
