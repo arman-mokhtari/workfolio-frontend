@@ -27,7 +27,6 @@ const CartPage = () => {
 
   if (isLoading) return <Loading />;
 
-
   if (!user?.cart?.products || user?.cart?.products?.length === 0) {
     return <EmptyCart />;
   }
@@ -41,16 +40,19 @@ const CartPage = () => {
           justifyContent: "center",
           p: 3,
           pt: 4,
-          "& .MuiTypography-root": {
-            [theme.breakpoints.only("xs")]: {
-              fontSize: "0.8rem",
+            "& .MuiTypography-root": {
+              [theme.breakpoints.only("xs")]: {
+                fontSize: "0.8rem",
+              },
             },
-          },
         }}
         container
       >
         <Grid item xs={12} md={8}>
-          <HoverCard defaultElevation={4} hoveredElevation={10}>
+          <HoverCard
+          defaultElevation={4}
+          hoveredElevation={10}
+          >
             <TableContainer component={Paper}>
               <Table
                 sx={{
@@ -70,20 +72,16 @@ const CartPage = () => {
 
                 <TableBody>
                   {cart &&
-                    cart.map(
-                      (cartItem, i) =>
-                        cartItem.productDetail &&
-                        cartItem.productDetail.map((item, j) => (
-                          <CartItem key={`${i}-${j}`} cartItem={item} />
-                        ))
-                    )}
+                    cart.productDetail.map((item,i) => (
+                      <CartItem key={i} cartItem={item} />
+                    ))}
                 </TableBody>
               </Table>
             </TableContainer>
           </HoverCard>
         </Grid>
         <Grid item xs={12} md={4}>
-          <CartSummary cart={cart} />
+          <CartSummary payDetail={cart.payDetail} />
         </Grid>
       </Grid>
     </>

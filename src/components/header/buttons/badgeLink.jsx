@@ -5,20 +5,24 @@ import Link from "next/link";
 
 const BadgeLink = ({ badgeContent }) => {
   return (
-    <Link role="link" aria-label="رفتن به صفحه کارت" href="/cart">
+    <Link href="/cart">
       <Badge
-        color="primary"
         anchorOrigin={{
           vertical: "top",
           horizontal: "left",
         }}
         badgeContent={toPersianNumbers(badgeContent)}
-        invisible={!badgeContent > 0}
+        color="primary"
       >
-        <ShoppingCartOutlined />
+        <ShoppingCartOutlined
+          sx={{
+            color: "text.primary",
+          }}
+        />
       </Badge>
     </Link>
   );
+  
 };
 
 export default BadgeLink;

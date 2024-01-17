@@ -7,7 +7,6 @@ import { useTheme } from "@mui/material/styles";
 
 const EmptyCart = () => {
   const theme = useTheme();
-  const srcImg = "https://cdn.workfolio.ir/images/graphics/empty_cart.svg";
   return (
     <Box
       sx={{
@@ -19,13 +18,10 @@ const EmptyCart = () => {
       }}
     >
       <Image
-        priority
-        alt="سبد خرید خالی"
+        alt="x"
         width={200}
         height={200}
-        placeholder="blur"
-        blurDataURL={srcImg}
-        src={srcImg}
+        src="/images/graphics/empty_cart.svg"
       />
       <Typography
         sx={{
@@ -79,9 +75,7 @@ const EmptyCart = () => {
         color="success"
         variant="contained"
         component={Link}
-        role="link"
         href="/products"
-        aria-label="بازگشت به صفحه خرید"
       >
         بازگشت به صفحه خرید
       </Button>
