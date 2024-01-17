@@ -12,6 +12,7 @@ const BadgeLink = ({ badgeContent }) => {
           horizontal: "left",
         }}
         badgeContent={toPersianNumbers(badgeContent)}
+        invisible={!badgeContent > 0}
         color="primary"
       >
         <ShoppingCartOutlined
