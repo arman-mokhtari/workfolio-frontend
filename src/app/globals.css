@@ -373,4 +373,27 @@ header .muirtl-8ibv6u {
   content: " " !important;
   display: table !important;
 }
+
+blockquote {
+  border-right: 5px solid #ccc;
+  margin-left: 0;
+  margin-right: 0;
+  overflow: hidden;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  font-style: italic;
+}
+
+.custom_workfolio_desc {
+  text-align: justify;
+}
+
+.custom_workfolio_desc h1,
+.custom_workfolio_desc h2,
+.custom_workfolio_desc h3,
+.custom_workfolio_desc h4,
+.custom_workfolio_desc h5,
+.custom_workfolio_desc h6 {
+  text-align: start;
+}
 /* CK Editor */

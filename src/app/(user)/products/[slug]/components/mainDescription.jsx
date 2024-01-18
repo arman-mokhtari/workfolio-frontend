@@ -1,13 +1,7 @@
 "use client";
 import HoverCard from "@/common/hoverCard";
 import { useTheme } from "@mui/material/styles";
-import {
-  Grid,
-  Box,
-  Divider,
-  CardHeader,
-  Chip,
-} from "@mui/material";
+import { Grid, Box, Divider, CardHeader, Chip } from "@mui/material";
 import ReactHtmlParser from "react-html-parser";
 import FaqsSection from "./faqsSection";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
@@ -39,9 +33,12 @@ const MainDescription = ({ product }) => {
         hoveredElevation={10}
       >
         <Box
+          className="custom_workfolio_desc"
           sx={{
             lineHeight: 1.7,
-            textAlign: "justify",
+            "& h2": {
+              fontSize: "1.2rem",
+            },
           }}
         >
           {ReactHtmlParser(description)}
