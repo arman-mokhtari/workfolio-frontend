@@ -75,6 +75,7 @@ const EditPage = () => {
         },
       });
       queryClient.invalidateQueries({ queryKey: ["get-product"] });
+      queryClient.invalidateQueries({ queryKey: ["get-qs-products"] });
       router.push("/admin/products");
       toast.success(message);
     } catch (error) {

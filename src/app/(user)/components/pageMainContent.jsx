@@ -1,10 +1,7 @@
 "use client";
 import { Box } from "@mui/material";
 
-import { useGetAllProductsQs } from "@/hooks/useProducts";
-import queryString from "query-string";
 import Banner from "./banner/banner";
-import ProductItems from "../products/components/products";
 import CountingCard from "./countUp/countingCard";
 import Content from "./content/contentSection";
 import SupportImages from "./supportImages/supportImages";
@@ -13,12 +10,10 @@ import DataImageSec from "./dataImage/dataImageSection";
 import ReviewSlider from "./review/reviewSlider";
 import ReviewForm from "./review/reviewForm";
 import ContactSection from "./contact/contactSection";
+import HomeProductsSection from "../products/components/homeProductsSection";
 
-const PageMainContent = ({ searchParams }) => {
-  const qs = queryString.stringify(searchParams);
+const PageMainContent = () => {
 
-  const { data, isPending } = useGetAllProductsQs(qs);
-  const { products } = data || {};
 
   return (
     <>
@@ -33,7 +28,7 @@ const PageMainContent = ({ searchParams }) => {
             px: 1.5,
           }}
         >
-          <ProductItems isPending={isPending} products={products} />
+          <HomeProductsSection/>
           <CountingCard />
           <Content />
           <DataImageSec />

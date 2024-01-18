@@ -4,6 +4,7 @@ import { useAddProduct } from "@/hooks/useProducts";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
+import { useQueryClient } from "@tanstack/react-query";
 
 import ProductForm from "./components/productForm";
 
@@ -63,7 +64,7 @@ const AddProductPage = () => {
       setFormData({ ...formData, faqs });
     }
   };
-
+  const queryClient = useQueryClient();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -73,6 +74,7 @@ const AddProductPage = () => {
         tags,
         category: selectedCategory,
       });
+      queryClient.invalidateQueries({ queryKey: ["get-qs-products"] });
       router.push("/admin/products");
       toast.success(message);
     } catch (error) {

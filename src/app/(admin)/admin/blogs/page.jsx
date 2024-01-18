@@ -1,6 +1,4 @@
-import dynamic from 'next/dynamic';
-
-const BlogsMainContent = dynamic(() => import('./components/blogsMainContent'), { ssr: false });
+import BlogsMainContent from "./components/blogsMainContent";
 
 const BlogsPage = () => {
   return <BlogsMainContent />;

@@ -1,6 +1,5 @@
-import dynamic from "next/dynamic";
+import PageMainContent from "./components/pageMainContent";
 
-const PageMainContent = dynamic(() => import("./components/pageMainContent"));
 
 export const metadata = {
   alternates: {
@@ -20,8 +19,8 @@ export const metadata = {
   ],
 };
 
-const Page = async ({ searchParams }) => {
-  return <PageMainContent searchParams={searchParams} />;
+const Page = async () => {
+  return <PageMainContent />;
 };
 export default Page;
 

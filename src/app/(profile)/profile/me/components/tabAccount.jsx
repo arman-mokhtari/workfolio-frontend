@@ -6,7 +6,7 @@ import { useGetUser } from "@/hooks/useAuth";
 import { updateProfile } from "@/services/auth/authServices";
 import { includeObj } from "@/utils/objectUtils";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-// import { useForm } from "react-hook-form";
+
 import toast from "react-hot-toast";
 import { Box, Grid, TextField, CardContent } from "@mui/material";
 import UserServicesCaptcha from "@/common/userServicesCaptcha";
@@ -107,7 +107,6 @@ const TabAccount = () => {
                   />
                 )}
                 rules={{
-                  required: `لطفاً ${getLabel(key)} را وارد کنید.`,
                   ...(key === "phoneNumber" && {
                     pattern: {
                       value: /^0\d{10}$/,
@@ -134,35 +133,6 @@ const TabAccount = () => {
           <Grid item xs={12}>
             <UserServicesCaptcha />
           </Grid>
-          {/* <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              width: 1,
-              "& img": {
-                // mb: 2,
-              },
-            }}
-          >
-            <TextField
-              {...register("enteredCaptcha", {
-                required: "تایید کنید ربات نیستید",
-                minLength: {
-                  value: 5,
-                  message: "اعتبارسنجی باید 5 کاراکتر باشد",
-                },
-                maxLength: {
-                  value: 5,
-                  message: "اعتبارسنجی باید 5 کاراکتر باشد",
-                },
-              })}
-              helperText={errors.enteredCaptcha?.message}
-              fullWidth
-              name="enteredCaptcha"
-              label="لطفا متن تصویر را وارد کنید"
-              type="text"
-            />
-          </Box> */}
           <Grid item xs={12}>
             <CommonButton
               fullWidth="fullWidth"

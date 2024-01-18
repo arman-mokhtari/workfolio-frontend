@@ -23,7 +23,6 @@ const BadgeLink = ({ badgeContent }) => {
       </Badge>
     </Link>
   );
-  
 };
 
 export default BadgeLink;
