@@ -25,7 +25,7 @@ export const jsonLdProductData = (product) => {
     },
     offers: {
       "@type": "Offer",
-      priceCurrency: "IRT",
+      priceCurrency: "IRR",
       price: `${price}`,
       itemCondition: "http://schema.org/UsedCondition",
       availability: "http://schema.org/InStock",

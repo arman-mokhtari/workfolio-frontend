@@ -71,9 +71,7 @@ const HomeBlogsSection = () => {
                 </HoverCard>
               </Grid>
             ))
-          : blogs?.length > 4
-          ? blogs?.slice(0, 4)
-          : blogs?.map((blog, index) => {
+          : blogs?.slice(0, 4).map((blog, index) => {
               return (
                 <Grid xs={12} sm={6} lg={3} item key={index}>
                   <Blog blog={blog} />

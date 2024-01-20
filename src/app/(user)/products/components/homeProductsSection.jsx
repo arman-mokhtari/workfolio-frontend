@@ -34,7 +34,7 @@ const HomeProductsSection = () => {
           },
         }}
       >
-        آخرین مقالات
+        محصولات پرفروش
       </Typography>
 
       <Grid
@@ -75,9 +75,7 @@ const HomeProductsSection = () => {
                 </HoverCard>
               </Grid>
             ))
-          : products?.length > 4
-          ? products?.slice(0, 4)
-          : products?.map((product, index) => {
+            : products?.slice(0, 4).map((product, index) => {
               return (
                 <Grid xs={12} sm={6} lg={3} item key={index}>
                   <Product product={product} />
