@@ -1,20 +1,16 @@
 "use client";
 import { Grid, Button, Typography, Box, Skeleton, Stack } from "@mui/material";
-
-
+import { LoadingButton } from "@mui/lab";
 import { useTheme } from "@mui/material/styles";
 import Link from "next/link";
 import HoverCard from "@/common/hoverCard";
 import { useGetAllProducts } from "@/hooks/useProducts";
 import Product from "./product";
-import Loading from "@/common/loading";
 
 const HomeProductsSection = () => {
   const theme = useTheme();
   const { isLoading, data } = useGetAllProducts();
   const { products } = data || {};
-
- if (isLoading)return<Loading/>
 
   return (
     <Box
@@ -54,28 +50,33 @@ const HomeProductsSection = () => {
                   defaultElevation={4}
                   hoveredElevation={4}
                 >
-                  <Stack spacing={0.5}>
+                  <Stack>
                     <Skeleton
                       sx={{ borderRadius: 3 }}
                       variant="rectangular"
                       height={140}
                     />
+                    <Skeleton variant="text" sx={{ fontSize: "2rem" }} />
+                    <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+                    <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
                     <Skeleton
+                      width="50%"
                       variant="text"
-                      sx={{ fontSize: "2rem", mt: "0.75rem !important" }}
+                      sx={{ fontSize: "1rem" }}
                     />
-                    <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
-                    <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
                     <Skeleton
-                      sx={{ mt: "1rem !important" }}
-                      variant="rounded"
-                      height={35}
+                      sx={{ mb: 0.5 }}
+                      variant="circular"
+                      width={30}
+                      height={30}
                     />
+                    <Skeleton variant="rounded" height={30} />
+                    <Skeleton sx={{ mt: 1 }} variant="rounded" height={35} />
                   </Stack>
                 </HoverCard>
               </Grid>
             ))
-            : products?.slice(0, 4).map((product, index) => {
+          : products?.slice(0, 4).map((product, index) => {
               return (
                 <Grid xs={12} sm={6} lg={3} item key={index}>
                   <Product product={product} />
@@ -84,7 +85,7 @@ const HomeProductsSection = () => {
             })}
       </Grid>
 
-      <Button
+      <LoadingButton
         component={Link}
         role="link"
         aria-label="نمایش همه محصولات"
@@ -95,9 +96,11 @@ const HomeProductsSection = () => {
         }}
         variant="contained"
         color="primary"
+        loadingIndicator=" "
+        loading={isLoading}
       >
         نمایش همه محصولات
-      </Button>
+      </LoadingButton>
     </Box>
   );
 };

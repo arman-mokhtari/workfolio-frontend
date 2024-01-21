@@ -1,15 +1,24 @@
 import { cookies } from "next/headers";
 import { toStringCookies } from "@/utils/toStringCookies";
 import queryString from "query-string";
-import ProductsMainContent from "./components/productsMainContent";
+
+import { getProducts } from "@/services/product/productService";
+import ProductItems from "./components/products";
+import ProductsLayout from "./components/productsLayout";
 export const dynamic = "force-dynamic";
 
 const Products = async ({ searchParams }) => {
   const cookieStore = cookies();
   const strCookies = toStringCookies(cookieStore);
-  const querySearchParams = queryString.stringify(searchParams);
+  const qs = queryString.stringify(searchParams);
+  const productsPromise = getProducts(qs, strCookies);
+  const [{ products }] = await Promise.all([productsPromise]);
 
-  return <ProductsMainContent qs={querySearchParams} cookies={strCookies} />;
+  return (
+    <ProductsLayout>
+      <ProductItems products={products} />
+    </ProductsLayout>
+  );
 };
 
 export default Products;

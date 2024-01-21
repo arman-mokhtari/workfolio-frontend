@@ -36,7 +36,7 @@ const XsBanner = ({ isLoading }) => {
           height: "calc(100vh - 60px)",
           flexDirection: "column",
           justifyContent: "space-around",
-          mb: 3,
+          mb: 1,
         }}
       >
         <Box

@@ -19,7 +19,7 @@ export default function Error({ error, reset }) {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        minHeight: 490,
+        minHeight: "calc(100vh - 64px)",
         px: 2,
         mt: 2,
         "& img": {

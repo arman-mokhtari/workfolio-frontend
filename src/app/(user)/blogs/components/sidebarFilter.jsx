@@ -4,10 +4,9 @@ import { useCallback, useEffect, useState } from "react";
 import { FormControl, FormGroup, FormLabel, Skeleton } from "@mui/material";
 
 import CommonCheckBox from "@/common/commonCheckBox";
-import { useGetCategories } from "@/hooks/useCategories";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
-const SidebarFilter = ({ categories }) => {
+const SidebarFilter = ({ categories, isLoading }) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -51,7 +50,6 @@ const SidebarFilter = ({ categories }) => {
     setSelectedCategories(searchParams.get("category")?.split(",") || []);
   }, [searchParams]);
 
-  const { isLoading } = useGetCategories();
   return (
     <FormControl sx={{ m: 1.5 }} component="fieldset" variant="standard">
       <FormLabel

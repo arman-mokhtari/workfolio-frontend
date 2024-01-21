@@ -1,5 +1,4 @@
 "use client";
-import dynamic from "next/dynamic";
 
 import { Grid, Box } from "@mui/material";
 import AboutUsDescription from "./components/description";

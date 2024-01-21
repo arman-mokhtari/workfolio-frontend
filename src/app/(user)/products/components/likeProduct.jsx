@@ -1,21 +1,25 @@
 "use client";
 
-import { likeProduct } from "@/services/product/productService";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { toast } from "react-hot-toast";
 import { Box, IconButton } from "@mui/material";
 import { ThumbUp, ThumbUpOutlined } from "@mui/icons-material";
-import { useQueryClient } from "@tanstack/react-query";
+import { useLikeProduct } from "@/hooks/useProducts";
 
 const LikeProduct = ({ product }) => {
-  const queryClient = useQueryClient();
-  const { isLiked, _id } = product;
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
+  const { mutateAsync } = useLikeProduct();
+
+  const { isLiked, _id } = product;
 
   const likeHandler = async () => {
     try {
-      const { message } = await likeProduct(_id);
+      const { message } = await mutateAsync(_id);
       toast.success(message);
-      queryClient.invalidateQueries({ queryKey: ["get-qs-products"] });
+      router.refresh(pathname + "?" + searchParams.toString());
     } catch (error) {
       toast.error(error?.response?.data?.message);
     }

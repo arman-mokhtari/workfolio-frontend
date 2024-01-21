@@ -1,5 +1,4 @@
 import { getBlogBySlug, getBlogs } from "@/services/blog/blogService";
-import { jsonLdBlogData } from "@/constants/blogJsonLdData";
 import BlogMainContent from "./components/blogMainContent";
 
 export const dynamic = "force-static";
@@ -39,20 +38,8 @@ export async function generateMetadata({ params }) {
 
 const Page = async ({ params }) => {
   const { slug } = params;
-  const { blog } = await getBlogBySlug(slug);
 
-  const jsonLd = jsonLdBlogData(blog);
-  return (
-    <>
-      <BlogMainContent slug={slug} />
-      <section>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </section>
-    </>
-  );
+  return <BlogMainContent slug={slug} />;
 };
 
 export default Page;

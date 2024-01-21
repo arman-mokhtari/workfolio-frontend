@@ -15,7 +15,8 @@ const BadgeLink = ({ badgeContent }) => {
         invisible={!badgeContent > 0}
         color="primary"
       >
-        <ShoppingCartOutlined />
+        <ShoppingCartOutlined
+        />
       </Badge>
     </Link>
   );

@@ -3,6 +3,7 @@ import {
   getProductById,
   getProductBySlug,
   getProducts,
+  likeProduct,
   removeProduct,
   updateProduct,
 } from "@/services/product/productService";
@@ -16,16 +17,12 @@ export const useGetAllProducts = () =>
     refetchOnWindowFocus: true,
   });
 
-export const useGetAllProductsQs = (qs, cookies) =>
-  useQuery({
-    queryKey: ["get-qs-products", qs, cookies],
-    queryFn: () => getProducts(qs, cookies),
-    retry: false,
-    refetchOnWindowFocus: true,
-  });
-
 export const useAddProduct = () => {
   return useMutation({ mutationFn: addProduct });
+};
+
+export const useLikeProduct = () => {
+  return useMutation({ mutationFn: likeProduct });
 };
 
 export const useUpdateProduct = () => {

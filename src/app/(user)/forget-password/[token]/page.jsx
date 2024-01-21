@@ -18,7 +18,7 @@ const Page = () => {
     return (
       <Box
         sx={{
-          height: "80vh",
+          minHeight: "calc(100vh - 64px)",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",

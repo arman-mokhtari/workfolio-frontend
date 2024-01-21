@@ -78,7 +78,8 @@ const CartSummary = ({ payDetail }) => {
         <ShopNow variant="outlined" text="ادامه خرید" fullWidth={true} />
         <Box>
           <Button
-            disabled={isPending}
+            // disabled={isPending} //todo should connect to Payment gateway
+            disabled
             sx={{
               mt: 1.5,
               mb: 0.5,

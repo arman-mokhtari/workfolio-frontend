@@ -8,6 +8,7 @@ import LinksAside from "./linksAside";
 import ContactSection from "@/pages/(user)/components/contact/contactSection";
 import { useGetBlogBySlug } from "@/hooks/useBlogs";
 import Loading from "@/common/loading";
+import { jsonLdBlogData } from "@/constants/blogJsonLdData";
 
 const BlogMainContent = ({ slug }) => {
   const { data, isLoading } = useGetBlogBySlug(slug);
@@ -16,6 +17,7 @@ const BlogMainContent = ({ slug }) => {
   if (isLoading) return <Loading />;
 
   const pageUrl = `https://workfolio.ir/blogs/${blog.faSlug}`;
+  const jsonLd = jsonLdBlogData(blog);
   return (
     <>
       <Box
@@ -81,6 +83,12 @@ const BlogMainContent = ({ slug }) => {
         </Grid>
       </Box>
       <ContactSection />
+      <section>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </section>
     </>
   );
 };

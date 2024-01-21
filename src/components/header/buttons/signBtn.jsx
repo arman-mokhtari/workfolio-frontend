@@ -15,7 +15,7 @@ const SignBtn = ({ display }) => {
 
   const splitName = user?.name?.split(" ")[0];
 
-   const cartItemsCount = cart?.payDetail?.productIds?.length;
+  const cartItemsCount = cart?.payDetail?.productIds?.length;
 
   const logoutHandler = async () => {
     await logout();

@@ -4,7 +4,6 @@ import {
 } from "@/services/product/productService";
 
 import ProductMainContent from "./components/productMainContent";
-import { jsonLdProductData } from "@/constants/productJsonLdData";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -43,21 +42,8 @@ export async function generateMetadata({ params }) {
 
 const Page = async ({ params }) => {
   const { slug } = params;
-  const { product } = await getProductBySlug(slug);
 
-  const jsonLd = jsonLdProductData(product);
-
-  return (
-    <>
-      <ProductMainContent slug={slug} />
-      <section>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </section>
-    </>
-  );
+  return <ProductMainContent slug={slug} />;
 };
 
 export default Page;

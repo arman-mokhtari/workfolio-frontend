@@ -10,12 +10,14 @@ import LinksAside from "@/pages/(user)/blogs/[slug]/components/linksAside";
 import ReviewSlider from "./review/reviewSlider";
 import ReviewForm from "./review/reviewForm";
 import ContactSection from "@/pages/(user)/components/contact/contactSection";
+import { jsonLdProductData } from "@/constants/productJsonLdData";
 
 const ProductMainContent = ({ slug }) => {
   const { data, isLoading } = useGetProductBySlug(slug);
   const { product } = data || {};
 
   if (isLoading) return <Loading />;
+  const jsonLd = jsonLdProductData(product);
 
   return (
     <>
@@ -76,6 +78,12 @@ const ProductMainContent = ({ slug }) => {
       </Box>
 
       <ContactSection />
+      <section>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </section>
     </>
   );
 };

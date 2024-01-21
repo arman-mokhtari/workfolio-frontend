@@ -13,7 +13,7 @@ const EmptyCart = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        minHeight: 490,
+        minHeight: "calc(100vh - 128px)",
         mt: 2,
       }}
     >

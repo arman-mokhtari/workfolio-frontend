@@ -13,9 +13,11 @@ import SidebarFilter from "./sidebarFilter";
 import SidebarSort from "./sidebarSort";
 import HoverCard from "@/common/hoverCard";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
+import { useGetUser } from "@/hooks/useAuth";
 
-const CategorySidebar = ({ categories,isLoading }) => {
+const CategorySidebar = ({ categories }) => {
   const isMobile = useIsOnlyXs();
+  const { isLoading } = useGetUser();
   return (
     <>
       {isMobile ? (
@@ -33,8 +35,8 @@ const CategorySidebar = ({ categories,isLoading }) => {
               )}
             </AccordionSummary>
             <AccordionDetails>
-              <SidebarFilter categories={categories} />
-              <SidebarSort />
+              <SidebarFilter isLoading={isLoading} categories={categories} />
+              <SidebarSort isLoading={isLoading} />
             </AccordionDetails>
           </Accordion>
         </HoverCard>
@@ -47,10 +49,10 @@ const CategorySidebar = ({ categories,isLoading }) => {
           }}
         >
           <HoverCard defaultElevation={3} hoveredElevation={7}>
-            <SidebarFilter categories={categories} />
+            <SidebarFilter isLoading={isLoading} categories={categories} />
           </HoverCard>
           <HoverCard defaultElevation={3} hoveredElevation={7}>
-            <SidebarSort />
+            <SidebarSort isLoading={isLoading} />
           </HoverCard>
         </Stack>
       )}

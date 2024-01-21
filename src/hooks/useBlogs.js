@@ -18,15 +18,6 @@ export const useGetAllBlogs = () =>
     refetchOnWindowFocus: true,
   });
 
-export const useGetAllBlogsQs = (qs, cookies) =>
-  useQuery({
-    queryKey: ["get-qs-blogs", qs, cookies],
-    queryFn: () => getBlogs(qs, cookies),
-    retry: false,
-    refetchOnWindowFocus: true,
-  });
-
-
 export const useAddBlog = () => {
   return useMutation({ mutationFn: addBlog });
 };
@@ -50,7 +41,6 @@ export const useGetBlogById = (id) =>
     retry: false,
     refetchOnWindowFocus: true,
   });
-
 
 export const useGetBlogBySlug = (id) =>
   useQuery({

@@ -14,7 +14,7 @@ const Footer = () => {
       <Divider
         sx={{
           borderWidth: "1px",
-          mt: 5,
+          mt: 2,
         }}
         orientation="horizontal"
         variant="middle"

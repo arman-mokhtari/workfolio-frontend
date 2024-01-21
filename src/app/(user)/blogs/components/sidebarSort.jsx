@@ -4,10 +4,9 @@ import { sortOptions } from "@/constants/sidebarSortData";
 import { FormControl, FormLabel, RadioGroup, Skeleton } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useGetCategories } from "@/hooks/useCategories";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
-const SidebarSort = () => {
+const SidebarSort = ({isLoading}) => {
   const [sort, setSort] = useState("");
 
   const router = useRouter();
@@ -34,7 +33,7 @@ const SidebarSort = () => {
   useEffect(() => {
     setSort(searchParams.get("sort") || "");
   }, [searchParams]);
-  const { isLoading } = useGetCategories();
+
   return (
     <FormControl component="fieldset" variant="standard" sx={{ m: 1.5 }}>
       <FormLabel

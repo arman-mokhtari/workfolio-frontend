@@ -41,9 +41,12 @@ const MainDescription = ({ blog }) => {
         hoveredElevation={10}
       >
         <Box
+          className="custom_workfolio_desc"
           sx={{
             lineHeight: 1.7,
-            textAlign: "justify",
+            "& h2": {
+              fontSize: "1.2rem",
+            },
           }}
         >
           {ReactHtmlParser(description)}

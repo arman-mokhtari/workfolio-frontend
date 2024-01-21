@@ -1,20 +1,23 @@
 "use client";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+
 import { toast } from "react-hot-toast";
 import { Box, IconButton } from "@mui/material";
 import { ThumbUp, ThumbUpOutlined } from "@mui/icons-material";
-import { useQueryClient } from "@tanstack/react-query";
 import { useLikeBlog } from "@/hooks/useBlogs";
 
 const LikeBlog = ({ blog }) => {
-  const { isLiked, _id } = blog;
-  const queryClient = useQueryClient();
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const { mutateAsync } = useLikeBlog();
 
+  const { isLiked, _id } = blog;
   const likeHandler = async () => {
     try {
       const { message } = await mutateAsync(_id);
       toast.success(message);
-      queryClient.invalidateQueries({ queryKey: ["get-qs-blogs"] });
+      router.refresh(pathname + "?" + searchParams.toString());
     } catch (error) {
       toast.error(error?.response?.data?.message);
     }

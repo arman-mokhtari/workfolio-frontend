@@ -1,11 +1,14 @@
+"use client"
 import { Grid, Skeleton, Stack } from "@mui/material";
 import Blog from "./blog";
 import HoverCard from "@/common/hoverCard";
+import { useGetUser } from "@/hooks/useAuth";
 
-const BlogItems = ({ blogs, isPending }) => {
+const BlogItems = ({ blogs }) => {
+  const { isLoading } = useGetUser();
   return (
     <Grid spacing={3} container>
-      {isPending
+      {isLoading
         ? Array.from({ length: 4 }, (_, i) => (
             <Grid xs={12} md={6} lg={3} item key={i}>
               <HoverCard

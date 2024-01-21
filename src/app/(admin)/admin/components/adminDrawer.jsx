@@ -20,7 +20,7 @@ import { useTheme } from "@mui/material/styles";
 
 const AdminDrawer = ({ handleDrawerToggle }) => {
   //Reviews section
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const theme = useTheme();
   const handleClick = () => {
     setOpen(!open);
