@@ -50,7 +50,10 @@ const DrawerAppBar = (props) => {
       <CssBaseline />
       <ElevationScroll {...props}>
         <AppBar component="nav">
-          <Toolbar>
+          <Toolbar
+           sx={{
+            minHeight:"unset"
+          }}>
             {isLoading ? (
               <Skeleton
                 sx={{
