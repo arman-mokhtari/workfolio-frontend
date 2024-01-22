@@ -28,7 +28,7 @@ const PageMainContent = () => {
             px: 1.5,
           }}
         >
-          {/* <HomeProductsSection/> */}
+          <HomeProductsSection/>
           <CountingCard />
           <Content />
           <DataImageSec />

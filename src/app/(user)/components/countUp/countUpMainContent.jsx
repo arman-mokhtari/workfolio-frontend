@@ -58,7 +58,7 @@ const CountingCardMainContent = () => {
       component="section"
       sx={{
         mb: 5,
-        mt: 0,
+        mt: 4,
       }}
     >
       <Grid item xs={12}>
