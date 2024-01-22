@@ -36,7 +36,7 @@ const XsBanner = ({ isLoading }) => {
           height: "calc(100vh - 149px)",
           flexDirection: "column",
           justifyContent: "space-around",
-          mb: 1,
+          mb: 3,
         }}
       >
         <Box
@@ -44,19 +44,27 @@ const XsBanner = ({ isLoading }) => {
             px: 2,
             zIndex: 3,
             width: 1,
-            flex: 0.5,
+            flex: 0.7,
             display: "flex",
             flexDirection: "column",
             justifyContent: "flex-end",
           }}
         >
-          <Stack direction="column" spacing={2}>
+          <Box
+            sx={{
+              display: "flex",
+            }}
+          >
+            <Stack direction="column" spacing={2}>
+              <ContactBtn loading={isLoading} />
 
-              <ContactBtn loading={isLoading}/>
-
-              <ShopNow loading={isLoading} variant="contained" text="برو به صفحه محصولات" />
-
-          </Stack>
+              <ShopNow
+                loading={isLoading}
+                variant="contained"
+                text="برو به صفحه محصولات"
+              />
+            </Stack>
+          </Box>
         </Box>
       </Box>
     </Box>
