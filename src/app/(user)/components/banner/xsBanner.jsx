@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Skeleton, Grid } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import Image from "next/image";
 import ShopNow from "@/components/buttons/shopNow";
 import ContactBtn from "@/components/buttons/contactBtn";
@@ -33,10 +33,10 @@ const XsBanner = ({ isLoading }) => {
       <Box
         sx={{
           display: "flex",
-          height: "calc(100vh - 120px)",
+          height: "calc(100vh - 149px)",
           flexDirection: "column",
           justifyContent: "space-around",
-          mb: 3,
+          mb: 1,
         }}
       >
         <Box
@@ -50,32 +50,13 @@ const XsBanner = ({ isLoading }) => {
             justifyContent: "flex-end",
           }}
         >
-          <Grid container spacing={2}>
-            <Grid xs={12} md={2} item>
-              {isLoading ? (
-                <Skeleton
-                  sx={{ borderRadius: 1 }}
-                  variant="rectangular"
-                  width={"30%"}
-                  height={36.5}
-                />
-              ) : (
-                <ContactBtn />
-              )}
-            </Grid>
-            <Grid xs={12} md={2} item>
-              {isLoading ? (
-                <Skeleton
-                  sx={{ borderRadius: 1 }}
-                  variant="rectangular"
-                  width={"35%"}
-                  height={36.5}
-                />
-              ) : (
-                <ShopNow variant="contained" text="برو به صفحه محصولات" />
-              )}
-            </Grid>
-          </Grid>
+          <Stack direction="column" spacing={2}>
+
+              <ContactBtn loading={isLoading}/>
+
+              <ShopNow loading={isLoading} variant="contained" text="برو به صفحه محصولات" />
+
+          </Stack>
         </Box>
       </Box>
     </Box>

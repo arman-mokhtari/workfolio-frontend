@@ -20,7 +20,7 @@ const HomeProductsSection = () => {
       }}
     >
       <Typography
-        variant="h3"
+        component="h3"
         sx={{
           px: 3,
           fontSize: "1.6rem",
