@@ -1,11 +1,11 @@
 "use client";
-import { Grid, Button, Typography, Box, Skeleton, Stack } from "@mui/material";
-import { LoadingButton } from "@mui/lab";
+import { Grid, Typography, Box, Skeleton, Stack } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import Link from "next/link";
 import HoverCard from "@/common/hoverCard";
 import { useGetAllProducts } from "@/hooks/useProducts";
 import Product from "./product";
+import LoadingBtn from "@/common/loadingBtn";
+import Link from "next/link";
 
 const HomeProductsSection = () => {
   const theme = useTheme();
@@ -19,19 +19,32 @@ const HomeProductsSection = () => {
         mb: 1,
       }}
     >
-      <Typography
-        component="h3"
-        sx={{
-          px: 3,
-          fontSize: "1.6rem",
-          fontWeight: "bold",
-          [theme.breakpoints.only("xs")]: {
-            fontSize: "1.4rem",
-          },
-        }}
-      >
-        محصولات پرفروش
-      </Typography>
+      {isLoading ? (
+        <Skeleton
+          variant="text"
+          width={150}
+          sx={{
+            px: 3,
+            [theme.breakpoints.only("xs")]: {
+              fontSize: "1.4rem",
+            },
+            fontSize: "1.6rem",
+          }}
+        />
+      ) : (
+        <Typography
+          sx={{
+            [theme.breakpoints.only("xs")]: {
+              fontSize: "1.4rem",
+            },
+            px: 3,
+            fontSize: "1.6rem",
+            fontWeight: "bold",
+          }}
+        >
+          محصولات پرفروش
+        </Typography>
+      )}
 
       <Grid
         container
@@ -84,23 +97,18 @@ const HomeProductsSection = () => {
               );
             })}
       </Grid>
-
-      <LoadingButton
+      <LoadingBtn
         component={Link}
-        role="link"
+        text="نمایش همه محصولات"
         aria-label="نمایش همه محصولات"
         href="products"
         sx={{
           mx: 3,
           fontWeight: "500",
         }}
-        variant="contained"
-        color="primary"
-        loadingIndicator=" "
         loading={isLoading}
-      >
-        نمایش همه محصولات
-      </LoadingButton>
+        loadingIndicator=" "
+      />
     </Box>
   );
 };

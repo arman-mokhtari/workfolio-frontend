@@ -38,9 +38,7 @@ const Blog = ({ blog }) => {
           },
         }}
       >
-        <Link
-              role="link"
- aria-label={title} href={`/blogs/${faSlug}`}>
+        <Link role="link" aria-label={title} href={`/blogs/${faSlug}`}>
           <Image
             priority
             height="240"
@@ -66,9 +64,7 @@ const Blog = ({ blog }) => {
           placement="top"
         >
           <Typography gutterBottom component="div">
-            <Link
-              role="link"
-                aria-label={title} href={`/blogs/${faSlug}`}>
+            <Link role="link" aria-label={title} href={`/blogs/${faSlug}`}>
               <Typography
                 color="text.primary"
                 sx={{
@@ -132,7 +128,11 @@ const Blog = ({ blog }) => {
           >
             <Link
               role="link"
-                aria-label="مطالعه مقاله" href={`/blogs/${faSlug}`}>مطالعه مقاله</Link>
+              aria-label="مطالعه مقاله"
+              href={`/blogs/${faSlug}`}
+            >
+              مطالعه مقاله
+            </Link>
           </Button>
         </Box>
       </CardActions>

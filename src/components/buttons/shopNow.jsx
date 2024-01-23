@@ -1,9 +1,9 @@
-import { Button } from "@mui/material";
 import Link from "next/link";
+import LoadingBtn from "@/common/loadingBtn";
 
-const ShopNow = ({ mt, ml, fullWidth, text, variant }) => {
+const ShopNow = ({ mt, ml, fullWidth, text, variant, loading }) => {
   return (
-    <Button
+    <LoadingBtn
       fullWidth={fullWidth}
       role="link"
       component={Link}
@@ -17,9 +17,10 @@ const ShopNow = ({ mt, ml, fullWidth, text, variant }) => {
       }}
       variant={variant}
       color="primary"
-    >
-      {text}
-    </Button>
+      loading={loading}
+      loadingIndicator=" "
+      text={text}
+    />
   );
 };
 

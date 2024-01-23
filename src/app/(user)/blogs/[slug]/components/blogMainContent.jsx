@@ -1,88 +1,36 @@
 "use client";
 
-import { Box, Grid } from "@mui/material";
-import Image from "next/image";
-import BlogCard from "./blogCard";
-import MainDescription from "./mainDescription";
-import LinksAside from "./linksAside";
-import ContactSection from "@/pages/(user)/components/contact/contactSection";
+import { Grid } from "@mui/material";
+import BlogCard from "./card/blogCard";
+import LinksAside from "../../../components/slugs/aside/linksAside";
 import { useGetBlogBySlug } from "@/hooks/useBlogs";
 import Loading from "@/common/loading";
 import { jsonLdBlogData } from "@/constants/blogJsonLdData";
+import SlugPageBanner from "@/pages/(user)/components/slugs/card/SlugPageBanner";
+import MainDescription from "@/pages/(user)/components/slugs/description/mainDescription";
+import BannerCardLayout from "@/pages/(user)/components/slugs/card/bannerCardLayout";
+import BlogSkeletonUi from "./skeletonUi";
 
 const BlogMainContent = ({ slug }) => {
   const { data, isLoading } = useGetBlogBySlug(slug);
   const { blog } = data || {};
 
-  if (isLoading) return <Loading />;
-
+  if (isLoading) return <BlogSkeletonUi />;
+  const { imageLink, title, description, faqs } = blog;
   const pageUrl = `https://workfolio.ir/blogs/${blog.faSlug}`;
   const jsonLd = jsonLdBlogData(blog);
   return (
     <>
-      <Box
-        sx={{
-          px: 1.5,
-          overflow: "hidden",
-          pb: 3,
-        }}
-      >
-        <Grid
-          container
-          spacing={2}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            mb: 2,
-          }}
-        >
-          <Grid
-            item
-            xs={12}
-            md={6}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              "& img": {
-                objectFit: "cover",
-                borderRadius: 2,
-                width: "100% !important",
-                height: "auto !important",
-                mb: 1,
-              },
-            }}
-          >
-            <Image
-              height="350"
-              width="500"
-              priority={true}
-              src={blog.imageLink}
-              alt={blog.title}
-              title={blog.title}
-              placeholder="blur"
-              blurDataURL={blog.imageLink}
-            />
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={6}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <BlogCard pageUrl={pageUrl} blog={blog} />
-          </Grid>
-        </Grid>
-        <Grid container spacing={2}>
-          <MainDescription blog={blog} />
-          <LinksAside currentPageSlug={slug} />
-        </Grid>
-      </Box>
-      <ContactSection />
+      <BannerCardLayout>
+        <SlugPageBanner imageLink={imageLink} title={title} />
+        <BlogCard pageUrl={pageUrl} blog={blog} />
+      </BannerCardLayout>
+
+      <Grid container spacing={2}>
+        <MainDescription faqs={faqs} description={description} />
+        <LinksAside currentPageSlug={slug} />
+      </Grid>
+
       <section>
         <script
           type="application/ld+json"

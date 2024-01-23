@@ -2,7 +2,6 @@ import {
   getProductBySlug,
   getProducts,
 } from "@/services/product/productService";
-
 import ProductMainContent from "./components/productMainContent";
 
 export const dynamic = "force-static";

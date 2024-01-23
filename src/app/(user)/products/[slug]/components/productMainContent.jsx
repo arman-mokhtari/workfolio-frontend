@@ -1,83 +1,37 @@
 "use client";
 
-import { Box, Grid } from "@mui/material";
-import Image from "next/image";
-import Loading from "@/common/loading";
+import { Grid } from "@mui/material";
 import { useGetProductBySlug } from "@/hooks/useProducts";
-import ProductCard from "./productCard";
-import MainDescription from "./mainDescription";
-import LinksAside from "@/pages/(user)/blogs/[slug]/components/linksAside";
+import MainDescription from "../../../components/slugs/description/mainDescription";
+import LinksAside from "@/pages/(user)/components/slugs/aside/linksAside";
 import ReviewSlider from "./review/reviewSlider";
 import ReviewForm from "./review/reviewForm";
-import ContactSection from "@/pages/(user)/components/contact/contactSection";
+import SkeletonUi from "./skeletonUi";
 import { jsonLdProductData } from "@/constants/productJsonLdData";
+import SlugPageBanner from "../../../components/slugs/card/SlugPageBanner";
+import ProductCard from "./card/productCard";
+import BannerCardLayout from "@/pages/(user)/components/slugs/card/bannerCardLayout";
 
 const ProductMainContent = ({ slug }) => {
   const { data, isLoading } = useGetProductBySlug(slug);
   const { product } = data || {};
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <SkeletonUi />;
   const jsonLd = jsonLdProductData(product);
-
+  const { imageLink, title, _id, description, faqs } = product;
   return (
     <>
-      <Box
-        sx={{
-          px: 1.5,
-          overflow: "hidden",
-          pb: 3,
-        }}
-      >
-        <Grid
-          container
-          spacing={3}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            mb: 2,
-          }}
-        >
-          <Grid
-            item
-            xs={12}
-            md={6}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              "& img": {
-                objectFit: "cover",
-                borderRadius: 2,
-                width: "100% !important",
-                height: "auto !important",
-                mb: 1,
-              },
-            }}
-          >
-            <Image
-              height="350"
-              width="500"
-              priority={true}
-              src={product.imageLink}
-              alt={product.title}
-              title={product.title}
-              placeholder="blur"
-              blurDataURL={product.imageLink}
-            />
-          </Grid>
+      <BannerCardLayout>
+        <SlugPageBanner imageLink={imageLink} title={title} />
+        <ProductCard product={product} />
+      </BannerCardLayout>
 
-          <ProductCard product={product} />
-        </Grid>
-        <Grid container spacing={2}>
-          <MainDescription product={product} />
-          <LinksAside />
-        </Grid>
-        <ReviewSlider pId={product._id} />
-        <ReviewForm pId={product._id} />
-      </Box>
-
-      <ContactSection />
+      <Grid container spacing={2}>
+        <MainDescription faqs={faqs} description={description} />
+        <LinksAside />
+      </Grid>
+      <ReviewSlider pId={_id} />
+      <ReviewForm isLoading={isLoading} product={product} />
       <section>
         <script
           type="application/ld+json"

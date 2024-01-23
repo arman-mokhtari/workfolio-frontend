@@ -1,11 +1,12 @@
 "use client";
-import { Grid, Button, Typography, Box, Skeleton, Stack } from "@mui/material";
+import { Grid, Typography, Box, Skeleton, Stack } from "@mui/material";
 import Blog from "./blog";
 import { useGetAllBlogs } from "@/hooks/useBlogs";
 
 import { useTheme } from "@mui/material/styles";
 import Link from "next/link";
 import HoverCard from "@/common/hoverCard";
+import LoadingBtn from "@/common/loadingBtn";
 
 const HomeBlogsSection = () => {
   const theme = useTheme();
@@ -19,19 +20,32 @@ const HomeBlogsSection = () => {
         mb: 1,
       }}
     >
-      <Typography
-        variant="h3"
-        sx={{
-          px: 3,
-          fontSize: "1.6rem",
-          fontWeight: "bold",
-          [theme.breakpoints.only("xs")]: {
-            fontSize: "1.4rem",
-          },
-        }}
-      >
-        آخرین مقالات
-      </Typography>
+      {isLoading ? (
+        <Skeleton
+          variant="text"
+          width={150}
+          sx={{
+            px: 3,
+            [theme.breakpoints.only("xs")]: {
+              fontSize: "1.4rem",
+            },
+            fontSize: "1.6rem",
+          }}
+        />
+      ) : (
+        <Typography
+          sx={{
+            px: 3,
+            fontSize: "1.6rem",
+            fontWeight: "bold",
+            [theme.breakpoints.only("xs")]: {
+              fontSize: "1.4rem",
+            },
+          }}
+        >
+          آخرین مقالات
+        </Typography>
+      )}
 
       <Grid
         container
@@ -79,21 +93,18 @@ const HomeBlogsSection = () => {
               );
             })}
       </Grid>
-
-      <Button
+      <LoadingBtn
         component={Link}
-        role="link"
+        text="نمایش همه مقالات"
         aria-label="نمایش همه مقالات"
         href="blogs"
         sx={{
           mx: 3,
           fontWeight: "500",
         }}
-        variant="contained"
-        color="primary"
-      >
-        نمایش همه مقالات
-      </Button>
+        loading={isLoading}
+        loadingIndicator=" "
+      />
     </Box>
   );
 };

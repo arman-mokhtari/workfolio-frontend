@@ -1,8 +1,8 @@
-import { Button } from "@mui/material";
+import LoadingBtn from "@/common/loadingBtn";
 
-const ContactBtn = ({ mt, ml }) => {
+const ContactBtn = ({ mt, ml, loading }) => {
   return (
-    <Button
+    <LoadingBtn
       component="a"
       href="tel:+989125048616"
       sx={{
@@ -13,9 +13,10 @@ const ContactBtn = ({ mt, ml }) => {
       }}
       variant="contained"
       color="warning"
-    >
-      با ما تماس بگیرید
-    </Button>
+      loadingIndicator=" "
+      loading={loading}
+      text="با ما تماس بگیرید"
+    />
   );
 };
 

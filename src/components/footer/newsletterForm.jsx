@@ -1,15 +1,13 @@
 "use client";
 import {
   Box,
-  Button,
   CardActions,
   CardContent,
-  Grid,
   TextField,
   Typography,
 } from "@mui/material";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 import { toast } from "react-hot-toast";
@@ -21,6 +19,7 @@ import {
 } from "@/hooks/useNewsletterUsers";
 import Loading from "@/common/loading";
 import HoverCard from "@/common/hoverCard";
+import LoadingBtn from "@/common/loadingBtn";
 
 const NewsletterForm = () => {
   const {
@@ -48,7 +47,7 @@ const NewsletterForm = () => {
     }
   }, [formState, reset]);
 
-  const { mutateAsync } = useAddNewsletterUser();
+  const { mutateAsync, isPending } = useAddNewsletterUser();
 
   const { isLoading, data } = useGetNewsletterCaptcha();
 
@@ -219,9 +218,12 @@ const NewsletterForm = () => {
               alignItems: "center",
             }}
           >
-            <Button type="submit" variant="contained">
-              ارسال
-            </Button>
+            <LoadingBtn
+              text="ثبت نام"
+              loading={isPending}
+              type="submit"
+              variant="contained"
+            />
           </CardActions>
         </CardContent>
       </Box>

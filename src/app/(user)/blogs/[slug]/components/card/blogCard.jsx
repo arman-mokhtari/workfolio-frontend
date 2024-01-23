@@ -1,26 +1,17 @@
 "use client";
-import HoverCard from "@/common/hoverCard";
 import { Box, Typography, Divider } from "@mui/material";
 import Link from "next/link";
 import ShareButtons from "./ShareButtons";
 import { toLocalDateString } from "@/utils/toLocalDate";
 import Image from "next/image";
+import SlugCardLayout from "@/pages/(user)/components/slugs/card/slugCardLayout";
 
 const BlogCard = ({ blog, pageUrl }) => {
   const { title, createdAt, updatedAt, metaDescription, user } = blog;
   const srcImg = "https://cdn.workfolio.ir/images/admin/arman_mokhtari.png";
 
   return (
-    <HoverCard
-      defaultElevation={4}
-      hoveredElevation={10}
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        p: 3,
-      }}
-    >
+    <SlugCardLayout>
       <Box
         sx={{
           display: "flex",
@@ -41,7 +32,7 @@ const BlogCard = ({ blog, pageUrl }) => {
         <Typography
           sx={{
             display: "-webkit-box",
-            "-webkit-line-clamp": "2",
+            "-webkit-line-clamp": "3",
             "-webkit-box-orient": "vertical",
             overflow: "hidden",
             textOverflow: "ellipsis",
@@ -62,9 +53,9 @@ const BlogCard = ({ blog, pageUrl }) => {
             },
           }}
         >
-          <Link
-              role="link"
-                aria-label="ادامه مطلب" href="#continue">ادامه مطلب...</Link>
+          <Link role="link" aria-label="ادامه مطلب" href="#continue">
+            ادامه مطلب...
+          </Link>
         </Typography>
         <Box
           sx={{
@@ -132,7 +123,7 @@ const BlogCard = ({ blog, pageUrl }) => {
           <ShareButtons url={pageUrl} title={title} />
         </Box>
       </Box>
-    </HoverCard>
+    </SlugCardLayout>
   );
 };
 

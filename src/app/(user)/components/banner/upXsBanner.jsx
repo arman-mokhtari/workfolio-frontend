@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Typography, Skeleton, Grid } from "@mui/material";
+import { Box, Typography, Skeleton, Stack } from "@mui/material";
 import Image from "next/image";
 import ShopNow from "@/components/buttons/shopNow";
 import { useTheme } from "@mui/material/styles";
@@ -83,32 +83,15 @@ const UpXsBanner = ({ isLoading }) => {
             )}
           </Box>
 
-          <Grid container spacing={2}>
-            <Grid xs={12} md={2} item>
-              {isLoading ? (
-                <Skeleton
-                  sx={{ borderRadius: 1 }}
-                  variant="rectangular"
-                  width={"100%"}
-                  height={36.5}
-                />
-              ) : (
-                <ContactBtn />
-              )}
-            </Grid>
-            <Grid xs={12} md={2} item>
-              {isLoading ? (
-                <Skeleton
-                  sx={{ borderRadius: 1 }}
-                  variant="rectangular"
-                  width={"100%"}
-                  height={36.5}
-                />
-              ) : (
-                <ShopNow variant="contained" text="برو به صفحه محصولات" />
-              )}
-            </Grid>
-          </Grid>
+          <Stack direction="row" spacing={2}>
+            <ContactBtn loading={isLoading} />
+
+            <ShopNow
+              loading={isLoading}
+              variant="contained"
+              text="برو به صفحه محصولات"
+            />
+          </Stack>
         </Box>
       </Box>
     </Box>
