@@ -42,7 +42,7 @@ const XsBanner = ({ isLoading }) => {
             px: 2,
             zIndex: 3,
             width: 1,
-            flex: 0.5,
+            flex: 0.6,
             display: "flex",
             flexDirection: "column",
             justifyContent: "flex-end",
