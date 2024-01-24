@@ -4,7 +4,7 @@ import queryString from "query-string";
 
 import { getProducts } from "@/services/product/productService";
 import ProductItems from "./components/products";
-import ProductsLayout from "./components/productsLayout";
+import CategoryPageLayout from "../components/categories/categoriesContent/categoryPageLayout";
 export const dynamic = "force-dynamic";
 
 const Products = async ({ searchParams }) => {
@@ -15,9 +15,9 @@ const Products = async ({ searchParams }) => {
   const [{ products }] = await Promise.all([productsPromise]);
 
   return (
-    <ProductsLayout>
+    <CategoryPageLayout>
       <ProductItems products={products} />
-    </ProductsLayout>
+    </CategoryPageLayout>
   );
 };
 

@@ -13,8 +13,6 @@ import ContactSection from "./contact/contactSection";
 import HomeProductsSection from "../products/components/homeProductsSection";
 
 const PageMainContent = () => {
-
-
   return (
     <>
       <Box
@@ -28,7 +26,7 @@ const PageMainContent = () => {
             px: 1.5,
           }}
         >
-          <HomeProductsSection/>
+          <HomeProductsSection />
           <CountingCard />
           <Content />
           <DataImageSec />

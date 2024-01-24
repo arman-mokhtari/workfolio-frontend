@@ -1,7 +1,7 @@
 import { Grid, Skeleton } from "@mui/material";
 import DescriptionLayout from "../../../components/slugs/description/descriptionLayout";
 import HoverCard from "@/common/hoverCard";
-import LinkAsideSkeleton from "@/pages/(user)/components/skeletons/linkAsideSkeleton";
+import LinkAsideSkeleton from "@/pages/(user)/components/slugs/skeletons/linkAsideSkeleton";
 import SlugCardSkeleton from "../../../components/slugs/skeletons/slugCardSkeleton";
 import SlugFaqSkeleton from "../../../components/slugs/skeletons/faqSkeleton";
 import SlugDescSkeleton from "../../../components/slugs/skeletons/slugDescSkeleton";

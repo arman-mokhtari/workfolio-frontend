@@ -3,7 +3,7 @@ import { toStringCookies } from "@/utils/toStringCookies";
 import queryString from "query-string";
 import { getBlogs } from "@/services/blog/blogService";
 import BlogItems from "./components/blogs";
-import BlogsLayout from "./components/blogsLayout";
+import CategoryPageLayout from "../components/categories/categoriesContent/categoryPageLayout";
 
 export const dynamic = "force-dynamic";
 
@@ -15,9 +15,9 @@ const Blogs = async ({ searchParams }) => {
   const [{ blogs }] = await Promise.all([blogsPromise]);
 
   return (
-    <BlogsLayout>
+    <CategoryPageLayout>
       <BlogItems blogs={blogs} />
-    </BlogsLayout>
+    </CategoryPageLayout>
   );
 };
 

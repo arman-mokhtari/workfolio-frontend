@@ -1,12 +1,12 @@
 "use client";
 import CommonRadio from "@/common/commonRadio";
 import { sortOptions } from "@/constants/sidebarSortData";
-import { FormControl, FormLabel, RadioGroup, Skeleton } from "@mui/material";
+import { FormControl, FormLabel, RadioGroup } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
-const SidebarSort = ({isLoading}) => {
+const SidebarSort = () => {
   const [sort, setSort] = useState("");
 
   const router = useRouter();
@@ -44,16 +44,7 @@ const SidebarSort = ({isLoading}) => {
         component="legend"
         id="demo-radio-buttons-group-label"
       >
-        {isLoading ? (
-          <Skeleton
-            sx={{
-              mb: !isMobile && 1.5,
-            }}
-            width={100}
-          />
-        ) : (
-          "مرتب سازی:"
-        )}
+        مرتب سازی:
       </FormLabel>
       <RadioGroup
         row={isMobile}
@@ -61,28 +52,17 @@ const SidebarSort = ({isLoading}) => {
         defaultValue="female"
         name="radio-buttons-group"
       >
-        {isLoading
-          ? Array.from({ length: 3 }, (_, i) => (
-              <Skeleton
-                sx={{
-                  mr: isMobile && 0.5,
-                  mb: !isMobile && 2,
-                }}
-                key={i}
-                width={70}
-              />
-            ))
-          : sortOptions.map(({ id, value, label }, index) => (
-              <CommonRadio
-                id={id}
-                key={index}
-                label={label}
-                name="product-sort"
-                value={value}
-                checked={sort === value}
-                onChange={sortHandler}
-              />
-            ))}
+        {sortOptions.map(({ id, value, label }, index) => (
+          <CommonRadio
+            id={id}
+            key={index}
+            label={label}
+            name="product-sort"
+            value={value}
+            checked={sort === value}
+            onChange={sortHandler}
+          />
+        ))}
       </RadioGroup>
     </FormControl>
   );

@@ -12,7 +12,7 @@ import Link from "next/link";
 import shuffle from "lodash.shuffle";
 import { useGetAllBlogs } from "@/hooks/useBlogs";
 import HoverCard from "@/common/hoverCard";
-import LinkAsideSkeleton from "@/pages/(user)/components/skeletons/linkAsideSkeleton";
+import LinkAsideSkeleton from "@/pages/(user)/components/slugs/skeletons/linkAsideSkeleton";
 
 const LinksAside = ({ currentPageSlug }) => {
   const { data, isLoading } = useGetAllBlogs();

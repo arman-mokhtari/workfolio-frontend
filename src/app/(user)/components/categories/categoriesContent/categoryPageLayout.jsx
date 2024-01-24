@@ -3,7 +3,7 @@ import { getCategories } from "@/services/category/categoryService";
 import { Box, Grid } from "@mui/material";
 import CategorySidebar from "./categorySidebar";
 
-export default async function BlogsLayout({ children }) {
+export default async function CategoryPageLayout({ children }) {
   const categoryPromise = getCategories();
 
   const [{ categories }] = await Promise.all([categoryPromise]);

@@ -1,12 +1,12 @@
 "use client";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { FormControl, FormGroup, FormLabel, Skeleton } from "@mui/material";
+import { FormControl, FormGroup, FormLabel } from "@mui/material";
 
 import CommonCheckBox from "@/common/commonCheckBox";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
-const SidebarFilter = ({ categories, isLoading }) => {
+const SidebarFilter = ({ categories }) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -50,6 +50,17 @@ const SidebarFilter = ({ categories, isLoading }) => {
     setSelectedCategories(searchParams.get("category")?.split(",") || []);
   }, [searchParams]);
 
+  const typeMapping = {
+    "/blogs": "post",
+    "/products": "product",
+  };
+
+  const filterCategories = (type) =>
+    categories?.filter((category) => category.type === type) || [];
+
+  const modifiedCategories =
+    filterCategories(typeMapping[pathname]) || categories;
+
   return (
     <FormControl sx={{ m: 1.5 }} component="fieldset" variant="standard">
       <FormLabel
@@ -59,16 +70,7 @@ const SidebarFilter = ({ categories, isLoading }) => {
         }}
         component="legend"
       >
-        {isLoading ? (
-          <Skeleton
-            sx={{
-              mb: !isMobile && 1.5,
-            }}
-            width={100}
-          />
-        ) : (
-          "دسته‌بندی‌ها:"
-        )}
+        دسته‌بندی‌ها:
       </FormLabel>
       <FormGroup
         row={isMobile}
@@ -78,32 +80,19 @@ const SidebarFilter = ({ categories, isLoading }) => {
           },
         }}
       >
-        {isLoading
-          ? Array.from({ length: 5 }, (_, i) => (
-              <Skeleton
-                sx={{
-                  mr: isMobile && 0.5,
-                  mb: !isMobile && 2,
-                }}
-                key={i}
-                width={70}
-              />
-            ))
-          : categories
-              ?.filter((category) => category.type === "post")
-              .map(({ _id, englishTitle, title }, index) => {
-                return (
-                  <CommonCheckBox
-                    key={index}
-                    id={_id}
-                    value={englishTitle}
-                    name="product-type"
-                    label={title}
-                    onChange={categoryHandler}
-                    checked={selectedCategories.includes(englishTitle)}
-                  />
-                );
-              })}
+        {modifiedCategories?.map(({ _id, englishTitle, title }, index) => {
+          return (
+            <CommonCheckBox
+              key={index}
+              id={_id}
+              value={englishTitle}
+              name="product-type"
+              label={title}
+              onChange={categoryHandler}
+              checked={selectedCategories.includes(englishTitle)}
+            />
+          );
+        })}
       </FormGroup>
     </FormControl>
   );
