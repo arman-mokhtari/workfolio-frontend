@@ -10,7 +10,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import SidebarFilter from "./sidebarFilter";
 import SidebarSort from "./sidebarSort";
 const XsCategorySidebar = ({ categories, isLoading }) => {
-  return !isLoading ? (
+  return isLoading ? (
     <HoverCard
       sx={{
         width: 1,
