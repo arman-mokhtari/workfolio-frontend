@@ -1,5 +1,3 @@
-"use client";
-
 import { Box, Stack } from "@mui/material";
 import Image from "next/image";
 import ShopNow from "@/components/buttons/shopNow";
@@ -32,39 +30,27 @@ const XsBanner = ({ isLoading }) => {
       <TopAbsoluteShadow height="12%" />
       <Box
         sx={{
-          display: "flex",
-          height: "calc(100vh - 149px)",
-          flexDirection: "column",
-          justifyContent: "space-around",
+          height: "calc(100vh - 60px)",
           mb: 3,
+          position: "relative",
         }}
       >
         <Box
           sx={{
-            px: 2,
-            zIndex: 3,
-            width: 1,
-            flex: 0.7,
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-end",
+            position: "absolute",
+            bottom: "25%",
+            left: "2.5rem",
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-            }}
-          >
-            <Stack direction="column" spacing={2}>
-              <ContactBtn loading={isLoading} />
+          <Stack direction="column" spacing={2}>
+            <ContactBtn loading={isLoading} />
 
-              <ShopNow
-                loading={isLoading}
-                variant="contained"
-                text="برو به صفحه محصولات"
-              />
-            </Stack>
-          </Box>
+            <ShopNow
+              loading={isLoading}
+              variant="contained"
+              text="برو به صفحه محصولات"
+            />
+          </Stack>
         </Box>
       </Box>
     </Box>
