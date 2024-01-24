@@ -30,27 +30,39 @@ const XsBanner = ({ isLoading }) => {
       <TopAbsoluteShadow height="12%" />
       <Box
         sx={{
-          height: "calc(100vh - 60px)",
+          display: "flex",
+          height: "calc(100vh - 60px - env(safe-area-inset-bottom))",
+          flexDirection: "column",
+          justifyContent: "space-around",
           mb: 3,
-          position: "relative",
         }}
       >
         <Box
           sx={{
-            position: "absolute",
-            bottom: "25%",
-            left: "2.5rem",
+            px: 2,
+            zIndex: 3,
+            width: 1,
+            flex: 0.5,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "flex-end",
           }}
         >
-          <Stack direction="column" spacing={2}>
-            <ContactBtn loading={isLoading} />
+          <Box
+            sx={{
+              display: "flex",
+            }}
+          >
+            <Stack direction="column" spacing={2}>
+              <ContactBtn loading={isLoading} />
 
-            <ShopNow
-              loading={isLoading}
-              variant="contained"
-              text="برو به صفحه محصولات"
-            />
-          </Stack>
+              <ShopNow
+                loading={isLoading}
+                variant="contained"
+                text="برو به صفحه محصولات"
+              />
+            </Stack>
+          </Box>
         </Box>
       </Box>
     </Box>
