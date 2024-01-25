@@ -90,6 +90,7 @@ const ContactUsForm = () => {
     <Box
       sx={{
         zIndex: 4,
+        px:1.5
       }}
     >
       <HoverCard
@@ -99,8 +100,8 @@ const ContactUsForm = () => {
           backgroundImage: "none",
           backgroundColor:
             theme.palette.mode === "dark"
-              ? "rgba(0,0,0,0.7)"
-              : "rgba(255,255,255,0.7)",
+              ? "rgba(0,0,0,0.5)"
+              : "rgba(255,255,255,0.5)",
           backdropFilter: "blur(5px)",
           display: "flex",
           justifyContent: "center",
