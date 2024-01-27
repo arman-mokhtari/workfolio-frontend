@@ -32,7 +32,7 @@ const ProductCard = ({ product }) => {
             fontSize: "1rem",
             mt: 1.5,
             display: "-webkit-box",
-            "-webkit-line-clamp": "3",
+            "-webkit-line-clamp": "2",
             "-webkit-box-orient": "vertical",
             overflow: "hidden",
             textOverflow: "ellipsis",

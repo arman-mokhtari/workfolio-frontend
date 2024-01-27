@@ -11,10 +11,12 @@ import { Fragment } from "react";
 import HoverCard from "@/common/hoverCard";
 import CountUpComponent from "./countUpComponent";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
+import { useGetUser } from "@/hooks/useAuth";
+import CountingSkeleton from "./countingSkeleton";
 
 const CountingCardMainContent = () => {
   const theme = useTheme();
-
+  const { isLoading } = useGetUser();
   //* جهت دیوایدر
   const [orientation, setOrientation] = useState("horizontal");
 
@@ -74,67 +76,72 @@ const CountingCardMainContent = () => {
               },
             }}
           >
-            {countingCardData.map(({ total, string, title, icon }, index) => (
-              <Fragment key={index}>
-                <Grid item xs={12}>
-                  <CardContent
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Typography
-                      gutterBottom
-                      variant="h3"
-                      component="div"
-                      sx={{
-                        fontWeight: "700",
-                        color: "#037fff",
-                        fontSize: "1.5rem",
-                        my: 2,
-                        [theme.breakpoints.between("md", "xl")]: {
-                          fontSize: "2rem",
-                        },
-                      }}
-                    >
-                      {string}
-                      {isSmallScreen ? (
-                        total
-                      ) : (
-                        <CountUpComponent
-                          start={0}
-                          end={visible ? total : 0}
-                          duration={5}
-                          ref={countRef}
-                        />
-                      )}
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      color="text.secondary"
+            {isLoading ? (
+              <CountingSkeleton
+                countingCardData={countingCardData}
+                orientation={orientation}
+              />
+            ) : (
+              countingCardData.map(({ total, string, title, icon }, index) => (
+                <Fragment key={index}>
+                  <Grid item xs={12}>
+                    <CardContent
                       sx={{
                         display: "flex",
+                        flexDirection: "column",
                         alignItems: "center",
-                        whiteSpace: "nowrap",
-                        mb: 2,
+                        justifyContent: "center",
                       }}
                     >
-                      {title}
-                      {icon}
-                    </Typography>
-                  </CardContent>
-                </Grid>
-                {index < numDividers && (
-                  <Divider
-                    orientation={orientation}
-                    variant="middle"
-                    flexItem
-                  />
-                )}
-              </Fragment>
-            ))}
+                      <Typography
+                        variant="h3"
+                        sx={{
+                          fontWeight: "700",
+                          color: "#037fff",
+                          fontSize: "1.5rem",
+                          my: 2,
+                          [theme.breakpoints.between("md", "xl")]: {
+                            fontSize: "2rem",
+                          },
+                        }}
+                      >
+                        {string}
+                        {isSmallScreen ? (
+                          total
+                        ) : (
+                          <CountUpComponent
+                            start={0}
+                            end={visible ? total : 0}
+                            duration={5}
+                            ref={countRef}
+                          />
+                        )}
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        color="text.secondary"
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          whiteSpace: "nowrap",
+                          mb: 2,
+                        }}
+                      >
+                        {title}
+                        {icon}
+                      </Typography>
+                    </CardContent>
+                  </Grid>
+                  {index < numDividers && (
+                    <Divider
+                      orientation={orientation}
+                      variant="middle"
+                      flexItem
+                    />
+                  )}
+                </Fragment>
+              ))
+            )}
           </HoverCard>
         </Box>
       </Grid>

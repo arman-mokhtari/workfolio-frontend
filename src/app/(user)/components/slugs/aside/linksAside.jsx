@@ -25,7 +25,7 @@ const LinksAside = ({ currentPageSlug }) => {
     : shuffle(blogs).slice(0, 6);
 
   return (
-    <Grid component="aside" item xs={12} md={3}>
+    <Grid component="aside" item xs={12} sm={10} md={9} lg={2.5}>
       <HoverCard defaultElevation={4} hoveredElevation={10}>
         {isLoading ? (
           <LinkAsideSkeleton />

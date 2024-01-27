@@ -1,14 +1,12 @@
 import { Grid } from "@mui/material";
-const BannerCardLayout = ({ children }) => {
+const MainCardLayout = ({ children }) => {
   return (
     <Grid
       container
-      spacing={1.5}
+      spacing={2}
       sx={{
         display: "flex",
         justifyContent: "center",
-        mb: 2,
-        mt: 1,
       }}
     >
       {children}
@@ -16,4 +14,4 @@ const BannerCardLayout = ({ children }) => {
   );
 };
 
-export default BannerCardLayout;
+export default MainCardLayout;

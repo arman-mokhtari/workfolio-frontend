@@ -13,6 +13,7 @@ import {
 } from "@/hooks/useSendContactUsEmail";
 import { useQueryClient } from "@tanstack/react-query";
 import HoverCard from "@/common/hoverCard";
+import { useIsUpLg } from "@/hooks/useMediaQueries";
 
 const ContactUsForm = () => {
   const theme = useTheme();
@@ -86,17 +87,21 @@ const ContactUsForm = () => {
     }
   };
 
+  const hasErrors = errors && Object.keys(errors).length > 0;
+  const isLgScreen = useIsUpLg();
+
   return (
     <Box
       sx={{
         zIndex: 4,
-        px:1.5
+        px: 1.5,
       }}
     >
       <HoverCard
         defaultElevation={4}
         hoveredElevation={10}
         sx={{
+          my: hasErrors && isLgScreen && 2,
           backgroundImage: "none",
           backgroundColor:
             theme.palette.mode === "dark"
@@ -220,7 +225,7 @@ const ContactUsForm = () => {
                       <Loading mt={1} />
                     ) : (
                       <Image
-                      priority
+                        priority
                         src={`data:image/svg+xml;base64,${btoa(captchaData)}`}
                         width="120"
                         height="50"

@@ -20,28 +20,20 @@ const Footer = () => {
         variant="middle"
         flexItem
       />
-      <Box
+
+      <Grid
+        container
+        spacing={3}
         sx={{
-          mx: 3,
-          [theme.breakpoints.only("xs")]: {
-            mx: 2,
-          },
+          pt: 3,
+          justifyContent: "center",
+          px:1.5
         }}
       >
-        <Grid
-          container
-          spacing={3}
-          sx={{
-            color: "text.primary",
-            pt: 3,
-            position: "relative",
-          }}
-        >
-          <FirstGrid />
-          <SecondGrid />
-          <ThirdGrid />
-        </Grid>
-      </Box>
+        <FirstGrid />
+        <SecondGrid />
+        <ThirdGrid />
+      </Grid>
 
       <CopyRight />
     </Box>

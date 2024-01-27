@@ -4,8 +4,10 @@ const FooterGridLayout = ({ children, title, px }) => {
   return (
     <Grid
       item
-      xs={12}
-      md={4}
+      xs={11.5}
+      sm={8}
+      md={7}
+      lg={4}
       sx={{
         mb: 3,
         mt: 1,

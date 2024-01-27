@@ -20,23 +20,6 @@ const includesKey = [
   "enteredCaptcha",
 ];
 
-const getLabel = (key) => {
-  switch (key) {
-    case "name":
-      return "نام";
-    case "email":
-      return "ایمیل";
-    case "phoneNumber":
-      return "شماره موبایل";
-    case "biography":
-      return "بیوگرافی";
-    case "enteredCaptcha":
-      return "متن تصویر زیر";
-    default:
-      return "";
-  }
-};
-
 const TabAccount = () => {
   const { data, isLoading } = useGetUser();
   const queryClient = useQueryClient();
@@ -85,6 +68,7 @@ const TabAccount = () => {
                 name={key}
                 control={control}
                 defaultValue=""
+                disabled={key === "phoneNumber"}
                 render={({ field, fieldState }) => (
                   <TextField
                     fullWidth
@@ -107,13 +91,6 @@ const TabAccount = () => {
                   />
                 )}
                 rules={{
-                  ...(key === "phoneNumber" && {
-                    pattern: {
-                      value: /^0\d{10}$/,
-                      message:
-                        "شماره موبایل باید یازده رقمی باشد و با ۰ شروع شود.",
-                    },
-                  }),
                   ...(key === "enteredCaptcha" && {
                     required: "تایید کنید ربات نیستید",
                     minLength: {

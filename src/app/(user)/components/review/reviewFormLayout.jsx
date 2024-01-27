@@ -10,6 +10,7 @@ const ReviewFormLayout = ({ children }) => {
         justifyContent: "center",
         alignItems: "center",
         height: "500px",
+        px:1
       }}
     >
       <Grid

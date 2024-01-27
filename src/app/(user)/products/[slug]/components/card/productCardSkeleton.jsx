@@ -1,7 +1,7 @@
 import HoverCard from "@/common/hoverCard";
 import { Stack, Box, Skeleton } from "@mui/material";
 
-const SlugCardSkeleton = () => {
+const ProductCardSkeleton = () => {
   return (
     <HoverCard sx={{ p: 3 }} defaultElevation={4} hoveredElevation={4}>
       <Stack>
@@ -14,7 +14,6 @@ const SlugCardSkeleton = () => {
           }}
         />
         <Stack sx={{ my: 1.5 }} spacing={0.5}>
-          <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
           <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
           <Skeleton width="60%" variant="text" sx={{ fontSize: "1rem" }} />
         </Stack>
@@ -33,7 +32,7 @@ const SlugCardSkeleton = () => {
             </Stack>
           ))}
         </Box>
-        <Stack>
+        <Stack spacing={1}>
           <Skeleton width={60} variant="text" sx={{ fontSize: "1rem" }} />
           <Skeleton width={60} variant="text" sx={{ fontSize: "1rem" }} />
         </Stack>
@@ -43,4 +42,4 @@ const SlugCardSkeleton = () => {
   );
 };
 
-export default SlugCardSkeleton;
+export default ProductCardSkeleton;

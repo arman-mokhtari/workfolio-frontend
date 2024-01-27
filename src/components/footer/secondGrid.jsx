@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 
 const SecondGrid = () => {
   return (
-    <FooterGridLayout px={5} title="خبرنامه">
+    <FooterGridLayout title="خبرنامه">
       <Box>
         <Box
           sx={{

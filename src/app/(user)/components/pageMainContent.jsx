@@ -1,6 +1,4 @@
-"use client";
 import { Box } from "@mui/material";
-
 import Banner from "./banner/banner";
 import CountingCard from "./countUp/countingCard";
 import Content from "./content/contentSection";

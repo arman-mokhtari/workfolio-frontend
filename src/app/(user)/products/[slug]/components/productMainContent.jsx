@@ -11,6 +11,8 @@ import { jsonLdProductData } from "@/constants/productJsonLdData";
 import SlugPageBanner from "../../../components/slugs/card/SlugPageBanner";
 import ProductCard from "./card/productCard";
 import BannerCardLayout from "@/pages/(user)/components/slugs/card/bannerCardLayout";
+import MainCardLayout from "@/pages/(user)/components/slugs/card/mainCardLayout";
+import ChipDivider from "@/common/chipDivider";
 
 const ProductMainContent = ({ slug }) => {
   const { data, isLoading } = useGetProductBySlug(slug);
@@ -26,10 +28,17 @@ const ProductMainContent = ({ slug }) => {
         <ProductCard product={product} />
       </BannerCardLayout>
 
-      <Grid container spacing={2}>
+      <MainCardLayout>
         <MainDescription faqs={faqs} description={description} />
         <LinksAside />
-      </Grid>
+      </MainCardLayout>
+      <ChipDivider
+        borderColor="primary.main"
+        chipColor="primary"
+        mb={1}
+        mt={6}
+        title="نظرات شما"
+      />
       <ReviewSlider pId={_id} />
       <ReviewForm isLoading={isLoading} product={product} />
       <section>

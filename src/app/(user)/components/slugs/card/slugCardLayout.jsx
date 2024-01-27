@@ -6,7 +6,9 @@ const SlugCardLayout = ({ children }) => {
     <Grid
       item
       xs={12}
-      md={6}
+      sm={10}
+      md={9}
+      lg={5}
       sx={{
         display: "flex",
         flexDirection: "column",

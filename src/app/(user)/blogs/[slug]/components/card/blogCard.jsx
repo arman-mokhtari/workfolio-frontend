@@ -32,7 +32,7 @@ const BlogCard = ({ blog, pageUrl }) => {
         <Typography
           sx={{
             display: "-webkit-box",
-            "-webkit-line-clamp": "3",
+            "-webkit-line-clamp": "2",
             "-webkit-box-orient": "vertical",
             overflow: "hidden",
             textOverflow: "ellipsis",
@@ -119,7 +119,7 @@ const BlogCard = ({ blog, pageUrl }) => {
             px: 2,
           }}
         >
-          <Typography id="continue">به اشتراک گذاری</Typography>
+          <Typography id="continue">اشتراک گذاری</Typography>
           <ShareButtons url={pageUrl} title={title} />
         </Box>
       </Box>

@@ -12,42 +12,20 @@ import {
   CardHeader,
   Chip,
 } from "@mui/material";
+import ChipDivider from "@/common/chipDivider";
 
 const FaqsSection = ({ faqs }) => {
   const theme = useTheme();
   return (
     <>
-      <Divider
-        sx={{
-          borderWidth: "1px",
-          mb: 4,
-          mt: 3,
-        }}
-        orientation="horizontal"
-        variant="middle"
-        flexItem
-      >
-        <Chip
-          sx={{
-            "& .MuiTypography-root": {
-              [theme.breakpoints.only("xs")]: {
-                fontSize: "1.1rem",
-              },
-              fontSize: "1.4rem",
-              fontWeight: "600",
-            },
-            my: 0,
-          }}
-          label={
-            <CardHeader
-              title="سوالات متداول:"
-              sx={{
-                color: theme.palette.success.main,
-              }}
-            />
-          }
-        />
-      </Divider>
+      <ChipDivider
+        title="سوالات متداول:"
+        mt={3}
+        mb={4}
+        color={theme.palette.success.main}
+        
+      />
+
       <Box
         sx={{
           mb: 3,

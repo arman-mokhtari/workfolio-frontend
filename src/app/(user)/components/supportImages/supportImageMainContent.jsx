@@ -1,11 +1,13 @@
 "use client";
 import { useTheme } from "@mui/material/styles";
 
-import { Grid, Typography, Stack, Box } from "@mui/material";
+import { Grid, Typography, Stack, Box, Skeleton } from "@mui/material";
 import Image from "next/image";
+import { useGetUser } from "@/hooks/useAuth";
 
 const SupportImagesMainContent = () => {
   const theme = useTheme();
+  const { isLoading } = useGetUser();
   const srcAsk = "https://cdn.workfolio.ir/images/bg/ask.png";
   const srcIso = "https://cdn.workfolio.ir/images/bg/iso.png";
   return (
@@ -22,14 +24,13 @@ const SupportImagesMainContent = () => {
         },
         [theme.breakpoints.between("xs", "md")]: {
           "& img": {
-            objectFit: "cover",
             width: 1,
             height: "auto",
           },
         },
       }}
     >
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} sm={6}>
         <Stack alignItems="center">
           <Typography
             variant="h3"
@@ -37,12 +38,9 @@ const SupportImagesMainContent = () => {
             sx={{
               mb: 2,
               fontSize: "1.6rem",
-              fontWeight: "bold",
-              [theme.breakpoints.only("xs")]: {
-                fontSize: "1.2rem",
-              },
-              [theme.breakpoints.only("sm")]: {
-                fontSize: "1.4rem",
+              fontWeight: "900",
+              [theme.breakpoints.down("md")]: {
+                fontSize: "1.3rem",
               },
             }}
           >
@@ -62,19 +60,16 @@ const SupportImagesMainContent = () => {
         </Stack>
       </Grid>
 
-      <Grid item xs={12} md={6}>
+      <Grid item xs={12} sm={6}>
         <Stack alignItems="center">
           <Typography
             variant="h3"
             noWrap
             sx={{
               fontSize: "1.6rem",
-              fontWeight: "bold",
-              [theme.breakpoints.only("xs")]: {
-                fontSize: "1.2rem",
-              },
-              [theme.breakpoints.only("sm")]: {
-                fontSize: "1.4rem",
+              fontWeight: "900",
+              [theme.breakpoints.down("md")]: {
+                fontSize: "1.3rem",
               },
             }}
           >
