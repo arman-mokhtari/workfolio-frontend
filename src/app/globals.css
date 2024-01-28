@@ -13,6 +13,23 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+/* font */
+
+@font-face {
+  font-family: "shabnam";
+  src: url("../../public/font/shabnam/Shabnam.eot");
+  src: url("../../public/font/shabnam/Shabnam.eot?#iefix")
+      format("embedded-opentype"),
+    url("../../public/font/shabnam/Shabnam.woff2") format("woff2"),
+    url("../../public/font/shabnam/Shabnam.woff") format("woff"),
+    url("../../public/font/shabnam/Shabnam.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* font */
+
 /* header */
 
 .MuiList-root .nav-link-header {
@@ -399,18 +416,27 @@ blockquote {
 
 /* style */
 
-
 p.info-box {
-    --background-size: 30px;
-    --background-color: #e91e63;
-    padding: 1.2em 2em;
-    border: 1px solid var(--background-color);
-    background: linear-gradient(135deg, var(--background-color) 0%, var(--background-color) var(--background-size), transparent var(--background-size)), linear-gradient(135deg, transparent calc(100% - var(--background-size)), var(--background-color) calc(100% - var(--background-size)), var(--background-color));
-    border-radius: 10px;
-    margin: 1.5em 2em;
-    box-shadow: 5px 5px 0 #ffe6ef;
+  --background-size: 30px;
+  --background-color: #e91e63;
+  padding: 1.2em 2em;
+  border: 1px solid var(--background-color);
+  background: linear-gradient(
+      135deg,
+      var(--background-color) 0%,
+      var(--background-color) var(--background-size),
+      transparent var(--background-size)
+    ),
+    linear-gradient(
+      135deg,
+      transparent calc(100% - var(--background-size)),
+      var(--background-color) calc(100% - var(--background-size)),
+      var(--background-color)
+    );
+  border-radius: 10px;
+  margin: 1.5em 2em;
+  box-shadow: 5px 5px 0 #ffe6ef;
 }
-
 
 pre.fancy-code {
   border: 0;
