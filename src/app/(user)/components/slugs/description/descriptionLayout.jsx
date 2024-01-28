@@ -9,7 +9,7 @@ const DescriptionLayout = ({ children }) => {
       <HoverCard
         sx={{
           py: 2,
-          px: 4,
+          px: 3,
           "& figcaption": {
             backgroundColor:
               theme.palette.mode === "light" ? "#f7f7f7" : "#1a1a1a",

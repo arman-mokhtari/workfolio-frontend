@@ -1,19 +1,17 @@
-"use client";
 import { Telegram, Twitter, WhatsApp } from "@mui/icons-material";
-import { Box, Tooltip } from "@mui/material";
+import { Stack, Tooltip } from "@mui/material";
 import {
   WhatsappShareButton,
   TwitterShareButton,
   TelegramShareButton,
 } from "react-share";
 
-const ShareButtons = ({ url, title }) => {
+const ShareButtons = ({ url }) => {
   return (
-    <Box
+    <Stack
+      spacing={1}
+      direction="row"
       sx={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
         mt: 0.5,
         "& .MuiSvgIcon-root": {
           fontSize: "1.8rem",
@@ -49,7 +47,7 @@ const ShareButtons = ({ url, title }) => {
           />
         </TwitterShareButton>
       </Tooltip>
-    </Box>
+    </Stack>
   );
 };
 export default ShareButtons;
