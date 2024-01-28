@@ -3,7 +3,7 @@ import FooterGridLayout from "./footerLayout";
 import { Link, List, ListItem, ListItemText, Box, Stack } from "@mui/material";
 
 const ThirdGrid = () => {
-  const enamadCode = `<a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=382892&Code=eCXutN3fhP65ENbdy0gZFNzsFVimIVml'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=382892&Code=eCXutN3fhP65ENbdy0gZFNzsFVimIVml' alt='enamad' Code='eCXutN3fhP65ENbdy0gZFNzsFVimIVml'></a>`;
+  const enamadCode = `<a referrerpolicy='origin' target='_blank' href='https://trustseal.enamad.ir/?id=382892&Code=eCXutN3fhP65ENbdy0gZFNzsFVimIVml'><img referrerpolicy='origin' src='https://trustseal.enamad.ir/logo.aspx?id=382892&Code=eCXutN3fhP65ENbdy0gZFNzsFVimIVml' alt='enamad' style='cursor:pointer' Code='eCXutN3fhP65ENbdy0gZFNzsFVimIVml'></a>`;
   return (
     <FooterGridLayout title="لینک‌های دوستانه">
       <Box component="nav">
@@ -30,7 +30,6 @@ const ThirdGrid = () => {
               "& img": {
                 width: 86,
                 height: 100,
-                cursor: "pointer",
               },
             }}
           >
