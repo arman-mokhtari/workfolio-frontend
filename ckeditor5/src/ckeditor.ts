@@ -7,14 +7,7 @@ import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic';
 
 import { Alignment } from '@ckeditor/ckeditor5-alignment';
 import { Autoformat } from '@ckeditor/ckeditor5-autoformat';
-import {
-	Bold,
-	Code,
-	Italic,
-	Strikethrough,
-	Superscript,
-	Underline
-} from '@ckeditor/ckeditor5-basic-styles';
+import { Bold, Code, Italic, Strikethrough, Underline } from '@ckeditor/ckeditor5-basic-styles';
 import { BlockQuote } from '@ckeditor/ckeditor5-block-quote';
 import { CodeBlock } from '@ckeditor/ckeditor5-code-block';
 import type { EditorConfig } from '@ckeditor/ckeditor5-core';
@@ -24,14 +17,29 @@ import { Heading } from '@ckeditor/ckeditor5-heading';
 import { Highlight } from '@ckeditor/ckeditor5-highlight';
 import { HorizontalLine } from '@ckeditor/ckeditor5-horizontal-line';
 import { HtmlEmbed } from '@ckeditor/ckeditor5-html-embed';
-import { GeneralHtmlSupport } from '@ckeditor/ckeditor5-html-support';
-import { AutoImage, Image, ImageInsert, ImageUpload } from '@ckeditor/ckeditor5-image';
+import {
+	DataFilter,
+	DataSchema,
+	GeneralHtmlSupport,
+	HtmlComment
+} from '@ckeditor/ckeditor5-html-support';
+import {
+	AutoImage,
+	Image,
+	ImageCaption,
+	ImageInsert,
+	ImageResize,
+	ImageStyle,
+	ImageToolbar,
+	ImageUpload
+} from '@ckeditor/ckeditor5-image';
 import { Indent, IndentBlock } from '@ckeditor/ckeditor5-indent';
 import { TextPartLanguage } from '@ckeditor/ckeditor5-language';
-import { AutoLink, Link } from '@ckeditor/ckeditor5-link';
+import { AutoLink, Link, LinkImage } from '@ckeditor/ckeditor5-link';
 import { List } from '@ckeditor/ckeditor5-list';
 import { MediaEmbed, MediaEmbedToolbar } from '@ckeditor/ckeditor5-media-embed';
 import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
+import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
 import { StandardEditingMode } from '@ckeditor/ckeditor5-restricted-editing';
 import { ShowBlocks } from '@ckeditor/ckeditor5-show-blocks';
 import { SourceEditing } from '@ckeditor/ckeditor5-source-editing';
@@ -39,6 +47,8 @@ import {
 	SpecialCharacters,
 	SpecialCharactersArrows,
 	SpecialCharactersCurrency,
+	SpecialCharactersEssentials,
+	SpecialCharactersLatin,
 	SpecialCharactersMathematical,
 	SpecialCharactersText
 } from '@ckeditor/ckeditor5-special-characters';
@@ -61,6 +71,8 @@ class Editor extends ClassicEditor {
 		Bold,
 		Code,
 		CodeBlock,
+		DataFilter,
+		DataSchema,
 		Essentials,
 		FontBackgroundColor,
 		FontColor,
@@ -70,29 +82,37 @@ class Editor extends ClassicEditor {
 		Heading,
 		Highlight,
 		HorizontalLine,
+		HtmlComment,
 		HtmlEmbed,
 		Image,
+		ImageCaption,
 		ImageInsert,
+		ImageResize,
+		ImageStyle,
+		ImageToolbar,
 		ImageUpload,
 		Indent,
 		IndentBlock,
 		Italic,
 		Link,
+		LinkImage,
 		List,
 		MediaEmbed,
 		MediaEmbedToolbar,
 		Paragraph,
+		PasteFromOffice,
 		ShowBlocks,
 		SourceEditing,
 		SpecialCharacters,
 		SpecialCharactersArrows,
 		SpecialCharactersCurrency,
+		SpecialCharactersEssentials,
+		SpecialCharactersLatin,
 		SpecialCharactersMathematical,
 		SpecialCharactersText,
 		StandardEditingMode,
 		Strikethrough,
 		Style,
-		Superscript,
 		Table,
 		TableToolbar,
 		TextPartLanguage,
@@ -107,6 +127,7 @@ class Editor extends ClassicEditor {
 			items: [
 				'heading',
 				'|',
+				'htmlEmbed',
 				'bold',
 				'italic',
 				'link',
@@ -116,35 +137,42 @@ class Editor extends ClassicEditor {
 				'outdent',
 				'indent',
 				'|',
+				'imageUpload',
+				'style',
 				'blockQuote',
 				'insertTable',
 				'mediaEmbed',
 				'undo',
 				'redo',
+				'textPartLanguage',
+				'underline',
 				'alignment',
 				'code',
 				'codeBlock',
+				'fontBackgroundColor',
+				'fontColor',
 				'fontFamily',
 				'fontSize',
-				'fontColor',
-				'fontBackgroundColor',
-				'horizontalLine',
 				'highlight',
-				'htmlEmbed',
+				'horizontalLine',
+				'imageInsert',
 				'showBlocks',
 				'sourceEditing',
 				'specialCharacters',
-				'strikethrough',
-				'restrictedEditingException',
-				'style',
-				'superscript',
-				'textPartLanguage',
-				'underline',
-				'imageInsert',
-				'imageUpload'
+				'strikethrough'
 			]
 		},
 		language: 'fa',
+		image: {
+			toolbar: [
+				'imageTextAlternative',
+				'toggleImageCaption',
+				'imageStyle:inline',
+				'imageStyle:block',
+				'imageStyle:side',
+				'linkImage'
+			]
+		},
 		table: {
 			contentToolbar: [
 				'tableColumn',

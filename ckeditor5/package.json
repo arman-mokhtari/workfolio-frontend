@@ -28,6 +28,7 @@
     "@ckeditor/ckeditor5-list": "41.0.0",
     "@ckeditor/ckeditor5-media-embed": "41.0.0",
     "@ckeditor/ckeditor5-paragraph": "41.0.0",
+    "@ckeditor/ckeditor5-paste-from-office": "41.0.0",
     "@ckeditor/ckeditor5-restricted-editing": "41.0.0",
     "@ckeditor/ckeditor5-show-blocks": "41.0.0",
     "@ckeditor/ckeditor5-source-editing": "41.0.0",
