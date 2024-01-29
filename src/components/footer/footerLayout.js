@@ -19,6 +19,7 @@ const FooterGridLayout = ({ children, title, px }) => {
           flexDirection: "column",
           width: 1,
           px: px,
+          height: 1,
         }}
       >
         <Typography
