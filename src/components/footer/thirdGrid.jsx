@@ -35,6 +35,7 @@ const ThirdGrid = () => {
           <Stack
             direction="row"
             justifyContent="flex-end"
+            alignItems="center"
             spacing={1}
             sx={{
               "& img": {
