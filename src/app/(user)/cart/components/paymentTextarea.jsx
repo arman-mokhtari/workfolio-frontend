@@ -1,5 +1,3 @@
-"use client";
-
 import { ExpandMore } from "@mui/icons-material";
 import {
   Accordion,
@@ -10,9 +8,7 @@ import {
   Stack,
 } from "@mui/material";
 
-const PaymentTextarea = ({handleInputChange}) => {
- 
-
+const PaymentTextarea = ({ handleInputChange }) => {
   return (
     <Accordion
       sx={{
@@ -35,7 +31,7 @@ const PaymentTextarea = ({handleInputChange}) => {
               fontSize: "1rem",
             }}
           >
-            ثبت توضیحات تکمیلی
+            توضیحات تکمیلی
           </Typography>
 
           <Typography variant="caption">{"(اختیاری)"}</Typography>
@@ -58,7 +54,7 @@ const PaymentTextarea = ({handleInputChange}) => {
             sx={{
               color: "#037fff",
             }}
-            label="متن پیام"
+            label="توضیحات تکمیلیِ سفارش را برای ما بنویسید..."
             variant="outlined"
             onChange={handleInputChange}
           />

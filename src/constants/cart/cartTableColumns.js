@@ -1,6 +1,9 @@
 import { Delete } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
-import { toPersianNumbers } from "@/utils/toPersianNumbers";
+import {
+  toPersianNumbers,
+  toPersianNumbersWithComma,
+} from "@/utils/toPersianNumbers";
 
 export const cartTableColumns = (removeHandler) => {
   return [
@@ -14,6 +17,12 @@ export const cartTableColumns = (removeHandler) => {
       headerName: "تعداد",
       flex: 1,
       valueGetter: (params) => toPersianNumbers(params.row.quantity),
+    },
+    {
+      field: "price",
+      headerName: "مبلغ",
+      flex: 1,
+      valueGetter: (params) => toPersianNumbersWithComma(params.row.price),
     },
     {
       field: "action",

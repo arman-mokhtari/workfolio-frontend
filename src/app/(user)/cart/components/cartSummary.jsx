@@ -34,11 +34,11 @@ const CartSummary = ({ payDetail }) => {
 
   const createPaymentHandler = async () => {
     try {
-      const { message: msg } = await mutateAsync({
+      const { gatewayURL } = await mutateAsync({
         additionalInformation: message,
       });
 
-      toast.success(msg);
+      window.location.href = gatewayURL;
       queryClient.invalidateQueries({ queryKey: ["get-user"] });
     } catch (error) {
       if (error?.response?.data) {
@@ -78,8 +78,7 @@ const CartSummary = ({ payDetail }) => {
         <ShopNow variant="outlined" text="ادامه خرید" fullWidth={true} />
         <Box>
           <Button
-            // disabled={isPending} //todo should connect to Payment gateway
-            disabled
+            disabled={isPending}
             sx={{
               mt: 1.5,
               mb: 0.5,
