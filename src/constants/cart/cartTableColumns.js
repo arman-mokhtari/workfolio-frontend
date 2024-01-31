@@ -10,13 +10,7 @@ export const cartTableColumns = (removeHandler) => {
     {
       field: "title",
       headerName: "عنوان",
-      flex: 1,
-    },
-    {
-      field: "quantity",
-      headerName: "تعداد",
-      flex: 1,
-      valueGetter: (params) => toPersianNumbers(params.row.quantity),
+      flex: 1.8,
     },
     {
       field: "price",

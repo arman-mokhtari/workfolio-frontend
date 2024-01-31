@@ -1,6 +1,6 @@
 import Link from "next/link";
 import "./globals.css";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, Stack } from "@mui/material";
 import Image from "next/image";
 
 export default function NotFound() {
@@ -17,15 +17,16 @@ export default function NotFound() {
         pt: 2,
         "& img": {
           objectFit: "cover",
-          width: "55% !important",
           height: "auto !important",
+          overflow: "hidden",
         },
         "& a": {
-          fontFamily:"shabnam",
+          fontFamily: "shabnam",
         },
       }}
     >
       <Image
+        className="not-found-img"
         priority
         alt="خطا از سمت سرور"
         placeholder="blur"
@@ -34,32 +35,44 @@ export default function NotFound() {
         height={200}
         src={srcImg}
       />
-      <Typography
+
+      <Stack
+        alignItems="center"
+        textAlign="center"
+        spacing={1.5}
         sx={{
-          fontSize: "1.3rem",
-          fontFamily:"shabnam",
-          fontWeight: "900",
-          mt: 4,
-        }}
-      >
-        اوه! به نظر میاد که یه جایی گم شدیم...
-      </Typography>
-      <Box
-        sx={{
-          textAlign: "center",
+          my: 2,
         }}
       >
         <Typography
           sx={{
+            fontSize: "1.3rem",
+            fontFamily: "shabnam",
+            fontWeight: "900",
+          }}
+        >
+          به نظر میاد یه جایی گم شدیم...
+        </Typography>
+
+        <Typography
+          sx={{
             fontSize: "1rem",
             fontWeight: "700",
-            fontFamily:"shabnam",
-            my: 2,
+            fontFamily: "shabnam",
+          }}
+        >
+          متاسفانه صفحه مورد نظر شما پیدا نشد!
+        </Typography>
+        <Typography
+          sx={{
+            fontSize: "1rem",
+            fontWeight: "700",
+            fontFamily: "shabnam",
           }}
         >
           اما جای هیچ نگرانی نیست! آینده روشنه و ما در حال بهتر شدن هستیم.
         </Typography>
-      </Box>
+      </Stack>
       <Button
         variant="contained"
         role="link"

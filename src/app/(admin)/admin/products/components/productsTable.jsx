@@ -11,9 +11,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
-
 const ProductsTable = ({ products }) => {
-
   const { mutateAsync } = useRemoveProduct();
   const queryClient = useQueryClient();
 
@@ -26,7 +24,6 @@ const ProductsTable = ({ products }) => {
       toast.error(error?.response?.data?.message);
     }
   };
-
 
   const isSmallScreen = useIsOnlyXs();
 
@@ -49,8 +46,9 @@ const ProductsTable = ({ products }) => {
     <Card>
       <ThemeProvider theme={theme}>
         <DataGrid
+          disableRowSelectionOnClick
           rows={modifiedProducts}
-          columns={productsTableColumns(isSmallScreen,removeProductHandler)}
+          columns={productsTableColumns(isSmallScreen, removeProductHandler)}
           autoHeight
         />
       </ThemeProvider>

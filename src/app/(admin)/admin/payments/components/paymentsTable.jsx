@@ -9,10 +9,7 @@ import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { adminPaymentsTableColumns } from "@/constants/adminPaymentsTable";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
-
 const AdminPaymentsTable = ({ payments }) => {
-
-
   const isSmallScreen = useIsOnlyXs();
 
   const modifiedPayments = payments.map((payment, index) => ({
@@ -34,6 +31,7 @@ const AdminPaymentsTable = ({ payments }) => {
     <Card>
       <ThemeProvider theme={theme}>
         <DataGrid
+          disableRowSelectionOnClick
           rows={modifiedPayments}
           columns={adminPaymentsTableColumns(isSmallScreen)}
           autoHeight

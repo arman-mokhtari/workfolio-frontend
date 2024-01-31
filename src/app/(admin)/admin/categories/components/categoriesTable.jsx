@@ -29,7 +29,6 @@ const CategoriesTable = ({ categories }) => {
     }
   };
 
-
   const isSmallScreen = useIsOnlyXs();
 
   const modifiedCategories = categories.map((category, index) => ({
@@ -51,6 +50,7 @@ const CategoriesTable = ({ categories }) => {
     <Card>
       <ThemeProvider theme={theme}>
         <DataGrid
+          disableRowSelectionOnClick
           rows={modifiedCategories}
           columns={categoriesTableColumns(
             isSmallScreen,

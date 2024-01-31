@@ -38,6 +38,7 @@ const PaymentTable = ({ payments }) => {
         <DataGrid
           rows={modifiedPayments}
           columns={paymentTableColumns(isSmallScreen)}
+          disableRowSelectionOnClick
           autoHeight
         />
       </ThemeProvider>

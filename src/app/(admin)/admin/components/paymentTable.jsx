@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useMemo } from "react";
 import { DataGrid, faIR } from "@mui/x-data-grid";
 import { paymentTableColumns } from "@/constants/profilePaymentTableData";
@@ -36,6 +36,7 @@ const PaymentTable = ({ payments }) => {
     >
       <ThemeProvider theme={theme}>
         <DataGrid
+          disableRowSelectionOnClick
           rows={modifiedPayments}
           columns={paymentTableColumns(isSmallScreen)}
           autoHeight

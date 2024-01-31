@@ -31,6 +31,7 @@ const ReviewsTable = ({ reviews }) => {
     <Card>
       <ThemeProvider theme={theme}>
         <DataGrid
+          disableRowSelectionOnClick
           rows={modifiedReviews}
           columns={productReviewsTableColumns(isSmallScreen)}
           autoHeight

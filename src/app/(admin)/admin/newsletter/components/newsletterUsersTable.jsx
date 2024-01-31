@@ -12,9 +12,7 @@ import { newsletterTableColumns } from "@/constants/newsletter/newsletterTableDa
 import { useRemoveNewsletterUser } from "@/hooks/useNewsletterUsers";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
-
 const NewsletterUsersTable = ({ newsletterUsers }) => {
-
   const { mutateAsync } = useRemoveNewsletterUser();
   const queryClient = useQueryClient();
 
@@ -28,13 +26,14 @@ const NewsletterUsersTable = ({ newsletterUsers }) => {
     }
   };
 
-
   const isSmallScreen = useIsOnlyXs();
 
-  const modifiedNewsletterUsers = newsletterUsers.map((newsletterUser, index) => ({
-    ...newsletterUser,
-    id: index + 1,
-  }));
+  const modifiedNewsletterUsers = newsletterUsers.map(
+    (newsletterUser, index) => ({
+      ...newsletterUser,
+      id: index + 1,
+    })
+  );
 
   const existingTheme = useTheme();
 
@@ -50,8 +49,12 @@ const NewsletterUsersTable = ({ newsletterUsers }) => {
     <Card>
       <ThemeProvider theme={theme}>
         <DataGrid
+          disableRowSelectionOnClick
           rows={modifiedNewsletterUsers}
-          columns={newsletterTableColumns(isSmallScreen,removeNewsletterUserHandler)}
+          columns={newsletterTableColumns(
+            isSmallScreen,
+            removeNewsletterUserHandler
+          )}
           autoHeight
         />
       </ThemeProvider>

@@ -51,6 +51,7 @@ const CartItemTable = () => {
   return (
     <ThemeProvider theme={theme}>
       <DataGrid
+        disableRowSelectionOnClick
         rows={modifiedCartItems}
         columns={cartTableColumns(removeHandler)}
         autoHeight

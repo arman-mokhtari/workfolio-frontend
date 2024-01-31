@@ -32,6 +32,10 @@ const CartSummary = ({ payDetail }) => {
     { label: "مبلغ قابل پرداخت:", value: totalPrice },
   ];
 
+  const filteredItemsPriceDetail = ItemsPriceDetail.filter(
+    (detail) => detail.value > 0
+  );
+  
   const createPaymentHandler = async () => {
     try {
       const { gatewayURL } = await mutateAsync({
@@ -55,7 +59,7 @@ const CartSummary = ({ payDetail }) => {
         }}
       >
         <AddCouponForm />
-        {ItemsPriceDetail.map((detail, index) => (
+        {filteredItemsPriceDetail.map((detail, index) => (
           <Box
             key={index}
             sx={{

@@ -11,9 +11,7 @@ import { useRemoveCoupon } from "@/hooks/useCoupons";
 import { couponsTableColumns } from "@/constants/couponsTableData";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
-
 const CouponsTable = ({ coupons }) => {
-
   const { mutateAsync } = useRemoveCoupon();
   const queryClient = useQueryClient();
 
@@ -26,7 +24,6 @@ const CouponsTable = ({ coupons }) => {
       toast.error(error?.response?.data?.message);
     }
   };
-
 
   const isSmallScreen = useIsOnlyXs();
 
@@ -49,8 +46,9 @@ const CouponsTable = ({ coupons }) => {
     <Card>
       <ThemeProvider theme={theme}>
         <DataGrid
+          disableRowSelectionOnClick
           rows={modifiedCoupons}
-          columns={couponsTableColumns(isSmallScreen,removeCouponHandler)}
+          columns={couponsTableColumns(isSmallScreen, removeCouponHandler)}
           autoHeight
         />
       </ThemeProvider>

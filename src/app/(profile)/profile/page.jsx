@@ -13,16 +13,18 @@ const UserProfile = () => {
 
   if (isLoading) return <Loading />;
 
+ const modifiedPayments= payments.filter((payment) => payment.status === "COMPLETED")
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} lg={5}>
         <UserDataCard user={user} />
       </Grid>
       <Grid item xs={12} lg={7}>
-        <UserShoppingData payments={payments} user={user} />
+        <UserShoppingData payments={modifiedPayments} user={user} />
       </Grid>
       <Grid item xs={12}>
-        <PaymentTable payments={payments} />
+        <PaymentTable payments={modifiedPayments} />
       </Grid>
     </Grid>
   );

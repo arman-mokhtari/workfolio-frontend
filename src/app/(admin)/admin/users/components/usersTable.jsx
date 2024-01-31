@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useMemo } from "react";
 import { DataGrid, faIR } from "@mui/x-data-grid";
 import { Card } from "@mui/material";
@@ -36,6 +36,7 @@ const UsersTable = ({ users }) => {
     >
       <ThemeProvider theme={theme}>
         <DataGrid
+          disableRowSelectionOnClick
           rows={modifiedUsers}
           columns={usersTableColumns(isSmallScreen)}
           autoHeight

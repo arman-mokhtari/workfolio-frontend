@@ -12,9 +12,7 @@ import { useRemoveBlog } from "@/hooks/useBlogs";
 import { blogsTableColumns } from "@/constants/blog/blogPageData";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
-
 const BlogsTable = ({ blogs }) => {
-
   const { mutateAsync } = useRemoveBlog();
   const queryClient = useQueryClient();
 
@@ -27,7 +25,6 @@ const BlogsTable = ({ blogs }) => {
       toast.error(error?.response?.data?.message);
     }
   };
-
 
   const isSmallScreen = useIsOnlyXs();
 
@@ -50,8 +47,9 @@ const BlogsTable = ({ blogs }) => {
     <Card>
       <ThemeProvider theme={theme}>
         <DataGrid
+          disableRowSelectionOnClick
           rows={modifiedBlogs}
-          columns={blogsTableColumns(isSmallScreen,removeBlogHandler)}
+          columns={blogsTableColumns(isSmallScreen, removeBlogHandler)}
           autoHeight
         />
       </ThemeProvider>
