@@ -17,7 +17,9 @@ const AdminPanel = () => {
   const { payments } = data || {};
 
   if (userLoading) return <Loading />;
-
+  const modifiedPayments = payments.filter(
+    (payment) => payment.status === "COMPLETED"
+  );
   return (
     <Grid container spacing={2}>
       <Grid item xs={12} lg={5}>
@@ -26,21 +28,15 @@ const AdminPanel = () => {
       <Grid item xs={12} lg={7}>
         <UserShoppingData
           isLoading={paymentsLoading}
-          payments={payments}
+          payments={modifiedPayments}
           user={user}
         />
       </Grid>
-      <Grid
-        item
-        xs={12} lg={6}
-      >
-        <SalesChart isLoading={paymentsLoading} payments={payments} />
+      <Grid item xs={12} lg={6}>
+        <SalesChart isLoading={paymentsLoading} payments={modifiedPayments} />
       </Grid>
-      <Grid
-        item
-        xs={12} lg={6}
-      >
-        <AverageSales isLoading={paymentsLoading} payments={payments} />
+      <Grid item xs={12} lg={6}>
+        <AverageSales isLoading={paymentsLoading} payments={modifiedPayments} />
       </Grid>
     </Grid>
   );

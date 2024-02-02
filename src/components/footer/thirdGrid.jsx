@@ -2,7 +2,15 @@
 
 import NextLink from "next/link";
 import FooterGridLayout from "./footerLayout";
-import { Link, List, ListItem, ListItemText, Box, Stack } from "@mui/material";
+import {
+  Link,
+  List,
+  ListItem,
+  ListItemText,
+  Box,
+  Stack,
+  Skeleton,
+} from "@mui/material";
 import {
   enamadCode,
   samandehiCode,
@@ -24,20 +32,34 @@ const ThirdGrid = () => {
           justifyContent="space-between"
         >
           <List>
-            {miscPages.map(({ slug, title }, index) => (
-              <ListItem key={index}>
-                <Link
-                  role="link"
-                  component={NextLink}
-                  aria-label="label"
-                  underline="none"
-                  href={slug}
-                  title={`${title} ورکفولیو`}
-                >
-                  <ListItemText primary={title} />
-                </Link>
-              </ListItem>
-            ))}
+            {isLoading ? (
+              <Stack>
+                {Array.from({ length: 2 }, (_, i) => (
+                  <ListItem key={i}>
+                    <Skeleton
+                      variant="text"
+                      width={200}
+                      sx={{ my: 0.5, fontSize: "1rem", lineHeight: 1.5 }}
+                    />
+                  </ListItem>
+                ))}
+              </Stack>
+            ) : (
+              miscPages.map(({ slug, title }, index) => (
+                <ListItem key={index}>
+                  <Link
+                    role="link"
+                    component={NextLink}
+                    aria-label="label"
+                    underline="none"
+                    href={slug}
+                    title={`${title} ورکفولیو`}
+                  >
+                    <ListItemText primary={title} />
+                  </Link>
+                </ListItem>
+              ))
+            )}
           </List>
           <Stack
             direction="row"
