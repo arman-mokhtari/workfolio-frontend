@@ -16,13 +16,12 @@ import {
   samandehiCode,
   zarinpalCode,
 } from "@/constants/verifyLogos";
-import Loading from "@/common/loading";
 import { useGetAllMiscPage } from "@/hooks/useMiscPage";
 
 const ThirdGrid = () => {
   const { data, isLoading } = useGetAllMiscPage();
   const { miscPages } = data || {};
-  if (isLoading) return <Loading />;
+
   return (
     <FooterGridLayout title="پیوندهای مرتبط">
       <Box sx={{ height: 1 }} component="nav">
