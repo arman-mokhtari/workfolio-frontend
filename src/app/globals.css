@@ -401,9 +401,9 @@ blockquote {
   font-style: italic;
 }
 
-.custom_workfolio_desc {
+/* .custom_workfolio_desc {
   text-align: justify;
-}
+} */
 
 .custom_workfolio_desc h1,
 .custom_workfolio_desc h2,
@@ -440,11 +440,12 @@ p.info-box {
 
 pre.fancy-code {
   border: 0;
-  margin-left: 2em;
-  margin-right: 2em;
   border-radius: 10px;
   padding: 1em;
   direction: ltr;
+}
+pre.fancy-code code {
+  white-space: pre-wrap;
 }
 
 pre.fancy-code::before {
