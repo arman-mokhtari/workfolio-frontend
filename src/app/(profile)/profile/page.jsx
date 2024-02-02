@@ -13,7 +13,7 @@ const UserProfile = () => {
 
   if (isLoading) return <Loading />;
 
- const modifiedPayments= payments.filter((payment) => payment.status === "COMPLETED")
+ const modifiedPayments= payments?.filter((payment) => payment.status === "COMPLETED")
 
   return (
     <Grid container spacing={2}>

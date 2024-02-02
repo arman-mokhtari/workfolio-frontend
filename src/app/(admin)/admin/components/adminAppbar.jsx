@@ -63,16 +63,6 @@ function AdminAppBar({ window, children }) {
           >
             <Menu />
           </IconButton>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              width: 1,
-            }}
-          >
-            <ThemeBtn />
-          </Box>
         </Toolbar>
       </AppBar>
       <Box

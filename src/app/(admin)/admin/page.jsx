@@ -17,7 +17,7 @@ const AdminPanel = () => {
   const { payments } = data || {};
 
   if (userLoading) return <Loading />;
-  const modifiedPayments = payments.filter(
+  const modifiedPayments = payments?.filter(
     (payment) => payment.status === "COMPLETED"
   );
   return (
