@@ -1,4 +1,6 @@
-import { externalLinks } from "@/constants/friendlyLinks";
+"use client";
+
+import NextLink from "next/link";
 import FooterGridLayout from "./footerLayout";
 import { Link, List, ListItem, ListItemText, Box, Stack } from "@mui/material";
 import {
@@ -6,10 +8,15 @@ import {
   samandehiCode,
   zarinpalCode,
 } from "@/constants/verifyLogos";
+import Loading from "@/common/loading";
+import { useGetAllMiscPage } from "@/hooks/useMiscPage";
 
 const ThirdGrid = () => {
+  const { data, isLoading } = useGetAllMiscPage();
+  const { miscPages } = data || {};
+  if (isLoading) return <Loading />;
   return (
-    <FooterGridLayout title="لینک‌های دوستانه">
+    <FooterGridLayout title="پیوندهای مرتبط">
       <Box sx={{ height: 1 }} component="nav">
         <Stack
           sx={{ height: 1 }}
@@ -17,18 +24,17 @@ const ThirdGrid = () => {
           justifyContent="space-between"
         >
           <List>
-            {externalLinks.map(({ url, title, label }, index) => (
+            {miscPages.map(({ slug, title }, index) => (
               <ListItem key={index}>
                 <Link
                   role="link"
+                  component={NextLink}
                   aria-label="label"
                   underline="none"
-                  href={url}
-                  target="_blank"
-                  rel="nofollow noopener noreferrer"
-                  title={title}
+                  href={slug}
+                  title={`${title} ورکفولیو`}
                 >
-                  <ListItemText primary={label} />
+                  <ListItemText primary={title} />
                 </Link>
               </ListItem>
             ))}

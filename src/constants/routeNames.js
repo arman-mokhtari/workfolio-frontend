@@ -6,7 +6,9 @@ const routeNames = {
   cart: "سبد خرید",
   checkout: "پرداخت",
   auth: "ثبت‌نام",
+  rules: "قوانین و مقررات",
   "complete-profile": "تکمیل مشخصات کاربری",
+  "privacy-policy": "سیاست حفظ حریم خصوصی",
   "sign-in": "ورود",
 };
 

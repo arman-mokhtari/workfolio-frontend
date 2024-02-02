@@ -15,6 +15,7 @@ import {
   Article,
   Email,
   Reviews,
+  Web,
 } from "@mui/icons-material";
 
 export const navItems = [
@@ -150,5 +151,10 @@ export const adminProfileNavItems = [
     text: "خبرنامه",
     icon: <Email />,
     to: "/admin/newsletter",
+  },
+  {
+    text: "صفحات متفرقه",
+    icon: <Web />,
+    to: "/admin/misc-pages",
   },
 ];
