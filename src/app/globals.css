@@ -401,9 +401,12 @@ blockquote {
   font-style: italic;
 }
 
-/* .custom_workfolio_desc {
-  text-align: justify;
-} */
+.custom_workfolio_desc a {
+  /* text-align: justify; */
+  text-decoration: none !important;
+  color: #4c99e6;
+  cursor: pointer;
+}
 
 .custom_workfolio_desc h1,
 .custom_workfolio_desc h2,

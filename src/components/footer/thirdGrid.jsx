@@ -51,7 +51,7 @@ const ThirdGrid = () => {
                     component={NextLink}
                     aria-label="label"
                     underline="none"
-                    href={slug}
+                    href={`/${slug}`}
                     title={`${title} ورکفولیو`}
                   >
                     <ListItemText primary={title} />
