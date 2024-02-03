@@ -15,6 +15,8 @@ import {
   useRemoveProductReview,
   useUpdateProductReview,
 } from "@/hooks/useProductReviews";
+import OperationButtons from "../../../components/operationButtons";
+import { useModal } from "@/context/modalContext";
 
 const ReviewDataCard = ({ review, id }) => {
   const router = useRouter();
@@ -63,10 +65,11 @@ const ReviewDataCard = ({ review, id }) => {
       toast.error(error?.response?.data?.message);
     }
   };
-
+  const { closeModal } = useModal();
   const removeReviewHandler = async () => {
     try {
       const { message } = await mutateAsyncRemove(id);
+      closeModal();
       toast.success(message);
       router.push("/admin/reviews/product");
       queryClient.invalidateQueries({ queryKey: ["product-reviews-admin"] });
@@ -106,23 +109,11 @@ const ReviewDataCard = ({ review, id }) => {
           </Typography>
         ))}
       </CardContent>
-      <CardActions
-        sx={{
-          justifyContent: "space-around",
-
-          mt: 1.5,
-        }}
-      >
-        <ButtonGroup>
-          <Button color="success" onClick={handleSubmit}>
-            تایید
-          </Button>
-          <Button onClick={handleUnSubmit}>عدم تایید</Button>
-          <Button color="error" onClick={removeReviewHandler}>
-            حذف
-          </Button>
-        </ButtonGroup>
-      </CardActions>
+      <OperationButtons
+        handleSubmit={handleSubmit}
+        handleUnSubmit={handleUnSubmit}
+        removeReviewHandler={removeReviewHandler}
+      />
     </HoverCard>
   );
 };

@@ -22,6 +22,7 @@ import CustomBreadCrumbs from "@/components/main/breadCrumbs";
 import { usePathname } from "next/navigation";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { ModalProvider } from "@/context/modalContext";
 
 const cacheRTL = createCache({
   key: "muirtl",
@@ -50,31 +51,33 @@ const LayoutContent = ({ children }) => {
         handleThemeChange,
       }}
     >
-      <CacheProvider value={cacheRTL}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Providers>
-            <Toaster position="top-left" />
-            <DrawerAppBar />
-            {pn !== "/" &&
-              !pn.startsWith("/forget-password") &&
-              pn !== "/complete-profile" &&
-              pn !== "/auth" &&
-              pn !== "/contact" &&
-              pn !== "/services" &&
-              pn !== "/sign-in" && <CustomBreadCrumbs />}
-            {children}
-            {pn !== "/complete-profile" &&
-              pn !== "/auth" &&
-              pn !== "/sign-in" &&
-              pn !== "/services" &&
-              pn !== "/contact" &&
-              !pn.startsWith("/forget-password") && <Footer />}
-            <FabContact />
-            <ScrollTop />
-          </Providers>
-        </ThemeProvider>
-      </CacheProvider>
+      <ModalProvider>
+        <CacheProvider value={cacheRTL}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Providers>
+              <Toaster position="top-left" />
+              <DrawerAppBar />
+              {pn !== "/" &&
+                !pn.startsWith("/forget-password") &&
+                pn !== "/complete-profile" &&
+                pn !== "/auth" &&
+                pn !== "/contact" &&
+                pn !== "/services" &&
+                pn !== "/sign-in" && <CustomBreadCrumbs />}
+              {children}
+              {pn !== "/complete-profile" &&
+                pn !== "/auth" &&
+                pn !== "/sign-in" &&
+                pn !== "/services" &&
+                pn !== "/contact" &&
+                !pn.startsWith("/forget-password") && <Footer />}
+              <FabContact />
+              <ScrollTop />
+            </Providers>
+          </ThemeProvider>
+        </CacheProvider>
+      </ModalProvider>
     </MainContext.Provider>
   );
 };

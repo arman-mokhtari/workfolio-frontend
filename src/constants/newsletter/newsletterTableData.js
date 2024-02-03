@@ -1,9 +1,13 @@
-
-
+import GlobalModal from "@/common/globalModal";
+import { useModal } from "@/context/modalContext";
 import { Delete } from "@mui/icons-material";
-import { IconButton, Stack } from "@mui/material";
+import { IconButton } from "@mui/material";
 
-export const newsletterTableColumns = (isSmallScreen, removeNewsletterUserHandler) => {
+export const NewsletterTableColumns = (
+  isSmallScreen,
+  removeNewsletterUserHandler
+) => {
+  const { openModal } = useModal();
   return isSmallScreen
     ? [
         {
@@ -16,19 +20,20 @@ export const newsletterTableColumns = (isSmallScreen, removeNewsletterUserHandle
           headerName: "عملیات",
           flex: 1,
           renderCell: (params) => (
-            <Stack direction="row" alignItems="center">
-              <IconButton
-                onClick={() => removeNewsletterUserHandler(params.row._id)}
-                aria-label="link"
-              >
+            <GlobalModal
+              modalHandler={() => removeNewsletterUserHandler(params.row._id)}
+              question="آیا از حذف این آیتم اطمینان دارید؟"
+              acceptText="تایید"
+              rejectText="انصراف"
+            >
+              <IconButton onClick={openModal} aria-label="remove">
                 <Delete color="error" fontSize="small" />
               </IconButton>
-            </Stack>
+            </GlobalModal>
           ),
         },
       ]
     : [
-        { field: "id", headerName: "#", flex: 1 },
         {
           field: "name",
           headerName: "نام",
@@ -44,14 +49,16 @@ export const newsletterTableColumns = (isSmallScreen, removeNewsletterUserHandle
           headerName: "عملیات",
           flex: 1,
           renderCell: (params) => (
-            <Stack direction="row" alignItems="center">
-              <IconButton
-                onClick={() => removeNewsletterUserHandler(params.row._id)}
-                aria-label="link"
-              >
+            <GlobalModal
+              modalHandler={() => removeNewsletterUserHandler(params.row._id)}
+              question="آیا از حذف این آیتم اطمینان دارید؟"
+              acceptText="تایید"
+              rejectText="انصراف"
+            >
+              <IconButton onClick={openModal} aria-label="remove">
                 <Delete color="error" fontSize="small" />
               </IconButton>
-            </Stack>
+            </GlobalModal>
           ),
         },
       ];

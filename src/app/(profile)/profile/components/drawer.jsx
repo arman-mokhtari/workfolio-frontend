@@ -1,11 +1,12 @@
 "use client";
 import Logo from "@/common/logo";
+import GlobalModal from "@/common/globalModal";
 import { userProfileNavItems } from "@/constants/tabsData";
+import { useModal } from "@/context/modalContext";
 import { logout } from "@/services/auth/authServices";
 import { Logout } from "@mui/icons-material";
 import {
   Box,
-  Button,
   Divider,
   List,
   ListItem,
@@ -17,9 +18,12 @@ import {
 import Link from "next/link";
 
 const ProfileDrawer = ({ handleDrawerToggle }) => {
-  const logoutHandler = async () => {
-    document.location.href = "/";
+  const { openModal, closeModal } = useModal();
+
+  const modalHandler = async () => {
     await logout();
+    closeModal();
+    document.location.href = "/sign-in";
   };
 
   return (
@@ -46,18 +50,29 @@ const ProfileDrawer = ({ handleDrawerToggle }) => {
           <ListItem key={index} disablePadding>
             <ListItemButton>
               <ListItemIcon>{icon}</ListItemIcon>
-              <ListItemText primary={<Link
-              role="link"
-                aria-label={text} href={to}>{text}</Link>} />
+              <ListItemText
+                primary={
+                  <Link role="link" aria-label={text} href={to}>
+                    {text}
+                  </Link>
+                }
+              />
             </ListItemButton>
           </ListItem>
         ))}
-        <ListItemButton onClick={logoutHandler}>
-          <ListItemIcon>
-            <Logout />
-          </ListItemIcon>
-          <ListItemText primary="خروج" />
-        </ListItemButton>
+        <GlobalModal
+          modalHandler={modalHandler}
+          question="آیا از خروج اطمینان دارید؟"
+          acceptText="تایید"
+          rejectText="انصراف"
+        >
+          <ListItemButton onClick={openModal}>
+            <ListItemIcon>
+              <Logout />
+            </ListItemIcon>
+            <ListItemText primary="خروج" />
+          </ListItemButton>
+        </GlobalModal>
       </List>
     </Box>
   );

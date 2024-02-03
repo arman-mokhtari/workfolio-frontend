@@ -1,4 +1,4 @@
-import { Typography, Stack } from "@mui/material";
+import { Box, Typography, Stack } from "@mui/material";
 import { toLocalDateString } from "@/utils/toLocalDate";
 import MiscCardLayout from "./miscCardLayout";
 

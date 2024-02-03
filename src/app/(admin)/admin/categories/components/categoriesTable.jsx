@@ -10,6 +10,7 @@ import { useRemoveCategory } from "@/hooks/useCategories";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
+import { useModal } from "@/context/modalContext";
 
 const CategoriesTable = ({ categories }) => {
   const [open, setOpen] = useState(false);
@@ -18,10 +19,12 @@ const CategoriesTable = ({ categories }) => {
 
   const { mutateAsync } = useRemoveCategory();
   const queryClient = useQueryClient();
+  const { closeModal } = useModal();
 
   const removeCategoryHandler = async (id) => {
     try {
       const { message } = await mutateAsync(id);
+      closeModal();
       toast.success(message);
       queryClient.invalidateQueries({ queryKey: ["get-categories"] });
     } catch (error) {

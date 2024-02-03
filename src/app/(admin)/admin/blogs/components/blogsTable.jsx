@@ -11,14 +11,17 @@ import { toast } from "react-hot-toast";
 import { useRemoveBlog } from "@/hooks/useBlogs";
 import { blogsTableColumns } from "@/constants/blog/blogPageData";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
+import { useModal } from "@/context/modalContext";
 
 const BlogsTable = ({ blogs }) => {
   const { mutateAsync } = useRemoveBlog();
   const queryClient = useQueryClient();
+  const { closeModal } = useModal();
 
   const removeBlogHandler = async (id) => {
     try {
       const { message } = await mutateAsync(id);
+      closeModal();
       toast.success(message);
       queryClient.invalidateQueries({ queryKey: ["get-blogs"] });
     } catch (error) {

@@ -1,10 +1,10 @@
-import Link from "next/link";
 
-import { toPersianNumbers } from "@/utils/toPersianNumbers";
-import { Delete, Edit, Launch } from "@mui/icons-material";
-import { IconButton, Stack } from "@mui/material";
+import OperationStack from "@/pages/(admin)/admin/common/operationStack";
 
-export const categoriesTableColumns = (isSmallScreen,removeCategoryHandler) => {
+export const categoriesTableColumns = (
+  isSmallScreen,
+  removeCategoryHandler
+) => {
   return isSmallScreen
     ? [
         {
@@ -17,30 +17,15 @@ export const categoriesTableColumns = (isSmallScreen,removeCategoryHandler) => {
           headerName: "عملیات",
           flex: 1,
           renderCell: (params) => (
-            <Stack spacing={0.2} direction="row" alignItems="center">
-              <IconButton
-                aria-label="link"
-                component={Link}
-                href={`/admin/categories/${params.row._id}`}
-              >
-                <Launch color="primary" fontSize="small" />
-              </IconButton>
-              <IconButton
-                aria-label="link"
-                component={Link}
-                href={`/admin/categories/edit/${params.row._id}`}
-              >
-                <Edit fontSize="small" />
-              </IconButton>
-              <IconButton onClick={()=>removeCategoryHandler(params.row._id)} aria-label="link">
-                <Delete color="error" fontSize="small" />
-              </IconButton>
-            </Stack>
+            <OperationStack
+              viewHref={`/admin/categories/${params.row._id}`}
+              editHref={`/admin/categories/edit/${params.row._id}`}
+              removeHandler={() => removeCategoryHandler(params.row._id)}
+            />
           ),
         },
       ]
     : [
-        { field: "id", headerName: "#", flex: 1 },
         {
           field: "title",
           headerName: "عنوان",
@@ -71,25 +56,11 @@ export const categoriesTableColumns = (isSmallScreen,removeCategoryHandler) => {
           headerName: "عملیات",
           flex: 1,
           renderCell: (params) => (
-            <Stack direction="row" alignItems="center">
-              <IconButton
-                aria-label="link"
-                component={Link}
-                href={`/admin/categories/${params.row._id}`}
-              >
-                <Launch color="primary" fontSize="small" />
-              </IconButton>
-              <IconButton
-                aria-label="link"
-                component={Link}
-                href={`/admin/categories/edit/${params.row._id}`}
-              >
-                <Edit fontSize="small" />
-              </IconButton>
-              <IconButton onClick={()=>removeCategoryHandler(params.row._id)} aria-label="link">
-                <Delete color="error" fontSize="small" />
-              </IconButton>
-            </Stack>
+            <OperationStack
+              viewHref={`/admin/categories/${params.row._id}`}
+              editHref={`/admin/categories/edit/${params.row._id}`}
+              removeHandler={() => removeCategoryHandler(params.row._id)}
+            />
           ),
         },
       ];

@@ -8,6 +8,8 @@ import BadgeLink from "./badgeLink";
 import VerticalDivider from "@/common/verticalDivider";
 import { logout } from "@/services/auth/authServices";
 import { useGetUser } from "@/hooks/useAuth";
+import GlobalModal from "@/common/globalModal";
+import { useModal } from "@/context/modalContext";
 
 const SignBtn = ({ display }) => {
   const { data, isLoading } = useGetUser();
@@ -17,8 +19,11 @@ const SignBtn = ({ display }) => {
 
   const cartItemsCount = cart?.payDetail?.productIds?.length;
 
-  const logoutHandler = async () => {
+  const { openModal, closeModal } = useModal();
+
+  const modalHandler = async () => {
     await logout();
+    closeModal();
     document.location.href = "/sign-in";
   };
 
@@ -67,19 +72,27 @@ const SignBtn = ({ display }) => {
                 alignItems: "center",
               }}
             >
-              <IconButton
-                size="small"
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  color: "inherit",
-                  p: 0,
-                  backgroundColor: "transparent !important",
-                }}
-                onClick={logoutHandler}
+              <GlobalModal
+                modalHandler={modalHandler}
+                question="آیا از خروج اطمینان دارید؟"
+                acceptText="تایید"
+                rejectText="انصراف"
               >
-                <Logout />
-              </IconButton>
+                <IconButton
+                  size="small"
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    color: "inherit",
+                    p: 0,
+                    backgroundColor: "transparent !important",
+                  }}
+                  onClick={openModal}
+                >
+                  <Logout />
+                </IconButton>
+              </GlobalModal>
+
               <VerticalDivider />
             </Box>
           )}

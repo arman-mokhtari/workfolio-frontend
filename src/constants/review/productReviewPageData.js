@@ -49,7 +49,6 @@ export const productReviewsTableColumns = (isSmallScreen) => {
         },
       ]
     : [
-        { field: "id", headerName: "#", flex: 1 },
         {
           field: "user",
           headerName: "نام",

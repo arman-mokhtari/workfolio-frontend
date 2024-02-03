@@ -10,14 +10,17 @@ import { useRemoveProduct } from "@/hooks/useProducts";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
+import { useModal } from "@/context/modalContext";
 
 const ProductsTable = ({ products }) => {
   const { mutateAsync } = useRemoveProduct();
   const queryClient = useQueryClient();
-
+  const { closeModal } = useModal();
+  
   const removeProductHandler = async (id) => {
     try {
       const { message } = await mutateAsync(id);
+      closeModal();
       toast.success(message);
       queryClient.invalidateQueries({ queryKey: ["get-products"] });
     } catch (error) {

@@ -2,7 +2,7 @@
 import Logo from "@/common/logo";
 import { adminProfileNavItems } from "@/constants/tabsData";
 import { logout } from "@/services/auth/authServices";
-import { ExpandLess, ExpandMore, Logout, Reviews } from "@mui/icons-material";
+import { Logout } from "@mui/icons-material";
 import {
   Box,
   Divider,
@@ -12,24 +12,19 @@ import {
   ListItemIcon,
   ListItemText,
   Toolbar,
-  Collapse,
+  AppBar,
 } from "@mui/material";
 import Link from "next/link";
-import { useState } from "react";
-import { useTheme } from "@mui/material/styles";
+import { useModal } from "@/context/modalContext";
+import GlobalModal from "@/common/globalModal";
 
 const AdminDrawer = ({ handleDrawerToggle }) => {
-  //Reviews section
-  const [open, setOpen] = useState(true);
-  const theme = useTheme();
-  const handleClick = () => {
-    setOpen(!open);
-  };
-  //End of reviews section
+  const { openModal, closeModal } = useModal();
 
-  const logoutHandler = async () => {
-    document.location.href = "/";
+  const modalHandler = async () => {
     await logout();
+    closeModal();
+    document.location.href = "/sign-in";
   };
 
   return (
@@ -50,62 +45,44 @@ const AdminDrawer = ({ handleDrawerToggle }) => {
       >
         <Logo />
       </Toolbar>
+
       <Divider />
       <List>
         {adminProfileNavItems.map(({ text, icon, to }, index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton>
               <ListItemIcon>{icon}</ListItemIcon>
-              <ListItemText primary={<Link
-              role="link"
-                aria-label={text} href={to}>{text}</Link>} />
+              <ListItemText
+                primary={
+                  <Link role="link" aria-label={text} href={to}>
+                    {text}
+                  </Link>
+                }
+              />
             </ListItemButton>
           </ListItem>
         ))}
-
-        <ListItemButton onClick={handleClick}>
-          <ListItemIcon>
-            <Reviews />
-          </ListItemIcon>
-          <ListItemText primary="نظرات" />
-          {open ? <ExpandLess /> : <ExpandMore />}
-        </ListItemButton>
-
-        <Collapse in={open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            <ListItemButton sx={{ pl: 4 }}>
-              <ListItemIcon>
-                <Reviews color="primary" />
-              </ListItemIcon>
-              <ListItemText
-                primary={<Link aria-label="نظرات عمومی" href="/admin/reviews/public">نظرات عمومی</Link>}
-              />
-            </ListItemButton>
-            <ListItemButton sx={{ pl: 4 }}>
-              <ListItemIcon>
-                <Reviews color="success" />
-              </ListItemIcon>
-              <ListItemText
-                primary={<Link
-                  role="link"
-                    aria-label="نظرات محصول" href="/admin/reviews/product">نظرات محصول</Link>}
-              />
-            </ListItemButton>
-          </List>
-        </Collapse>
-
-        <ListItemButton onClick={logoutHandler}>
-          <ListItemIcon>
-            <Logout color="error" />
-          </ListItemIcon>
-          <ListItemText
-            sx={{
-              color:
-                theme.palette.mode === "light" ? "error.main" : "error.light",
-            }}
-            primary="خروج"
-          />
-        </ListItemButton>
+        <GlobalModal
+          modalHandler={modalHandler}
+          question="آیا از خروج اطمینان دارید؟"
+          acceptText="تایید"
+          rejectText="انصراف"
+        >
+          <ListItemButton onClick={openModal}>
+            <ListItemIcon>
+              <Logout color="error" />
+            </ListItemIcon>
+            <ListItemText
+              sx={{
+                color: "error.main",
+                "& .MuiTypography-root": {
+                  fontWeight: "800",
+                },
+              }}
+              primary="خروج"
+            />
+          </ListItemButton>
+        </GlobalModal>
       </List>
     </Box>
   );

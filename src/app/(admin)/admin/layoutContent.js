@@ -12,6 +12,7 @@ import "../../globals.css";
 import Providers from "../../provider";
 import { Toaster } from "react-hot-toast";
 import AdminAppBar from "./components/adminAppbar";
+import { ModalProvider } from "@/context/modalContext";
 
 const cacheRTL = createCache({
   key: "muirtl",
@@ -20,15 +21,17 @@ const cacheRTL = createCache({
 
 const LayoutContent = ({ children }) => {
   return (
-    <CacheProvider value={cacheRTL}>
-      <ThemeProvider theme={lightTheme}>
-        <CssBaseline />
-        <Providers>
-          <Toaster position="top-left" />
-          <AdminAppBar>{children}</AdminAppBar>
-        </Providers>
-      </ThemeProvider>
-    </CacheProvider>
+    <ModalProvider>
+      <CacheProvider value={cacheRTL}>
+        <ThemeProvider theme={lightTheme}>
+          <CssBaseline />
+          <Providers>
+            <Toaster position="top-left" />
+            <AdminAppBar>{children}</AdminAppBar>
+          </Providers>
+        </ThemeProvider>
+      </CacheProvider>
+    </ModalProvider>
   );
 };
 

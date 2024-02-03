@@ -14,7 +14,6 @@ export const paymentTableColumns = (isSmallScreen) => {
         },
       ]
     : [
-        { field: "id", headerName: "#", flex: 1 },
         { field: "invoiceNumber", headerName: "شماره فاکتور", flex: 1 },
         {
           field: "products",

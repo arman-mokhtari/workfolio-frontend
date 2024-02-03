@@ -8,17 +8,19 @@ import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
-import { newsletterTableColumns } from "@/constants/newsletter/newsletterTableData";
+import { NewsletterTableColumns } from "@/constants/newsletter/newsletterTableData";
 import { useRemoveNewsletterUser } from "@/hooks/useNewsletterUsers";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
+import { useModal } from "@/context/modalContext";
 
 const NewsletterUsersTable = ({ newsletterUsers }) => {
   const { mutateAsync } = useRemoveNewsletterUser();
   const queryClient = useQueryClient();
-
+  const { closeModal } = useModal();
   const removeNewsletterUserHandler = async (id) => {
     try {
       const { message } = await mutateAsync(id);
+      closeModal();
       toast.success(message);
       queryClient.invalidateQueries({ queryKey: ["get-newsletter-users"] });
     } catch (error) {
@@ -51,7 +53,7 @@ const NewsletterUsersTable = ({ newsletterUsers }) => {
         <DataGrid
           disableRowSelectionOnClick
           rows={modifiedNewsletterUsers}
-          columns={newsletterTableColumns(
+          columns={NewsletterTableColumns(
             isSmallScreen,
             removeNewsletterUserHandler
           )}

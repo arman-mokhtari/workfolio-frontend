@@ -10,14 +10,17 @@ import { toast } from "react-hot-toast";
 import { useRemoveCoupon } from "@/hooks/useCoupons";
 import { couponsTableColumns } from "@/constants/couponsTableData";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
+import { useModal } from "@/context/modalContext";
 
 const CouponsTable = ({ coupons }) => {
   const { mutateAsync } = useRemoveCoupon();
   const queryClient = useQueryClient();
+  const { closeModal } = useModal();
 
   const removeCouponHandler = async (id) => {
     try {
       const { message } = await mutateAsync(id);
+      closeModal();
       toast.success(message);
       queryClient.invalidateQueries({ queryKey: ["get-coupons"] });
     } catch (error) {

@@ -1,9 +1,8 @@
 import Link from "next/link";
 
 import { toPersianNumbers } from "@/utils/toPersianNumbers";
-import { Delete, Edit, Launch } from "@mui/icons-material";
-import { IconButton, Stack } from "@mui/material";
 import { toLocalDateStringShort } from "@/utils/toLocalDate";
+import OperationStack from "@/pages/(admin)/admin/common/operationStack";
 
 export const couponsTableColumns = (isSmallScreen, removeCouponHandler) => {
   return isSmallScreen
@@ -18,23 +17,15 @@ export const couponsTableColumns = (isSmallScreen, removeCouponHandler) => {
           headerName: "عملیات",
           flex: 1,
           renderCell: (params) => (
-            <Stack direction="row" alignItems="center">
-              <IconButton
-                aria-label="link"
-                component={Link}
-                href={`/admin/coupons/edit/${params.row._id}`}
-              >
-                <Edit fontSize="small" />
-              </IconButton>
-              <IconButton onClick={() => removeCouponHandler(params.row._id)}>
-                <Delete color="error" fontSize="small" />
-              </IconButton>
-            </Stack>
+            <OperationStack
+              viewHref={`/admin/coupons/${params.row._id}`}
+              editHref={`/admin/coupons/edit/${params.row._id}`}
+              removeHandler={() => removeCouponHandler(params.row._id)}
+            />
           ),
         },
       ]
     : [
-        { field: "id", headerName: "#", flex: 1 },
         {
           field: "code",
           headerName: "کد",
@@ -87,18 +78,11 @@ export const couponsTableColumns = (isSmallScreen, removeCouponHandler) => {
           headerName: "عملیات",
           flex: 1,
           renderCell: (params) => (
-            <Stack direction="row" alignItems="center">
-              <IconButton
-                aria-label="link"
-                component={Link}
-                href={`/admin/coupons/edit/${params.row._id}`}
-              >
-                <Edit fontSize="small" />
-              </IconButton>
-              <IconButton onClick={() => removeCouponHandler(params.row._id)}>
-                <Delete color="error" fontSize="small" />
-              </IconButton>
-            </Stack>
+            <OperationStack
+              viewHref={`/admin/coupons/${params.row._id}`}
+              editHref={`/admin/coupons/edit/${params.row._id}`}
+              removeHandler={() => removeCouponHandler(params.row._id)}
+            />
           ),
         },
       ];

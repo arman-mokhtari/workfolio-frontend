@@ -157,4 +157,14 @@ export const adminProfileNavItems = [
     icon: <Web />,
     to: "/admin/misc-pages",
   },
+  {
+    text: "نظرات عمومی",
+    icon: <Reviews />,
+    to: "/admin/reviews/public",
+  },
+  {
+    text: "نظرات محصول",
+    icon: <Reviews />,
+    to: "/admin/reviews/product",
+  },
 ];

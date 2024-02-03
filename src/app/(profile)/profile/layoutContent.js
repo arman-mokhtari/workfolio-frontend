@@ -15,6 +15,7 @@ import { useState } from "react";
 import Providers from "../../provider";
 import { Toaster } from "react-hot-toast";
 import ProfileAppBar from "./components/profileAppBar";
+import { ModalProvider } from "@/context/modalContext";
 
 const cacheRTL = createCache({
   key: "muirtl",
@@ -42,15 +43,17 @@ const LayoutContent = ({ children }) => {
         handleThemeChange,
       }}
     >
-      <CacheProvider value={cacheRTL}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Providers>
-            <Toaster position="top-left" />
-            <ProfileAppBar>{children}</ProfileAppBar>
-          </Providers>
-        </ThemeProvider>
-      </CacheProvider>
+      <ModalProvider>
+        <CacheProvider value={cacheRTL}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Providers>
+              <Toaster position="top-left" />
+              <ProfileAppBar>{children}</ProfileAppBar>
+            </Providers>
+          </ThemeProvider>
+        </CacheProvider>
+      </ModalProvider>
     </MainContext.Provider>
   );
 };

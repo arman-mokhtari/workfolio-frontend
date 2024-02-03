@@ -1,7 +1,4 @@
-import Link from "next/link";
-
-import { Delete, Edit, Launch } from "@mui/icons-material";
-import { IconButton, Stack } from "@mui/material";
+import OperationStack from "@/pages/(admin)/admin/common/operationStack";
 
 export const blogsTableColumns = (isSmallScreen, removeBlogHandler) => {
   return isSmallScreen
@@ -16,33 +13,15 @@ export const blogsTableColumns = (isSmallScreen, removeBlogHandler) => {
           headerName: "عملیات",
           flex: 1,
           renderCell: (params) => (
-            <Stack direction="row" alignItems="center">
-              <IconButton
-                aria-label="link"
-                component={Link}
-                href={`/admin/blogs/${params.row._id}`}
-              >
-                <Launch color="primary" fontSize="small" />
-              </IconButton>
-              <IconButton
-                aria-label="link"
-                component={Link}
-                href={`/admin/blogs/edit/${params.row._id}`}
-              >
-                <Edit fontSize="small" />
-              </IconButton>
-              <IconButton
-                onClick={() => removeBlogHandler(params.row._id)}
-                aria-label="link"
-              >
-                <Delete color="error" fontSize="small" />
-              </IconButton>
-            </Stack>
+            <OperationStack
+              editHref={`/admin/blogs/edit/${params.row._id}`}
+              viewHref={`/admin/blogs/${params.row._id}`}
+              removeHandler={() => removeBlogHandler(params.row._id)}
+            />
           ),
         },
       ]
     : [
-        { field: "id", headerName: "#", flex: 1 },
         {
           field: "title",
           headerName: "عنوان",
@@ -59,28 +38,11 @@ export const blogsTableColumns = (isSmallScreen, removeBlogHandler) => {
           headerName: "عملیات",
           flex: 1,
           renderCell: (params) => (
-            <Stack direction="row" alignItems="center">
-              <IconButton
-                aria-label="link"
-                component={Link}
-                href={`/admin/blogs/${params.row._id}`}
-              >
-                <Launch color="primary" fontSize="small" />
-              </IconButton>
-              <IconButton
-                aria-label="link"
-                component={Link}
-                href={`/admin/blogs/edit/${params.row._id}`}
-              >
-                <Edit fontSize="small" />
-              </IconButton>
-              <IconButton
-                onClick={() => removeBlogHandler(params.row._id)}
-                aria-label="link"
-              >
-                <Delete color="error" fontSize="small" />
-              </IconButton>
-            </Stack>
+            <OperationStack
+              editHref={`/admin/blogs/edit/${params.row._id}`}
+              viewHref={`/admin/blogs/${params.row._id}`}
+              removeHandler={() => removeBlogHandler(params.row._id)}
+            />
           ),
         },
       ];

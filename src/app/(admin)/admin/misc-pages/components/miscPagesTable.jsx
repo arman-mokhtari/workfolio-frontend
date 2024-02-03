@@ -10,14 +10,16 @@ import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { useRemoveMiscPage } from "@/hooks/useMiscPage";
 import { miscPageTableColumns } from "@/constants/miscPage/miscPageColumns";
+import { useModal } from "@/context/modalContext";
 
 const MiscPagesTable = ({ miscPages }) => {
   const { mutateAsync } = useRemoveMiscPage();
   const queryClient = useQueryClient();
-
+  const { closeModal } = useModal();
   const removeMiscPageHandler = async (id) => {
     try {
       const { message } = await mutateAsync(id);
+      closeModal();
       toast.success(message);
       queryClient.invalidateQueries({ queryKey: ["get-misc-pages"] });
     } catch (error) {

@@ -29,7 +29,6 @@ export const usersTableColumns = (isSmallScreen) => {
         },
       ]
     : [
-        { field: "id", headerName: "#", flex: 1 },
         {
           field: "name",
           headerName: "نام",
