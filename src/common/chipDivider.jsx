@@ -2,7 +2,7 @@
 import { Divider, CardHeader, Chip } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-const ChipDivider = ({ color,borderColor, chipColor, title, mt, mb }) => {
+const ChipDivider = ({ color, borderColor, chipColor, title, mt, mb }) => {
   const theme = useTheme();
   return (
     <Divider
@@ -15,11 +15,13 @@ const ChipDivider = ({ color,borderColor, chipColor, title, mt, mb }) => {
           borderColor: borderColor,
         },
       }}
+      textAlign="left"
       orientation="horizontal"
       variant="middle"
       flexItem
     >
       <Chip
+      component="h3"
         color={chipColor}
         sx={{
           "& .MuiTypography-root": {
@@ -28,8 +30,10 @@ const ChipDivider = ({ color,borderColor, chipColor, title, mt, mb }) => {
             },
             fontSize: "1.4rem",
             fontWeight: "600",
+            whiteSpace: "nowrap",
           },
           my: 0,
+          py: "1.2rem",
         }}
         label={
           <CardHeader

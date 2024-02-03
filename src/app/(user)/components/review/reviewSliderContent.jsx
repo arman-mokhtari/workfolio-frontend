@@ -8,7 +8,7 @@ import {
   Chip,
 } from "@mui/material";
 import Image from "next/image";
-import { settings } from "@/constants/review/reviewSliderSetting";
+import { settings } from "@/constants/review/sliderSetting";
 import HoverCard from "@/common/hoverCard";
 import { toLocalDateString } from "@/utils/toLocalDate";
 
@@ -30,7 +30,7 @@ const ReviewSliderContent = ({ acceptedReviews }) => {
             mt: 2,
           }}
         >
-          <Box>
+
             <HoverCard
               defaultElevation={4}
               hoveredElevation={10}
@@ -138,7 +138,7 @@ const ReviewSliderContent = ({ acceptedReviews }) => {
                 </Box>
               </CardContent>
             </HoverCard>
-          </Box>
+
         </Box>
       ))}
     </Slider>

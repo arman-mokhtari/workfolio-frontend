@@ -33,8 +33,6 @@ const ProductMainContent = ({ slug }) => {
         <LinksAside />
       </MainCardLayout>
       <ChipDivider
-        borderColor="primary.main"
-        chipColor="primary"
         mb={1}
         mt={6}
         title="نظرات شما"
