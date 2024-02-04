@@ -44,8 +44,6 @@ const Page = async ({ params }) => {
 
 export default Page;
 
-export const amp = true;
-
 export async function generateStaticParams() {
   const { blogs } = await getBlogs();
 

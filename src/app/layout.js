@@ -1,3 +1,4 @@
+import { GoogleTagManager } from "@next/third-parties/google";
 import shabnamFont from "@/constants/localFonts";
 import { WebVitals } from "./_components/web-vitals";
 
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
       <body className={myFont.className}>
         <WebVitals />
         {children}
+        <GoogleTagManager gtmId="GTM-PZ286R8G" />
       </body>
     </html>
   );

@@ -22,5 +22,3 @@ const Products = async ({ searchParams }) => {
 };
 
 export default Products;
-
-export const amp = true;

@@ -25,5 +25,3 @@ const Page = async () => {
   return <PageMainContent />;
 };
 export default Page;
-
-export const amp = true;
