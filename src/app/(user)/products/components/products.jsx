@@ -2,11 +2,11 @@
 
 import { Grid } from "@mui/material";
 import Product from "./product";
-import { useGetUser } from "@/hooks/useAuth";
 import CategoriesMainSkeleton from "../../components/categories/skeletons/mainSkeleton";
+import { useGetCategories } from "@/hooks/useCategories";
 
 const ProductItems = ({ products }) => {
-  const { isLoading } = useGetUser();
+  const { isLoading } = useGetCategories();
   return (
     <Grid spacing={3} container>
       {isLoading ? (
