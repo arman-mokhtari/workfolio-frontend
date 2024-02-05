@@ -43,7 +43,6 @@ export default function RootLayout({ children }) {
         <WebVitals />
         {children}
         <GoogleTagManager gtmId="GTM-TL97FTVH" />
-        <GoogleAnalytics gaId="G-TK21J45HND" />
       </body>
     </html>
   );
