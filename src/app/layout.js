@@ -1,4 +1,4 @@
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import shabnamFont from "@/constants/localFonts";
 import { WebVitals } from "./_components/web-vitals";
 
@@ -43,6 +43,7 @@ export default function RootLayout({ children }) {
         <WebVitals />
         {children}
         <GoogleTagManager gtmId="GTM-TL97FTVH" />
+        <GoogleAnalytics gaId="G-TK21J45HND" />
       </body>
     </html>
   );
