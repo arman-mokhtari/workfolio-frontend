@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
       <body className={myFont.className}>
         <WebVitals />
         {children}
-        <GoogleTagManager gtmId="GTM-PZ286R8G" />
+        <GoogleTagManager gtmId="GTM-TL97FTVH" />
       </body>
     </html>
   );

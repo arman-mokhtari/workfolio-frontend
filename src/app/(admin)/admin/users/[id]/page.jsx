@@ -15,7 +15,9 @@ const AdminPanel = () => {
   const { user, payments } = data || {};
 
   if (isLoading) return <Loading />;
-
+  const modifiedPayments = payments?.filter(
+    (payment) => payment.status === "COMPLETED"
+  );
   if (user?._id !== id || !user) return router.push("/404");
   return (
     <Grid container spacing={2}>
@@ -25,7 +27,7 @@ const AdminPanel = () => {
       <Grid item xs={12} lg={7}>
         <UserShoppingData
           isLoading={isLoading}
-          payments={payments}
+          payments={modifiedPayments}
           user={user}
         />
       </Grid>
