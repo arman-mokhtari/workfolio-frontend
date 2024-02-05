@@ -17,7 +17,7 @@ export const jsonLdProductData = (product) => {
     description: metaDescription,
     category: category.title,
     brand: process.env.BRAND,
-    logo: `${process.env.STATIC_IMG}/logo/workfolio-dark.svg`,
+    logo: "https://cdn.workfolio.ir/images/logo/workfolio-dark.svg",
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: `${rating}`,

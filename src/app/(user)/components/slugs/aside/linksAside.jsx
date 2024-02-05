@@ -33,11 +33,11 @@ const LinksAside = ({ currentPageSlug }) => {
           <>
             <CardHeader subheader="لینک‌های مفید:" />
             <List>
-              {filteredItems.map(({ slug, title }, i) => (
+              {filteredItems.map(({ faSlug, title }, i) => (
                 <ListItem
                   role="link"
                   component={Link}
-                  href={`/blogs/${slug}`}
+                  href={`/blogs/${faSlug}`}
                   aria-label={title}
                   title={title}
                   key={i}
