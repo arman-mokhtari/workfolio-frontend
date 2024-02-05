@@ -27,6 +27,9 @@ export const metadata = {
     creator: "@workfolio_ir",
     creatorId: "1397054881",
   },
+  verification: {
+    google: "QVweHLwUgUu0b-S0vbkjEw9mYI7z5n4W8WC6fCpmsoU",
+  },
 };
 
 export const viewport = {
