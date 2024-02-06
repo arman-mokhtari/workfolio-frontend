@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Typography, Skeleton, Stack } from "@mui/material";
+import { Box, Typography, Stack } from "@mui/material";
 import Image from "next/image";
 import ShopNow from "@/components/buttons/shopNow";
 import { useTheme } from "@mui/material/styles";
@@ -10,7 +10,7 @@ import TypedInfoSkeleton from "./typedInfoSkeleton";
 
 const banner = "https://cdn.workfolio.ir/images/bg/banner.png";
 
-const UpXsBanner = ({ isLoading }) => {
+const UpXsBanner = () => {
   const theme = useTheme();
 
   return (
@@ -57,40 +57,27 @@ const UpXsBanner = ({ isLoading }) => {
           }}
         >
           <Box>
-            {isLoading ? (
-              <Skeleton
-                sx={{ borderRadius: 3 }}
-                variant="rectangular"
-                height={80}
-              />
-            ) : (
-              <Typography
-                sx={{
-                  lineHeight: 2,
-                  fontSize: 15,
-                  p: 1,
-                  borderRadius: 4,
-                  backdropFilter: "blur(3px)",
-                  backgroundColor:
-                    theme.palette.mode === "dark" ? "#00000055" : "#ffffff65",
-                }}
-              >
-                بهترین راه برای معرفی خدمات خود به کارفرمایان و شرکت‌ها، طراحی
-                یک وبسایت حرفه‌ای و جذاب است. ما با بهره‌گیری از سال‌ها تجربه‌
-                در زمینه طراحی وبسایت، به شما خلاقانه‌ترین طرح‌ها را با مقرون به
-                صرفه‌ترین قیمت‌ها ارائه می‌دهیم.
-              </Typography>
-            )}
+            <Typography
+              sx={{
+                lineHeight: 2,
+                fontSize: 15,
+                p: 1,
+                borderRadius: 4,
+                backdropFilter: "blur(3px)",
+                backgroundColor:
+                  theme.palette.mode === "dark" ? "#00000055" : "#ffffff65",
+              }}
+            >
+              بهترین راه برای معرفی خدمات خود به کارفرمایان و شرکت‌ها، طراحی یک
+              وبسایت حرفه‌ای و جذاب است. ما با بهره‌گیری از سال‌ها تجربه‌ در
+              زمینه طراحی وبسایت، به شما خلاقانه‌ترین طرح‌ها را با مقرون به
+              صرفه‌ترین قیمت‌ها ارائه می‌دهیم.
+            </Typography>
           </Box>
 
           <Stack direction="row" spacing={2}>
-            <ContactBtn loading={isLoading} />
-
-            <ShopNow
-              loading={isLoading}
-              variant="contained"
-              text="برو به صفحه محصولات"
-            />
+            <ContactBtn />
+            <ShopNow variant="contained" text="برو به صفحه محصولات" />
           </Stack>
         </Box>
       </Box>

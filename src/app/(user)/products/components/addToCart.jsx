@@ -14,7 +14,7 @@ const AddToCart = ({ product }) => {
 
   const router = useRouter();
   const { data, isLoading } = useGetUser();
-  const { user, cart } = data || {};
+  const { user } = data || {};
 
   const { isPending, mutateAsync } = useAddToCart();
 

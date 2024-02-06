@@ -20,7 +20,8 @@ import AppBarDrawer from "./drawer";
 import AppBarList from "./list";
 import ThemeBtn from "./buttons/themeBtn";
 import SignBtn from "./buttons/signBtn";
-import { useGetUser } from "@/hooks/useAuth";
+import { useGetCategories } from "@/hooks/useCategories";
+
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -44,7 +45,7 @@ const DrawerAppBar = (props) => {
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-  const { isLoading } = useGetUser();
+  const { isLoading } = useGetCategories();
   return (
     <Box component="header">
       <CssBaseline />

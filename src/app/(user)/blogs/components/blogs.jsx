@@ -1,11 +1,11 @@
 "use client";
 import { Grid } from "@mui/material";
 import Blog from "./blog";
-import { useGetUser } from "@/hooks/useAuth";
 import CategoriesMainSkeleton from "../../components/categories/skeletons/mainSkeleton";
+import { useGetCategories } from "@/hooks/useCategories";
 
 const BlogItems = ({ blogs }) => {
-  const { isLoading } = useGetUser();
+  const { isLoading } = useGetCategories();
   return (
     <Grid spacing={3} container>
       {isLoading ? (

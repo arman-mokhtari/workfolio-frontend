@@ -5,12 +5,12 @@ import { useTheme } from "@mui/material/styles";
 import { Box, IconButton, Skeleton } from "@mui/material";
 import { WbSunnyOutlined, NightlightOutlined } from "@mui/icons-material";
 import MainContext from "@/context/themeContext";
-import { useGetUser } from "@/hooks/useAuth";
+import { useGetCategories } from "@/hooks/useCategories";
 
 const ThemeBtn = ({ xs }) => {
   const theme = useTheme();
   const { handleThemeChange } = useContext(MainContext);
-  const { isLoading } = useGetUser();
+  const { isLoading } = useGetCategories();
   return (
     <Box
       sx={{

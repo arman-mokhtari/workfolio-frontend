@@ -1,6 +1,6 @@
 import LoadingBtn from "@/common/loadingBtn";
 
-const ContactBtn = ({ mt, ml, loading }) => {
+const ContactBtn = ({ mt, ml }) => {
   return (
     <LoadingBtn
       component="a"
@@ -13,8 +13,6 @@ const ContactBtn = ({ mt, ml, loading }) => {
       }}
       variant="contained"
       color="warning"
-      loadingIndicator=" "
-      loading={loading}
       text="با ما تماس بگیرید"
     />
   );

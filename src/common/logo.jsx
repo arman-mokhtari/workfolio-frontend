@@ -4,13 +4,13 @@ import { useTheme } from "@mui/material/styles";
 import { Box, Typography, Skeleton } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import { useGetUser } from "@/hooks/useAuth";
+import { useGetCategories } from "@/hooks/useCategories";
 
 const Logo = ({ my, ml }) => {
   const theme = useTheme();
   const brand = "ورکفولیو";
 
-  const { isLoading } = useGetUser();
+  const { isLoading } = useGetCategories();
   const lightLogo = "https://cdn.workfolio.ir/images/logo/workfolio-light.svg";
   const darkLogo = "https://cdn.workfolio.ir/images/logo/workfolio-dark.svg";
   return isLoading ? (
@@ -34,9 +34,7 @@ const Logo = ({ my, ml }) => {
         },
       }}
     >
-      <Link
-              role="link"
-       aria-label="رفتن به صفحه اصلی" href="/">
+      <Link role="link" aria-label="رفتن به صفحه اصلی" href="/">
         <Typography
           variant="h1"
           noWrap

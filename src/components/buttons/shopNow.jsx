@@ -1,7 +1,7 @@
 import Link from "next/link";
 import LoadingBtn from "@/common/loadingBtn";
 
-const ShopNow = ({ mt, ml, fullWidth, text, variant, loading }) => {
+const ShopNow = ({ mt, ml, fullWidth, text, variant }) => {
   return (
     <LoadingBtn
       fullWidth={fullWidth}
@@ -17,8 +17,6 @@ const ShopNow = ({ mt, ml, fullWidth, text, variant, loading }) => {
       }}
       variant={variant}
       color="primary"
-      loading={loading}
-      loadingIndicator=" "
       text={text}
     />
   );

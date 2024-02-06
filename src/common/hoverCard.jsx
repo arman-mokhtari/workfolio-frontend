@@ -1,7 +1,14 @@
+"use client";
+
 import { useState } from "react";
 import { Card } from "@mui/material";
 
-const HoverCard = ({ children, defaultElevation , hoveredElevation, ...rest }) => {
+const HoverCard = ({
+  children,
+  defaultElevation,
+  hoveredElevation,
+  ...rest
+}) => {
   const [isHovered, setHovered] = useState(false);
 
   const handleMouseOver = () => {

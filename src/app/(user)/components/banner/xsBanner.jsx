@@ -6,7 +6,7 @@ import TopAbsoluteShadow from "@/common/topAbsoluteShadow";
 
 const banner = "https://cdn.workfolio.ir/images/bg/xs-banner.png";
 
-const XsBanner = ({ isLoading }) => {
+const XsBanner = () => {
   return (
     <Box>
       <Box
@@ -54,13 +54,9 @@ const XsBanner = ({ isLoading }) => {
             }}
           >
             <Stack direction="column" spacing={2}>
-              <ContactBtn loading={isLoading} />
+              <ContactBtn />
 
-              <ShopNow
-                loading={isLoading}
-                variant="contained"
-                text="برو به صفحه محصولات"
-              />
+              <ShopNow variant="contained" text="برو به صفحه محصولات" />
             </Stack>
           </Box>
         </Box>

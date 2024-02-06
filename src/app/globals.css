@@ -487,3 +487,12 @@ pre.fancy-code-bright {
   }
 }
 /* not found */
+
+/* support img */
+@media (max-width: 900px) {
+  .support-img {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+/* support img */

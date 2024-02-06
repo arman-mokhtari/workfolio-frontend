@@ -1,13 +1,13 @@
 "use client";
 
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
-import { useGetUser } from "@/hooks/useAuth";
 import XsCategorySidebar from "./xsCategorySidebar";
 import XsUpCategorySidebar from "./xsUpCategorySidebar";
+import { useGetCategories } from "@/hooks/useCategories";
 
 const CategorySidebar = ({ categories }) => {
   const isMobile = useIsOnlyXs();
-  const { isLoading } = useGetUser();
+  const { isLoading } = useGetCategories();
   return isMobile ? (
     <XsCategorySidebar categories={categories} isLoading={isLoading} />
   ) : (
