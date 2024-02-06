@@ -7,13 +7,13 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
 const SidebarSort = () => {
-  const [sort, setSort] = useState("");
-
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-
   const isMobile = useIsOnlyXs();
+
+  // به جای استفاده از useState می‌توانیم از value استفاده کنیم
+  const [sort, setSort] = useState(searchParams.get("sort") || "");
 
   const createQueryString = useCallback(
     (name, value) => {
@@ -24,15 +24,19 @@ const SidebarSort = () => {
     [searchParams]
   );
 
-  const sortHandler = (e) => {
-    const value = e.target.value;
-    setSort(value);
-    router.push(pathname + "?" + createQueryString("sort", value));
-  };
-
   useEffect(() => {
-    setSort(searchParams.get("sort") || "");
-  }, [searchParams]);
+    const path = `${pathname}?${createQueryString("sort", sort)}`;
+    router.push(path);
+  }, [createQueryString, pathname, router, sort]);
+
+  // نام تابع را بهتر توضیح دهیم
+  const handleSortChange = useCallback(
+    (e) => {
+      const value = e.target.value;
+      setSort(value);
+    },
+    []
+  );
 
   return (
     <FormControl component="fieldset" variant="standard" sx={{ m: 1.5 }}>
@@ -42,25 +46,24 @@ const SidebarSort = () => {
           fontWeight: "800",
         }}
         component="legend"
-        id="demo-radio-buttons-group-label"
+        id="sort-radio-buttons-group-label"
       >
         مرتب سازی:
       </FormLabel>
       <RadioGroup
         row={isMobile}
-        aria-labelledby="demo-radio-buttons-group-label"
-        defaultValue="female"
-        name="radio-buttons-group"
+        aria-labelledby="sort-radio-buttons-group-label"
+        value={sort} // استفاده از value به جای defaultValue
+        name="sort-radio-buttons-group"
+        onChange={handleSortChange}
       >
-        {sortOptions.map(({ id, value, label }, index) => (
+        {sortOptions.map(({ id, value, label }) => (
           <CommonRadio
+            key={id}
             id={id}
-            key={index}
             label={label}
-            name="product-sort"
             value={value}
             checked={sort === value}
-            onChange={sortHandler}
           />
         ))}
       </RadioGroup>

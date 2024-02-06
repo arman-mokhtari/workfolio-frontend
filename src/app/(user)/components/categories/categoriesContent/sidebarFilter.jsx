@@ -11,7 +11,6 @@ const SidebarFilter = ({ categories }) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [selectedCategories, setSelectedCategories] = useState([]);
-
   const isMobile = useIsOnlyXs();
 
   const createQueryString = useCallback(
@@ -22,33 +21,30 @@ const SidebarFilter = ({ categories }) => {
       } else {
         params.delete(name);
       }
-
       return params.toString();
     },
     [searchParams]
   );
 
-  const categoryHandler = (e) => {
-    const value = e.target.value;
-    if (selectedCategories.includes(value)) {
-      const categories = selectedCategories.filter((c) => c !== value);
-      setSelectedCategories(categories);
-
-      router.push(pathname + "?" + createQueryString("category", categories));
-    } else {
-      setSelectedCategories([...selectedCategories, value]);
-
-      router.push(
-        pathname +
-          "?" +
-          createQueryString("category", [...selectedCategories, value])
-      );
-    }
-  };
-
   useEffect(() => {
     setSelectedCategories(searchParams.get("category")?.split(",") || []);
   }, [searchParams]);
+
+  useEffect(() => {
+    const path = `${pathname}?${createQueryString("category", selectedCategories)}`;
+    router.push(path);
+  }, [createQueryString, pathname, router, selectedCategories]);
+
+  const categoryHandler = useCallback(
+    (e) => {
+      const value = e.target.value;
+      const updatedCategories = selectedCategories.includes(value)
+        ? selectedCategories.filter((c) => c !== value)
+        : [...selectedCategories, value];
+      setSelectedCategories(updatedCategories);
+    },
+    [selectedCategories]
+  );
 
   const typeMapping = {
     "/blogs": "post",
@@ -60,6 +56,10 @@ const SidebarFilter = ({ categories }) => {
 
   const modifiedCategories =
     filterCategories(typeMapping[pathname]) || categories;
+
+  if (!router || !pathname || !searchParams) {
+    return <div>Error: Unable to fetch data</div>;
+  }
 
   return (
     <FormControl sx={{ m: 1.5 }} component="fieldset" variant="standard">
@@ -80,19 +80,17 @@ const SidebarFilter = ({ categories }) => {
           },
         }}
       >
-        {modifiedCategories?.map(({ _id, englishTitle, title }, index) => {
-          return (
-            <CommonCheckBox
-              key={index}
-              id={_id}
-              value={englishTitle}
-              name="product-type"
-              label={title}
-              onChange={categoryHandler}
-              checked={selectedCategories.includes(englishTitle)}
-            />
-          );
-        })}
+        {modifiedCategories?.map(({ _id, englishTitle, title }) => (
+          <CommonCheckBox
+            key={_id}
+            id={_id}
+            value={englishTitle}
+            name="product-type"
+            label={title}
+            onChange={categoryHandler}
+            checked={selectedCategories.includes(englishTitle)}
+          />
+        ))}
       </FormGroup>
     </FormControl>
   );
