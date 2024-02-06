@@ -9,19 +9,28 @@ import {
   Tooltip,
   Fade,
 } from "@mui/material";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
-import AddToCart from "./addToCart";
 import LikeProduct from "./likeProduct";
 import { toPersianNumbersWithComma } from "@/utils/toPersianNumbers";
 import { usePathname } from "next/navigation";
 import HoverCard from "@/common/hoverCard";
+import toast from "react-hot-toast";
 
-const Product = ({ product }) => {
+const AddToCart = dynamic(() => import("./addToCart"));
+
+const Product = ({ product, isAccessToken }) => {
   const { faSlug, title, price, imageLink, metaDescription } = product;
 
   const pathname = usePathname();
   const isProductsPage = pathname === "/products";
+
+  const addToCartHandler = () => {
+    toast.error("ابتدا وارد حساب کاربری خود شوید.");
+
+    return;
+  };
 
   return (
     <HoverCard defaultElevation={4} hoveredElevation={10}>
@@ -43,9 +52,7 @@ const Product = ({ product }) => {
           },
         }}
       >
-        <Link
-              role="link"
-            aria-label={title} href={`/products/${faSlug}`}>
+        <Link role="link" aria-label={title} href={`/products/${faSlug}`}>
           <Image
             priority
             height="240"
@@ -71,9 +78,7 @@ const Product = ({ product }) => {
           placement="top"
         >
           <Typography gutterBottom component="div">
-            <Link 
-              role="link"
-               aria-label={title} href={`/products/${faSlug}`}>
+            <Link role="link" aria-label={title} href={`/products/${faSlug}`}>
               <Typography
                 color="text.primary"
                 sx={{
@@ -147,9 +152,13 @@ const Product = ({ product }) => {
             fullWidth
             variant="outlined"
           >
-            <Link 
+            <Link
               role="link"
-               aria-label="اطلاعات بیشتر" href={`/products/${faSlug}`}>اطلاعات بیشتر</Link>
+              aria-label="اطلاعات بیشتر"
+              href={`/products/${faSlug}`}
+            >
+              اطلاعات بیشتر
+            </Link>
           </Button>
         </Box>
         <Box
@@ -160,7 +169,13 @@ const Product = ({ product }) => {
             px: 1,
           }}
         >
-          <AddToCart product={product} />
+          {isAccessToken ? (
+            <AddToCart product={product} />
+          ) : (
+            <Button onClick={addToCartHandler} fullWidth variant="contained">
+              اضافه به سبد خرید
+            </Button>
+          )}
         </Box>
       </CardActions>
     </HoverCard>

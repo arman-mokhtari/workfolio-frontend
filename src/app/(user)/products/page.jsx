@@ -14,9 +14,12 @@ const Products = async ({ searchParams }) => {
   const productsPromise = getProducts(qs, strCookies);
   const [{ products }] = await Promise.all([productsPromise]);
 
+  const accessToken = cookieStore?._parsed?.get("accessToken");
+  const isAccessToken = Boolean(accessToken);
+
   return (
     <CategoryPageLayout>
-      <ProductItems products={products} />
+      <ProductItems products={products} isAccessToken={isAccessToken} />
     </CategoryPageLayout>
   );
 };
