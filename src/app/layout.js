@@ -1,4 +1,4 @@
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import shabnamFont from "@/constants/localFonts";
 import { WebVitals } from "./_components/web-vitals";
 
