@@ -31,7 +31,10 @@ const SidebarFilter = ({ categories }) => {
   }, [searchParams]);
 
   useEffect(() => {
-    const path = `${pathname}?${createQueryString("category", selectedCategories)}`;
+    const path = `${pathname}?${createQueryString(
+      "category",
+      selectedCategories
+    )}`;
     router.push(path);
   }, [createQueryString, pathname, router, selectedCategories]);
 
@@ -58,7 +61,7 @@ const SidebarFilter = ({ categories }) => {
     filterCategories(typeMapping[pathname]) || categories;
 
   if (!router || !pathname || !searchParams) {
-    return <div>Error: Unable to fetch data</div>;
+    throw error;
   }
 
   return (

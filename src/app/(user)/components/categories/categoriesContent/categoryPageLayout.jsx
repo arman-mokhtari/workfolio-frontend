@@ -2,6 +2,7 @@ import { getCategories } from "@/services/category/categoryService";
 
 import { Box, Grid } from "@mui/material";
 import CategorySidebar from "./categorySidebar";
+import SearchBar from "./searchBar";
 
 export default async function CategoryPageLayout({ children }) {
   const categoryPromise = getCategories();
@@ -15,6 +16,7 @@ export default async function CategoryPageLayout({ children }) {
         minHeight: "calc(100vh - 128px)",
       }}
     >
+      <SearchBar/>
       <Grid container spacing={1.5}>
         <Grid
           component="aside"

@@ -13,9 +13,10 @@ import shuffle from "lodash.shuffle";
 import { useGetAllBlogs } from "@/hooks/useBlogs";
 import HoverCard from "@/common/hoverCard";
 import LinkAsideSkeleton from "@/pages/(user)/components/slugs/skeletons/linkAsideSkeleton";
+import TagsCard from "@/pages/(user)/products/[slug]/components/card/tagsCard";
 
-const LinksAside = ({ currentPageSlug }) => {
-  const { data, isLoading } = useGetAllBlogs();
+const LinksAside = ({ currentPageSlug, tags, isLoading }) => {
+  const { data, isPending } = useGetAllBlogs();
   const { blogs } = data || {};
 
   const filteredItems = currentPageSlug
@@ -27,7 +28,7 @@ const LinksAside = ({ currentPageSlug }) => {
   return (
     <Grid component="aside" item xs={12} sm={10} md={9} lg={2.5}>
       <HoverCard defaultElevation={4} hoveredElevation={10}>
-        {isLoading ? (
+        {isPending ? (
           <LinkAsideSkeleton />
         ) : (
           <>
@@ -73,6 +74,7 @@ const LinksAside = ({ currentPageSlug }) => {
           </>
         )}
       </HoverCard>
+      <TagsCard isLoading={isLoading} tags={tags} />
     </Grid>
   );
 };

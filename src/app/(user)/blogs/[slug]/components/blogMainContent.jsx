@@ -15,7 +15,7 @@ const BlogMainContent = ({ slug }) => {
   const { blog } = data || {};
 
   if (isLoading) return <BlogSkeletonUi />;
-  const { imageLink, title, description, faqs } = blog;
+  const { imageLink, title, description, faqs, tags } = blog;
   const pageUrl = `https://workfolio.ir/blogs/${blog.faSlug}`;
   const jsonLd = jsonLdBlogData(blog);
   return (
@@ -26,7 +26,7 @@ const BlogMainContent = ({ slug }) => {
       </BannerCardLayout>
       <MainCardLayout>
         <MainDescription faqs={faqs} description={description} />
-        <LinksAside currentPageSlug={slug} />
+        <LinksAside currentPageSlug={slug} isLoading={isLoading} tags={tags} />
       </MainCardLayout>
 
       <section>

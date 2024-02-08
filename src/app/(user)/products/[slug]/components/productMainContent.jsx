@@ -13,6 +13,7 @@ import ProductCard from "./card/productCard";
 import BannerCardLayout from "@/pages/(user)/components/slugs/card/bannerCardLayout";
 import MainCardLayout from "@/pages/(user)/components/slugs/card/mainCardLayout";
 import ChipDivider from "@/common/chipDivider";
+import TagsCard from "./card/tagsCard";
 
 const ProductMainContent = ({ slug }) => {
   const { data, isLoading } = useGetProductBySlug(slug);
@@ -20,7 +21,7 @@ const ProductMainContent = ({ slug }) => {
 
   if (isLoading) return <SkeletonUi />;
   const jsonLd = jsonLdProductData(product);
-  const { imageLink, title, _id, description, faqs } = product;
+  const { imageLink, title, _id, description, faqs, tags } = product;
   return (
     <>
       <BannerCardLayout>
@@ -30,13 +31,10 @@ const ProductMainContent = ({ slug }) => {
 
       <MainCardLayout>
         <MainDescription faqs={faqs} description={description} />
-        <LinksAside />
+        <LinksAside isLoading={isLoading} tags={tags} />
+        
       </MainCardLayout>
-      <ChipDivider
-        mb={1}
-        mt={6}
-        title="نظرات شما"
-      />
+      <ChipDivider mb={1} mt={6} title="نظرات شما" />
       <ReviewSlider pId={_id} />
       <ReviewForm isLoading={isLoading} product={product} />
       <section>
