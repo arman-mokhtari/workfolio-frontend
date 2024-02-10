@@ -74,7 +74,7 @@ const AddProductPage = () => {
         tags,
         category: selectedCategory,
       });
-      queryClient.invalidateQueries({ queryKey: ["get-qs-products"] });
+      queryClient.invalidateQueries({ queryKey: ["get-products"] });
       router.push("/admin/products");
       toast.success(message);
     } catch (error) {

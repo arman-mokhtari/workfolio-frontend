@@ -1,8 +1,4 @@
-import Link from "next/link";
-
 import { toPersianNumbers } from "@/utils/toPersianNumbers";
-import { Delete, Edit, Launch } from "@mui/icons-material";
-import { IconButton, Stack } from "@mui/material";
 import OperationStack from "@/pages/(admin)/admin/common/operationStack";
 
 export const productsTableColumns = (isSmallScreen, removeProductHandler) => {

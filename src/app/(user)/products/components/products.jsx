@@ -1,17 +1,18 @@
 "use client";
 
-import { Grid, Box, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import Product from "./product";
 import CategoriesMainSkeleton from "../../components/categories/skeletons/mainSkeleton";
 import { useGetCategories } from "@/hooks/useCategories";
 import { useEffect, useState } from "react";
 import HoverCard from "@/common/hoverCard";
+import PageDesc from "./main/pageDesk";
 
 const ProductItems = ({ products, isAccessToken }) => {
   const [productCount, setProductCount] = useState(0);
   const { isLoading } = useGetCategories();
+
   useEffect(() => {
-    // هر بار که مقدار products تغییر می‌کند، طول آرایه را به روز کنید
     setProductCount(products.length);
   }, [products]);
 
@@ -39,6 +40,7 @@ const ProductItems = ({ products, isAccessToken }) => {
           );
         })
       )}
+      
     </Grid>
   );
 };

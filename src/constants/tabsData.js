@@ -16,6 +16,7 @@ import {
   Email,
   Reviews,
   Web,
+  Pages,
 } from "@mui/icons-material";
 
 export const navItems = [
@@ -136,6 +137,11 @@ export const adminProfileNavItems = [
     text: "دسته‌بندی",
     icon: <Category />,
     to: "/admin/categories",
+  },
+  {
+    text: "صفحات",
+    icon: <Pages />,
+    to: "/admin/pages-data",
   },
   {
     text: "سفارشات",
