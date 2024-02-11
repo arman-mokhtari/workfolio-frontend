@@ -6,7 +6,7 @@ import { useTheme } from "@mui/material/styles";
 const PageDescLayout = ({ children }) => {
   const theme = useTheme();
   return (
-    <Grid component="article" item xs={12} sm={10} md={9} lg={10}>
+    <Grid item xs={12} sm={10} md={9} lg={10} component="article">
       <HoverCard
         sx={{
           py: 2,
