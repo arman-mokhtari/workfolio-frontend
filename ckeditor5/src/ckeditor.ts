@@ -7,7 +7,15 @@ import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic';
 
 import { Alignment } from '@ckeditor/ckeditor5-alignment';
 import { Autoformat } from '@ckeditor/ckeditor5-autoformat';
-import { Bold, Code, Italic, Strikethrough, Underline } from '@ckeditor/ckeditor5-basic-styles';
+import {
+	Bold,
+	Code,
+	Italic,
+	Strikethrough,
+	Subscript,
+	Superscript,
+	Underline
+} from '@ckeditor/ckeditor5-basic-styles';
 import { BlockQuote } from '@ckeditor/ckeditor5-block-quote';
 import { CodeBlock } from '@ckeditor/ckeditor5-code-block';
 import type { EditorConfig } from '@ckeditor/ckeditor5-core';
@@ -20,6 +28,7 @@ import { HtmlEmbed } from '@ckeditor/ckeditor5-html-embed';
 import {
 	DataFilter,
 	DataSchema,
+	FullPage,
 	GeneralHtmlSupport,
 	HtmlComment
 } from '@ckeditor/ckeditor5-html-support';
@@ -36,7 +45,8 @@ import {
 import { Indent, IndentBlock } from '@ckeditor/ckeditor5-indent';
 import { TextPartLanguage } from '@ckeditor/ckeditor5-language';
 import { AutoLink, Link, LinkImage } from '@ckeditor/ckeditor5-link';
-import { List } from '@ckeditor/ckeditor5-list';
+import { List, ListProperties, TodoList } from '@ckeditor/ckeditor5-list';
+import { Markdown } from '@ckeditor/ckeditor5-markdown-gfm';
 import { MediaEmbed, MediaEmbedToolbar } from '@ckeditor/ckeditor5-media-embed';
 import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
 import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
@@ -78,6 +88,7 @@ class Editor extends ClassicEditor {
 		FontColor,
 		FontFamily,
 		FontSize,
+		FullPage,
 		GeneralHtmlSupport,
 		Heading,
 		Highlight,
@@ -97,6 +108,8 @@ class Editor extends ClassicEditor {
 		Link,
 		LinkImage,
 		List,
+		ListProperties,
+		Markdown,
 		MediaEmbed,
 		MediaEmbedToolbar,
 		Paragraph,
@@ -113,10 +126,13 @@ class Editor extends ClassicEditor {
 		StandardEditingMode,
 		Strikethrough,
 		Style,
+		Subscript,
+		Superscript,
 		Table,
 		TableToolbar,
 		TextPartLanguage,
 		TextTransformation,
+		TodoList,
 		Underline,
 		Undo,
 		WordCount
@@ -127,7 +143,6 @@ class Editor extends ClassicEditor {
 			items: [
 				'heading',
 				'|',
-				'htmlEmbed',
 				'bold',
 				'italic',
 				'link',
@@ -138,28 +153,33 @@ class Editor extends ClassicEditor {
 				'indent',
 				'|',
 				'imageUpload',
-				'style',
 				'blockQuote',
 				'insertTable',
 				'mediaEmbed',
 				'undo',
 				'redo',
-				'textPartLanguage',
-				'underline',
 				'alignment',
-				'code',
 				'codeBlock',
+				'code',
 				'fontBackgroundColor',
-				'fontColor',
-				'fontFamily',
 				'fontSize',
-				'highlight',
+				'fontFamily',
+				'fontColor',
 				'horizontalLine',
+				'highlight',
+				'htmlEmbed',
 				'imageInsert',
 				'showBlocks',
-				'sourceEditing',
 				'specialCharacters',
-				'strikethrough'
+				'sourceEditing',
+				'restrictedEditingException',
+				'subscript',
+				'style',
+				'strikethrough',
+				'superscript',
+				'textPartLanguage',
+				'todoList',
+				'underline'
 			]
 		},
 		language: 'fa',
