@@ -43,7 +43,7 @@ header .muirtl-19kzrtu {
   padding: 0;
 }
 
-header .muirtl-11b3ww9-MuiPaper-root-MuiAppBar-root {
+header .muirtl-5poeop {
   backdrop-filter: blur(7px);
   background-color: rgba(255, 255, 255, 0.6);
   background-image: none;
@@ -54,7 +54,7 @@ header .muirtl-11b3ww9-MuiPaper-root-MuiAppBar-root {
   -ms-transition: all 0.5s, color 0s;
   -o-transition: all 0.5s, color 0s;
 }
-header .muirtl-p25sbl-MuiPaper-root-MuiAppBar-root {
+header .muirtl-1uquagm {
   backdrop-filter: blur(7px);
   background-color: rgba(0, 0, 0, 0.6);
   background-image: none;
@@ -64,8 +64,8 @@ header .muirtl-p25sbl-MuiPaper-root-MuiAppBar-root {
   -ms-transition: all 0.5s, color 0s;
   -o-transition: all 0.5s, color 0s;
 }
-header .muirtl-1hc7nu0-MuiPaper-root-MuiAppBar-root,
-header .muirtl-162f9e9-MuiPaper-root-MuiAppBar-root {
+header .muirtl-1ozpllr,
+header .muirtl-8ibv6u {
   background-color: transparent;
   color: unset;
   transition: all 0.5s, color 0s;
@@ -403,7 +403,7 @@ blockquote {
 
 .custom_workfolio_desc a {
   /* text-align: justify; */
-  text-decoration: none;
+  text-decoration: none !important;
   color: #4c99e6;
   cursor: pointer;
 }
@@ -486,12 +486,11 @@ pre.fancy-code-bright {
     width: 30%;
   }
 }
-
 /* not found */
 
 /* support img */
 @media (max-width: 900px) {
-  .support-img{
+  .support-img {
     width: 100% !important;
     height: auto !important;
   }
