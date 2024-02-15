@@ -4,13 +4,13 @@ import { completeProfile } from "@/services/auth/authServices";
 import { Box, Button, TextField } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 const ProfileTextFields = () => {
   const router = useRouter();
-
+  const [isSubmit, setIsSubmit] = useState(false);
   const { isPending, mutateAsync } = useMutation({
     mutationFn: completeProfile,
   });
@@ -19,7 +19,6 @@ const ProfileTextFields = () => {
     register,
     handleSubmit,
     reset,
-    formState,
     formState: { isSubmitSuccessful, errors },
   } = useForm({
     mode: "onChange",
@@ -32,7 +31,7 @@ const ProfileTextFields = () => {
   });
 
   useEffect(() => {
-    if (formState.isSubmitSuccessful) {
+    if (isSubmitSuccessful && isSubmit) {
       reset({
         name: "",
         email: "",
@@ -40,7 +39,7 @@ const ProfileTextFields = () => {
         confirmPassword: "",
       });
     }
-  }, [formState, reset]);
+  }, [isSubmit, isSubmitSuccessful, reset]);
 
   const submitHandler = async ({ name, email, password, confirmPassword }) => {
     try {
@@ -51,7 +50,7 @@ const ProfileTextFields = () => {
         confirmPassword,
       });
       toast.success(message);
-
+      setIsSubmit(true);
       router.push("/");
     } catch (err) {
       toast.error(err?.response?.data?.message);

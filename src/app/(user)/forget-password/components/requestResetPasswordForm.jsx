@@ -3,7 +3,7 @@
 import { useQueryClient } from "@tanstack/react-query";
 import Loading from "@/common/loading";
 import { Box, Button, TextField, Grid, Typography } from "@mui/material";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import ResetPasswordCaptcha from "./resetPasswordCaptcha";
@@ -11,11 +11,11 @@ import { useSendPasswordRequest } from "@/hooks/useResetPassword";
 import toast from "react-hot-toast";
 
 const RequestResetPasswordForm = () => {
+  const [isSubmit, setIsSubmit] = useState(false);
   const {
     register,
     handleSubmit,
     reset,
-    formState,
     formState: { isSubmitSuccessful, errors },
   } = useForm({
     mode: "onChange",
@@ -26,13 +26,13 @@ const RequestResetPasswordForm = () => {
   });
 
   useEffect(() => {
-    if (formState.isSubmitSuccessful) {
+    if (isSubmitSuccessful && isSubmit) {
       reset({
         email: "",
         enteredCaptcha: "",
       });
     }
-  }, [formState, reset]);
+  }, [isSubmit, isSubmitSuccessful, reset]);
   const queryClient = useQueryClient();
   const { mutateAsync, isPending } = useSendPasswordRequest();
 
@@ -45,10 +45,10 @@ const RequestResetPasswordForm = () => {
        queryClient.invalidateQueries({
         queryKey: ["get-reset-password-captcha"],
       });
-      // router.push("/sign-in");
       toast.success(message, {
         duration: 3000,
       });
+      setIsSubmit(true)
     } catch (error) {
       const errorMessage =
         error.response?.data?.error?.message ||

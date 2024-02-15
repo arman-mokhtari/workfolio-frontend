@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import { useForm } from "react-hook-form";
 import { CardContent, TextField, Button, Card, Box } from "@mui/material";
@@ -17,7 +17,7 @@ import { useIsUpLg } from "@/hooks/useMediaQueries";
 
 const ContactUsForm = () => {
   const theme = useTheme();
-
+  const [isSubmit, setIsSubmit] = useState(false);
   const { isLoading, data } = useGetContactUsCaptcha();
 
   const { data: captchaData } = data || {};
@@ -29,7 +29,6 @@ const ContactUsForm = () => {
     register,
     handleSubmit,
     reset,
-    formState,
     formState: { isSubmitSuccessful, errors },
   } = useForm({
     mode: "onChange",
@@ -43,7 +42,7 @@ const ContactUsForm = () => {
   });
 
   useEffect(() => {
-    if (formState.isSubmitSuccessful) {
+    if (isSubmitSuccessful && isSubmit) {
       reset({
         name: "",
         email: "",
@@ -52,7 +51,7 @@ const ContactUsForm = () => {
         enteredCaptcha: "",
       });
     }
-  }, [formState, reset]);
+  }, [isSubmit, isSubmitSuccessful, reset]);
 
   const submitHandler = async ({
     email,
@@ -72,14 +71,12 @@ const ContactUsForm = () => {
       queryClient.invalidateQueries({
         queryKey: ["get-contact-captcha"],
       });
+      setIsSubmit(true);
       toast.success(msg, {
         duration: 5000,
       });
-    } catch (error) {
-      const errorMessage =
-        error.response?.data?.error?.message ||
-        error?.response?.data?.message ||
-        "خطایی رخ داده است.";
+    } catch (err) {
+      const errorMessage = err?.response?.data?.error || "خطایی رخ داده است.";
       queryClient.invalidateQueries({
         queryKey: ["get-contact-captcha"],
       });

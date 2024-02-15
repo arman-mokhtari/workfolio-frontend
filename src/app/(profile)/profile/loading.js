@@ -10,7 +10,7 @@ export default function Loading() {
         width: 1,
       }}
     >
-      <CircularProgress size={60} />
+      <CircularProgress aria-label="loading" size={60} />
     </Box>
   );
 }

@@ -23,6 +23,7 @@ const ProductFormBaseData = ({
             <TextField
               label={item.label}
               name={item.name}
+              type={item.type}
               value={value}
               onChange={productDataOnChange}
               fullWidth

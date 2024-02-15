@@ -95,7 +95,7 @@ const ReviewDataCard = ({ review, id }) => {
                 : field === "updatedAt"
                 ? toLocalDateString(review[field])
                 : field === "product"
-                ? review[field].title
+                ? review[field]?.title
                 : field === "user"
                 ? review[field]
                   ? review[field].name

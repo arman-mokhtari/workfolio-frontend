@@ -14,12 +14,12 @@ import { Toaster } from "react-hot-toast";
 import AdminAppBar from "./components/adminAppbar";
 import { ModalProvider } from "@/context/modalContext";
 
-const cacheRTL = createCache({
-  key: "muirtl",
-  stylisPlugins: [prefixer, rtlPlugin],
-});
-
-const LayoutContent = ({ children }) => {
+const LayoutContent = ({ children, nonce }) => {
+  const cacheRTL = createCache({
+    key: "muirtl",
+    nonce: nonce,
+    stylisPlugins: [prefixer, rtlPlugin],
+  });
   return (
     <ModalProvider>
       <CacheProvider value={cacheRTL}>

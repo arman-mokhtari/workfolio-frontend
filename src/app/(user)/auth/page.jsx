@@ -17,6 +17,7 @@ const SignIn = () => {
   const [otp, setOtp] = useState("");
   const [step, setStep] = useState(1);
   const [time, setTime] = useState(RESEND_TIME);
+  const [isSubmit, setIsSubmit] = useState(false);
   const router = useRouter();
   const queryClient = useQueryClient();
 
@@ -44,6 +45,7 @@ const SignIn = () => {
       const data = await mutateGetOtp({ phoneNumber, enteredCaptcha: captcha });
       queryClient.invalidateQueries({ queryKey: ["get-user-captcha"] });
       toast.success(data.message);
+      setIsSubmit(true)
       setStep(2);
       setTime(RESEND_TIME);
       setOtp("");
@@ -101,6 +103,7 @@ const SignIn = () => {
             isPending={isPending}
             sendOtpHandler={sendOtpHandler}
             onChangeCaptcha={captchaHandler}
+            isSubmit={isSubmit}
           />
         );
       case 2:

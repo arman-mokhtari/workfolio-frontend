@@ -73,7 +73,7 @@ const nextConfig = {
       console.error("Error fetching data:", error);
       throw error;
     }
-  }
+  },
 };
 
 module.exports = nextConfig;

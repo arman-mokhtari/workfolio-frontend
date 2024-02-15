@@ -19,11 +19,18 @@ const AddCoupon = () => {
 
   const [type, setType] = useState("percent");
   const [productIds, setProductIds] = useState([]);
-  const [expireDate, setExpireDate] = useState(new Date());;
+  const [expireDate, setExpireDate] = useState(new Date());
   const { isLoading, mutateAsync } = useAddNewCoupon();
   const router = useRouter();
   const handleFormChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (e.target.type === "number") {
+      setFormData({
+        ...formData,
+        [e.target.name]: parseInt(e.target.value, 10),
+      });
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
   };
 
   const handleSubmit = async (e) => {

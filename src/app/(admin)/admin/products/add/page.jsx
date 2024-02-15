@@ -46,8 +46,12 @@ const AddProductPage = () => {
   };
 
   const handleChange = (e) => {
-    // سایر فیلدها
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (e.target.type === "number") {
+      // اگر نوع فیلد عدد باشد، مقدار را به عدد تبدیل کنید
+      setFormData({ ...formData, [e.target.name]: parseInt(e.target.value, 10) });
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
 
     // اضافه کردن سوالات متداول و جواب‌ها به formData
     if (

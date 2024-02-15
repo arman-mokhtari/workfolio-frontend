@@ -20,7 +20,7 @@ const BreadCrumbsContent = () => {
 
   const { isLoading: blogLoading, data: blogsData } = useGetAllBlogs();
   const { blogs } = blogsData || {};
-
+  const heading = pathname === "/products" || pathname === "/blogs";
   const isSmallScreen = useIsOnlyXs();
   return (
     <Card
@@ -30,7 +30,7 @@ const BreadCrumbsContent = () => {
           mx: 1,
         },
         mb: 2,
-        mt:1,
+        mt: 1,
         p: 1.5,
         display: "inline-flex",
         justifyContent: "flex-end",
@@ -66,7 +66,7 @@ const BreadCrumbsContent = () => {
           </Typography>
           <Breadcrumbs
             sx={{
-              "& p": {
+              "& p , h1": {
                 color: "#037fff",
                 fontSize: "0.95rem",
                 textDecoration: "underline",
@@ -80,7 +80,12 @@ const BreadCrumbsContent = () => {
           >
             <Link
               role="link"
-              title="رفتن به صفحه اصلی" aria-label="رفتن به صفحه اصلی" href="/">خانه</Link>
+              title="رفتن به صفحه اصلی"
+              aria-label="رفتن به صفحه اصلی"
+              href="/"
+            >
+              خانه
+            </Link>
             {paths.map((path, index) => {
               const isLastPath = index === paths.length - 1;
               const pathName = path;
@@ -107,17 +112,20 @@ const BreadCrumbsContent = () => {
                 <Box key={index}>
                   {isLastPath ? (
                     <Typography
+                      component={heading && "h1"}
                       sx={{
                         cursor: "default",
                       }}
-                      color="textPrimary"
                     >
                       {decodeURIComponent(displayName).replace(/-/g, " ")}
                     </Typography>
                   ) : (
                     <Link
-                    role="link"
-                    title={`رفتن به صفحه ${displayName}`} aria-label={displayName} href={`/${paths.slice(0, index + 1).join("/")}`}>
+                      role="link"
+                      title={`رفتن به صفحه ${displayName}`}
+                      aria-label={displayName}
+                      href={`/${paths.slice(0, index + 1).join("/")}`}
+                    >
                       {displayName}
                     </Link>
                   )}

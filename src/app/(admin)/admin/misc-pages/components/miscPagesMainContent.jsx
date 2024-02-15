@@ -1,11 +1,9 @@
 "use client";
-import Link from "next/link";
 
 import Loading from "@/common/loading";
-import { Typography, Stack, Button } from "@mui/material";
-import { PlaylistAdd } from "@mui/icons-material";
 import { useGetAllMiscPage } from "@/hooks/useMiscPage";
 import MiscPagesTable from "./miscPagesTable";
+import HeadStack from "../../common/headStack";
 
 const MiscPagesMainContent = () => {
   const { isLoading, data } = useGetAllMiscPage();
@@ -15,29 +13,7 @@ const MiscPagesMainContent = () => {
 
   return (
     <>
-      <Stack
-        direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-        sx={{
-          mb: 2,
-        }}
-      >
-        <Typography variant="h5">صفحات متفرقه</Typography>
-
-        <Button
-          component={Link}
-          role="link"
-           
-          href="/admin/misc-pages/add"
-          color="success"
-          variant="contained"
-          aria-label="add page"
-          endIcon={<PlaylistAdd />}
-        >
-          اضافه کردن صفحه متفرقه
-        </Button>
-      </Stack>
+      <HeadStack href="/admin/misc-pages/add" title="صفحات متفرقه" />
 
       <MiscPagesTable miscPages={miscPages} />
     </>

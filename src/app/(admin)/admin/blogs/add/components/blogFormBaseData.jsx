@@ -30,6 +30,7 @@ const BlogFormBaseData = ({
                     label={item.label}
                     name={item.name}
                     value={value}
+                    type={item.type}
                     onChange={blogDataOnChange}
                     fullWidth
                   />

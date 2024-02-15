@@ -16,7 +16,15 @@ const BlogsPage = () => {
           mb: 2,
         }}
       >
-        <Typography variant="h5">اعضای خبرنامه</Typography>
+        <Typography
+          sx={{
+            fontSize: "1.5rem",
+          }}
+          noWrap
+          component="h1"
+        >
+          اعضای خبرنامه
+        </Typography>
       </Box>
 
       <NewsletterUsersTable newsletterUsers={newsletterUsers} />

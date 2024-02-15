@@ -1,5 +1,5 @@
 "use client";
-import Loading from "@/common/loading";
+
 import { Box, Button, TextField, Grid, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
@@ -11,12 +11,12 @@ const SendOtpForm = ({
   onChange,
   isPending,
   onChangeCaptcha,
+  isSubmit,
 }) => {
   const {
     register,
     handleSubmit,
     reset,
-    formState,
     formState: { isSubmitSuccessful, errors },
   } = useForm({
     mode: "onChange",
@@ -27,13 +27,13 @@ const SendOtpForm = ({
   });
 
   useEffect(() => {
-    if (formState.isSubmitSuccessful) {
+    if (isSubmitSuccessful & isSubmit) {
       reset({
         phoneNumber: "",
         enteredCaptcha: "",
       });
     }
-  }, [formState, reset]);
+  }, [isSubmit, isSubmitSuccessful, reset]);
 
   return (
     <Box
@@ -116,9 +116,7 @@ const SendOtpForm = ({
         container
       >
         <Grid item xs={6}>
-          <Link
-              role="link"
-                aria-label="حساب کاربری" href="/sign-in">
+          <Link role="link" aria-label="حساب کاربری" href="/sign-in">
             <Typography noWrap variant="body2">
               حساب کاربری دارم! ورود
             </Typography>

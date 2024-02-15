@@ -32,6 +32,9 @@ const TabSecurity = () => {
     showCurrentPassword: false,
     showConfirmNewPassword: false,
   });
+
+  const [isSubmit, setIsSubmit] = useState(false);
+
   const isSmallScreen = useIsOnlyXs();
 
   const handleClickShowCurrentPassword = () => {
@@ -58,7 +61,6 @@ const TabSecurity = () => {
     register,
     handleSubmit,
     reset,
-    formState,
     formState: { isSubmitSuccessful, errors },
   } = useForm({
     mode: "onChange",
@@ -70,14 +72,14 @@ const TabSecurity = () => {
   });
 
   useEffect(() => {
-    if (formState.isSubmitSuccessful) {
+    if (isSubmitSuccessful && isSubmit) {
       reset({
         currentPassword: "",
         newPassword: "",
         confirmNewPassword: "",
       });
     }
-  }, [formState, reset]);
+  }, [isSubmit, isSubmitSuccessful, reset]);
 
   const submitHandler = async ({
     currentPassword,
@@ -95,8 +97,9 @@ const TabSecurity = () => {
           enteredCaptcha,
         },
       });
-      router.push("/profile");
       toast.success(message);
+      setIsSubmit(true);
+      router.push("/profile");
     } catch (error) {
       const errorMessage =
         error.response?.data?.error?.message ||

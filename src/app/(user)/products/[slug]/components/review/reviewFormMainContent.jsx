@@ -22,10 +22,9 @@ import {
   useGetProductReviewCaptcha,
 } from "@/hooks/useProductReviews";
 
-
 const ReviewFormMainContent = ({ pId }) => {
   const [ratingValue, setRatingValue] = useState(4);
-
+  const [isSubmit, setIsSubmit] = useState(false);
   const handleRatingChange = (value) => {
     setRatingValue(value);
   };
@@ -34,7 +33,6 @@ const ReviewFormMainContent = ({ pId }) => {
     register,
     handleSubmit,
     reset,
-    formState,
     formState: { isSubmitSuccessful, errors },
   } = useForm({
     mode: "onChange",
@@ -45,13 +43,13 @@ const ReviewFormMainContent = ({ pId }) => {
   });
 
   useEffect(() => {
-    if (formState.isSubmitSuccessful) {
+    if (isSubmitSuccessful && isSubmit) {
       reset({
         message: "",
         enteredCaptcha: "",
       });
     }
-  }, [formState, reset]);
+  }, [isSubmit, isSubmitSuccessful, reset]);
 
   const { mutateAsync } = useAddProductReview();
   const { isLoading, data } = useGetProductReviewCaptcha();
@@ -70,6 +68,7 @@ const ReviewFormMainContent = ({ pId }) => {
         },
       });
       queryClient.invalidateQueries({ queryKey: ["product-review-captcha"] });
+      setIsSubmit(true);
       toast.success(msg);
     } catch (error) {
       queryClient.invalidateQueries({ queryKey: ["product-review-captcha"] });

@@ -26,14 +26,13 @@ import { useIsUpLg } from "@/hooks/useMediaQueries";
 const SignInForm = () => {
   const router = useRouter();
   const [loginType, setLoginType] = useState("phoneNumber");
-
+  const [isSubmit, setIsSubmit] = useState(false);
   const { isPending, mutateAsync } = useAuthenticateUser();
   const queryClient = useQueryClient();
   const {
     register,
     handleSubmit,
     reset,
-    formState,
     formState: { isSubmitSuccessful, errors },
   } = useForm({
     mode: "onChange",
@@ -49,14 +48,14 @@ const SignInForm = () => {
   };
 
   useEffect(() => {
-    if (formState.isSubmitSuccessful) {
+    if (isSubmitSuccessful && isSubmit) {
       reset({
         loginIdentifier: "", // changed from phoneNumber to loginIdentifier
         password: "",
         enteredCaptcha: "",
       });
     }
-  }, [formState, reset]);
+  }, [isSubmit, isSubmitSuccessful, reset]);
 
   const submitHandler = async ({
     loginIdentifier,
@@ -72,7 +71,7 @@ const SignInForm = () => {
       });
       queryClient.invalidateQueries({ queryKey: ["get-user"] });
       toast.success(message);
-
+      setIsSubmit(true);
       router.push("/");
     } catch (err) {
       queryClient.invalidateQueries({ queryKey: ["get-user-captcha"] });
@@ -196,9 +195,7 @@ const SignInForm = () => {
           container
         >
           <Grid item xs={7}>
-            <Link
-              role="link"
-               aria-label="رفتن به صفحه ثبت نام" href="/auth">
+            <Link role="link" aria-label="رفتن به صفحه ثبت نام" href="/auth">
               <Typography noWrap variant="body2">
                 حساب کاربری ندارم! ثبت نام
               </Typography>
@@ -214,7 +211,9 @@ const SignInForm = () => {
           >
             <Link
               role="link"
-               aria-label="رفتن به صفحه فراموشی کلمه عبور" href="/forget-password">
+              aria-label="رفتن به صفحه فراموشی کلمه عبور"
+              href="/forget-password"
+            >
               <Typography noWrap variant="body2">
                 فراموشی کلمه عبور
               </Typography>

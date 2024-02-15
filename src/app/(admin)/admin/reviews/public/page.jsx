@@ -21,7 +21,15 @@ const BlogsPage = () => {
           mb: 2,
         }}
       >
-        <Typography variant="h5">نظرات</Typography>
+        <Typography
+          sx={{
+            fontSize: "1.5rem",
+          }}
+          noWrap
+          component="h1"
+        >
+          نظرات
+        </Typography>
       </Stack>
 
       <ReviewsTable reviews={reviews} />

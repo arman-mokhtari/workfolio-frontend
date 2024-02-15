@@ -24,13 +24,36 @@ const EditCouponPage = () => {
   const [expireDate, setExpireDate] = useState(new Date());
 
   const { isLoading: isUpdatingCoupon, mutateAsync } = useUpdateCoupon();
-  
+
   const router = useRouter();
   const queryClient = useQueryClient();
 
   const handleFormChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (e.target.type === "number") {
+      setFormData({
+        ...formData,
+        [e.target.name]: parseInt(e.target.value, 10),
+      });
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
   };
+  const handleSetProductIds = (event) => {
+    setProductIds(event.target.value);
+  };
+
+  useEffect(() => {
+    if (coupon) {
+      setType(coupon.type);
+      setProductIds(coupon.productIds.map(item => item._id));
+      setFormData({
+        code: coupon.code,
+        amount: coupon.amount,
+        usageLimit: coupon.usageLimit,
+      });
+      setExpireDate(new Date(coupon.expireDate));
+    }
+  }, [coupon]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,23 +75,7 @@ const EditCouponPage = () => {
     }
   };
 
-  useEffect(() => {
-    if (coupon) {
-      setType(coupon.type);
-      setProductIds(coupon.productIds);
-      setFormData({
-        code: coupon.code,
-        amount: coupon.amount,
-        usageLimit: coupon.usageLimit,
-      });
-      setExpireDate(new Date(coupon.expireDate));
-    }
-  }, [coupon]);
-
-  const handleSetProductIds = (event) => {
-    setProductIds(event.target.value);
-  };
-
+  console.log("formData: ", productIds);
   if (isLoading) return <Loading />;
   if (coupon?._id !== id || !coupon) return router.push("/404");
   return (

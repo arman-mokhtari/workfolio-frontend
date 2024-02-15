@@ -26,11 +26,11 @@ const EditSelectCoupons = ({ defaultValue, onChangeSelect, products }) => {
   return (
     <Box>
       <FormControl fullWidth>
-        <InputLabel>ویرایش کد تخفیف</InputLabel>
+        <InputLabel>ویرایش شناسه محصول</InputLabel>
         <Select
           multiple
           id="category"
-          label="ویرایش کد تخفیف"
+          label="ویرایش شناسه محصول"
           onChange={onChangeSelect}
           defaultValue={def ? def : [""]}
           renderValue={(selected) => renderSelectedText(selected)}

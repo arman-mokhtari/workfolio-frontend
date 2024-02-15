@@ -24,15 +24,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ModalProvider } from "@/context/modalContext";
 
-const cacheRTL = createCache({
-  key: "muirtl",
-  stylisPlugins: [prefixer, rtlPlugin],
-});
-const LayoutContent = ({ children }) => {
+const LayoutContent = ({ children, nonce }) => {
   const [mode, setMode] = useState();
 
   const pn = usePathname();
-
+  const cacheRTL = createCache({
+    key: "muirtl",
+    nonce: nonce,
+    stylisPlugins: [prefixer, rtlPlugin],
+  });
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
   useEffect(() => {
@@ -53,7 +53,7 @@ const LayoutContent = ({ children }) => {
     >
       <ModalProvider>
         <CacheProvider value={cacheRTL}>
-          <ThemeProvider theme={theme}>
+          <ThemeProvider theme={theme} >
             <CssBaseline />
             <Providers>
               <Toaster position="top-left" />

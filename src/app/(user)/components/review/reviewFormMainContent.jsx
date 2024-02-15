@@ -20,7 +20,7 @@ import Loading from "@/common/loading";
 
 const ReviewFormMainContent = () => {
   const [ratingValue, setRatingValue] = useState(4);
-
+  const [isSubmit, setIsSubmit] = useState(false);
   const handleRatingChange = (value) => {
     setRatingValue(value);
   };
@@ -29,7 +29,6 @@ const ReviewFormMainContent = () => {
     register,
     handleSubmit,
     reset,
-    formState,
     formState: { isSubmitSuccessful, errors },
   } = useForm({
     mode: "onChange",
@@ -40,13 +39,13 @@ const ReviewFormMainContent = () => {
   });
 
   useEffect(() => {
-    if (formState.isSubmitSuccessful) {
+    if (isSubmitSuccessful && isSubmit) {
       reset({
         message: "",
         enteredCaptcha: "",
       });
     }
-  }, [formState, reset]);
+  }, [isSubmit, isSubmitSuccessful, reset]);
 
   const { mutateAsync } = useAddReview();
   const { isLoading, data } = useGetReviewCaptcha();
@@ -62,6 +61,7 @@ const ReviewFormMainContent = () => {
         rating: ratingValue,
       });
       queryClient.invalidateQueries({ queryKey: ["get-review-captcha"] });
+      setIsSubmit(true)
       toast.success(msg);
     } catch (error) {
       queryClient.invalidateQueries({ queryKey: ["get-review-captcha"] });

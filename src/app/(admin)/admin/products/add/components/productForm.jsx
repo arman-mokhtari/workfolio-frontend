@@ -40,7 +40,6 @@ const ProductForm = ({
   handleSetCategory,
   isLoading,
   selectedCategory = "",
-  description,
 }) => {
   return (
     <Card>

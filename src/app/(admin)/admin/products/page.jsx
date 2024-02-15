@@ -1,11 +1,9 @@
 "use client";
-import Link from "next/link";
 
 import Loading from "@/common/loading";
 import { useGetAllProducts } from "@/hooks/useProducts";
 import ProductsTable from "./components/productsTable";
-import { Typography, Stack, Button } from "@mui/material";
-import { PlaylistAdd } from "@mui/icons-material";
+import HeadStack from "../common/headStack";
 
 const ProductsPage = () => {
   const { isLoading, data } = useGetAllProducts();
@@ -15,29 +13,7 @@ const ProductsPage = () => {
 
   return (
     <>
-      <Stack
-        direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-        sx={{
-          mb: 2,
-        }}
-      >
-        <Typography variant="h5">محصولات</Typography>
-
-        <Button
-          component={Link}
-          role="link"
-           
-          href="/admin/products/add"
-          color="success"
-          variant="contained"
-          aria-label="add product"
-          endIcon={<PlaylistAdd />}
-        >
-          اضافه کردن محصول جدید
-        </Button>
-      </Stack>
+      <HeadStack href="/admin/products/add" title="محصولات" />
 
       <ProductsTable products={products} />
     </>

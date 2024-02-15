@@ -17,13 +17,14 @@ import { Toaster } from "react-hot-toast";
 import ProfileAppBar from "./components/profileAppBar";
 import { ModalProvider } from "@/context/modalContext";
 
-const cacheRTL = createCache({
-  key: "muirtl",
-  stylisPlugins: [prefixer, rtlPlugin],
-});
-
-const LayoutContent = ({ children }) => {
+const LayoutContent = ({ children, nonce }) => {
   const [mode, setMode] = useState();
+
+  const cacheRTL = createCache({
+    key: "muirtl",
+    nonce: nonce,
+    stylisPlugins: [prefixer, rtlPlugin],
+  });
 
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 

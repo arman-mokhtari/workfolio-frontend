@@ -5,8 +5,8 @@ import MiscDesc from "./main/miscDesk";
 
 const MiscMainContent = ({ miscPage }) => {
 
-  const { description, slug } = miscPage;
-  const pageUrl = `https://workfolio.ir/misc-pages/${slug}`;
+
+  const pageUrl = `https://workfolio.ir/misc-pages/${miscPage?.slug}`;
 
   return (
     <>
@@ -14,7 +14,7 @@ const MiscMainContent = ({ miscPage }) => {
         <MiscCard pageUrl={pageUrl} miscPage={miscPage} />
       </BannerCardLayout>
       <MainCardLayout>
-        <MiscDesc description={description} />
+        <MiscDesc description={miscPage?.description} />
       </MainCardLayout>
     </>
   );

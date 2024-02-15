@@ -14,6 +14,7 @@ import {
 import {
   enamadCode,
   samandehiCode,
+  verifyLogos,
   zarinpalCode,
 } from "@/constants/verifyLogos";
 import { useGetAllMiscPage } from "@/hooks/useMiscPage";
@@ -31,9 +32,8 @@ const ThirdGrid = () => {
           justifyContent="space-between"
         >
           <List>
-            {isLoading ? (
-              <Stack>
-                {Array.from({ length: 2 }, (_, i) => (
+            {isLoading
+              ? Array.from({ length: 2 }, (_, i) => (
                   <ListItem key={i}>
                     <Skeleton
                       variant="text"
@@ -41,26 +41,24 @@ const ThirdGrid = () => {
                       sx={{ my: 0.5, fontSize: "1rem", lineHeight: 1.5 }}
                     />
                   </ListItem>
+                ))
+              : miscPages?.map(({ slug, title }, index) => (
+                  <ListItem key={index}>
+                    <Link
+                      role="link"
+                      component={NextLink}
+                      aria-label="label"
+                      underline="none"
+                      href={`/${slug}`}
+                      title={`${title} ورکفولیو`}
+                    >
+                      <ListItemText primary={title} />
+                    </Link>
+                  </ListItem>
                 ))}
-              </Stack>
-            ) : (
-              miscPages.map(({ slug, title }, index) => (
-                <ListItem key={index}>
-                  <Link
-                    role="link"
-                    component={NextLink}
-                    aria-label="label"
-                    underline="none"
-                    href={`/${slug}`}
-                    title={`${title} ورکفولیو`}
-                  >
-                    <ListItemText primary={title} />
-                  </Link>
-                </ListItem>
-              ))
-            )}
           </List>
           <Stack
+            component={List}
             direction="row"
             justifyContent="flex-end"
             alignItems="center"
@@ -73,9 +71,11 @@ const ThirdGrid = () => {
               },
             }}
           >
-            <Box dangerouslySetInnerHTML={{ __html: enamadCode }} />
-            <Box dangerouslySetInnerHTML={{ __html: samandehiCode }} />
-            <Box dangerouslySetInnerHTML={{ __html: zarinpalCode }} />
+            {verifyLogos.map(({ id, code }) => (
+              <ListItem sx={{ p: 0, width:"inherit" }} key={id}>
+                <Box dangerouslySetInnerHTML={{ __html: code }} />
+              </ListItem>
+            ))}
           </Stack>
         </Stack>
       </Box>

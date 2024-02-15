@@ -47,6 +47,7 @@ const AddCouponForm = ({
                     key={index}
                     label={item.label}
                     name={item.name}
+                    type={item.type}
                     value={value}
                     onChange={onFormChange}
                     fullWidth

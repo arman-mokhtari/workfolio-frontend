@@ -46,8 +46,14 @@ const EditPage = () => {
   const queryClient = useQueryClient();
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-
+    if (e.target.type === "number") {
+      setFormData({
+        ...formData,
+        [e.target.name]: parseInt(e.target.value, 10),
+      });
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
     if (
       e.target.name.startsWith("question") ||
       e.target.name.startsWith("answer")
@@ -97,7 +103,7 @@ const EditPage = () => {
   const handleSetCategory = (event) => {
     setSelectedCategory(event.target.value);
   };
-
+  
   if (isLoadingProduct) return <Loading />;
   if (product?._id !== id || !product) return router.push("/404");
   return (

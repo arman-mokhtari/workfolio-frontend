@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 import { toast } from "react-hot-toast";
@@ -22,11 +22,11 @@ import HoverCard from "@/common/hoverCard";
 import LoadingBtn from "@/common/loadingBtn";
 
 const NewsletterForm = () => {
+  const [isSubmit, setIsSubmit] = useState(false);
   const {
     register,
     handleSubmit,
     reset,
-    formState,
     formState: { isSubmitSuccessful, errors },
   } = useForm({
     mode: "onChange",
@@ -38,14 +38,14 @@ const NewsletterForm = () => {
   });
 
   useEffect(() => {
-    if (formState.isSubmitSuccessful) {
+    if (isSubmitSuccessful && isSubmit) {
       reset({
         name: "",
         email: "",
         enteredCaptcha: "",
       });
     }
-  }, [formState, reset]);
+  }, [isSubmit, isSubmitSuccessful, reset]);
 
   const { mutateAsync, isPending } = useAddNewsletterUser();
 
@@ -63,6 +63,7 @@ const NewsletterForm = () => {
         name,
       });
       queryClient.invalidateQueries({ queryKey: ["get-newsletter-captcha"] });
+      setIsSubmit(true);
       toast.success(message);
     } catch (error) {
       queryClient.invalidateQueries({ queryKey: ["get-newsletter-captcha"] });

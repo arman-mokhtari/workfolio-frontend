@@ -12,7 +12,7 @@ const Loading = ({ size, mt, mr,mx }) => {
         mx:mx
       }}
     >
-      <CircularProgress size={size} />
+      <CircularProgress aria-label="loading" size={size} />
     </Box>
   );
 };

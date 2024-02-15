@@ -1,5 +1,5 @@
 import LayoutContent from "./layoutContent";
-
+import { headers } from "next/headers";
 export const metadata = {
   robots: {
     index: true,
@@ -12,5 +12,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  return <LayoutContent>{children}</LayoutContent>;
+  const nonce = headers().get("x-nonce");
+
+  return <LayoutContent nonce={nonce}>{children}</LayoutContent>;
 }

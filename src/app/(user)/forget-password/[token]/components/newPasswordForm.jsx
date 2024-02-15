@@ -28,6 +28,7 @@ const NewPasswordForm = ({ token }) => {
     showCurrentPassword: false,
     showConfirmNewPassword: false,
   });
+  const [isSubmit, setIsSubmit] = useState(false);
   const queryClient = useQueryClient();
 
   const handleClickShowNewPassword = () => {
@@ -48,7 +49,6 @@ const NewPasswordForm = ({ token }) => {
     register,
     handleSubmit,
     reset,
-    formState,
     formState: { isSubmitSuccessful, errors },
   } = useForm({
     mode: "onChange",
@@ -59,13 +59,13 @@ const NewPasswordForm = ({ token }) => {
   });
 
   useEffect(() => {
-    if (formState.isSubmitSuccessful) {
+    if (isSubmitSuccessful && isSubmit) {
       reset({
         password: "",
         confirmPassword: "",
       });
     }
-  }, [formState, reset]);
+  }, [isSubmit, isSubmitSuccessful, reset]);
 
   const submitHandler = async ({ password, confirmPassword }) => {
     try {
@@ -77,10 +77,11 @@ const NewPasswordForm = ({ token }) => {
         },
       });
       queryClient.invalidateQueries({ queryKey: ["get-user"] });
-      router.push("/");
+      setIsSubmit(true)
       toast.success(message, {
         duration: 4000,
       });
+      router.push("/");
     } catch (error) {
       const errorMessage =
         error.response?.data?.error?.message ||
