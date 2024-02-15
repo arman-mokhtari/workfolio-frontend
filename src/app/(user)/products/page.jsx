@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata() {
   try {
     const { pageData } = await getPageByEnglishTitle("products");
-    console.log("pageData: ", pageData);
+
     const { metaTitle, metaDescription, tags, imageLink } = pageData;
 
     return {
