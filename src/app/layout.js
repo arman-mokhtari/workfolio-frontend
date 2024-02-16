@@ -1,4 +1,5 @@
-import { GoogleTagManager } from "@next/third-parties/google";
+import { headers } from "next/headers";
+import Script from "next/script";
 import shabnamFont from "@/constants/localFonts";
 import { WebVitals } from "./_components/web-vitals";
 
@@ -40,12 +41,18 @@ export const viewport = {
 };
 const myFont = shabnamFont;
 export default function RootLayout({ children }) {
+  const nonce = headers().get("x-nonce");
+  console.log("nonce: ", nonce)
   return (
     <html lang="fa" dir="rtl">
       <body className={myFont.className}>
         <WebVitals />
         {children}
-        <GoogleTagManager gtmId="GTM-TL97FTVH" />
+        <Script
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-TL97FTVH"
+          strategy="afterInteractive"
+          nonce={nonce}
+        />
       </body>
     </html>
   );
