@@ -1,20 +1,16 @@
 import BannerCardLayout from "@/pages/(user)/components/slugs/card/bannerCardLayout";
 import MainCardLayout from "@/pages/(user)/components/slugs/card/mainCardLayout";
-import MiscCard from "./card/miscCard";
-import MiscDesc from "./main/miscDesk";
+import MiscCard from "../card/miscCard";
+import MiscDesc from "./miscDesk";
 
-const MiscMainContent = ({ miscPage }) => {
-
-
-  const pageUrl = `https://workfolio.ir/misc-pages/${miscPage?.slug}`;
-
+const MiscMainContent = ({ pageData }) => {
   return (
     <>
       <BannerCardLayout>
-        <MiscCard pageUrl={pageUrl} miscPage={miscPage} />
+        <MiscCard pageData={pageData} />
       </BannerCardLayout>
       <MainCardLayout>
-        <MiscDesc description={miscPage?.description} />
+        <MiscDesc description={pageData?.description} />
       </MainCardLayout>
     </>
   );

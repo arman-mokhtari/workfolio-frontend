@@ -2,7 +2,8 @@ import { Typography, Stack } from "@mui/material";
 import { toLocalDateString } from "@/utils/toLocalDate";
 import MiscCardLayout from "./miscCardLayout";
 
-const MiscCard = ({ miscPage }) => {
+const MiscCard = ({ pageData }) => {
+  const { title, updatedAt } = pageData;
   return (
     <MiscCardLayout>
       <Stack
@@ -20,7 +21,7 @@ const MiscCard = ({ miscPage }) => {
           }}
           variant="h1"
         >
-          {miscPage?.title}
+          {title}
         </Typography>
         <Typography
           noWrap
@@ -29,7 +30,7 @@ const MiscCard = ({ miscPage }) => {
             fontSize: "0.90rem",
           }}
         >
-          آخرین بروزرسانی : {toLocalDateString(miscPage?.updatedAt)}
+          آخرین بروزرسانی : {toLocalDateString(updatedAt)}
         </Typography>
       </Stack>
     </MiscCardLayout>

@@ -159,11 +159,6 @@ export const adminProfileNavItems = [
     to: "/admin/newsletter",
   },
   {
-    text: "صفحات متفرقه",
-    icon: <Web />,
-    to: "/admin/misc-pages",
-  },
-  {
     text: "نظرات عمومی",
     icon: <Reviews />,
     to: "/admin/reviews/public",

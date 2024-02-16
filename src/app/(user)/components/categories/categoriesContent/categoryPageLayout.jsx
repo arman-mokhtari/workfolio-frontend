@@ -39,9 +39,7 @@ export default async function CategoryPageLayout({ children }) {
         </Grid>
       </Grid>
       <ChipDivider mb={1} mt={6} title="جالب توجه!" />
-      
-        <PageDesc />
-      
+      <PageDesc />
     </Box>
   );
 }
