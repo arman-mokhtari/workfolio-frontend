@@ -13,6 +13,7 @@ import { useTheme } from "@mui/material/styles";
 
 import ProfileDrawer from "./drawer";
 import ThemeBtn from "@/components/header/buttons/themeBtn";
+import NotificationDropdown from "./notificationMenu/dropdownMainContent";
 
 const drawerWidth = 240;
 
@@ -71,6 +72,7 @@ function ProfileAppBar({ window, children }) {
             }}
           >
             <ThemeBtn />
+            <NotificationDropdown />
           </Box>
         </Toolbar>
       </AppBar>

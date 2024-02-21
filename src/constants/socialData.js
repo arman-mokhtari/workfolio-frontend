@@ -4,7 +4,7 @@ export const socialData = [
         id: 4,
         ariaLabel: "Twitter",
         title: "Twitter",
-        href: "https://twitter.com/RmanMokhtari",
+        href: "https://twitter.com/workfolio_ir",
         icon: <Twitter sx={{
             color: "text.secondary",
             transition: "all 0.2s linear",

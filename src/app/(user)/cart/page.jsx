@@ -20,7 +20,6 @@ const CartPage = () => {
   if (!user?.cart?.products || user?.cart?.products?.length === 0) {
     return <EmptyCart />;
   }
-
   return (
     <Grid
       spacing={3}

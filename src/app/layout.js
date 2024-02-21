@@ -42,7 +42,6 @@ export const viewport = {
 const myFont = shabnamFont;
 export default function RootLayout({ children }) {
   const nonce = headers().get("x-nonce");
-  console.log("nonce: ", nonce)
   return (
     <html lang="fa" dir="rtl">
       <body className={myFont.className}>

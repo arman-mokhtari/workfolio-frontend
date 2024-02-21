@@ -28,6 +28,7 @@
     "cross-env": "^7.0.3",
     "jalali-moment": "^3.3.11",
     "lodash.shuffle": "^4.2.0",
+    "material-ui-popup-state": "^5.0.10",
     "next": "14.0.3",
     "query-string": "^8.1.0",
     "react": "^18",

@@ -52,7 +52,7 @@ export async function middleware(request) {
   frame-ancestors 'none';
   block-all-mixed-content;
   upgrade-insecure-requests;
-  connect-src 'self' https://api.workfolio.ir https://region1.google-analytics.com https://www.google-analytics.com;
+  connect-src 'self' http://localhost:5000 https://region1.google-analytics.com https://www.google-analytics.com;
 `;
   // Replace newline characters and spaces
   const contentSecurityPolicyHeaderValue = cspHeader
@@ -90,14 +90,3 @@ export const config = {
     },
   ],
 };
-
-// export const config = {
-//   matcher: [
-//     "/admin/:path*",
-//     "/profile/:path*",
-//     "/auth",
-//     "/sign-in",
-//     "/complete-profile",
-//     "/forget-password",
-//   ],
-// };

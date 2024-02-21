@@ -40,3 +40,24 @@ export function currentPersianDate() {
 export function toLocalDateStringShort(date) {
   return new Date(date).toLocaleDateString("fa-IR");
 }
+
+export function toLocalDateCustomized(date) {
+  const options = {
+    month: "long",
+    day: "numeric",
+  };
+  
+  const currentDate = new Date();
+  const givenDate = new Date(date);
+  const yesterday = new Date(currentDate);
+  yesterday.setDate(currentDate.getDate() - 1);
+  
+  if (givenDate.toDateString() === currentDate.toDateString()) {
+    return "امروز";
+  } else if (givenDate.toDateString() === yesterday.toDateString()) {
+    return "دیروز";
+  } else {
+    return givenDate.toLocaleDateString("fa-IR", options);
+  }
+}
+

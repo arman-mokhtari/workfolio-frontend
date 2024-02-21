@@ -1,6 +1,6 @@
 "use client";
 
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, Skeleton } from "@mui/material";
 import Product from "./product";
 import CategoriesMainSkeleton from "../../components/categories/skeletons/mainSkeleton";
 import { useGetCategories } from "@/hooks/useCategories";
@@ -23,7 +23,11 @@ const ProductItems = ({ products, isAccessToken }) => {
         hoveredElevation={0}
         sx={{ p: 2, borderWidth: "1px" }}
       >
-        <Typography>آیتم مورد نظر شما یافت نشد!</Typography>
+        {isLoading ? (
+          <Skeleton width="35%" />
+        ) : (
+          <Typography>آیتم مورد نظر شما یافت نشد!</Typography>
+        )}
       </HoverCard>
     );
 
@@ -40,7 +44,6 @@ const ProductItems = ({ products, isAccessToken }) => {
           );
         })
       )}
-      
     </Grid>
   );
 };
