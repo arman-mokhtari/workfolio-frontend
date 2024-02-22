@@ -49,6 +49,8 @@ const DropdownMain = ({ notifications, theme }) => {
                       alignItems: "start",
                       p: 1,
                       color: isRead ? "text.disabled" : "inherit",
+                      ml: 0,
+                      mr:1
                     }}
                   >
                     <Box
