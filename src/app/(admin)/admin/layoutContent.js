@@ -17,7 +17,7 @@ import { ModalProvider } from "@/context/modalContext";
 const LayoutContent = ({ children, nonce }) => {
   const cacheRTL = createCache({
     key: "muirtl",
-    nonce: nonce,
+    // nonce: nonce,
     stylisPlugins: [prefixer, rtlPlugin],
   });
   return (

@@ -30,7 +30,7 @@ const LayoutContent = ({ children, nonce }) => {
   const pn = usePathname();
   const cacheRTL = createCache({
     key: "muirtl",
-    nonce: nonce,
+    // nonce: nonce,
     stylisPlugins: [prefixer, rtlPlugin],
   });
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");

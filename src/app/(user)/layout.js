@@ -12,7 +12,9 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const nonce = headers().get("x-nonce");
+  // const nonce = headers().get("x-nonce");
 
-  return <LayoutContent nonce={nonce}>{children}</LayoutContent>;
+  return <LayoutContent 
+  // nonce={nonce}
+  >{children}</LayoutContent>;
 }

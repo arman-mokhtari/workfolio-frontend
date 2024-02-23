@@ -41,7 +41,7 @@ export const viewport = {
 };
 const myFont = shabnamFont;
 export default function RootLayout({ children }) {
-  const nonce = headers().get("x-nonce");
+  // const nonce = headers().get("x-nonce");
   return (
     <html lang="fa" dir="rtl">
       <body className={myFont.className}>
@@ -50,7 +50,7 @@ export default function RootLayout({ children }) {
         <Script
           src="https://www.googletagmanager.com/gtm.js?id=GTM-TL97FTVH"
           strategy="afterInteractive"
-          nonce={nonce}
+          // nonce={nonce}
         />
       </body>
     </html>
