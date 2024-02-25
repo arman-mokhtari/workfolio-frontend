@@ -82,6 +82,7 @@ export default function Error({ error, reset }) {
         </Typography>
       </Box>
       <Button
+      aria-label="reset"
         sx={{
           mt: 3,
           minWidth: "25%",

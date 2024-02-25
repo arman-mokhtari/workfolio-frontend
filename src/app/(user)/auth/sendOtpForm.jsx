@@ -98,6 +98,7 @@ const SendOtpForm = ({
 
       <Button
         type="submit"
+        aria-label="submit"
         disabled={isPending}
         fullWidth
         variant="contained"

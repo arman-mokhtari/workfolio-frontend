@@ -42,6 +42,7 @@ const Dropdown = () => {
         color="inherit"
         aria-haspopup="true"
         aria-controls="customized-menu"
+        aria-label="dropdown area"
         disabled
       >
         <NotificationsNone

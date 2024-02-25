@@ -25,19 +25,21 @@ const TagsCard = ({ tags, isLoading }) => {
       ) : (
         <>
           <CardHeader subheader="برچسب‌ها:" />
-          <Box sx={{ px: 2,pb:1.5 }}>
+          <Box sx={{ px: 2, pb: 1.5 }}>
             {tags.map((tag, i) => {
               const path = `/products?${createQueryString("search", tag)}`;
               return (
                 <Chip
-                sx={{
-                    m:0.5
-                }}
+                  sx={{
+                    m: 0.5,
+                  }}
                   key={i}
                   label={tag}
                   component={Link}
                   href={path}
                   clickable
+                  role="link"
+                  aria-label="link"
                 />
               );
             })}

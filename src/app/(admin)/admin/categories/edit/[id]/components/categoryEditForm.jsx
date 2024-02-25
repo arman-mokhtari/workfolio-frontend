@@ -58,6 +58,7 @@ const CategoryEditForm = ({
               <Loading />
             ) : (
               <Button
+                aria-label="submit"
                 type="submit"
                 color="success"
                 variant="contained"
@@ -69,7 +70,6 @@ const CategoryEditForm = ({
 
             <Button
               role="link"
-               
               component={Link}
               href="/admin/categories"
               variant="outlined"

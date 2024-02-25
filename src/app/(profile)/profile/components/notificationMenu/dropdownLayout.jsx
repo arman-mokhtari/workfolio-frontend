@@ -39,6 +39,7 @@ const NotificationLayout = ({
             aria-haspopup="true"
             onClick={handleDropdownOpen}
             aria-controls="customized-menu"
+            aria-label="dropdown area"
             sx={{ p: 0 }}
           >
             <NotificationsNone

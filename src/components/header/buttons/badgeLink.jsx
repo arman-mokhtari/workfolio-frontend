@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const BadgeLink = ({ badgeContent }) => {
   return (
-    <Link aria-label="رفتن به صفحه پرداخت" href="/cart">
+    <Link aria-label="رفتن به صفحه پرداخت" role="link" href="/cart">
       <Badge
         anchorOrigin={{
           vertical: "top",

@@ -149,6 +149,7 @@ const Product = ({ product, isAccessToken }) => {
               },
             }}
             size="small"
+            aria-label="اطلاعات بیشتر"
             fullWidth
             variant="outlined"
           >
@@ -172,7 +173,7 @@ const Product = ({ product, isAccessToken }) => {
           {isAccessToken ? (
             <AddToCart product={product} />
           ) : (
-            <Button onClick={addToCartHandler} fullWidth variant="contained">
+            <Button aria-label="add to cart" onClick={addToCartHandler} fullWidth variant="contained">
               اضافه به سبد خرید
             </Button>
           )}

@@ -75,6 +75,7 @@ const PageEditForm = ({
             ) : (
               <Button
                 type="submit"
+                aria-label="submit"
                 color="success"
                 variant="contained"
                 endIcon={<AddTask />}

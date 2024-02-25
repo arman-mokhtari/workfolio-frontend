@@ -13,7 +13,8 @@ export const adminPaymentsTableColumns = (isSmallScreen) => {
           field: "user",
           headerName: "کاربر",
           flex: 1,
-          valueGetter: (params) => params.row.user ? params.row.user.name : "کاربر ناشناس",
+          valueGetter: (params) =>
+            params.row.user ? params.row.user.name : "کاربر ناشناس",
         },
         {
           field: "view",
@@ -22,6 +23,7 @@ export const adminPaymentsTableColumns = (isSmallScreen) => {
           renderCell: (params) => (
             <IconButton
               aria-label="link"
+              role="link"
               component={Link}
               href={`/admin/payments/${params.row._id}`}
             >
@@ -78,6 +80,7 @@ export const adminPaymentsTableColumns = (isSmallScreen) => {
           flex: 1,
           renderCell: (params) => (
             <IconButton
+              role="link"
               aria-label="link"
               component={Link}
               href={`/admin/payments/${params.row._id}`}

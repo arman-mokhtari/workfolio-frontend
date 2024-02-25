@@ -296,6 +296,7 @@ const TabSecurity = () => {
           ) : (
             <Button
               type="submit"
+              aria-label="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 1, mb: 1 }}

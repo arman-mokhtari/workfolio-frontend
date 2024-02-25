@@ -119,6 +119,7 @@ const AddCouponForm = ({
             ) : (
               <Button
                 type="submit"
+                aria-label="submit"
                 color="success"
                 variant="contained"
                 endIcon={<AddTask />}
@@ -130,7 +131,6 @@ const AddCouponForm = ({
             <Button
               component={Link}
               role="link"
-               
               href="/admin/coupons"
               variant="outlined"
               aria-label="بازگشت"

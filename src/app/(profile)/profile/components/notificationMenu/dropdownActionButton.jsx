@@ -27,6 +27,7 @@ const DropdownActionButton = ({ notifications }) => {
       <Button
         onClick={updateHandler}
         sx={{ whiteSpace: "nowrap" }}
+        aria-label="update aria"
         fullWidth
         variant="contained"
         disabled={notifications.length <= 0}

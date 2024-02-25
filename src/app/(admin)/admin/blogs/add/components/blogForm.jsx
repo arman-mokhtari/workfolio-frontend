@@ -105,6 +105,7 @@ const BlogForm = ({
             ) : (
               <Button
                 type="submit"
+                aria-label="submit"
                 color="success"
                 variant="contained"
                 endIcon={<AddTask />}
@@ -116,7 +117,6 @@ const BlogForm = ({
             <Button
               component={Link}
               role="link"
-               
               aria-label="بازگشت"
               href="/admin/blogs"
               variant="outlined"

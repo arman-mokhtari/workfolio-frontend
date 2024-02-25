@@ -38,6 +38,7 @@ export const productReviewsTableColumns = (isSmallScreen) => {
           renderCell: (params) => (
             <Stack direction="row" alignItems="center">
               <IconButton
+                role="link"
                 aria-label="link"
                 component={Link}
                 href={`/admin/reviews/product/${params.row._id}`}
@@ -95,6 +96,7 @@ export const productReviewsTableColumns = (isSmallScreen) => {
           renderCell: (params) => (
             <Stack direction="row" alignItems="center">
               <IconButton
+                role="link"
                 aria-label="link"
                 component={Link}
                 href={`/admin/reviews/product/${params.row._id}`}

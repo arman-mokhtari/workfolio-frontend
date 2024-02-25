@@ -68,6 +68,7 @@ const AddToCart = ({ product }) => {
           disabled={isPending || isLoading}
           onClick={addToCartHandler}
           fullWidth
+          aria-label="add to cart"
           variant="contained"
         >
           اضافه به سبد خرید

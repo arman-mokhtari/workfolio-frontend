@@ -76,6 +76,8 @@ const EmptyCart = () => {
         variant="contained"
         component={Link}
         href="/products"
+        role="link"
+        aria-label="بازگشت"
       >
         بازگشت به صفحه خرید
       </Button>

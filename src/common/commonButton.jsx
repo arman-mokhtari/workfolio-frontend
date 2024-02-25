@@ -16,6 +16,7 @@ const CommonButton = ({ isLoading, text, mt, fullWidth, width,color }) => {
             width: width,
           }}
           type="submit"
+          aria-label="submit"
         >
           {text}
         </Button>

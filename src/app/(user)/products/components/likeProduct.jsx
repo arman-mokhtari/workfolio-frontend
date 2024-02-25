@@ -41,6 +41,7 @@ const LikeProduct = ({ product }) => {
           pt: 0.5,
         }}
         onClick={likeHandler}
+        aria-label="like"
       >
         {isLiked ? <ThumbUp color="primary" /> : <ThumbUpOutlined />}
       </IconButton>

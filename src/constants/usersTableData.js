@@ -19,6 +19,7 @@ export const usersTableColumns = (isSmallScreen) => {
           flex: 1,
           renderCell: (params) => (
             <IconButton
+              role="link"
               aria-label="link"
               component={Link}
               href={`/admin/users/${params.row._id}`}
@@ -89,6 +90,7 @@ export const usersTableColumns = (isSmallScreen) => {
           flex: 1,
           renderCell: (params) => (
             <IconButton
+              role="link"
               aria-label="link"
               component={Link}
               href={`/admin/users/${params.row._id}`}

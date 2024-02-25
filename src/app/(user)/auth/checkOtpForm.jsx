@@ -14,14 +14,14 @@ const CheckOtpForm = ({
 }) => {
   return (
     <Box>
-      <Button onClick={goBack}>
+      <Button aria-label="set previous step" onClick={goBack}>
         <ArrowForwardIos />
         بازگشت
       </Button>
       {otpResponse && (
         <Typography>
           {otpResponse.message}
-          <Button onClick={goBack}>
+          <Button aria-label="set previous step" onClick={goBack}>
             <Edit />
           </Button>
         </Typography>
@@ -59,10 +59,11 @@ const CheckOtpForm = ({
         />
         <Button
           type="submit"
+          aria-label="submit"
           disabled={isPending || otp.length !== 6}
           fullWidth
           variant="contained"
-          sx={{ my: 1}}
+          sx={{ my: 1 }}
         >
           تایید
         </Button>
@@ -75,6 +76,7 @@ const CheckOtpForm = ({
           </Typography>
         ) : (
           <Button
+            aria-label="resend"
             variant="outlined"
             size="small"
             onClick={onResendOtp}

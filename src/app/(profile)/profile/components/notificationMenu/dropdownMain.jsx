@@ -28,6 +28,7 @@ const DropdownMain = ({ notifications, theme }) => {
                   <Button
                     {...bindTrigger(popupState)}
                     disableRipple
+                    aria-label="open popup"
                     startIcon={
                       <AdsClick
                         sx={{

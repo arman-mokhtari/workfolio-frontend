@@ -18,17 +18,17 @@ const OperationButtons = ({
       }}
     >
       <ButtonGroup>
-        <Button color="success" onClick={handleSubmit}>
+        <Button color="success" aria-label="submit" onClick={handleSubmit}>
           تایید
         </Button>
-        <Button onClick={handleUnSubmit}>عدم تایید</Button>
+        <Button aria-label="unSubmit" onClick={handleUnSubmit}>عدم تایید</Button>
         <GlobalModal
           modalHandler={removeReviewHandler}
           question="آیا از حذف این آیتم اطمینان دارید؟"
           acceptText="تایید"
           rejectText="انصراف"
         >
-          <Button color="error" onClick={openModal}>
+          <Button aria-label="open modal" color="error" onClick={openModal}>
             حذف
           </Button>
         </GlobalModal>

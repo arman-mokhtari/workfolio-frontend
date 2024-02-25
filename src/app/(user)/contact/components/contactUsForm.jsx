@@ -258,6 +258,7 @@ const ContactUsForm = () => {
 
               <Button
                 type="submit"
+                aria-label="submit"
                 variant="contained"
                 disabled={isPending}
                 fullWidth

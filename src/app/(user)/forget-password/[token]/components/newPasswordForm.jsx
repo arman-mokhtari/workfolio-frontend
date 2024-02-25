@@ -180,6 +180,7 @@ const NewPasswordForm = ({ token }) => {
 
       <Button
         type="submit"
+        aria-label="submit"
         fullWidth
         disabled={isPending}
         variant="contained"

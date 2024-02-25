@@ -80,6 +80,7 @@ const SignBtn = ({ display }) => {
               >
                 <IconButton
                   size="small"
+                  aria-label="logout"
                   sx={{
                     display: "flex",
                     alignItems: "center",
@@ -99,12 +100,13 @@ const SignBtn = ({ display }) => {
 
           <BadgeLink badgeContent={cartItemsCount} />
 
-          {user ? (
+          {user && user.isActive && (
             <>
-              {user.isActive && <VerticalDivider />}
+              <VerticalDivider />
               <Typography>{splitName}</Typography>
             </>
-          ) : (
+          )}
+          {!user && (
             <>
               <VerticalDivider />
               <Link

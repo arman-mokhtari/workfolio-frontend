@@ -35,10 +35,10 @@ const GlobalModal = ({
           <Stack spacing={3} direction="column">
             <Typography id="modal-modal-title">{question}</Typography>
             <Stack justifyContent="space-evenly" direction="row">
-              <Button color="error" variant="contained" onClick={modalHandler}>
+              <Button color="error" aria-label="open modal" variant="contained" onClick={modalHandler}>
                 {acceptText}
               </Button>
-              <Button color="primary" variant="contained" onClick={closeModal}>
+              <Button color="primary" variant="contained" aria-label="close modal" onClick={closeModal}>
                 {rejectText}
               </Button>
             </Stack>

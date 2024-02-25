@@ -87,6 +87,7 @@ export default function Error({ error, reset }) {
           minWidth: "25%",
         }}
         color="success"
+        aria-label="reset"
         variant="contained"
         onClick={() => reset()}
       >

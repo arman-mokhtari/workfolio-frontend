@@ -8,6 +8,8 @@ export async function middleware(request) {
   if (pathname.startsWith("/profile")) {
     const user = await middlewareAuth(request);
     if (!user) return NextResponse.redirect(new URL("/404", url));
+    if (user && !user.isActive)
+      return NextResponse.redirect(new URL("/404", url));
   }
 
   if (pathname.startsWith("/auth")) {

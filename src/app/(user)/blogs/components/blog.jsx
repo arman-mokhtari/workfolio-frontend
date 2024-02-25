@@ -125,6 +125,7 @@ const Blog = ({ blog }) => {
             size="small"
             fullWidth
             variant="outlined"
+            aria-label="مطالعه مقاله"
           >
             <Link
               role="link"

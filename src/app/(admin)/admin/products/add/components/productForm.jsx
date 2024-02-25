@@ -104,6 +104,7 @@ const ProductForm = ({
             ) : (
               <Button
                 type="submit"
+                aria-label="submit"
                 color="success"
                 variant="contained"
                 endIcon={<AddTask />}
@@ -115,10 +116,9 @@ const ProductForm = ({
             <Button
               component={Link}
               role="link"
-               
+              aria-label="بازگشت"
               href="/admin/products"
               variant="outlined"
-              aria-label="بازگشت"
               endIcon={<Undo />}
             >
               بازگشت به قبل

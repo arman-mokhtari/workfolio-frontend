@@ -209,6 +209,7 @@ const ReviewFormMainContent = () => {
               >
                 <Button
                   type="submit"
+                  aria-label="submit"
                   variant="contained"
                   fullWidth
                   sx={{

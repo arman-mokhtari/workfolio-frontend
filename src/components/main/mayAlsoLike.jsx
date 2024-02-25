@@ -51,7 +51,8 @@ const MayAlsoLike = () => {
                 },
               }}
             >
-              <Link href={`/products/${slug}`} title={title}>
+              <Link href={`/products/${slug}`} title={title} role="link"
+                  aria-label="link">
                 <Image
                   src={imageLink}
                   priority

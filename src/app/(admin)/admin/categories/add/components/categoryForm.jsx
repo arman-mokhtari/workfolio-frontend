@@ -59,6 +59,7 @@ const CategoryForm = ({
             ) : (
               <Button
                 type="submit"
+                aria-label="submit"
                 color="success"
                 variant="contained"
                 endIcon={<AddTask />}
@@ -69,7 +70,6 @@ const CategoryForm = ({
 
             <Button
               role="link"
-               
               component={Link}
               href="/admin/categories"
               variant="outlined"

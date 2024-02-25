@@ -91,6 +91,7 @@ const CartSummary = ({ payDetail }) => {
             color="error"
             fullWidth
             variant="contained"
+            aria-label="create payment"
             onClick={createPaymentHandler}
           >
             {isPending ? "در حال انتقال به درگاه پرداخت..." : "پرداخت"}

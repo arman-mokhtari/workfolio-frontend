@@ -112,7 +112,6 @@ const NewsletterForm = () => {
             }}
           >
             <Typography
-              variant="h3"
               sx={{
                 fontSize: "1rem",
                 mt: 1,

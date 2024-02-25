@@ -22,6 +22,7 @@ export const pagesTableColumns = () => {
       renderCell: (params) => (
         <Stack direction="row" alignItems="center">
           <IconButton
+            role="link"
             aria-label="link"
             component={Link}
             href={`/admin/pages-data/${params.row._id}`}
@@ -29,6 +30,7 @@ export const pagesTableColumns = () => {
             <Launch color="primary" fontSize="small" />
           </IconButton>
           <IconButton
+            role="link"
             aria-label="link"
             component={Link}
             href={`/admin/pages-data/edit/${params.row._id}`}

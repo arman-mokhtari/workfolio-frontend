@@ -30,7 +30,7 @@ const AppBarList = ({ display, flexDirection }) => {
       {navItems.map(({ icon, to, text }, i) => {
         return isLoading ? (
           <Box
-          key={i}
+            key={i}
             sx={{
               display: "flex",
               justifyContent: "center",
@@ -78,7 +78,7 @@ const AppBarList = ({ display, flexDirection }) => {
           />
         </Box>
       ) : (
-        user && (
+        user?.isActive && (
           <Tab
             iconPosition="start"
             icon={
