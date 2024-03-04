@@ -43,10 +43,10 @@ export async function middleware(request) {
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
   const cspHeader = `
   default-src 'self';
-  script-src 'self' 'nonce-${nonce}' 'strict-dynamic' 'unsafe-eval';
-  script-src-elem 'self' 'nonce-${nonce}' https://www.googletagmanager.com;
+  script-src 'self' 'nonce-${nonce}' 'strict-dynamic' 'unsafe-eval' https://*.googletagmanager.com;
+  script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com;
   style-src 'self' 'unsafe-inline';
-  img-src 'self' blob: data: https://cdn.workfolio.ir https://trustseal.enamad.ir https://logo.samandehi.ir https://cdn.zarinpal.com;
+  img-src 'self' blob: data: https://cdn.workfolio.ir https://trustseal.enamad.ir https://logo.samandehi.ir https://cdn.zarinpal.com https://*.google-analytics.com https://*.googletagmanager.com;
   font-src 'self';
   object-src 'none';
   base-uri 'self';
@@ -54,7 +54,7 @@ export async function middleware(request) {
   frame-ancestors 'none';
   block-all-mixed-content;
   upgrade-insecure-requests;
-  connect-src 'self' https://api.workfolio.ir https://region1.google-analytics.com https://www.google-analytics.com;
+  connect-src 'self' ${process.env.CSP_HEADER_CONNECT_SRC_BACKEND} https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com;
 `;
   // Replace newline characters and spaces
   const contentSecurityPolicyHeaderValue = cspHeader
