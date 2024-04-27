@@ -2,4 +2,4 @@ User-Agent: *
 Allow: /
 Disallow: /private/
 
-Sitemap: http://localhost:3000/sitemap.xml
+Sitemap: http://workfolio.ir/sitemap.xml
