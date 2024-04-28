@@ -109,6 +109,20 @@
     "@ckeditor/ckeditor5-widget" "41.3.1"
     lodash-es "4.17.21"
 
+"@ckeditor/ckeditor5-cloud-services@41.3.1":
+  version "41.3.1"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-cloud-services/-/ckeditor5-cloud-services-41.3.1.tgz#8fee9cb5d5531c6930e82ba1342839c64eb74ac9"
+  integrity sha512-24JLTt0d2cKkY7rtl2bKxI7MYZjlwqBLoTgePwBC1EtgRJ/2gd1CM1bMwiKJPgJ34NnLtnV8R/W0yuz5RQjJsA==
+  dependencies:
+    ckeditor5 "41.3.1"
+
+"@ckeditor/ckeditor5-code-block@41.3.1":
+  version "41.3.1"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-code-block/-/ckeditor5-code-block-41.3.1.tgz#bbd2e6aa5946d5c28baac57bf2735eb7c928d92e"
+  integrity sha512-T7krLjLoHanjaW5nYClzGf5TPcSb/Y9B1DWcAmLMUFf8y+1MbYYaK95r7iTyafG0B9bIFafxoKRnMJLVmBWQkA==
+  dependencies:
+    ckeditor5 "41.3.1"
+
 "@ckeditor/ckeditor5-core@41.3.1":
   version "41.3.1"
   resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-core/-/ckeditor5-core-41.3.1.tgz#b4bf65cc1a291d78d9e47269ae159aec1451d99b"
@@ -164,13 +178,6 @@
   dependencies:
     ckeditor5 "41.3.1"
 
-"@ckeditor/ckeditor5-highlight@41.3.1":
-  version "41.3.1"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-highlight/-/ckeditor5-highlight-41.3.1.tgz#3ac9803bb6cbec1604bcbcc9fde10e7d4fd344b2"
-  integrity sha512-LZBenqyX9BZkBhestu7aSf1sDZ06wI+cab2gEIzyhMNgtZ3/Vu7IN5EzLYtQPhv1ACskPYrW49aE3AXCaLqoUA==
-  dependencies:
-    ckeditor5 "41.3.1"
-
 "@ckeditor/ckeditor5-horizontal-line@41.3.1":
   version "41.3.1"
   resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-horizontal-line/-/ckeditor5-horizontal-line-41.3.1.tgz#301cfbc6b12218caad6e3b4b0c6ef362bb0357aa"
@@ -206,13 +213,6 @@
   version "41.3.1"
   resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-indent/-/ckeditor5-indent-41.3.1.tgz#e59e5e92a8b14718e5eaec8bc305960672239492"
   integrity sha512-JYXF/Clfw+j06wt1+qo43n+y3fmVKPSaN5NXzw4a5Rce0dMaWctH53X8KP3tIuOfEzW9xPhsTUQBJI8rsc+f9g==
-  dependencies:
-    ckeditor5 "41.3.1"
-
-"@ckeditor/ckeditor5-language@41.3.1":
-  version "41.3.1"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-language/-/ckeditor5-language-41.3.1.tgz#e922ceb79bc61c22c2a69419e5771ca9e4ca6411"
-  integrity sha512-Q3qVnmsFnQNrj6LQaJzNWi3fgRC8g3Ga/AqP0v5zEQ72Gqrjf/73Wjvzaa7Q3ZB+NbObNLFNXWHxU20I9y/HCQ==
   dependencies:
     ckeditor5 "41.3.1"
 
@@ -262,13 +262,6 @@
   integrity sha512-yfVc8L+o1U63qljyOJVSV+O+2C2+hOjNAf7Qabi8AF4gvsPib82efVDlmvnNJB4Ka11owysQ5MAHpP8I0c7lIA==
   dependencies:
     prop-types "^15.7.2"
-
-"@ckeditor/ckeditor5-restricted-editing@41.3.1":
-  version "41.3.1"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-restricted-editing/-/ckeditor5-restricted-editing-41.3.1.tgz#3b5d5bc530c44a8bee15528bb02b9dcd9a26d88b"
-  integrity sha512-7e9JdT8kaMbkFWl9Nvoy6BA9AWjZJutnce8uGrfHTOIzREG9cxTF4nW+S3iiIyW7lXqnGoEIBCQx/17Dx/4W/A==
-  dependencies:
-    ckeditor5 "41.3.1"
 
 "@ckeditor/ckeditor5-select-all@41.3.1":
   version "41.3.1"
@@ -1553,31 +1546,28 @@ chardet@^0.7.0:
     "@ckeditor/ckeditor5-autoformat" "41.3.1"
     "@ckeditor/ckeditor5-basic-styles" "41.3.1"
     "@ckeditor/ckeditor5-block-quote" "41.3.1"
+    "@ckeditor/ckeditor5-cloud-services" "41.3.1"
+    "@ckeditor/ckeditor5-code-block" "41.3.1"
     "@ckeditor/ckeditor5-editor-classic" "41.3.1"
     "@ckeditor/ckeditor5-essentials" "41.3.1"
     "@ckeditor/ckeditor5-font" "41.3.1"
     "@ckeditor/ckeditor5-heading" "41.3.1"
-    "@ckeditor/ckeditor5-highlight" "41.3.1"
     "@ckeditor/ckeditor5-horizontal-line" "41.3.1"
     "@ckeditor/ckeditor5-html-embed" "41.3.1"
     "@ckeditor/ckeditor5-html-support" "41.3.1"
     "@ckeditor/ckeditor5-image" "41.3.1"
     "@ckeditor/ckeditor5-indent" "41.3.1"
-    "@ckeditor/ckeditor5-language" "41.3.1"
     "@ckeditor/ckeditor5-link" "41.3.1"
     "@ckeditor/ckeditor5-list" "41.3.1"
     "@ckeditor/ckeditor5-media-embed" "41.3.1"
     "@ckeditor/ckeditor5-paragraph" "41.3.1"
     "@ckeditor/ckeditor5-paste-from-office" "41.3.1"
-    "@ckeditor/ckeditor5-restricted-editing" "41.3.1"
     "@ckeditor/ckeditor5-source-editing" "41.3.1"
     "@ckeditor/ckeditor5-special-characters" "41.3.1"
     "@ckeditor/ckeditor5-style" "41.3.1"
     "@ckeditor/ckeditor5-table" "41.3.1"
     "@ckeditor/ckeditor5-typing" "41.3.1"
-    "@ckeditor/ckeditor5-ui" "41.3.1"
     "@ckeditor/ckeditor5-undo" "41.3.1"
-    "@ckeditor/ckeditor5-watchdog" "41.3.1"
     "@ckeditor/ckeditor5-word-count" "41.3.1"
 
 ckeditor5@41.3.1:

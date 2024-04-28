@@ -1,24 +1,9 @@
-const watchdog = new CKSource.EditorWatchdog();
-
-window.watchdog = watchdog;
-
-watchdog.setCreator( ( element, config ) => {
-	return CKSource.Editor
-		.create( element, config )
-		.then( editor => {
-			return editor;
-		} );
-} );
-
-watchdog.setDestructor( editor => {
-	return editor.destroy();
-} );
-
-watchdog.on( 'error', handleSampleError );
-
-watchdog
+ClassicEditor
 	.create( document.querySelector( '.editor' ), {
 		// Editor configuration.
+	} )
+	.then( editor => {
+		window.editor = editor;
 	} )
 	.catch( handleSampleError );
 
@@ -27,7 +12,7 @@ function handleSampleError( error ) {
 
 	const message = [
 		'Oops, something went wrong!',
-		`Please, report the following error on ${ issueUrl } with the build id "lopxu02aayar-ukfc67b0gsjl" and the error stack trace:`
+		`Please, report the following error on ${ issueUrl } with the build id "i3o2egw27bj3-7aehg3tb6was" and the error stack trace:`
 	].join( '\n' );
 
 	console.error( message );
