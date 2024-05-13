@@ -32,7 +32,6 @@ const ProductMainContent = ({ slug }) => {
       <MainCardLayout>
         <MainDescription faqs={faqs} description={description} />
         <LinksAside isLoading={isLoading} tags={tags} />
-        
       </MainCardLayout>
       <ChipDivider mb={1} mt={6} title="نظرات شما" />
       <ReviewSlider pId={_id} />
