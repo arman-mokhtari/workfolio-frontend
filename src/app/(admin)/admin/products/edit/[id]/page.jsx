@@ -8,7 +8,7 @@ import { includeObj } from "@/utils/objectUtils";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import ProductEditForm from "./components/productEditForm";
+import ProductEditForm from "../../../../../../components/admin/products/edit/productEditForm";
 
 const includesProductKey = [
   "title",

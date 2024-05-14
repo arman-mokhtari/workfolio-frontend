@@ -5,7 +5,7 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useQueryClient } from "@tanstack/react-query";
 import { useAddPageData } from "@/hooks/UsePagesData";
-import PageDataForm from "./components/pageDataForm";
+import PageDataForm from "../../../../../components/admin/pagesData/add/pageDataForm";
 
 const AddProductPage = () => {
   const { isLoading, mutateAsync } = useAddPageData();

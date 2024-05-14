@@ -1,7 +1,7 @@
 "use client";
 
 import { Grid, Box } from "@mui/material";
-import AboutUsDescription from "./components/description";
+import AboutUsDescription from "../../../components/main/about/description";
 import Image from "next/image";
 import { useIsDownMd } from "@/hooks/useMediaQueries";
 const Page = () => {

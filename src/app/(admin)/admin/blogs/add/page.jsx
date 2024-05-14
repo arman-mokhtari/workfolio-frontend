@@ -6,7 +6,7 @@ import { toast } from "react-hot-toast";
 import { Box } from "@mui/material";
 import { useAddBlog } from "@/hooks/useBlogs";
 import { useGetCategories } from "@/hooks/useCategories";
-import BlogForm from "./components/blogForm";
+import BlogForm from "../../../../../components/admin/blogs/add/blogForm";
 
 const AddBlogPage = () => {
   const { isLoading, mutateAsync } = useAddBlog();
@@ -18,11 +18,11 @@ const AddBlogPage = () => {
     faSlug: "",
     imageLink: "",
     description: "",
-    metaDescription:"",
-    metaTitle:"",
-    articleBody:"",
-    headline:"",
-    wordCount:"",
+    metaDescription: "",
+    metaTitle: "",
+    articleBody: "",
+    headline: "",
+    wordCount: "",
     faqs: [
       { question: "", answer: "" },
       { question: "", answer: "" },
@@ -83,7 +83,7 @@ const AddBlogPage = () => {
     <Box
       sx={{
         width: 1,
-        overflowX:"hidden"
+        overflowX: "hidden",
       }}
     >
       <BlogForm

@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import ServicesSlider from "./components/slider";
+import ServicesSlider from "../../../components/main/services/slider";
 const ServicesPage = () => {
   return (
     <Box

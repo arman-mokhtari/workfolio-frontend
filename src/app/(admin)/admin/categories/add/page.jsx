@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 
-import CategoryForm from "./components/categoryForm";
+import CategoryForm from "../../../../../components/admin/categories/add/categoryForm";
 
 const AddCategoryPage = () => {
   const [category, setCategory] = useState({

@@ -1,7 +1,7 @@
 "use client";
 
 import Loading from "@/common/loading";
-import UsersTable from "./components/usersTable";
+import UsersTable from "../../../../components/admin/users/main/usersTable";
 import { useGetUsers } from "@/hooks/useAuth";
 
 const UserPage = () => {

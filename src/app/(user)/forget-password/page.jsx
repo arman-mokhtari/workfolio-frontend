@@ -1,6 +1,5 @@
-
-import RequestResetPasswordForm from "./components/requestResetPasswordForm";
 import LoginSectionsCard from "@/common/loginSectionsCard";
+import RequestResetPasswordForm from "@/components/main/forgetPass/requestResetPasswordForm";
 
 const SignInPage = () => {
   return (

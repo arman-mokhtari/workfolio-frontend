@@ -1,7 +1,7 @@
 "use client"
 
 import Loading from "@/common/loading";
-import AdminPaymentsTable from "./components/paymentsTable";
+import AdminPaymentsTable from "../../../../components/admin/payments/main/paymentsTable";
 import { useGetPayments } from "@/hooks/usePayments";
 
 const PaymentsPage=()=>{

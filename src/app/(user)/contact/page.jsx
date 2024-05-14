@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import ContactUsForm from "./components/contactUsForm";
+import ContactUsForm from "../../../components/main/contact/contactUsForm";
 import TopAbsoluteShadow from "@/common/topAbsoluteShadow";
 import Image from "next/image";
 

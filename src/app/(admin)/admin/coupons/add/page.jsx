@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 
-import AddCouponForm from "./components/addCouponForm";
+import AddCouponForm from "../../../../../components/admin/coupons/add/addCouponForm";
 import { useGetAllProducts } from "@/hooks/useProducts";
 import { useAddNewCoupon } from "@/hooks/useCoupons";
 

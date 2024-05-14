@@ -2,8 +2,8 @@
 
 import { useGetCoupons } from "@/hooks/useCoupons";
 import Loading from "@/common/loading";
-import CouponsTable from "./components/couponsTable";
-import HeadStack from "../common/headStack";
+import CouponsTable from "../../../../components/admin/coupons/main/couponsTable";
+import HeadStack from "../../../../common/admin/headStack";
 
 const CouponPage = () => {
   const { isLoading, data } = useGetCoupons();

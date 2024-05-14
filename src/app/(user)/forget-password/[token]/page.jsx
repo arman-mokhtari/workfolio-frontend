@@ -2,7 +2,7 @@
 
 import { Typography, Grid, Box } from "@mui/material";
 import Link from "next/link";
-import NewPasswordForm from "./components/newPasswordForm";
+import NewPasswordForm from "../../../../components/main/forgetPass/token/newPasswordForm";
 import { useParams, useRouter } from "next/navigation";
 import LoginSectionsCard from "@/common/loginSectionsCard";
 import { useGetIsValidateToken } from "@/hooks/useResetPassword";
@@ -43,9 +43,7 @@ const Page = () => {
         container
       >
         <Grid item>
-          <Link
-              role="link"
-              aria-label="رفتن به صفحه ورود" href="/sign-in">
+          <Link role="link" aria-label="رفتن به صفحه ورود" href="/sign-in">
             <Typography noWrap variant="body2">
               کلمه عبور را به خاطر آوردم! ورود
             </Typography>

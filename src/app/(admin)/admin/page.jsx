@@ -3,11 +3,11 @@
 import Loading from "@/common/loading";
 import { useGetUser } from "@/hooks/useAuth";
 import { Grid } from "@mui/material";
-import UserDataCard from "./components/userDataCard";
-import UserShoppingData from "./components/userShoppingData";
+import UserDataCard from "../../../components/admin/shared/userDataCard";
+import UserShoppingData from "../../../components/admin/shared/userShoppingData";
 import { useGetPayments } from "@/hooks/usePayments";
-import SalesChart from "./components/salesChart";
-import AverageSales from "./components/averageSales";
+import SalesChart from "../../../components/admin/shared/salesChart";
+import AverageSales from "../../../components/admin/shared/averageSales";
 
 const AdminPanel = () => {
   const { isLoading: userLoading, data: userData } = useGetUser();

@@ -1,13 +1,11 @@
 "use client";
 
 import Loading from "@/common/loading";
-import CategoriesTable from "./components/categoriesTable";
+import CategoriesTable from "../../../../components/admin/categories/main/categoriesTable";
 import { useGetCategories } from "@/hooks/useCategories";
-import HeadStack from "../common/headStack";
+import HeadStack from "../../../../common/admin/headStack";
 
 const ProductsPage = () => {
-
-
   const { isLoading, data } = useGetCategories();
   const { categories } = data || {};
 
@@ -15,7 +13,7 @@ const ProductsPage = () => {
 
   return (
     <>
-    <HeadStack href="/admin/categories/add" title="دسته‌بندی‌ها" />
+      <HeadStack href="/admin/categories/add" title="دسته‌بندی‌ها" />
 
       <CategoriesTable categories={categories} />
     </>

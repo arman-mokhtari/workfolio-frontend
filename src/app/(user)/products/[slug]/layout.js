@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import ContactSection from "../../components/contact/contactSection";
+import ContactSection from "../../../../components/main/general/contact/contactSection";
 
 export default function RootLayout({ children }) {
   return (

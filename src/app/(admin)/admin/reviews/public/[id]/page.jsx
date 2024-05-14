@@ -4,9 +4,9 @@ import { useParams, useRouter } from "next/navigation";
 
 import Loading from "@/common/loading";
 import { Grid } from "@mui/material";
-import ReviewDescription from "./components/reviewDescription";
+import ReviewDescription from "../../../../../../components/admin/reviews/public/id/reviewDescription";
 import { useGetReviewById } from "@/hooks/useReviews";
-import ReviewDataCard from "./components/reviewDataCard";
+import ReviewDataCard from "../../../../../../components/admin/reviews/public/id/reviewDataCard";
 
 const ReviewPage = () => {
   const router = useRouter();

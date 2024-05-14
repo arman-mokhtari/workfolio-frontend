@@ -1,4 +1,4 @@
-import PageMainContent from "./components/pageMainContent";
+import PageMainContent from "../../components/main/general/pageMainContent";
 
 export const metadata = {
   alternates: {

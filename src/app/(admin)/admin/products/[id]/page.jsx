@@ -6,10 +6,10 @@ import { useParams, useRouter } from "next/navigation";
 
 import Loading from "@/common/loading";
 import { Grid } from "@mui/material";
-import ProductDataCard from "./components/productDataCard";
-import ProductShoppingData from "./components/productShoppingData";
+import ProductDataCard from "../../../../../components/admin/products/id/productDataCard";
+import ProductShoppingData from "../../../../../components/admin/products/id/productShoppingData";
 import { useGetPayments } from "@/hooks/usePayments";
-import ProductDescription from "./components/productDescription";
+import ProductDescription from "../../../../../components/admin/products/id/productDescription";
 
 const ProductPage = () => {
   const router = useRouter();

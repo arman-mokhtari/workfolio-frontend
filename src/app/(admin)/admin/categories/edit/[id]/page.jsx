@@ -10,7 +10,7 @@ import { includeObj } from "@/utils/objectUtils";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import CategoryEditForm from "./components/categoryEditForm";
+import CategoryEditForm from "../../../../../../components/admin/categories/edit/categoryEditForm";
 import { categoryTypes } from "@/constants/categoryTypesData";
 
 const includesCategoryKey = ["title", "englishTitle", "description"];

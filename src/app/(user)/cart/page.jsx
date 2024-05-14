@@ -2,12 +2,12 @@
 import { useGetUser } from "@/hooks/useAuth";
 import { Grid } from "@mui/material";
 import Loading from "@/common/loading";
-import CartSummary from "./components/cartSummary";
+import CartSummary from "../../../components/main/cart/cartSummary";
 import { useTheme } from "@mui/material/styles";
 
-import EmptyCart from "./components/emptyCart";
+import EmptyCart from "../../../components/main/cart/emptyCart";
 import HoverCard from "@/common/hoverCard";
-import CartItemTable from "./components/cartTable";
+import CartItemTable from "../../../components/main/cart/cartTable";
 
 const CartPage = () => {
   const { data, isLoading } = useGetUser();

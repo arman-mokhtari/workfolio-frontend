@@ -5,8 +5,8 @@ import { useParams, useRouter } from "next/navigation";
 
 import Loading from "@/common/loading";
 import { Grid } from "@mui/material";
-import UserDataCard from "./components/userDataCard";
-import UserShoppingData from "./components/userShoppingData";
+import UserDataCard from "../../../../../components/admin/users/id/userDataCard";
+import UserShoppingData from "../../../../../components/admin/users/id/userShoppingData";
 
 const AdminPanel = () => {
   const router = useRouter();

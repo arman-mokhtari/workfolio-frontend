@@ -1,4 +1,4 @@
-import OperationStack from "@/pages/(admin)/admin/common/operationStack";
+import OperationStack from "@/common/admin/operationStack";
 
 export const blogsTableColumns = (isSmallScreen, removeBlogHandler) => {
   return isSmallScreen

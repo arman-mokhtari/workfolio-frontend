@@ -1,4 +1,4 @@
-import LayoutContent from "./layoutContent";
+import LayoutContent from "@/components/main/layoutContent";
 import { headers } from "next/headers";
 export const metadata = {
   robots: {

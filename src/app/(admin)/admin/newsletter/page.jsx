@@ -3,7 +3,7 @@
 import Loading from "@/common/loading";
 import { Typography, Box } from "@mui/material";
 import { useGetNewsletterUsers } from "@/hooks/useNewsletterUsers";
-import NewsletterUsersTable from "./components/newsletterUsersTable";
+import NewsletterUsersTable from "../../../../components/admin/newsletter/newsletterUsersTable";
 
 const BlogsPage = () => {
   const { isLoading, data: newsletterUsers } = useGetNewsletterUsers();
