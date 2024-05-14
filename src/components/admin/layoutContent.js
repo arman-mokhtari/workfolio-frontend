@@ -14,6 +14,7 @@ import { ModalProvider } from "@/context/modalContext";
 import { lightTheme } from "../../theme/themeRegistry";
 import Providers from "../main/provider";
 import AdminAppBar from "./shared/adminAppbar";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 
 const LayoutContent = ({ children, nonce }) => {
   const cacheRTL = createCache({
@@ -22,17 +23,19 @@ const LayoutContent = ({ children, nonce }) => {
     stylisPlugins: [prefixer, rtlPlugin],
   });
   return (
-    <ModalProvider>
-      <CacheProvider value={cacheRTL}>
-        <ThemeProvider theme={lightTheme}>
-          <CssBaseline />
-          <Providers>
-            <Toaster position="top-left" />
-            <AdminAppBar>{children}</AdminAppBar>
-          </Providers>
-        </ThemeProvider>
-      </CacheProvider>
-    </ModalProvider>
+    <AppRouterCacheProvider>
+      <ModalProvider>
+        <CacheProvider value={cacheRTL}>
+          <ThemeProvider theme={lightTheme}>
+            <CssBaseline />
+            <Providers>
+              <Toaster position="top-left" />
+              <AdminAppBar>{children}</AdminAppBar>
+            </Providers>
+          </ThemeProvider>
+        </CacheProvider>
+      </ModalProvider>
+    </AppRouterCacheProvider>
   );
 };
 

@@ -16,6 +16,7 @@ import Providers from "../main/provider";
 import { Toaster } from "react-hot-toast";
 import ProfileAppBar from "./main/profileAppBar";
 import { ModalProvider } from "@/context/modalContext";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 
 const LayoutContent = ({ children, nonce }) => {
   const [mode, setMode] = useState();
@@ -39,23 +40,25 @@ const LayoutContent = ({ children, nonce }) => {
   const theme = mode === "dark" ? darkTheme : lightTheme;
 
   return (
-    <MainContext.Provider
-      value={{
-        handleThemeChange,
-      }}
-    >
-      <ModalProvider>
-        <CacheProvider value={cacheRTL}>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <Providers>
-              <Toaster position="top-left" />
-              <ProfileAppBar>{children}</ProfileAppBar>
-            </Providers>
-          </ThemeProvider>
-        </CacheProvider>
-      </ModalProvider>
-    </MainContext.Provider>
+    <AppRouterCacheProvider>
+      <MainContext.Provider
+        value={{
+          handleThemeChange,
+        }}
+      >
+        <ModalProvider>
+          <CacheProvider value={cacheRTL}>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <Providers>
+                <Toaster position="top-left" />
+                <ProfileAppBar>{children}</ProfileAppBar>
+              </Providers>
+            </ThemeProvider>
+          </CacheProvider>
+        </ModalProvider>
+      </MainContext.Provider>
+    </AppRouterCacheProvider>
   );
 };
 export default LayoutContent;

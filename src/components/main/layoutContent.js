@@ -7,6 +7,7 @@ import createCache from "@emotion/cache";
 import { prefixer } from "stylis";
 import { darkTheme, lightTheme } from "../../theme/themeRegistry";
 import { CssBaseline, useMediaQuery } from "@mui/material";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 
 import "../../app/globals.css";
 import DrawerAppBar from "@/components/header/appBar";
@@ -46,39 +47,41 @@ const LayoutContent = ({ children, nonce }) => {
   const theme = mode === "dark" ? darkTheme : lightTheme;
 
   return (
-    <MainContext.Provider
-      value={{
-        handleThemeChange,
-      }}
-    >
-      <ModalProvider>
-        <CacheProvider value={cacheRTL}>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <Providers>
-              <Toaster position="top-left" />
-              <DrawerAppBar />
-              {pn !== "/" &&
-                !pn.startsWith("/forget-password") &&
-                pn !== "/complete-profile" &&
-                pn !== "/auth" &&
-                pn !== "/contact" &&
-                pn !== "/services" &&
-                pn !== "/sign-in" && <CustomBreadCrumbs />}
-              {children}
-              {pn !== "/complete-profile" &&
-                pn !== "/auth" &&
-                pn !== "/sign-in" &&
-                pn !== "/services" &&
-                pn !== "/contact" &&
-                !pn.startsWith("/forget-password") && <Footer />}
-              <FabContact />
-              <ScrollTop />
-            </Providers>
-          </ThemeProvider>
-        </CacheProvider>
-      </ModalProvider>
-    </MainContext.Provider>
+    <AppRouterCacheProvider>
+      <MainContext.Provider
+        value={{
+          handleThemeChange,
+        }}
+      >
+        <ModalProvider>
+          <CacheProvider value={cacheRTL}>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <Providers>
+                <Toaster position="top-left" />
+                <DrawerAppBar />
+                {pn !== "/" &&
+                  !pn.startsWith("/forget-password") &&
+                  pn !== "/complete-profile" &&
+                  pn !== "/auth" &&
+                  pn !== "/contact" &&
+                  pn !== "/services" &&
+                  pn !== "/sign-in" && <CustomBreadCrumbs />}
+                {children}
+                {pn !== "/complete-profile" &&
+                  pn !== "/auth" &&
+                  pn !== "/sign-in" &&
+                  pn !== "/services" &&
+                  pn !== "/contact" &&
+                  !pn.startsWith("/forget-password") && <Footer />}
+                <FabContact />
+                <ScrollTop />
+              </Providers>
+            </ThemeProvider>
+          </CacheProvider>
+        </ModalProvider>
+      </MainContext.Provider>
+    </AppRouterCacheProvider>
   );
 };
 
