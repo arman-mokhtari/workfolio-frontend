@@ -24,6 +24,7 @@ const includesProductKey = [
   "metaDescription",
   "metaTitle",
   "faqs",
+  "demo",
 ];
 
 const EditPage = () => {

@@ -22,6 +22,7 @@ const AddProductPage = () => {
     discount: "",
     countInStock: "",
     imageLink: "",
+    demo: "",
     description: "",
     metaDescription: "",
     metaTitle:"",
