@@ -4,8 +4,8 @@ import { useParams, useRouter } from "next/navigation";
 
 import Loading from "@/common/loading";
 import { Grid } from "@mui/material";
-import CategoryDataCard from "./components/categoryDataCard";
-import CategoryShoppingData from "./components/categoryShoppingData";
+import CategoryDataCard from "../../../../../components/admin/categories/id/categoryDataCard";
+import CategoryShoppingData from "../../../../../components/admin/categories/id/categoryShoppingData";
 import { useGetCategoryById } from "@/hooks/useCategories";
 import { useGetAllProducts } from "@/hooks/useProducts";
 

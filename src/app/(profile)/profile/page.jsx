@@ -3,9 +3,9 @@
 import Loading from "@/common/loading";
 import { useGetUser } from "@/hooks/useAuth";
 import { Grid } from "@mui/material";
-import UserDataCard from "./components/userDataCard";
-import UserShoppingData from "./components/userShoppingData";
-import PaymentTable from "./components/paymentTable";
+import UserDataCard from "../../../components/profile/main/userDataCard";
+import UserShoppingData from "../../../components/profile/main/userShoppingData";
+import PaymentTable from "../../../components/profile/main/paymentTable";
 
 const UserProfile = () => {
   const { isLoading, data } = useGetUser();
@@ -13,7 +13,9 @@ const UserProfile = () => {
 
   if (isLoading) return <Loading />;
 
- const modifiedPayments= payments?.filter((payment) => payment.status === "COMPLETED")
+  const modifiedPayments = payments?.filter(
+    (payment) => payment.status === "COMPLETED"
+  );
 
   return (
     <Grid container spacing={2}>

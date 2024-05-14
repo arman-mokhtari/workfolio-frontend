@@ -1,4 +1,4 @@
-import LayoutContent from "./layoutContent";
+import LayoutContent from "@/components/admin/layoutContent";
 import { headers } from "next/headers";
 
 export default function RootLayout({ children }) {

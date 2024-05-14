@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import ContactSection from "../../components/contact/contactSection";
-import MayAlsoLike from "@/components/main/mayAlsoLike";
+import ContactSection from "../../../../components/main/general/contact/contactSection";
+import MayAlsoLike from "@/common/mayAlsoLike";
 
 export default function RootLayout({ children }) {
   return (

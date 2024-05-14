@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { toPersianNumbers } from "@/utils/toPersianNumbers";
 import { toLocalDateStringShort } from "@/utils/toLocalDate";
-import OperationStack from "@/pages/(admin)/admin/common/operationStack";
+import OperationStack from "@/common/admin/operationStack";
 
 export const couponsTableColumns = (isSmallScreen, removeCouponHandler) => {
   return isSmallScreen

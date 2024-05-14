@@ -5,8 +5,8 @@ import { useParams, useRouter } from "next/navigation";
 import Loading from "@/common/loading";
 import { Grid } from "@mui/material";
 import { useGetBlogById } from "@/hooks/useBlogs";
-import BlogDataCard from "./components/blogDataCard";
-import BlogDescription from "./components/blogDescription";
+import BlogDataCard from "../../../../../components/admin/blogs/id/blogDataCard";
+import BlogDescription from "../../../../../components/admin/blogs/id/blogDescription";
 
 const BlogPage = () => {
   const router = useRouter();

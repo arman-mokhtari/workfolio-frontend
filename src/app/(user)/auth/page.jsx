@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 
 import { useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import CheckOtpForm from "./checkOtpForm";
-import SendOtpForm from "./sendOtpForm";
+import CheckOtpForm from "../../../components/auth/checkOtpForm";
+import SendOtpForm from "../../../components/auth/sendOtpForm";
 import { useRouter } from "next/navigation";
 import { useCheckOtp, useGetOtp, useGetResendOtp } from "@/hooks/useAuth";
 import LoginSectionsCard from "@/common/loginSectionsCard";

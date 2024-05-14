@@ -7,7 +7,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useGetPageDataById, useUpdatePageData } from "@/hooks/UsePagesData";
-import PageEditForm from "./components/pageEditForm";
+import PageEditForm from "../../../../../../components/admin/pagesData/edit/pageEditForm";
 
 const includesKey = [
   "title",

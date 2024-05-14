@@ -3,7 +3,7 @@
 import Loading from "@/common/loading";
 import { Typography, Stack } from "@mui/material";
 import { useGetReviewsByAdmin } from "@/hooks/useReviews";
-import ReviewsTable from "./components/reviewsTable";
+import ReviewsTable from "../../../../../components/admin/reviews/public/main/reviewsTable";
 
 const BlogsPage = () => {
   const { isLoading, data } = useGetReviewsByAdmin();

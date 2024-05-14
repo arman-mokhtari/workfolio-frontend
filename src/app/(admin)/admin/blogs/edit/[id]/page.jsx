@@ -8,7 +8,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useGetBlogById, useUpdateBlog } from "@/hooks/useBlogs";
-import BlogEditForm from "./components/blogEditForm";
+import BlogEditForm from "../../../../../../components/admin/blogs/edit/blogEditForm";
 
 const includesBlogKey = [
   "title",

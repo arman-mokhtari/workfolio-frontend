@@ -1,4 +1,4 @@
-import BlogsMainContent from "./components/blogsMainContent";
+import BlogsMainContent from "../../../../components/admin/blogs/main/blogsMainContent";
 
 const BlogsPage = () => {
   return <BlogsMainContent />;

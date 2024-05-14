@@ -4,7 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 
 import Loading from "@/common/loading";
 import { Grid } from "@mui/material";
-import PaymentDataCard from "./components/PaymentDataCard";
+import PaymentDataCard from "../../../../../components/admin/payments/id/PaymentDataCard";
 import { useGetPaymentById } from "@/hooks/usePayments";
 
 const PaymentPage = () => {

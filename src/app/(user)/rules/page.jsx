@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import Loading from "@/common/loading";
 import { useGetPageByEnglishTitle } from "@/hooks/UsePagesData";
-import MiscMainContent from "../components/misc/main/miscMainContent";
+import MiscMainContent from "../../../components/main/general/misc/main/miscMainContent";
 
 const Page = () => {
   const pn = usePathname().replace(/^\//, "");

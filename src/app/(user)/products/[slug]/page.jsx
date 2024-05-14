@@ -2,7 +2,7 @@ import {
   getProductBySlug,
   getProducts,
 } from "@/services/product/productService";
-import ProductMainContent from "./components/productMainContent";
+import ProductMainContent from "../../../../components/main/products/slug/productMainContent";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
@@ -46,7 +46,6 @@ const Page = async ({ params }) => {
 };
 
 export default Page;
-
 
 export async function generateStaticParams() {
   const { products } = await getProducts();

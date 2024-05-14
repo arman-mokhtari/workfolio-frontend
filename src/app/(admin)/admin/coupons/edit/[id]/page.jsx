@@ -6,7 +6,7 @@ import { useGetAllProducts } from "@/hooks/useProducts";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import EditCouponForm from "./components/editCouponForm";
+import EditCouponForm from "../../../../../../components/admin/coupons/edit/editCouponForm";
 import { useQueryClient } from "@tanstack/react-query";
 
 const EditCouponPage = () => {

@@ -3,8 +3,8 @@ import { toStringCookies } from "@/utils/toStringCookies";
 import queryString from "query-string";
 
 import { getProducts } from "@/services/product/productService";
-import ProductItems from "./components/products";
-import CategoryPageLayout from "../components/categories/categoriesContent/categoryPageLayout";
+import ProductItems from "../../../components/main/products/products";
+import CategoryPageLayout from "../../../components/main/general/categories/categoriesContent/categoryPageLayout";
 import { getPageByEnglishTitle } from "@/services/pageData/pageDataServices";
 export const dynamic = "force-dynamic";
 

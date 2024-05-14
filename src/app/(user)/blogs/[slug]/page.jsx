@@ -1,5 +1,5 @@
 import { getBlogBySlug, getBlogs } from "@/services/blog/blogService";
-import BlogMainContent from "./components/blogMainContent";
+import BlogMainContent from "../../../../components/main/blogs/slug/blogMainContent";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;

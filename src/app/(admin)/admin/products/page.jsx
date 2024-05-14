@@ -2,8 +2,8 @@
 
 import Loading from "@/common/loading";
 import { useGetAllProducts } from "@/hooks/useProducts";
-import ProductsTable from "./components/productsTable";
-import HeadStack from "../common/headStack";
+import ProductsTable from "../../../../components/admin/products/main/productsTable";
+import HeadStack from "../../../../common/admin/headStack";
 
 const ProductsPage = () => {
   const { isLoading, data } = useGetAllProducts();

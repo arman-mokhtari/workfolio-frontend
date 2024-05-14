@@ -5,8 +5,8 @@ import { useParams, useRouter } from "next/navigation";
 import Loading from "@/common/loading";
 import { Grid } from "@mui/material";
 import { useGetPageDataById } from "@/hooks/UsePagesData";
-import PageDataCard from "./components/pageDataCard";
-import PageDescription from "./components/pageDescription";
+import PageDataCard from "../../../../../components/admin/pagesData/id/pageDataCard";
+import PageDescription from "../../../../../components/admin/pagesData/id/pageDescription";
 
 const ProductPage = () => {
   const router = useRouter();

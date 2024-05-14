@@ -2,8 +2,8 @@ import { cookies } from "next/headers";
 import { toStringCookies } from "@/utils/toStringCookies";
 import queryString from "query-string";
 import { getBlogs } from "@/services/blog/blogService";
-import BlogItems from "./components/blogs";
-import CategoryPageLayout from "../components/categories/categoriesContent/categoryPageLayout";
+import BlogItems from "../../../components/main/blogs/blogs";
+import CategoryPageLayout from "../../../components/main/general/categories/categoriesContent/categoryPageLayout";
 import { getPageByEnglishTitle } from "@/services/pageData/pageDataServices";
 
 export const dynamic = "force-dynamic";

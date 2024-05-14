@@ -6,7 +6,7 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useQueryClient } from "@tanstack/react-query";
 
-import ProductForm from "./components/productForm";
+import ProductForm from "../../../../../components/admin/products/add/productForm";
 
 const AddProductPage = () => {
   const { isLoading, mutateAsync } = useAddProduct();
@@ -25,7 +25,7 @@ const AddProductPage = () => {
     demo: "",
     description: "",
     metaDescription: "",
-    metaTitle:"",
+    metaTitle: "",
     faqs: [
       { question: "", answer: "" },
       { question: "", answer: "" },
@@ -49,7 +49,10 @@ const AddProductPage = () => {
   const handleChange = (e) => {
     if (e.target.type === "number") {
       // اگر نوع فیلد عدد باشد، مقدار را به عدد تبدیل کنید
-      setFormData({ ...formData, [e.target.name]: parseInt(e.target.value, 10) });
+      setFormData({
+        ...formData,
+        [e.target.name]: parseInt(e.target.value, 10),
+      });
     } else {
       setFormData({ ...formData, [e.target.name]: e.target.value });
     }

@@ -2,7 +2,7 @@
 
 import Loading from "@/common/loading";
 import { Typography, Stack } from "@mui/material";
-import ReviewsTable from "./components/reviewsTable";
+import ReviewsTable from "../../../../../components/admin/reviews/product/main/reviewsTable";
 import { useGetProductReviewsByAdmin } from "@/hooks/useProductReviews";
 
 const BlogsPage = () => {
