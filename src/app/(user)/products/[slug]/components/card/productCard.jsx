@@ -1,11 +1,12 @@
-import { Box, Typography, Badge } from "@mui/material";
+import { Box, Typography, Badge, Link } from "@mui/material";
 import { toPersianNumbersWithComma } from "@/utils/toPersianNumbers";
 import TickSvg from "@/components/main/tickSvg";
 import AddToCart from "../../../components/addToCart";
 import SlugCardLayout from "../../../../components/slugs/card/slugCardLayout";
 
 const ProductCard = ({ product }) => {
-  const { discount, price, countInStock, metaDescription, title } = product;
+  const { discount, price, countInStock, metaDescription, title, demo } =
+    product;
   const tickOptions = "تحویل فوری،سرعت لود بسیار بالا،قابلیت پویا‌سازی";
   return (
     <SlugCardLayout>
@@ -82,6 +83,25 @@ const ProductCard = ({ product }) => {
           <Typography>
             وضعیت : {countInStock > 0 ? "موجود" : "ناموجود"}
           </Typography>
+          {demo && (
+            <Typography
+              sx={{
+                mt: 0.5,
+              }}
+            >
+              دمو نهایی :{" "}
+              <Link
+                component="a"
+                title={`مشاهده دمو ${title}`}
+                href={demo}
+                underline="none"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                مشاهده
+              </Link>
+            </Typography>
+          )}
 
           <Box
             sx={{

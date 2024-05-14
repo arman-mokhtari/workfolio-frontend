@@ -55,12 +55,18 @@ export const productsFormData = [
   },
   {
     id: 10,
+    label: "لینک دمو محصول",
+    name: "demo",
+    type: "text",
+  },
+  {
+    id: 11,
     label: "توضیحات متا",
     name: "metaDescription",
     type: "text",
   },
   {
-    id: 11,
+    id: 12,
     label: "عنوان متا",
     name: "metaTitle",
     type: "text",
