@@ -1,7 +1,6 @@
 import { headers } from "next/headers";
 import Script from "next/script";
 import shabnamFont from "@/constants/localFonts";
-import { WebVitals } from "./_components/web-vitals";
 
 export const metadata = {
   metadataBase: new URL(process.env.ABSOLUTE_URL),
@@ -45,10 +44,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
       <body className={myFont.className}>
-        <WebVitals />
         {children}
         <Script
           src="https://www.googletagmanager.com/gtm.js?id=GTM-TL97FTVH"
+          strategy="afterInteractive"
+          nonce={nonce}
+        />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-TK21J45HND"
           strategy="afterInteractive"
           nonce={nonce}
         />
