@@ -7,7 +7,9 @@ import { useIsDownMd } from "@/hooks/useMediaQueries";
 const Page = () => {
 
   const isSmallScreen = useIsDownMd();
+  
   const srcImg = "https://cdn.workfolio.ir/images/bg/banner-service.jpg";
+
   return (
     <Box
       sx={{
