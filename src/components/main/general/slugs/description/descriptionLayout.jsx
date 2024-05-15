@@ -1,3 +1,5 @@
+"use client"
+
 import HoverCard from "@/common/hoverCard";
 import { Grid } from "@mui/material";
 import { useTheme } from "@mui/material/styles";

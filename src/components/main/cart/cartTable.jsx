@@ -9,7 +9,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { useRemoveFromCart } from "@/hooks/useCart";
 import { cartTableColumns } from "@/constants/cart/cartTableColumns";
-import Loading from "../../../app/(user)/loading";
+import Loading from "../../../app/(user)/(home)/loading";
 import { useGetUser } from "@/hooks/useAuth";
 
 const CartItemTable = () => {

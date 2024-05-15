@@ -4,12 +4,10 @@ import {
   Avatar,
   CardHeader,
   Typography,
-  Card,
   CardContent,
 } from "@mui/material";
 
 import {
-  TrendingUp,
   AttachMoney,
   Phonelink,
   Receipt,

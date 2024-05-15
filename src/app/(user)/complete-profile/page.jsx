@@ -1,6 +1,5 @@
 "use client";
-import Logo from "@/common/logo";
-import { Box, Container, Typography } from "@mui/material";
+
 import ProfileTextFields from "../../../components/main/profileComplete/profileTextFields";
 import LoginSectionsCard from "@/common/loginSectionsCard";
 

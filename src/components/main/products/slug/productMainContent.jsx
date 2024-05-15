@@ -1,6 +1,5 @@
 "use client";
 
-import { Grid } from "@mui/material";
 import { useGetProductBySlug } from "@/hooks/useProducts";
 import MainDescription from "../../general/slugs/description/mainDescription";
 import LinksAside from "@/components/main/general/slugs/aside/linksAside";
@@ -12,7 +11,6 @@ import ProductCard from "./card/productCard";
 import BannerCardLayout from "@/components/main/general/slugs/card/bannerCardLayout";
 import MainCardLayout from "@/components/main/general/slugs/card/mainCardLayout";
 import ChipDivider from "@/common/chipDivider";
-import TagsCard from "./card/tagsCard";
 import SkeletonUi from "./skeletonUi";
 
 const ProductMainContent = ({ slug }) => {
