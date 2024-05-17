@@ -149,16 +149,16 @@ const Product = ({ product, isAccessToken }) => {
               },
             }}
             size="small"
-            aria-label="اطلاعات بیشتر"
+            aria-label="جزئیات قالب"
             fullWidth
             variant="outlined"
           >
             <Link
               role="link"
-              aria-label="اطلاعات بیشتر"
+              aria-label="جزئیات قالب"
               href={`/products/${faSlug}`}
             >
-              اطلاعات بیشتر
+               جزئیات قالب
             </Link>
           </Button>
         </Box>
