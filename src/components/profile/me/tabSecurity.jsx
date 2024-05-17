@@ -109,7 +109,7 @@ const TabSecurity = () => {
       toast.error(errorMessage);
     }
   };
-  const srcImg = "https://cdn.workfolio.ir/images/misc/pose-m-1.png";
+  const srcImg = "/images/pages/pose-m-1.png";
   return (
     <Box onSubmit={handleSubmit(submitHandler)} component="form">
       <CardContent sx={{ paddingBottom: 0 }}>

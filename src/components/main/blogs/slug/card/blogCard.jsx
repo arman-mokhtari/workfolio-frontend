@@ -73,7 +73,7 @@ const BlogCard = ({ blog, pageUrl }) => {
             alt={user?.name}
             priority
             placeholder="blur"
-            blurDataURL={srcImg}
+            blurDataURL="/images/admin/arman_mokhtari.png"
             src={srcImg}
             width={45}
             height={45}

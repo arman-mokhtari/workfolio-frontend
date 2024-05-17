@@ -5,10 +5,7 @@ import AboutUsDescription from "../../../components/main/about/description";
 import Image from "next/image";
 import { useIsDownMd } from "@/hooks/useMediaQueries";
 const Page = () => {
-
   const isSmallScreen = useIsDownMd();
-  
-  const srcImg = "https://cdn.workfolio.ir/images/bg/banner-service.jpg";
 
   return (
     <Box
@@ -52,8 +49,8 @@ const Page = () => {
             width="600"
             height="400"
             placeholder="blur"
-            blurDataURL={srcImg}
-            src={srcImg}
+            blurDataURL="/assets/bg/banner-service.webp"
+            src="/assets/bg/banner-service.webp"
           />
         </Grid>
       </Grid>

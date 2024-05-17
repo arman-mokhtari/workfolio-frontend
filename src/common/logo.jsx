@@ -11,8 +11,8 @@ const Logo = ({ my, ml }) => {
   const brand = "ورکفولیو";
 
   const { isLoading } = useGetCategories();
-  const lightLogo = "https://cdn.workfolio.ir/images/logo/workfolio-light.svg";
-  const darkLogo = "https://cdn.workfolio.ir/images/logo/workfolio-dark.svg";
+  const lightLogo = "/assets/svg/workfolio-light.svg";
+  const darkLogo = "/assets/svg/workfolio-dark.svg";
   return isLoading ? (
     <Skeleton
       sx={{

@@ -16,11 +16,7 @@ const MayAlsoLike = () => {
   if (isLoading) return <Loading />;
   return (
     <Box sx={{ px: 1.5, mt: 2 }}>
-      <ChipDivider
-        mb={3}
-        mt={4}
-        title="قالب‌های پیشنهادی برای شما!"
-      />
+      <ChipDivider mb={3} mt={4} title="قالب‌های پیشنهادی برای شما!" />
       <Slider {...settings}>
         {products.map(({ imageLink, slug, title }, i) => (
           <Box
@@ -51,13 +47,17 @@ const MayAlsoLike = () => {
                 },
               }}
             >
-              <Link href={`/products/${slug}`} title={title} role="link"
-                  aria-label="link">
+              <Link
+                href={`/products/${slug}`}
+                title={title}
+                role="link"
+                aria-label="link"
+              >
                 <Image
                   src={imageLink}
                   priority
                   placeholder="blur"
-                  blurDataURL={imageLink}
+                  blurDataURL="/screenshots/web_design_2.png"
                   height="400"
                   width="400"
                   alt={title}

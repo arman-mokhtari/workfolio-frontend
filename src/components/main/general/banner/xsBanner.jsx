@@ -4,8 +4,6 @@ import ShopNow from "@/common/buttons/shopNow";
 import ContactBtn from "@/common/buttons/contactBtn";
 import TopAbsoluteShadow from "@/common/topAbsoluteShadow";
 
-const banner = "https://cdn.workfolio.ir/images/bg/xs-banner.png";
-
 const XsBanner = () => {
   return (
     <Box>
@@ -18,9 +16,9 @@ const XsBanner = () => {
       >
         <Image
           alt="طراحی وبسایت و خدمات وب"
-          src={banner}
+          src="/assets/bg/sx-banner.webp"
           placeholder="blur"
-          blurDataURL={banner}
+          blurDataURL="/assets/bg/xs-banner.webp"
           quality={100}
           priority
           fill
