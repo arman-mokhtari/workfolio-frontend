@@ -61,7 +61,7 @@ const Product = ({ product, isAccessToken }) => {
             alt={title}
             title={title}
             placeholder="blur"
-            blurDataURL={imageLink}
+            blurDataURL="/screenshots/web_design_2.png"
           />
         </Link>
       </Box>
@@ -149,16 +149,16 @@ const Product = ({ product, isAccessToken }) => {
               },
             }}
             size="small"
-            aria-label="اطلاعات بیشتر"
+            aria-label="جزئیات قالب"
             fullWidth
             variant="outlined"
           >
             <Link
               role="link"
-              aria-label="اطلاعات بیشتر"
+              aria-label="جزئیات قالب"
               href={`/products/${faSlug}`}
             >
-              اطلاعات بیشتر
+              جزئیات قالب
             </Link>
           </Button>
         </Box>
@@ -173,7 +173,12 @@ const Product = ({ product, isAccessToken }) => {
           {isAccessToken ? (
             <AddToCart product={product} />
           ) : (
-            <Button aria-label="add to cart" onClick={addToCartHandler} fullWidth variant="contained">
+            <Button
+              aria-label="add to cart"
+              onClick={addToCartHandler}
+              fullWidth
+              variant="contained"
+            >
               اضافه به سبد خرید
             </Button>
           )}

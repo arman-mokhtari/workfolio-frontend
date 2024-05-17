@@ -2,8 +2,7 @@ import { Grid, Typography, Stack, Box } from "@mui/material";
 import Image from "next/image";
 
 const SupportImagesMainContent = () => {
-  const srcAsk = "https://cdn.workfolio.ir/images/bg/ask.png";
-  const srcIso = "https://cdn.workfolio.ir/images/bg/iso.png";
+
   return (
     <Grid
       container
@@ -39,8 +38,8 @@ const SupportImagesMainContent = () => {
               width={425}
               height={425}
               placeholder="blur"
-              blurDataURL={srcAsk}
-              src={srcAsk}
+              blurDataURL="/assets/bg/ask.webp"
+              src="/assets/bg/ask.webp"
             />
           </Box>
         </Stack>
@@ -66,8 +65,8 @@ const SupportImagesMainContent = () => {
               width={425}
               height={425}
               placeholder="blur"
-              blurDataURL={srcIso}
-              src={srcIso}
+              blurDataURL="/assets/bg/iso.webp"
+              src="/assets/bg/iso.webp"
             />
           </Box>
         </Stack>

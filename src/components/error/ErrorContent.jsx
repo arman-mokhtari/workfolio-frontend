@@ -5,11 +5,10 @@ import Image from "next/image";
 import { useTheme } from "@mui/material/styles";
 import { useIsOnlyXs } from "@/hooks/useMediaQueries";
 
-export default function ErrorContent({ onClick  }) {
-
+export default function ErrorContent({ onClick }) {
   const theme = useTheme();
   const isSmallScreen = useIsOnlyXs();
-  const srcImg = "https://cdn.workfolio.ir/images/svg/errors/error.svg";
+  const srcImg = "/assets/svg/error.svg";
   return (
     <Box
       sx={{
@@ -32,7 +31,7 @@ export default function ErrorContent({ onClick  }) {
         width={200}
         height={200}
         placeholder="blur"
-        blurDataURL={srcImg}
+        blurDataURL="/screenshots/web_design_2.png"
         src={srcImg}
       />
       <Typography
@@ -79,7 +78,7 @@ export default function ErrorContent({ onClick  }) {
         </Typography>
       </Box>
       <Button
-      aria-label="reset"
+        aria-label="reset"
         sx={{
           mt: 3,
           minWidth: "25%",

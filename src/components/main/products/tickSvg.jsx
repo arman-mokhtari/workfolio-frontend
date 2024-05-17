@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 const TickSvg = () => {
-  const src = "https://cdn.workfolio.ir/images/svg/product/tick-2.svg";
+  const src = "/assets/svg/product-svg/tick-2.svg";
 
   return (
     <Image

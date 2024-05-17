@@ -4,7 +4,7 @@ import { Box, Typography, Button, Stack } from "@mui/material";
 import Image from "next/image";
 
 export default function NotFound() {
-  const srcImg = "https://cdn.workfolio.ir/images/svg/errors/404.svg";
+
   return (
     <Box
       sx={{
@@ -30,10 +30,10 @@ export default function NotFound() {
         priority
         alt="خطا از سمت سرور"
         placeholder="blur"
-        blurDataURL={srcImg}
+        blurDataURL="/assets/svg/404.svg"
         width={200}
         height={200}
-        src={srcImg}
+        src="/assets/svg/404.svg"
       />
 
       <Stack

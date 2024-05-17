@@ -19,8 +19,8 @@ const SlugPageBanner = ({ imageLink, title }) => {
       }}
     >
       <HoverCard
-      defaultElevation={4}
-      hoveredElevation={10}
+        defaultElevation={4}
+        hoveredElevation={10}
         sx={{
           width: 1,
           height: 1,
@@ -34,7 +34,7 @@ const SlugPageBanner = ({ imageLink, title }) => {
           alt={title}
           title={title}
           placeholder="blur"
-          blurDataURL={imageLink}
+          blurDataURL="/screenshots/web_design_2.png"
         />
       </HoverCard>
     </Grid>

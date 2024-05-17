@@ -4,7 +4,7 @@ import TopAbsoluteShadow from "@/common/topAbsoluteShadow";
 import Image from "next/image";
 
 const Page = () => {
-  const banner = "https://cdn.workfolio.ir/images/bg/contact.png";
+
   return (
     <Box
       sx={{
@@ -26,9 +26,9 @@ const Page = () => {
         <Image
           alt="طراحی وبسایت و خدمات وب"
           priority
-          src={banner}
+          src="/assets/bg/contact.webp"
           placeholder="blur"
-          blurDataURL={banner}
+          blurDataURL="/assets/bg/contact.webp"
           quality={100}
           fill
           sizes="100vw"

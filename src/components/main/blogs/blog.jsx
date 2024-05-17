@@ -47,7 +47,7 @@ const Blog = ({ blog }) => {
             alt={title}
             title={title}
             placeholder="blur"
-            blurDataURL={imageLink}
+            blurDataURL="/screenshots/web_design_2.png"
           />
         </Link>
       </Box>

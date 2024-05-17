@@ -8,7 +8,6 @@ import ContactBtn from "@/common/buttons/contactBtn";
 import TopAbsoluteShadow from "@/common/topAbsoluteShadow";
 import TypedInfoSkeleton from "./typedInfoSkeleton";
 
-const banner = "https://cdn.workfolio.ir/images/bg/banner.png";
 
 const UpXsBanner = () => {
   const theme = useTheme();
@@ -24,9 +23,9 @@ const UpXsBanner = () => {
       >
         <Image
           alt="طراحی وبسایت و خدمات وب"
-          src={banner}
+          src="/assets/bg/banner.webp"
           placeholder="blur"
-          blurDataURL={banner}
+          blurDataURL="/assets/bg/banner.webp"
           quality={100}
           priority
           fill
