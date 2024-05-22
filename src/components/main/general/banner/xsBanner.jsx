@@ -16,7 +16,7 @@ const XsBanner = () => {
       >
         <Image
           alt="طراحی وبسایت و خدمات وب"
-          src="/assets/bg/sx-banner.webp"
+          src="/assets/bg/xs-banner.webp"
           placeholder="blur"
           blurDataURL="/assets/bg/xs-banner.webp"
           quality={100}
