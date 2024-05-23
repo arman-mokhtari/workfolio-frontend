@@ -49,6 +49,7 @@ const Products = async ({ searchParams }) => {
 
   const accessToken = cookieStore?._parsed?.get("accessToken");
   const isAccessToken = Boolean(accessToken);
+
   return (
     <CategoryPageLayout>
       <ProductItems products={products} isAccessToken={isAccessToken} />

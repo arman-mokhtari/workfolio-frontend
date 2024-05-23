@@ -7,7 +7,7 @@ import LoadingBtn from "@/common/loadingBtn";
 import Link from "next/link";
 import Product from "./product";
 
-const HomeProductsSection = () => {
+const HomeProductsSection = ({isAccessToken}) => {
   const theme = useTheme();
   const { isLoading, data } = useGetAllProducts();
   const { products } = data || {};
@@ -92,7 +92,7 @@ const HomeProductsSection = () => {
           : products?.slice(0, 4).map((product, index) => {
               return (
                 <Grid xs={12} sm={6} lg={3} item key={index}>
-                  <Product product={product} />
+                  <Product product={product} isAccessToken={isAccessToken}  />
                 </Grid>
               );
             })}

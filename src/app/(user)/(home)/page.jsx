@@ -1,4 +1,5 @@
 import PageMainContent from "@/components/main/general/pageMainContent";
+import { cookies } from "next/headers";
 
 export const metadata = {
   alternates: {
@@ -22,6 +23,10 @@ export const metadata = {
 };
 
 const Page = async () => {
-  return <PageMainContent />;
+  const cookieStore = cookies();
+  const accessToken = cookieStore?._parsed?.get("accessToken");
+  const isAccessToken = Boolean(accessToken);
+
+  return <PageMainContent isAccessToken={isAccessToken} />;
 };
 export default Page;

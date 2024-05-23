@@ -10,7 +10,7 @@ import ReviewForm from "./review/reviewForm";
 import ContactSection from "./contact/contactSection";
 import HomeProductsSection from "../products/homeProductsSection";
 
-const PageMainContent = () => {
+const PageMainContent = ({ isAccessToken }) => {
   return (
     <>
       <Box
@@ -24,7 +24,7 @@ const PageMainContent = () => {
             px: 1.5,
           }}
         >
-          <HomeProductsSection />
+          <HomeProductsSection isAccessToken={isAccessToken} />
           <CountingCard />
           <Content />
           <DataImageSec />
