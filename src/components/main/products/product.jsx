@@ -170,9 +170,9 @@ const Product = ({ product, isAccessToken }) => {
             px: 1,
           }}
         >
-          {isAccessToken ? (
+          {/* {isAccessToken ? ( */}
             <AddToCart product={product} />
-          ) : (
+          {/* ) : (
             <Button
               aria-label="add to cart"
               onClick={addToCartHandler}
@@ -181,7 +181,7 @@ const Product = ({ product, isAccessToken }) => {
             >
               اضافه به سبد خرید
             </Button>
-          )}
+          )} */}
         </Box>
       </CardActions>
     </HoverCard>
